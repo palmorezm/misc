@@ -1,0 +1,47 @@
+---
+title: "American Dream"
+author: "Zachary Palmore"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+subtitle: Reviewing Cost of Living Across the U.S.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+## Goals
+
+
+ \newpage
+
+## Introduction
+
+
+
+ \newpage 
+
+## Analysis
+
+
+ \newpage 
+ 
+## Methods
+
+
+
+ \newpage 
+
+## Conclusion
+
+
+ \newpage 
+
+## Discussion
+
+
+ \newpage 
