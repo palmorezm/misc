@@ -1,0 +1,40 @@
+--- title: "Housing" author: "Zachary Palmore" date: "11/4/2020" output:
+html_document ---
+```{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE) ```
+## Goals
+
+Where in the U.S. is housing the cheapest? 
+
+\newpage
+## Introduction
+
+```{r}
+require(tidyverse)
+```
+
+
+To determine the location of the cheapest housing and rank the locations from least to most expensive, we decided to use Zillow Data. 
+
+\newpage
+## Analysis
+
+We pull the data in by downloading. 
+
+```{r}
+library(readr)
+County_zhvi <- read_csv("C:/bigdata/County_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_mon.csv")
+```
+
+```{r}
+glimpse(County_zhvi)[2,]
+```
+
+
+
+\newpage
+## Methods
+\newpage
+## Conclusion
+\newpage
+## Discussion
+\newpage
