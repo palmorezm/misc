@@ -1,0 +1,45 @@
+---
+title: "Housing Review"
+author: "Zachary Palmore"
+date: "10/26/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+
+## Zillow Data
+
+
+```{r}
+setwd("C:/Users/Owner/Documents/GitHub/AmericanDream/Housing")
+```
+
+
+```{r}
+housing <- read_csv("county_zhvi.csv")
+head(housing, 8)
+```
+
+
+```{r}
+ggplot(housing, aes(x = StateName, y = 2020-09-30)) + geom_col(aes(fill = StateName)) + coord_flip() + theme(legend.position = "none")
+```
+
+
+
+```{r}
+subset.data.frame(housing, select =  c("StateName", "State", "2004-09-30", "2004-06-30", "2004-07-31"))
+
+housing %>%
+  select(c("StateName", "State", "2004-09-30", "2004-06-30", "2004-07-31")) %>%
+  group_by(State) %>% 
+  arrange(desc(State))
+```
+
