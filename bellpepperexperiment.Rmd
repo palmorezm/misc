@@ -1,0 +1,49 @@
+---
+title: "Bell Pepper Report"
+author: "Zachary Palmore"
+date: "1/19/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Bell Pepper Experiment
+
+
+
+```{r pkgs}
+library(tidyverse)
+library(readr)
+```
+
+___
+
+
+```{r source}
+bellpeps <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRVUsZrUEFrV0_2OQSCIn_JHCgs-ylPlFyowhr63XTCyAebIpVp7Dzq4Os_ARfm0yeEsrkenL_he4K4/pub?gid=0&single=true&output=csv", header = TRUE, sep = ",")
+```
+
+
+___
+
+
+```{r prep}
+bellpeps <- bellpeps[,1:8]
+bellpeps
+as.numeric(bellpeps[,5:6])
+```
+
+
+___
+
+
+```{r analysis}
+summary(bellpeps$PlantWidth)
+summary(bellpeps$PlantHeight)
+```
+
+
+___
