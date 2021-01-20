@@ -14,10 +14,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
+
 ```{r pkgs}
 library(tidyverse)
 library(readr)
 ```
+
+
 
 ___
 
@@ -33,7 +36,10 @@ ___
 ```{r prep}
 bellpeps <- bellpeps[,1:8]
 bellpeps
-as.numeric(bellpeps[,5:6])
+as.numeric(bellpeps$PlantWidth)
+as.numeric(bellpeps$PlantHeight)
+bellpeps[,3:6] <- lapply(bellpeps[,3:6], as.numeric)
+bellpeps
 ```
 
 
