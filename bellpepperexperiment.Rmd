@@ -18,6 +18,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r pkgs}
 library(tidyverse)
 library(readr)
+library(reshape2)
+theme_set(theme_bw())
 ```
 
 
@@ -35,11 +37,15 @@ ___
 
 ```{r prep}
 bellpeps <- bellpeps[,1:8]
-bellpeps
-as.numeric(bellpeps$PlantWidth)
-as.numeric(bellpeps$PlantHeight)
 bellpeps[,3:6] <- lapply(bellpeps[,3:6], as.numeric)
-bellpeps
+bellpeps$Date <- as.Date(bellpeps$Date, format = "%m/%d/%Y")
+ 
+# Bell peppers that are large enough to measure: 
+bps.5 <- na.exclude(bellpeps)
+
+# Bell peppers less than 0.5cm recorded as 0: 
+bellpeps$PlantWidth <- replace_na(bellpeps$PlantWidth, 0)
+bellpeps$PlantHeight <- replace_na(bellpeps$PlantHeight, 0)
 ```
 
 
@@ -47,9 +53,62 @@ ___
 
 
 ```{r analysis}
-summary(bellpeps$PlantWidth)
-summary(bellpeps$PlantHeight)
+summary(bps.5)
 ```
 
 
 ___
+
+
+```{r visualize}
+ggplot(bps.5, aes(Day, PlantWidth)) + geom_line(aes(fill = PlantID, color = PlantID)) + geom_point(aes(fill = PlantID, color = PlantID)) 
+```
+
+
+
+
+
+```{r}
+ggplot(bps.5, aes(Day, PlantHeight)) + geom_line(aes(fill = PlantID, color = PlantID)) + geom_point(aes(fill = PlantID, color = PlantID))
+```
+
+
+
+```{r}
+ggplot(bps.5, aes(Day, fill = "")) + geom_line(aes(y = PlantHeight, color = "Height", fill = PlantID)) + geom_point(aes(y = PlantHeight)) + geom_line(aes(y = PlantWidth, color = "Width", fill = PlantID)) + geom_point(aes(y = PlantWidth)) 
+```
+
+
+
+```{r}
+ggplot(bps.5, aes(Day, PlantHeight)) + geom_col(aes(fill = PlantID))
+```
+
+
+
+```{r}
+ggplot(bps.5, aes(Date, PlantHeight)) + 
+  geom_line(aes(y = PlantWidth, color = PlantID)) + geom_point(aes(color = PlantID)) +
+  geom_line(aes(color = PlantID)) + geom_point(aes(color = PlantID))
+```
+
+
+
+
+```{r}
+bps.5 %>% 
+  mutate(PlantSize = PlantWidth + PlantHeight) %>% 
+  ggplot() + geom_line(aes(Day, PlantSize, color = PlantID)) + geom_point(aes(Day, PlantSize, color = PlantID))
+```
+
+
+```{r}
+bellpeps %>% 
+  melt(id = "PlantID", measure = c("PlantHeight", "PlantWidth")) %>% 
+  ggplot(aes(reorder(PlantID, -value), value)) + geom_col(aes(fill = PlantID))
+```
+
+
+
+
+
