@@ -1,0 +1,47 @@
+---
+title: "Spray Bottle Measurements"
+author: "Zachary Palmore"
+date: "1/25/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Background
+
+determining the amount of water given to the Bell pepper plants in this study. To do this we will first find the dimensions of a water-tight container and use a volumetric equation to estimate the total amount of water delivered two each planter. in this case our water tight container is a Petri dish. 
+
+```{r}
+read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQVaaUdUL1IOLL9FLuloyLBed_zyaZJZU1P-tn_mSZtnOr_xynI-AudRL84BmUWtQdcaVm53TIbIZty/pub?output=csv")
+```
+
+https://docs.google.com/spreadsheets/d/e/2PACX-1vQVaaUdUL1IOLL9FLuloyLBed_zyaZJZU1P-tn_mSZtnOr_xynI-AudRL84BmUWtQdcaVm53TIbIZty/pub?output=csv
+
+## Introduction
+
+In this experiment we will determine 
+
+
+## Methods
+
+To estimate the volume of liquid delivered to each nursery pot we used Archimedes equation to find the volume of a cylinder to determine the volumne of liquid water delivered to a petri dish. 
+
+Define # of trials - what a spray is, kind of bottle, document full process and all equipment used to do it
+
+
+## Analysis 
+
+After performing the spraying and collections process, fifty-two trials were recorded, in which the last 36 trails were timed. From these collections we find the
+
+histogram of distribution 
+
+## Conclusion 
+
+From this experiment we could say with 95% confidence that the amount of water delivered in each nursery pot is between 6.8 and 8.2 mL. The mean was []  and median was 7. 
+
+## Discussion
+
+How might this effect the plants in the nursery? Should the amount of water delivered be increased or decreased? What were your sources of error? How did you attempt to correct these and what would a future experiment need to do better? 
+
