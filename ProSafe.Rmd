@@ -2,46 +2,211 @@
 title: "Spray Bottle Measurements"
 author: "Zachary Palmore"
 date: "1/25/2021"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Background
 
-determining the amount of water given to the Bell pepper plants in this study. To do this we will first find the dimensions of a water-tight container and use a volumetric equation to estimate the total amount of water delivered two each planter. in this case our water tight container is a Petri dish. 
 
-```{r}
-read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQVaaUdUL1IOLL9FLuloyLBed_zyaZJZU1P-tn_mSZtnOr_xynI-AudRL84BmUWtQdcaVm53TIbIZty/pub?output=csv")
+```{r pkgs}
+library(tidyverse)
+theme_set(theme_classic())
 ```
 
-https://docs.google.com/spreadsheets/d/e/2PACX-1vQVaaUdUL1IOLL9FLuloyLBed_zyaZJZU1P-tn_mSZtnOr_xynI-AudRL84BmUWtQdcaVm53TIbIZty/pub?output=csv
+
+___
+
+\newpage
+
+## Abstract 
+
+To adequately estimate the amount of water delivered to two nursery pots for a growth experiment with Capsicum Annuum (bell peppers) we needed a method of determining the amount of water delivered without using any common scientific measuring equipment. This was necessary to avoid the negative impacts of too much or too little water which could hinder the growth of the individuals in the study. Once calculated we would be able to adjust our watering schedule with proper deliverance range to better regulate the water uptake and transport of the vascular plants in this study. The systematic delivery of an approximately constant amount of water to the nursery pots also helps to control for alternative variables in this small study and ensure the healthy growth of each plant. 
+
+
+___
+\newpage
+
+## Background
+
+In conjunction with the growth experiment on capsicum annum Bell Peppers that intends to determine how well older seeds germinate and grow when compared to newer seeds in a similar indoor environment it was necessary to determine the amount of water delivered to each nursery pot. Unfortunately, for the purposes of this experiment, we did not have access to common scientific measuring equipment such as graduated cylinders, volumetric flasks, pipettes, beakers, balances, and so on. However, we did have access to a spray bottle, a basic ruler, and a Petri dish to accurately estimate the amount of water required. 
+
+Although seemingly unconventional, we decided to use a Petri dish and a ProSafe spray bottle to calculate the volume of water using Archimedes equation for the volume of a cylinder, some measurements, and a little math. By using this equipment, we should be able to accurately estimate the amount of water delivered to each nursery pot and avoid the cost of purchasing any common scientific equipment. 
+Importantly the spray bottle is the same container used to deliver the water to the plants daily and the same process for dispensing the water to the nursery pods was followed during this experiment.  there were no differences in how water was delivered. the only change was in what we delivered the water to, which in this case it happened to be a Petri dish. 
+
+In the interest of reproducing this experiment note that any watertight container could function as the Petri dish. The same principle applies to the Prosafe sprayer. Any sprayer will do so long as it is the same piece of equipment used to dispense the water to the nursery pots. Additionally, ensure that you repeat the exact process of dispensing the water to the watertight container for measurement purposes as we have done here. 
+
+
+
+___
+\newpage
 
 ## Introduction
 
-In this experiment we will determine 
+In this experiment we will determine the amount of liquid water delivered daily to two nursery pots containing five capsicum annum Bell Peppers seeds in each. The estimated amount of liquid water delivered daily will be used to adjust the watering schedule as needed for optimum growth. By recording the dimensions (diameter and height) of water within a cylindrical water-tight container, we can calculate the volume dispensed from a typical routine spray. 
 
+Through the regulation of the amount of water delivered, we attempt to control the amount of water uptake in the plants in each nursery pot. Since water is the primary fluid that allows for photosynthesis to occur and for nutrient transport throughout the plant's vascular structure this could be seen an effective tool for later growth comparisons; given that, all other variables remain relatively constant. 
+
+Our main purpose with this experiment is to determine the amount of liquid water delivered daily to the two nursery pots but there is another component. We are creating a standard process for estimating the amount of water dispensed from the sprayer itself and thereby solving the problem for any future experiments that utilize this particular sprayer. When evaluating how much water would be delivered in the future, our intent is that it could be measured by the number of sprays rather than performing this experiment again. Throughout the duration of the growth experiment for capsicum annum Bell Peppers we will reevaluate how much water should be delivered to each nursery pot to promote healthy vascular development. 
+
+___
+\newpage
+
+## Materials 
+
+Our materials include, a computer, ProSafe sprayer bottle, one liter of water, a Petri dish, and a standard twelve-inch or 30-centimeter ruler. Statistical analysis, data visualizations, and all other reporting aspects were completed using the programming language R and the following packages: 
+
+
+```{r evaluate = FALSE}
+
+```
+
+
+Alternatively, a calculator and paper could be used to take the place of R. For some, it may also be useful to have a separate container for emptying the Petri dish upon completion of each measurement as utilized in this experiment. These measurements were stored in a spreadsheet within Google Drive. Upon completion, this spreadsheet was made openly accessible as a comma separated values list to anyone with the link via publishing it to the web. The original spreadsheet can be found through that same link here. 
+
+To include specifics of the equipment, the models used here are a ProSafe brand 24-ounce liquid sprayer and a common plastic Helix brand 12-inch or 30-centimeter ruler. Our Petri dish is Micrology Laboratories brand meant for quick Coliscan EasyGel biological assessments in water quality. It is 8.5 centimeters at its interior diameter and is 1.4 centimeters tall. 
+
+
+___
+\newpage
 
 ## Methods
 
-To estimate the volume of liquid delivered to each nursery pot we used Archimedes equation to find the volume of a cylinder to determine the volumne of liquid water delivered to a petri dish. 
+To estimate the volume of liquid delivered to each nursery pot we sprayed the Petri dish in the same manner that we would spray the nursery pot and then measured the height of the stabilized water in the Petri dish. We also measured the diameter of the interior of the Petri dish where water would be contained. From there, we used Archimedes equation to find the volume of a cylinder to determine the overall volume of liquid water delivered to the petri dish. There was a total of 52 trials each with 50 sprays. As an additional metric for statistical analysis, we also recorded the time spent on each trial. We can break the process down into several steps. 
 
-Define # of trials - what a spray is, kind of bottle, document full process and all equipment used to do it
+### Step 1: Gather Equipment 
 
+We begin by bringing together all the equipment that will be necessary for completing the experiment. this includes the bottle, the water tight container, and additional water. If desired, add to this list an additional large container for emptying the watertight container. it will need to be large enough for all trials to fit into it. 
+
+Fill the spray bottle as it would be filled under normal circumstances ensuring that you have enough water to refill the bottle at least two more times. Although you may only use one full bottle for all trials it is important to have enough additional water on hand to alleviate abnormalities. This is especially true if doing time trials. Any potential refills of the bottle itself should be minimized. 
+
+### Step 2: Preparations
+
+It is during this step that you establish the number of trials to be completed.  We also clean the petri dish, removing any dirt, dust, or debris before the spraying process can begin. In this step, compile a spreadsheet such that during the measuring process the only factor necessary for recording is to measure the height of the water from the base of the Petri dish two its meniscus. For our purposes we labeled the column headers with the titles trial, sprays, diameter, height, time, minutes, seconds, and milliseconds. Under which we included the numbers 1 through 52 in cells two through fifty-three under the column titled “trial” as well as the numbers 50 and 8.5 beneath the columns Sprays and diameter respectively in the same cell range.  Note that, the time columns of time, minutes, seconds, and milliseconds need only be included if they are being used. 
+
+### Step 3: Adjust Nozzle
+
+Here we check and adjust the spray nozzle. It is imperative that we ensure that the nozzle matches the spray size and intensity as the process used when spraying the nursery pods under normal circumstances. If the nozzle was not interfered with since performing normal circumstances, then no adjustment is needed. The intent here is to replicate the normal spraying process to get accurate results. 
+
+### Step 4: Establish Process
+
+Before beginning the process of spraying we wanted to establish the full sequence of events from spray to recording. For us, this was simplified into the following 6 steps. The first and last are optional depending on the researcher’s preference in time variables as they are not essential to our volumetric calculations. Our process went as follows:
+
+    1.  (optional) start timer
+    2.	complete 50 sprays 
+    3.	measure 50 sprays 
+    4.	record the height
+    5.	empty the Petri dish  
+    6.	(optional) lap timer 
+
+In this process steps two through six were repeated until we reached the total number of trials. Times were not recorded until after all laps and thus trials, had finished. During this process, any issues that occurred could not be solved immediately because the process was still in motion. Once established there was no interfering. This was done to minimize the difference in trial times.  
+
+### Step 5: Review 
+
+Given the presence of data in the spreadsheet, we can then validate it for typos and other errors. If there are any problems, we would consider repeating these steps to ensure an accurate estimation of a normal amount of water from 50 sprays. 
+
+
+___
+\newpage
 
 ## Analysis 
 
-After performing the spraying and collections process, fifty-two trials were recorded, in which the last 36 trails were timed. From these collections we find the
+After performing the spraying and collections process, fifty-two trials were recorded, in which the last 36 trails were timed. From these collections we find the 
 
-histogram of distribution 
+```{r prep}
+sprays <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQVaaUdUL1IOLL9FLuloyLBed_zyaZJZU1P-tn_mSZtnOr_xynI-AudRL84BmUWtQdcaVm53TIbIZty/pub?output=csv")
+vol <- sprays[,1:4]
+time <- sprays[,5:8]
+```
+
+
+$$ V = \pi*r^2*h $$
+
+```{r}
+head(vol, 4)
+```
+
+
+```{r}
+vol <- vol %>% 
+  mutate(Volume = pi*(Diameter/2)*Height)
+head(vol, 4)
+```
+
+
+```{r stats}
+vol_summary <- summary(vol$Volume)
+vol_summary
+vol_var <- var(vol$Volume)
+M <- median(vol$Volume)
+```
+
+
+
+```{r histogram}
+ggplot(vol, aes(Volume)) + geom_histogram(binwidth = .8)
+```
+
+
+```{r validation}
+ggplot(vol, aes(Height)) + geom_col(aes(y = Trial))
+```
+
+
+```{r boxplot}
+ggplot(vol, aes(Height, color = Height, fill = Height)) + geom_boxplot()
+```
+
+
+```{r scatter}
+ggplot(vol, aes(Trial, Volume)) + geom_point()
+```
+
+
+```{r line}
+ggplot(vol, aes(Trial, Volume)) + geom_line()
+```
+
+
+$$ CI = \bar{X}\pm Z_c*\frac{\sigma}{\sqrt{n})} $$ 
+
+
+```{r confidence}
+X <- mean(vol$Volume)
+Z <- 1.96
+s <- sd(vol$Volume)
+n <- as.numeric(sum(complete.cases(vol$Volume)))
+uci <- X+Z*(s / (sqrt(n)))
+lci <- X-Z*(s / (sqrt(n)))
+lci
+uci
+```
+
+Conveniently, cubic centimeters is the units of the final value. Due to the relationship between milliliters and cubic centimeters, the conversion from cubic centimeters is one-to-one. No further analysis is necessary. 
+
+
+___
+\newpage
+
 
 ## Conclusion 
 
-From this experiment we could say with 95% confidence that the amount of water delivered in each nursery pot is between 6.8 and 8.2 mL. The mean was []  and median was 7. 
+From this experiment we could say with 95% confidence that the amount of water delivered in each nursery pot is between `r round(lci, digits = 3)` and `r round(uci, digits = 3) `mL. The average is `r round(X, digits = 3)`mL. 
+
+
+
+
+___
+\newpage
+
 
 ## Discussion
 
 How might this effect the plants in the nursery? Should the amount of water delivered be increased or decreased? What were your sources of error? How did you attempt to correct these and what would a future experiment need to do better? 
 
+___
+\newpage
