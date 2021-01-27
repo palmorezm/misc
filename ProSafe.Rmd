@@ -133,7 +133,7 @@ head(vol, 4)
 
 ```{r}
 vol <- vol %>% 
-  mutate(Volume = pi*(Diameter/2)*Height)
+  mutate(Volume = (pi*(Diameter/2)*Height)) 
 head(vol, 4)
 ```
 
@@ -148,7 +148,7 @@ M <- median(vol$Volume)
 
 
 ```{r histogram}
-ggplot(vol, aes(Volume)) + geom_histogram(binwidth = .8)
+ggplot(vol, aes(Volume)) + geom_histogram(binwidth = 1)
 ```
 
 
@@ -163,12 +163,12 @@ ggplot(vol, aes(Height, color = Height, fill = Height)) + geom_boxplot()
 
 
 ```{r scatter}
-ggplot(vol, aes(Trial, Volume)) + geom_point()
+ggplot(vol, aes(Trial, Volume)) + geom_point() + geom_smooth(method = lm, se = FALSE) + geom_hline(yintercept = mean(vol$Volume))
 ```
 
 
 ```{r line}
-ggplot(vol, aes(Trial, Volume)) + geom_line()
+ggplot(vol, aes(Trial, Volume)) + geom_line() + geom_hline(yintercept = mean(vol$Volume))
 ```
 
 
