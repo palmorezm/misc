@@ -59,10 +59,15 @@ Unis %>%
 
 
 ```{r}
-Unis <- Unis %>% 
+Unis2 <- Unis %>% 
   group_by(State) %>%
   mutate(total = sum(table(Rank)))
-ggplot(Unis, aes(State, total, fill = ResearchActivity)) + geom_col() + coord_flip()
+ggplot(Unis2, aes(State, total, fill = ResearchActivity)) + geom_col() + 
+  theme_classic() + labs(y = "Count of Universities", x  = "State")
+```
+
+```{r}
+Unis2
 ```
 
 
@@ -95,7 +100,34 @@ rmarkdown::paged_table(npubrs)
 
 ```{r}
 Unis %>%
-  filter(State == "OH")
+  filter(State == "DC")
+```
+
+
+
+```{r}
+
+```
+
+
+```{r}
+pubrs
+```
+
+
+```{r}
+Unis %>% 
+  group_by(State) %>% 
+  summarise(Rnks = sum((table(Rank)))) %>%
+  arrange(desc(Rnks))
+```
+
+
+```{r}
+Unis %>% 
+  group_by(City) %>% 
+  summarise(TotalUnis = sum(table(Rank))) %>%
+  arrange(desc(TotalUnis))
 ```
 
 
