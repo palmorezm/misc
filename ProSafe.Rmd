@@ -62,7 +62,7 @@ Our materials include, a computer, ProSafe sprayer bottle, one liter of water, a
 
 
 ```{r evaluate = FALSE}
-
+library(tidyverse)
 ```
 
 
@@ -115,21 +115,35 @@ ___
 
 ## Analysis 
 
-After performing the spraying and collections process, fifty-two trials were recorded, in which the last 36 trails were timed. From these collections we find the 
+After performing the spraying and collection process, fifty-two trials were recorded, in which the last 36 trails were timed. All measurements were recorded in centimeters and were not altered throughout this experiment. The data is accessed through the openly accessible spreadsheet published from Google drive and separated by data pertaining to volume and the calculations necessary for it and data pertaining to time required during the trials. We can see the breakdown of this below where the ProSafe sprayer bottle data named sprays is read into R and separated. 
 
 ```{r prep}
 sprays <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQVaaUdUL1IOLL9FLuloyLBed_zyaZJZU1P-tn_mSZtnOr_xynI-AudRL84BmUWtQdcaVm53TIbIZty/pub?output=csv")
 vol <- sprays[,1:4]
-time <- sprays[,5:8]
+time <- sprays[,c(1, 5:8)]
 ```
 
+The first four columns are data that pertains to the trial and the volumetric calculations. for this it is given its own data frame named Vol. we will use this to perform the final volume calculation and determine how much water was delivered 2 the nursery pots. The first four rows of Vol are displayed.
 
-$$ V = \pi*r^2*h $$
 
 ```{r}
 head(vol, 4)
 ```
 
+As a separate portion for later analysis time trial data was recorded. this is contained in the last three columns of this sprays dataframe but we will also need the first column with the trial number. Thus those columns were extracted and given their own database named time. A sample showing the four rows of this database is shown. 
+
+
+```{r}
+time[36:40,]
+```
+
+however, we will not be performing the analysis of time trials during this experiment. Our purpose is to determine the amount of water delivered to two nursery pods for the growth experiment of capsicum annuum Bell Peppers. This time trial data was collected for later analysis. No conclusions will be made but the process has now been recorded for future study. 
+
+to estimate the amount of water dispensed from the sprayer into the Petri dish within each trial we used Archimedes equation for the volume of a cylinder. In this case the container that we were using to hold and measure the amount of liquid present was a short cylinder. This makes Archimedes equation a good fit as demonstrated below.  
+
+$$ V = \pi*r^2*h $$
+
+Where R is the radius of the interior of the Petri dish at the boundaries of where water is held and H is the height of the water and its meniscus once filled and stabilized we can find volume. Since our measurements were taken in centimeters we can equate the volume as cubic centimeters. This equation was applied to all trials in the Vol data frame. the first four rows are shown with the completed calculations along with the programming used. 
 
 ```{r}
 vol <- vol %>% 
@@ -137,40 +151,47 @@ vol <- vol %>%
 head(vol, 4)
 ```
 
+At its most basic the mean might represent the best average volume of all sprays from the trials. however, we are going to include some additional statistics to see the full picture. this includes finding the median to compare with the mean average, as well as the maximum and minimum of the trials, and determining if there are any outliers from what we would consider normal. the following lines were used to perform these calculations. 
+
 
 ```{r stats}
 vol_summary <- summary(vol$Volume)
-vol_summary
 vol_var <- var(vol$Volume)
 M <- median(vol$Volume)
+X <- mean(vol$Volume)
+n <- sum(complete.cases(vol$Volume))
+s <- sd(vol$Volume) 
+mx <- max(vol$Volume)
+mn <- min(vol$Volume)
+rng <- (mx - mn)
+up_rng <- (mx - X)
+lo_rng <- (X - mn)
 ```
 
+Based on the 52 trials in this experiment the mean average volume is about `r round(X, digits = 3)`. This is slightly larger than our median average volume of `r round(M, digits = 3)`. If we review the data we notice that there seem to be more height entries in a smaller range for heights equal to or less than 0.7. In contrast, there are fewer values from 0.8 upwards in height which also contains a wider range than height recorded at 0.7 and below.   
+
+We confirm this by subtracting the minimum volume from the mean volume and mean volume from the maximum volume which we will call the lower and upper range respectively. Since volume was calculated directly from the differences in height, every conversion to volume contains exactly the same proportions as the height measurements. It is clear that the lower range of `r round(lo_rng, digits = 3)` is smaller than the upper range of `r round(up_rng, digits = 3)`. 
+
+Additionally, since the median is robust and considers the occurrence of values not the influence of higher low values it appears lower than the mean because there are more values that occur in this lower range. We can see this if we count the number of times each height in centimeters occurs and plot them as a histogram. 
 
 
 ```{r histogram}
-ggplot(vol, aes(Volume)) + geom_histogram(binwidth = .8)
+ggplot(vol, aes(Height)) + 
+  geom_histogram(binwidth = .1) + xlim(.25, 1.25)
 ```
 
-
-```{r validation}
-ggplot(vol, aes(Height)) + geom_col(aes(y = Trial))
-```
-
+Recall that the Heights were the only measurement that differed between trials. these changes between trials and height can be credited for creating the differences in our final volumes for each trial. Using this histogram, it is easier to identify the slight weight towards the lower end of the distribution in trials for this experiment. We also confirm the shape extent and approximate normality of the distribution with a boxplot.  
 
 ```{r boxplot}
-ggplot(vol, aes(Height, color = Height, fill = Height)) + geom_boxplot()
+ggplot(vol, aes(Volume)) + 
+  geom_boxplot(color = "#1808ff", fill = "#ff9999")
 ```
 
+Based on this we can interpret the plot to say that it is approximately normal there are no outliers. we can also estimate that the average is a little above 9, indicating that our volume delivered to the nursery pots is approximately the same. we can also see the distance between the mean and the minimum is smaller than the distance between the mean and the maximum. however, the overall distribution is fairly equally distributed. 
 
-```{r scatter}
-ggplot(vol, aes(Trial, Volume)) + geom_point()
-```
+Although we cannot guarantee that the average volume of water dispensed from the sprayer will remain the same if we were to complete more trials, we can estimate its potential value with a level of confidence over an interval. Given that this was an experiment with only 52 trials further trials might increase the accuracy of results but only to a small degree and the results would likely remain with this interval. Here we Indicate a level of confidence at 95% that could be practical when interpreting results. 
 
-
-```{r line}
-ggplot(vol, aes(Trial, Volume)) + geom_line()
-```
-
+The equation for this confidence interval is as follows Where X is the means of volume, Sigma or S is the standard deviation for trial volumes, n is the number of trials, and Z is the critical value. a margin of error calculation is shown as well with the same variables excluding the mean of the volumes, X. We include the variables and values used when calculating this confidence interval for clarity. 
 
 $$ CI = \bar{X}\pm Z_c*\frac{\sigma}{\sqrt{n})} $$ 
 
@@ -182,11 +203,11 @@ s <- sd(vol$Volume)
 n <- as.numeric(sum(complete.cases(vol$Volume)))
 uci <- X+Z*(s / (sqrt(n)))
 lci <- X-Z*(s / (sqrt(n)))
-lci
-uci
+moe <- Z*(s / (sqrt(n)))
 ```
 
-Conveniently, cubic centimeters is the units of the final value. Due to the relationship between milliliters and cubic centimeters, the conversion from cubic centimeters is one-to-one. No further analysis is necessary. 
+
+Due to our units remaining centimeters throughout the process, we can make interpretations directly from the analysis. Conveniently, 1 cubic centimeter is equal to 1 milliliter of the same liquid. during this experiment we remain in centimeters and thus can interpret our results in milliliters. No conversion from cubic centimeters is needed and no further analysis is necessary.  
 
 
 ___
@@ -195,9 +216,7 @@ ___
 
 ## Conclusion 
 
-From this experiment we could say with 95% confidence that the amount of water delivered in each nursery pot is between `r round(lci, digits = 3)` and `r round(uci, digits = 3) `mL. The average is `r round(X, digits = 3)`mL. 
-
-
+From this experiment we can say with 95% confidence that the amount of water delivered in each nursery pot is between `r round(lci, digits = 3)`mL and `r round(lci, digits = 3)`mL. The average amount of water delivered to the nursery pots is estimated to be `r round(X, digits = 3)`mL. Our margin of error is `r round(moe, digits = 3)`mL. Theoretically, If all sprays were approximately equal in the amount of water dispersed, we would estimate that approximately `r round(X/50, digits = 3)`mL are dispersed by one spray. Given the approximately normal distribution of our data, this seems an acceptable assumption. 
 
 
 ___

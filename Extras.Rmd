@@ -1,0 +1,93 @@
+---
+title: "Extras"
+author: "Zachary Palmore"
+date: "1/28/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r prep}
+sprays <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQVaaUdUL1IOLL9FLuloyLBed_zyaZJZU1P-tn_mSZtnOr_xynI-AudRL84BmUWtQdcaVm53TIbIZty/pub?output=csv")
+vol <- sprays[,1:4]
+time <- sprays[,c(1, 5:8)]
+```
+
+
+```{r validation}
+ggplot(vol, aes(Trial, Height)) + geom_col(aes(fill = Height)) + coord_flip() 
+
+```
+
+
+
+```{r boxplot}
+ggplot(vol, aes(Volume)) + geom_boxplot(color = "#1808ff", fill = "#ff9999")
+```
+
+
+```{r scatter}
+ggplot(vol, aes(Trial, Volume)) + geom_point()
+```
+
+
+```{r line}
+ggplot(vol, aes(Trial, Volume)) + geom_jitter() + geom_hline(yintercept = mean(vol$Volume), color = "red") + geom_hline(yintercept = median(vol$Volume), color = "blue")
+```
+
+```{r sample}
+set.seed(1001)
+sample1_1000 <- sample_n(vol, 1000, replace = TRUE)
+# sample1_1000$Size <- "1000"
+# sample1_500 <- sample_n(vol, 500, replace = TRUE)
+# sample1_500$Size <- "500"
+# sample1_100 <- sample_n(vol, 100, replace = TRUE)
+# sample1_100$Size <- "100"
+# samples1 <- rbind(sample1_100, sample1_500, sample1_1000) 
+# samples1
+
+norm <- rnorm(n = sum(complete.cases(vol$Volume)), mean = mean(vol$Volume), sd = sd(vol$Volume))
+norm <- data.frame(norm)
+
+ggplot(sample1_1000, aes(Volume)) + 
+  geom_histogram(binwidth = 2) +
+  geom_histogram(data = norm, aes(norm, color = "")) +
+  geom_vline(xintercept = (mean(sample1_1000$Volume)))   
+
+
+```
+
+```{r}
+qqnorm(vol$Volume)
+```
+
+```{r}
+ggplot(sample1_1000, aes(Volume)) +
+  stat_function(fun = dnorm, args = c(mean = mean(vol$Volume), sd = sd(vol$Volume)), col = "tomato") + 
+  geom_histogram(binwidth = 2, alpha = .25)
+```
+
+```{r}
+qplot(sample = , stat = "qq")
+```
+
+
+
+$$ CI = \bar{X}\pm Z_c*\frac{\sigma}{\sqrt{n})} $$ 
+
+
+```{r confidence}
+X <- mean(vol$Volume)
+Z <- 1.96
+s <- sd(vol$Volume)
+n <- as.numeric(sum(complete.cases(vol$Volume)))
+uci <- X+Z*(s / (sqrt(n)))
+lci <- X-Z*(s / (sqrt(n)))
+moe <- Z*(s / (sqrt(n)))
+```
+
+Conveniently, cubic centimeters is the units of the final value. Due to the relationship between milliliters and cubic centimeters, the conversion from cubic centimeters is one-to-one. No further analysis is necessary. 
