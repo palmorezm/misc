@@ -105,7 +105,7 @@ bps.5 %>%
 ```{r}
 bellpeps %>% 
   melt(id = "PlantID", measure = c("PlantHeight", "PlantWidth")) %>% 
-  ggplot(aes(reorder(PlantID, -value), value)) + geom_col(aes(fill = PlantID))
+  ggplot(aes(reorder(PlantID, value), value)) + geom_col(aes(fill = PlantID))
 ```
 
 
