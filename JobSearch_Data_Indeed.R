@@ -30,6 +30,27 @@ job_data <- html_text(job_data_html)
 #Let's have a look at the rankings
 head(job_data)
 
+
+# Search filters
+
+# Example:
+# https://www.indeed.com/jobs?q=decision+scientist&l=Remote&explvl=entry_level&fromage=7
+
+# Job title 
+# https://www.indeed.com/jobs?q= #*decision+scientist*&l #location is left blank to search everywhere
+
+# Location
+# https://www.indeed.com/jobs?q=decision+scientist&l= #*Remote* 
+
+# Experience level 
+# https://www.indeed.com/jobs?q=decision+scientist&l=Remote& # explvl= #*entry_level*
+
+# Date posted
+# https://www.indeed.com/jobs?q=decision+scientist&l=Remote&explvl=entry_level& #fromage= #*7* # Within last 7 days
+
+
+# HTML Text Data Scrapes
+
 # Decision Scientist Scrape
 
 # Data Scientist Scrape
