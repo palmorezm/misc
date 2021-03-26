@@ -1,5 +1,4 @@
 
-# March 24, 2021
 # Scrape Indeed for Jobs Data
 
 # Base link for Indeed Search
