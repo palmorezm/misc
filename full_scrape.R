@@ -21,7 +21,7 @@ listings <- data.frame(title=character(),
 for (i in seq(0,10,2)){
   
   # Title only - "Data+Science"
-  url <- paste0("https://www.indeed.com/jobs?q=Data+Science&l=")
+  url <- paste0("https://www.indeed.com/jobs?q=Data+Science&l=",i)
   var <- read_html(url)
   
   # Collect job titles 

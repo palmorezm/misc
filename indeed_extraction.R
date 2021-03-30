@@ -7,7 +7,7 @@ require(tidyverse)
 
 # Create empty data frame 
 df <- data.frame(title = character(),
-                 company = character())
+                 company = character()) 
 
 # Create a list of job titles for searching 
 search_titles <- as.character(c("Data+Science", 
@@ -15,7 +15,9 @@ search_titles <- as.character(c("Data+Science",
                                 "Decision+Scientist", 
                                 "Operations+Manager", 
                                 "Statistician", 
-                                "Business+Analyst", 
+                                "Business+Analyst",
+                                "Statistics", 
+                                "Analyst"
                                 ))
 
 search_titles[[1]]
@@ -152,7 +154,38 @@ id <- var %>%
 
 
 
-
+for (i in seq(0, 10, 2)){
+  url_ds <- paste0('https://www.indeed.com/jobs?q=Data+Science&l=',i)
+  var <- read_html(url_ds)
+  title <-  var %>% 
+    html_nodes('#resultsCol .jobtitle') %>%
+    html_text() %>%
+    str_extract("(\\w+.+)+") 
+  summary <- var %>%
+    html_nodes('#resultsCol .summary') %>%
+    html_text() %>%
+    str_extract(".+") 
+  link <- var %>%
+    html_nodes('#resultsCol .jobtitle .turnstileLink, #resultsCol a.jobtitle') %>%
+    html_attr('href') 
+  link <- paste0("https://www.indeed.com",link)
+  location <- var %>%
+    html_nodes('#resultsCol .location') %>%
+    html_text() %>%
+    str_extract("(\\w+.)+,.[A-Z]{2}") 
+  company <- var %>% 
+    html_nodes('#resultsCol .company') %>%
+    html_text() %>%
+    str_extract("(\\w+).+")  
+  
+  listings <- rbind(listings, as.data.frame(cbind(title,
+                                                  employer,
+                                                  description,
+                                                  location,
+                                                  date,
+                                                  link,
+                                                  id)))
+}
 
 
 
