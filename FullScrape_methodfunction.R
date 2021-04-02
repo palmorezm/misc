@@ -1,6 +1,7 @@
 
-# April 1, 2021
+# April 1, 2021 - 
 # Indeed Jobs Scrape
+# Method: Pagination Function
 # Search Title: Data Science
 
 # Packages 
@@ -23,7 +24,7 @@ jobs <- data.frame(title=character(),
 # Title only - "Data+Science"
 url <- "https://www.indeed.com/jobs?q=Data+Science&l="
 
-job <- map_df(1:10, function(i) {
+jobs <- map_df(1:10, function(i) {
   
   # Progress indication
   cat(".")
@@ -33,16 +34,26 @@ job <- map_df(1:10, function(i) {
   
   data.frame(
     # job title
-    title=html_text(html_nodes('.jobtitle')), 
+    title=html_text(html_nodes(pg, '.jobtitle')), 
     # employer name
-    employer=html_text(html_nodes('.company')), 
+    employer=html_text(html_nodes(pg, '.company')), 
     # short description or summary
-    short_description=html_text(html_nodes('.summary')),
+    short_description=html_text(html_nodes(pg, '.summary')),
     # job location
-    location=html_text(html_nodes('.location')), 
+    location=html_text(html_nodes(pg, '.location')), 
     # posting date
-    date=html_text(html_nodes('.date-a11y'))#,
+    date=html_text(html_nodes(pg, '.date-a11y')),
     # hyperlink from indeed.com/'link'
-    #link=html_text(html_nodes('a.jobtitle.turnstileLink'))
+    # includes job ids
+    link=html_text(html_nodes(pg, 'a.jobtitle.turnstileLink'))
     )
 })
+
+glimpse(job)
+
+# To export
+# Contains location and date 
+# write.csv(job, file="C:/data/jobs_april022021.csv")
+# Data should be cleaned before data frame
+
+
