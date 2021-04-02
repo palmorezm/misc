@@ -17,7 +17,7 @@ search_titles <- as.character(c("Data+Science",
                                 "Statistician", 
                                 "Business+Analyst",
                                 "Statistics", 
-                                "Analyst"
+                                "Analyst",
                                 ))
 
 search_titles[[1]]

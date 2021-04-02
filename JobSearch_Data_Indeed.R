@@ -8,9 +8,8 @@
 require(rvest)
 require(readr)
 require(tidyverse)
-require(DT)
 
-# --------------------- Sample Scrape --------------------- # 
+# --------------------- Sample Scrape One --------------------- # 
 
 #Specifying the url for desired website to be scraped
 url <- 'https://www.indeed.com/jobs?q=data+science&l='
@@ -139,6 +138,9 @@ page1 <- rbind(listings, as.data.frame(cbind(title,
                                                 date,
                                                 link,
                                                 id)))
+
+df <- as.data.frame(cbind(title, employer, short_description, location, date, link, id))
+
 
 # Display results for first page in console
 # A single page should hold 15 listings
