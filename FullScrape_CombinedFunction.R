@@ -1,4 +1,4 @@
-# April 2, 2021 
+# Created April 2, 2021 
 # Indeed Jobs Scrape
 # Method: Combination Function
 # Search Title: Data Science
@@ -26,7 +26,7 @@ jobs <- data.frame(title=character(),
 # Title only - "Data+Science"
 url <- "https://www.indeed.com/jobs?q=Data+Science&l="
 
-april022021 <- map_df(1:2, function(i) {
+jobs <- map_df(1:1000, function(i) {
   
   # Progress indication
   cat(".")
@@ -47,6 +47,12 @@ april022021 <- map_df(1:2, function(i) {
     html_nodes('.company') %>%
     html_text() %>%
     str_extract("(\\w+).+")
+  
+  # Collect salary/income range
+  # Has not been cleaned
+  salary <- pg %>% 
+    html_nodes('.salaryText') %>% 
+    html_text() 
   
   # Collect summary from scroll bar used to browse jobs 
   # Contains the first few sentences from the job description or
@@ -87,6 +93,8 @@ april022021 <- map_df(1:2, function(i) {
   # Add a page number for the scrape
   page <- (i + 1)
   
+  Sys.sleep(1)
+  
   as.data.frame(cbind(title, 
                       employer, 
                       short_description, 
@@ -99,7 +107,7 @@ april022021 <- map_df(1:2, function(i) {
 
 })
 
-april022021$page
 
-write.csv(april022021, file="C:/data/combination_scrape_test9_calculatedpage.csv")
+
+# write.csv(jobs, file="C:/data/combination_scrape_test10_firstfullrun.csv")
 
