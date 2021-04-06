@@ -67,6 +67,10 @@ sum(is.na(beer))
 # Repeating the run on the same site resulted in the same observations (identical)
 # StringAsFactors adds another variable with the observation "FALSE" over entire df
 
+# Notes 
+# Ensure no \n in the selector content - does not appear in export
+# XML selectors
+
 
 
 

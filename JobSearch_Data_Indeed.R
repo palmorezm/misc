@@ -1,5 +1,8 @@
 
-# Scrape Indeed for Jobs Data
+# April 1, 2021 
+# Indeed Jobs Scrape
+# Method: Sampled For Loop  
+# Search Title: Data Science
 
 # Base link for Indeed Search
 # https://www.indeed.com/jobs?q=

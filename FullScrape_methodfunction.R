@@ -1,5 +1,5 @@
 
-# April 1, 2021 - 
+# April 1, 2021 
 # Indeed Jobs Scrape
 # Method: Pagination Function
 # Search Title: Data Science
