@@ -109,5 +109,5 @@ jobs <- map_df(1:1000, function(i) {
 
 
 
-# write.csv(jobs, file="C:/data/combination_scrape_test14_fifthfullrun.csv")
+# write.csv(jobs, file="C:/data/combination_scrape_test15_sixthfullrun.csv")
 
