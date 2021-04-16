@@ -109,6 +109,6 @@ jobs <- map_df(1:1000, function(i) {
 
 
 
-#write.csv(jobs, file="C:/data/combination_scrape_test20_eleventhfullrun.csv")
+write.csv(jobs, file="C:/data/combination_scrape_test21_twelthfullrun.csv")
 #tail(jobs[200:2000,])
 #tail(jobs)
