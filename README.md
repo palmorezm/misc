@@ -1,2 +1,2 @@
-# AmericanDream
- What is the best place to live?
+# Miscellaneous
+A place for leftover and those without a designated folder
