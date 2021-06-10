@@ -1,3 +1,3 @@
 # Miscellaneous
 
-A place for all those leftovers 
+A place for leftovers - various projects, data, and all kinds of scripts
