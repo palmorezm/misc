@@ -1,2 +1,3 @@
 # Miscellaneous
-A place for leftover and those without a designated folder
+
+A place for all those leftovers 
