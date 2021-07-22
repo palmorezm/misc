@@ -43,8 +43,10 @@ Unis %>%
 Unis %>%
   group_by(State) %>%
   summarise(counts = sum(table(Rank))) %>%
-  top_n(10) %>%
-  ggplot(aes(counts, State, fill = State)) + geom_col()
+  top_n(10) %>% 
+  arrange(desc(counts)) %>% 
+  ggplot(aes(State, counts, fill = State)) + 
+  geom_col()
 ```
 
 
@@ -63,7 +65,7 @@ Unis2 <- Unis %>%
   group_by(State) %>%
   mutate(total = sum(table(Rank)))
 ggplot(Unis2, aes(State, total, fill = ResearchActivity)) + geom_col() + 
-  theme_classic() + labs(y = "Count of Universities", x  = "State")
+  theme_classic() + labs(y = "Count of Universities", x  = "State") + coord_flip()
 ```
 
 ```{r}
@@ -106,11 +108,6 @@ Unis %>%
 
 
 ```{r}
-
-```
-
-
-```{r}
 pubrs
 ```
 
@@ -118,8 +115,15 @@ pubrs
 ```{r}
 Unis %>% 
   group_by(State) %>% 
-  summarise(Rnks = sum((table(Rank)))) %>%
-  arrange(desc(Rnks))
+  summarise(Ranks = sum((table(Rank)))) %>%
+  arrange(desc(Ranks)) %>%
+  ggplot(aes(x = reorder(State, Ranks), y = Ranks)) + 
+           geom_col(aes(alpha = 0.50, fill = State))  + 
+  theme_minimal() +
+  theme(legend.position = "none", 
+        axis.title.y = element_blank(), 
+        axis.text.x = element_text(angle = -45, vjust = 0.5, hjust=1)) +
+  coord_flip() 
 ```
 
 
