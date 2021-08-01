@@ -5,7 +5,6 @@
 # Adapted from stackoverflow
 # https://stackoverflow.com/questions/36683510/r-web-scraping-across-multiple-pages
 
-
 # -------------------- Example 1: Wine Reviews -------------------- # 
 
 # Packages
@@ -61,7 +60,7 @@ glimpse(beer)
 # This was tested with:
 
 sum(is.na(beer))
-sum(is.na(wines)) # For wines - the same
+sum(is.na(wines)) # For wines - the same 
 
 # Total runtime was about 10s
 # Repeating the run on the same site resulted in the same observations (identical)
