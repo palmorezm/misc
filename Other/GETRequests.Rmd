@@ -1,0 +1,93 @@
+---
+title: "Untitled"
+author: "Zachary Palmore"
+date: "8/18/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## How to place an API key in the header 
+
+```{r}
+help("GET()", package = httr)
+??GET()
+```
+
+
+
+```{r}
+httr::GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets", add_headers(token))
+```
+
+
+```{r}
+httr::GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets", add_headers(a = token))
+```
+
+
+
+```{r}
+get3 <- httr::GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets/OdFHUZoLTPJDspzZNixzfoEhgvFBUTHU")
+get3
+```
+
+
+
+
+```{r}
+httr::GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets Authorization: Basic OdFHUZoLTPJDspzZNixzfoEhgvFBUTHU")
+```
+
+
+```{r}
+httr::GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets, Authorization: Basic OdFHUZoLTPJDspzZNixzfoEhgvFBUTHU")
+```
+
+
+```{r}
+httr::GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets; Authorization: Basic OdFHUZoLTPJDspzZNixzfoEhgvFBUTHU")
+```
+
+
+```{r}
+httr::GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets", add_headers('Authorization' = token, verbose()))
+
+```
+
+
+```{r}
+GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets", add_headers(httr::AUTH_ONLY(Authorization = "OdFHUZoLTPJDspzZNixzfoEhgvFBUTHU")))
+```
+
+
+```{r}
+GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets",
+    add_headers(`Authorization` = paste("token ", token)))
+```
+
+
+```{r}
+GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets",
+    add_headers(`Authorization` = paste0("token ", token)))
+```
+
+
+
+```{r}
+GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets",
+    add_headers(`Authorization` = paste0("token ", token)), verbose())
+```
+
+
+```{r}
+GET(url = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets",
+    add_headers(`Authorization` = paste("token ", token)), verbose())
+```
+
+
+
+
+
