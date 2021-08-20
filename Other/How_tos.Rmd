@@ -97,7 +97,6 @@ library(devtools)
 ```{r}
 set_config( config( ssl_verifypeer = 0L )) 
 install_github('us-bea/bea.R') 
-
 ```
 
 
@@ -111,7 +110,7 @@ devtools::install_github('us-bea/bea.R')
 ```
 
 ```{r}
-
+devtools::install_github('us-bea/bea.R')
 ```
 
 
