@@ -44,7 +44,39 @@ stations <- ncdc_stations(
   datasetid='GHCND', 
   locationid='FIPS:39113',
   token = token)
+data <- ncdc_datasets(datasetid = 'GHCND', 
+                      locationid = 'FIPS:US',
+                      token = token)
+data
 ```
+
+
+
+```{r}
+help(package = "rnoaa")
+help('datasetid', package = "rnoaa")
+??datasetid
+```
+
+
+```{r}
+datasets <- ncdc_datasets(token = token)
+data_categories <- ncdc_datacats(token = token)
+datasets$data
+```
+
+
+```{r}
+ncdc_2020 <- ncdc(datasetid = "GHCND", 
+     token = token,
+     startdate = '2020-01-01',
+     enddate = '2020-01-04',
+     locationid = 'FIPS:36061')
+ncdc_2020$data
+
+```
+
+
 
 
 ## How to get Data from BEA 
