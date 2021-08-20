@@ -64,3 +64,13 @@ ncdc_2014 <- ncdc(datasetid = "GHCND",
                   datatypeid = c("TMIN", "TMAX"))
 ncdc_2014$data
 
+# Select all states?
+# Add datatypes for additional varaibles 
+AL_ncdc_2015 <- ncdc(datasetid = "GHCND", 
+                  token = token,
+                  startdate = '2015-01-01',
+                  enddate = '2015-12-31',
+                  locationid = 'FIPS:01', 
+                  datatypeid = c("TMIN", "TMAX"))
+AL_ncdc_2015$data
+

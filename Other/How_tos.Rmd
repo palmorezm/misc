@@ -70,10 +70,9 @@ datasets$data
 ncdc_2020 <- ncdc(datasetid = "GHCND", 
      token = token,
      startdate = '2020-01-01',
-     enddate = '2020-01-04',
+     enddate = '2020-12-31',
      locationid = 'FIPS:36061')
 ncdc_2020$data
-
 ```
 
 
@@ -97,6 +96,7 @@ library(devtools)
 ```{r}
 set_config( config( ssl_verifypeer = 0L )) 
 install_github('us-bea/bea.R') 
+
 ```
 
 
@@ -110,7 +110,7 @@ devtools::install_github('us-bea/bea.R')
 ```
 
 ```{r}
-devtools::install_github('us-bea/bea.R')
+
 ```
 
 
