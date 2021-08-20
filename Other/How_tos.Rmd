@@ -1,0 +1,85 @@
+---
+title: "RNOAA"
+author: "Zachary Palmore"
+date: "8/20/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## BLS API
+
+
+```{r}
+library(devtools)
+install_github("mikeasilva/blsAPI")
+```
+
+
+```{r}
+help(blsAPI , package = "blsAPI")
+```
+
+
+## How to get Data from NCDC
+
+
+```{r}
+library(devtools)
+install.packages("rnoaa")
+```
+
+
+```{r}
+token <- "OdFHUZoLTPJDspzZNixzfoEhgvFBUTHU" 
+```
+
+
+
+```{r}
+library(rnoaa)
+stations <- ncdc_stations(
+  datasetid='GHCND', 
+  locationid='FIPS:39113',
+  token = token)
+```
+
+
+## How to get Data from BEA 
+
+
+```{r}
+install.packages(c("httr","devtools"))
+```
+
+
+```{r}
+library(httr)
+library(devtools)
+```
+
+
+
+```{r}
+set_config( config( ssl_verifypeer = 0L )) 
+install_github('us-bea/bea.R') 
+
+```
+
+
+```{r}
+library(beaR)
+```
+
+```{r}
+httr::set_config( config( ssl_verifypeer = 0L ))           #zero L
+devtools::install_github('us-bea/bea.R')
+```
+
+```{r}
+
+```
+
+
