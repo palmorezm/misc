@@ -64,13 +64,39 @@ ncdc_2014 <- ncdc(datasetid = "GHCND",
                   datatypeid = c("TMIN", "TMAX"))
 ncdc_2014$data
 
-# Select all states?
-# Add datatypes for additional varaibles 
+# Select states?
+# We select Alabama here
 AL_ncdc_2015 <- ncdc(datasetid = "GHCND", 
                   token = token,
                   startdate = '2015-01-01',
-                  enddate = '2015-12-31',
+                  enddate = '2015-01-31',
                   locationid = 'FIPS:01', 
-                  datatypeid = c("TMIN", "TMAX"))
+                  datatypeid = c("TMIN","TMAX"))
 AL_ncdc_2015$data
+
+
+
+# Then Virginia
+VA_ncdc_2015 <- ncdc(datasetid = "GHCND", 
+                     token = token,
+                     startdate = '2015-01-01',
+                     enddate = '2015-01-31',
+                     locationid = 'FIPS:51', 
+                     datatypeid = "TAVG")
+VA_ncdc_2015$data
+
+# Is the TAVG and mean of TMIN and TMAX equivalent? 
+AL_ncdc_2015_avg <- ncdc(datasetid = "GHCND", 
+                     token = token,
+                     startdate = '2015-01-01',
+                     enddate = '2015-01-31',
+                     locationid = 'FIPS:01', 
+                     datatypeid = c("TAVG"))
+# No, they are not, additionally commonalities only occur
+# with missing values - given how they are compiled (dates, order, etc..)
+# this is to be expected
+AL_ncdc_2015_avg$data == AL_ncdc_2015$data
+
+
+
 
