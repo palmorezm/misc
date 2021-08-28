@@ -6,8 +6,13 @@
 # A8D60910-9667-4857-B34C-7F7F8427214A
 
 # Required packages
+library(devtools)
 library(jsonlite)
 library(httr)
+
+httr::set_config( config( ssl_verifypeer = 0L ))           #zero L
+devtools::install_github('us-bea/bea.R')
+
 
 # Make a request
 JSON.available <- httr::GET(url = 
@@ -60,7 +65,7 @@ df.tables <- tables$BEAAPI$Results$ParamValue
 df <- data.frame(df.tables)
 
 # Check that personal income summary again for per capita income
-ipc <- GET("https://apps.bea.gov/api/data/?UserID=A8D60910-9667-4857-B34C-7F7F8427214A&method=GetData&datasetname=Regional&TableName=MARPP&LineCode=1&Year=LAST5,2019&GeoFips=MSA&ResultFormat=json")
+ipc <- GET("https://apps.bea.gov/api/data/?UserID=A8D60910-9667-4857-B34C-7F7F8427214A&method=GetData&datasetname=Regional&TableName=&LineCode=1&Year=LAST5,2019&GeoFips=MSA&ResultFormat=json")
 ipc
 ipc.content <- fromJSON(rawToChar(ipc$content))
 ipc.data <- ipc.content$BEAAPI$Results$Data
