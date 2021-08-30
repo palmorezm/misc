@@ -1,0 +1,84 @@
+---
+title: "Untitled"
+author: "Zachary Palmore"
+date: "8/30/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 
+
+
+```{r}
+library(dplyr)
+library(maps)
+data("county.fips")
+df_pop_county <- data.frame(region=county.fips$fips)
+df_pop_county$value <- county.fips$fips
+y <- df_pop_county$value
+df_pop_county$color <- gray(y / max(y))
+
+counties <- county.fips %>% 
+  left_join(df_pop_county, by = c('fips' = 'region'))
+map("county", fill = TRUE, col = counties$color)
+```
+
+
+```{r}
+# rpp[9:nrow(rpp),1:15]
+county.fips.rpp <- rpp[9:nrow(rpp),1:15]
+df_pop_county.rpp <- data.frame(region=county.fips.rpp$GeoFips)
+df_pop_county.rpp$value <- county.fips.rpp$`2019`
+y <- df_pop_county.rpp$value
+df_pop_county.rpp$color <- gray(df_pop_county.rpp$value)
+df_pop_county.rpp
+
+gray(df_pop_county.rpp$value)
+
+counties.rpp <- county.fips.rpp %>% 
+  left_join(df_pop_county.rpp, by = c('region' = 'region'))
+map("county", fill = TRUE, col = counties$color)
+map("county", fill = TRUE, col = df_pop_county.rpp$region)
+map("county", fill = TRUE, col = df_pop_county.rpp$value)
+```
+
+
+```{r}
+library(plotrix)
+df_pop_county.rpp$col <- color.scale(df_pop_county.rpp$value)
+map("county", fill = TRUE, col = df_pop_county.rpp$col)
+```
+
+```{r}
+df_pop_county.rpp$col <- color.scale(df_pop_county.rpp$value, alpha = 0.5, color.spec = "hsv")
+map("county", fill = TRUE, col = df_pop_county.rpp$col)
+```
+
+
+```{r}
+library(ggplot2)
+df_pop_county.rpp$scale[1:1541,] <- scale_fill_gradient(df_pop_county.rpp$value)
+map("county", fill = TRUE, col = df_pop_county.rpp$col)
+df_pop_county.rpp$vec <- scale(df_pop_county.rpp$value, center = F, scale = T)
+df.vec <- df_pop_county.rpp$vec
+df.vec
+df_pop_county.rpp %>%
+  ggplot(aes(vec$vec)) + 
+  scale_color_gradient(vec, low = "blue", high = "orange")
+
+df
+```
+
+
+```{r}
+library(RColorBrewer)
+display.brewer.all()
+RColorBrewer::brewer.pal(df_pop_county.rpp$value)
+```
+
+
+
+

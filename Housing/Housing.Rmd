@@ -57,11 +57,11 @@ plot(selection)
 
 
 ```{r}
-hist(selection$X2004.09.30, ylim = c(0,2500), col = "pink")
-hist(selection$X2004.06.30, ylim = c(0,2500), col = "light blue")
-hist(selection$X2004.07.31, ylim = c(0,2500), col = "tan")
-hist(selection$X2019.07.31, ylim = c(0,2500), col = "light yellow")
-hist(selection$X1996.01.31, ylim = c(0,2500), col = "light grey")
+hist(selection$X2004.09.30, ylim = c(0,2500), col = "pink", xlim = c(0, 1000000))
+hist(selection$X2004.06.30, ylim = c(0,2500), col = "light blue", xlim = c(0, 1000000))
+hist(selection$X2004.07.31, ylim = c(0,2500), col = "tan", xlim = c(0, 1000000))
+hist(selection$X2019.07.31, ylim = c(0,2500), col = "light yellow", xlim = c(0, 1000000))
+hist(selection$X1996.01.31, ylim = c(0,2500), col = "light grey", xlim = c(0, 1000000))
 ```
 
 
