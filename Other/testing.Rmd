@@ -32,16 +32,6 @@ map("county", fill = TRUE, col = counties$color)
 county.fips.rpp <- rpp[9:nrow(rpp),1:15]
 df_pop_county.rpp <- data.frame(region=county.fips.rpp$GeoFips)
 df_pop_county.rpp$value <- county.fips.rpp$`2019`
-y <- df_pop_county.rpp$value
-df_pop_county.rpp$color <- gray(df_pop_county.rpp$value)
-df_pop_county.rpp
-
-gray(df_pop_county.rpp$value)
-
-counties.rpp <- county.fips.rpp %>% 
-  left_join(df_pop_county.rpp, by = c('region' = 'region'))
-map("county", fill = TRUE, col = counties$color)
-map("county", fill = TRUE, col = df_pop_county.rpp$region)
 map("county", fill = TRUE, col = df_pop_county.rpp$value)
 ```
 
@@ -64,19 +54,26 @@ df_pop_county.rpp$scale[1:1541,] <- scale_fill_gradient(df_pop_county.rpp$value)
 map("county", fill = TRUE, col = df_pop_county.rpp$col)
 df_pop_county.rpp$vec <- scale(df_pop_county.rpp$value, center = F, scale = T)
 df.vec <- df_pop_county.rpp$vec
-df.vec
 df_pop_county.rpp %>%
-  ggplot(aes(vec$vec)) + 
-  scale_color_gradient(vec, low = "blue", high = "orange")
-
-df
+  ggplot(aes(df_pop_county.rpp$value)) + geom_point() +
+  scale_color_gradient(value, low = "blue", high = "orange")
+df_pop_county.rpp %>%
+  ggplot(aes(region, value)) +
+  geom_point(aes(color = col)) + 
+  theme(legend.position = "none",
+        axis.text.x = element_blank(), 
+        axis.title.x = element_blank()) 
 ```
 
 
 ```{r}
-library(RColorBrewer)
-display.brewer.all()
-RColorBrewer::brewer.pal(df_pop_county.rpp$value)
+df_pop_county.rpp %>%
+  ggplot(aes(region, value)) +
+  geom_point(aes(color = col)) + 
+  theme(legend.position = "none",
+        axis.text.x = element_blank(), 
+        axis.title.x = element_blank()) + 
+  geom_text(label = rownames(df_pop_county.rpp))
 ```
 
 
