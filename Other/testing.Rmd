@@ -77,5 +77,41 @@ df_pop_county.rpp %>%
 ```
 
 
+```{r}
+# Requires tidy mipd data
+library(plotrix)
+library(maps)
+data("county.fips")
+df_pop_county <- data.frame(region=county.fips$fips)
+df_pop_county$value <- county.fips$fips
+y <- df_pop_county$value
+df_pop_county$color <- gray(y / max(y))
+
+counties <- county.fips %>% 
+  left_join(df_pop_county, by = c('fips' = 'region'))
+map("county", fill = TRUE, col = counties$color)
+
+# Visualize as histogram
+mipd <- mipd[-1,]
+map("county", fill = TRUE, col = )
+color.scale(sel)
+sel <- mipd %>% 
+  filter(key == 2009) 
+sel$value <- as.numeric(sel$value)
+sel$col <- color.scale(sel$value)
+map("county", fill = T, col = sel$col)
+# Visuals
+theme_set(theme_bw())
+ggplot(sel, aes(value)) + 
+  geom_histogram(aes(fill=col)) + 
+  theme(legend.position = "none")
+ggplot(sel, aes(GeoName)) + 
+  geom_point(aes(y = value, fill=col)) + 
+  theme(legend.position = "none", 
+        axis.text.y = element_blank()) + 
+  coord_flip()
+ggplot(sel, aes(value)) + geom_boxplot() + geom_an
+```
+
 
 
