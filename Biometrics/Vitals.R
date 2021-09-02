@@ -4,11 +4,34 @@ library(dplyr)
 library(ggplot2)
 library(tidyr)
 
-vitals <- read.csv("https://raw.githubusercontent.com/palmorezm/misc/master/Biometrics/Vitals1.csv")
+# Data source (published publicly)
+vitals <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTcFzJXYjKvyhUI3my6VTaqRfWG0-pHldCRvf3nndHPIVMh-C1BqzGvB8P9p-GZZ63fbXdS4i0O8a5C/pub?output=csv")
 
-vitals2 <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTcFzJXYjKvyhUI3my6VTaqRfWG0-pHldCRvf3nndHPIVMh-C1BqzGvB8P9p-GZZ63fbXdS4i0O8a5C/pub?output=csv")
+# Tidying
 
-vitals <- vitals2
+# Missings at 9/1 2021 10:53 PM
+sum(is.na(vitals)) # 726 
+which(is.na(vitals)) # Too many to sort 
+vitals[is.na(vitals)] <- 0 # Replace with 0; works for all but meal notes - categorical/factor
+class(vitals$Meal.Notes) # character at start
+sum(is.na(vitals)) # 0 missing now, however, misleading
+# This should be reviewed 
+
+# Check BPS1
+vitals %>%
+  dplyr::filter(BPS1 > 0) %>%
+  summarise(AVGBPS1 = mean(BPS1)) # 122.1702 
+
+# Check BPS2
+vitals %>%
+  dplyr::filter(BPS2 > 0) %>%
+  summarise(AVGBPS2 = mean(BPS2)) # 118.0638 
+
+# Check BPS3
+vitals %>%
+  dplyr::filter(BPS3 > 10)
+  summarise(AVGBPS3 = mean(BPS3)) # NA
+
 
 df <- vitals %>% 
   mutate(AVGBPS = (BPS1 + BPS2 + BPS3)/ 3,
@@ -62,5 +85,7 @@ df.excludeszero %>%
   geom_histogram(stat = "count", binwidth = 5) + 
   theme_bw() +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+
 
 
