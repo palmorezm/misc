@@ -31,6 +31,7 @@ vitals %>%
 vitals %>%
   dplyr::filter(BPS3 > 10)
   summarise(AVGBPS3 = mean(BPS3)) # NA
+  # This needs to be imputed differently
 
 
 df <- vitals %>% 
