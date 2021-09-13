@@ -20,12 +20,13 @@ sum(is.na(vitals)) # 0 missing now, however, misleading
 # Check BPS1
 vitals %>%
   dplyr::filter(BPS1 > 0) %>%
-  summarise(AVGBPS1 = mean(BPS1)) # 122.1702 
+  summarise(AVGBPS1 = mean(BPS1)) # 122.1702 -> 121.9808 (9/13) 
+# Be aware numbers change as data is added
 
 # Check BPS2
 vitals %>%
   dplyr::filter(BPS2 > 0) %>%
-  summarise(AVGBPS2 = mean(BPS2)) # 118.0638 
+  summarise(AVGBPS2 = mean(BPS2)) # 118.0638 -> 127.5673 (9/13)
 
 # Check BPS3
 vitals %>%
@@ -86,6 +87,38 @@ df.excludeszero %>%
   theme_bw() +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
+plot(vitals)
+
+df <- imputeMissings::impute(vitals, method = "median/mode", flag = F)
+View(df)
 
 
+rowAny <- function(x) rowSums(x) -> 0 
+df %>% 
+  filter(rowAny(across(where(is.numeric), ~.x > 0)))
+# Error: Problem with `filter()` input `..1`.
+# i Input `..1` is `rowAny(across(where(is.numeric), ~.x > 0))`.
+# x invalid (do_set) left-hand side to assignment
 
+
+df %>% 
+  select_if(is.numeric) %>% 
+  View()
+
+df.num.gt0 <- df %>% 
+  select_if(is.numeric) %>% 
+  gather(key, value) %>% 
+  filter(value > 0) 
+
+ggplot(df.num.gt0, aes(key, value)) + 
+  geom_boxplot(aes(fill = key)) + ylim(0,200) # One outlier in BPS2 above 900 
+
+BPD1.df <- df %>% 
+  select_if(is.numeric) %>% 
+  gather(key, value, -BPD1) %>% 
+  filter(value > 0)
+
+BPD1.lm <- lm(BPD1 ~ ., data = BPD1.df) 
+summary(BPD1.lm)
+
+plot(BPD1.lm)
