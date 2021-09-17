@@ -1,12 +1,11 @@
 
-# Data Visualization
-# Introduction to Seaborn 
-# Data Cleaning 
+# Data Cleaning
+# Topic: Masculinity
 # Source: FiveThirtyEight
 
 # Import the results from remote 
 masculinity_results <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/masculinity-survey/masculinity-survey.csv")
-head(masculinity) # Shows no missing values 
+head(masculinity_results) # Shows no missing values 
 
 # Notes
 # The proportions are derrived from the sample size 
