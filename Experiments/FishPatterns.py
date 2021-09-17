@@ -13,4 +13,11 @@ import seaborn as sns
 pickerel = pd.read_csv("https://raw.githubusercontent.com/palmorezm/misc/master/Experiments/Pickerel.csv")
 print(pickerel)
 
+sns.scatterplot('Length', 'Weight', data=pickerel, hue='O2', size='PPM', alpha=0.10)
+plt.show()
+
+
+
+
+
 
