@@ -1,0 +1,30 @@
+---
+title: "Portfolio"
+author: "Zachary Palmore"
+date: "12/23/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Testing OneDrive Imports
+
+```{r}
+df <- read.csv("https://spsmailcuny-my.sharepoint.com/:x:/g/personal/zachary_palmore20_spsmail_cuny_edu/EX30TP2o9uZBpgpT3kQ0fs8BW0o0y1FP7ZcfShDaKZy6ig?e=2j7np3")
+head(df)
+df$X..DOCTYPE.html.
+```
+
+
+
+```{r}
+df <- read.delim("https://spsmailcuny-my.sharepoint.com/:x:/g/personal/zachary_palmore20_spsmail_cuny_edu/EX30TP2o9uZBpgpT3kQ0fs8BW0o0y1FP7ZcfShDaKZy6ig?e=2j7np3")
+```
+
+```{r}
+read.csv("https://spsmailcuny-my.sharepoint.com/:x:/g/personal/zachary_palmore20_spsmail_cuny_edu/EX30TP2o9uZBpgpT3kQ0fs8BW0o0y1FP7ZcfShDaKZy6ig?e=2j7np3")
+readxl::read_xlsx("https://spsmailcuny-my.sharepoint.com/:x:/g/personal/zachary_palmore20_spsmail_cuny_edu/EX30TP2o9uZBpgpT3kQ0fs8BW0o0y1FP7ZcfShDaKZy6ig?e=2j7np3")
+```
+
