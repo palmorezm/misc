@@ -33,6 +33,8 @@ eng <- tesseract("eng")
 text <- tesseract::ocr(image4, engine = eng)
 cat(text)
 
+# We are looking specifically for the specified number; 
+# maybe make black and white first?
 nums <- tesseract(options = list(tessedit_char_whitelist = ".0123456789"))
 text <- tesseract::ocr(image1, engine = nums) 
 cat(text)
