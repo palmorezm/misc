@@ -19,7 +19,6 @@ library(tidyverse)
 
 
 ```{r}
-
 housing <- read.csv("https://raw.githubusercontent.com/palmorezm/misc/master/Housing/county_zhvi.csv")
 head(housing, 8)
 ```
@@ -65,4 +64,16 @@ hist(selection$X1996.01.31, ylim = c(0,2500), col = "light grey", xlim = c(0, 10
 ```
 
 
+
+```{r garbage-review}
+library(dplyr)
+# subset.data.frame(housing, 
+#                  select =  c("StateName", "State", "2004-09-30", "2004-06-30", "2004-07-31"))
+
+selection <- housing %>%
+  dplyr::select(c("StateName", "State", "X2004.09.30", "X2004.06.30", "X2004.07.31", "X1996.01.31","X2019.07.31")) %>%
+  group_by(State) %>% 
+  arrange(desc(State))
+head(selection)
+```
 
