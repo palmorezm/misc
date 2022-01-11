@@ -51,6 +51,8 @@ for(i in 1:length(files)){#loop over file names
   
 }
 
-
-
+# Numeric Notes
+# tesseract(options = list(tessedit_char_whitelist = ".0123456789"))
+# Looks specifically for the characters "0-9" and the "." symbol
+# 
 
