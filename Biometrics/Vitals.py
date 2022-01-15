@@ -11,5 +11,5 @@ print (nas)
 
 vitals[vitals.isna()]
 
-
+plt.plot(x = Weight, y = Height, data=vitals)
 
