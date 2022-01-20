@@ -1,0 +1,14 @@
+---
+title: "LEED Waste Audit Report"
+author: "Zachary Palmore"
+date: "1/20/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Summary
+
