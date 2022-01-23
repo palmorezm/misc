@@ -16,3 +16,10 @@ Some words go here.
 
 Review for reading in different pages in xlsx. 
 https://rpubs.com/tf_peterson/readxl_import
+
+```{r}
+xl_data <- "https://github.com/palmorezm/misc/blob/master/Experiments/LEED_Audit.xlsx"
+library(readxl)
+read_xlsx(xl_data)
+```
+
