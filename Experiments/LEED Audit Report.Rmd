@@ -13,3 +13,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Summary
 
 Some words go here. 
+
+Review for reading in different pages in xlsx. 
+https://rpubs.com/tf_peterson/readxl_import
