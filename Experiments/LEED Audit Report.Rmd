@@ -21,5 +21,6 @@ https://rpubs.com/tf_peterson/readxl_import
 xl_data <- "https://github.com/palmorezm/misc/blob/master/Experiments/LEED_Audit.xlsx"
 library(readxl)
 read_xlsx(xl_data)
+# It must be downloaded first or turned into a csv
 ```
 
