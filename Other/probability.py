@@ -10,8 +10,9 @@ def likelihood_estimate(features, labels):
   f1 = 0.0
   y = 0.0
   
+# Update accordingly:
   for i in labels:
-    if labels[i] == 1:
+    if i == 1:
       y = y + 1
 
   for i in labels:
