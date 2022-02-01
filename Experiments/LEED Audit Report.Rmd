@@ -22,5 +22,7 @@ xl_data <- "https://github.com/palmorezm/misc/blob/master/Experiments/LEED_Audit
 library(readxl)
 read_xlsx(xl_data)
 # It must be downloaded first or turned into a csv
+# Perhaps it can downloaded under R with a specific name and imported into the workspace
+# Then its sheets/tabs can be selected and turned into dfs 
 ```
 
