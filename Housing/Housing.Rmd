@@ -16,7 +16,7 @@ library(tidyverse)
 
 ## Zillow Data
 
-
+What does this Zillow data show? Is it the number of houses sold, recently sold, put up for sale, rented or all of the above? Please review. 
 
 ```{r}
 housing <- read.csv("https://raw.githubusercontent.com/palmorezm/misc/master/Housing/county_zhvi.csv")
