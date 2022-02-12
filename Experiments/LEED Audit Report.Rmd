@@ -24,3 +24,6 @@ read_xlsx(xl_data)
 # It must be downloaded first or turned into a csv
 ```
 
+
+Look for the filepath again (it has likely changed)
+
