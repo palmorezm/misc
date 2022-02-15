@@ -21,6 +21,7 @@ https://rpubs.com/tf_peterson/readxl_import
 xl_data <- "https://github.com/palmorezm/misc/blob/master/Experiments/LEED_Audit.xlsx"
 library(readxl)
 read_xlsx(xl_data)
+read.csv(csv_data) # This method is preferred
 # It must be downloaded first or turned into a csv
 # Perhaps it can downloaded under R with a specific name and imported into the workspace
 # Then its sheets/tabs can be selected and turned into dfs 
