@@ -56,3 +56,7 @@ for(i in 1:length(files)){#loop over file names
 # Looks specifically for the characters "0-9" and the "." symbol
 # Review py equivalent
 
+# -------------- Image OCR Test ---------------- #
+
+
+
