@@ -65,6 +65,6 @@ for(i in 1:length(files)){#loop over file names
 
 ####
 
-
+# -------------- End Image OCR Test ---------------- #
 
 
