@@ -1,0 +1,25 @@
+---
+title: "Notes"
+author: "Z. Palmore"
+date: "5/4/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Quick Notes
+
+Data for COVID-19 is coded by hand. There is not existing structure in the ICD-10 classicification system that captures the disease. According to the CDC this takes an average of 7 days. 
+
+We want to use this data for surveillance. We use mortality reports from the United States CDC to guide our analysis. They explicitly ask the same few questions on each year's report. We try to answer these questions at the level of Rock County. 
+
+```{r}
+
+```
+
+
+
+
