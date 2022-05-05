@@ -457,6 +457,7 @@ reg_mort <- rbind(REG2018, REG2019, REG2020, REG2021, REG2022)
 ### ----- End Yearly Data ----- ### 
 # Result is stored as reg_mort
 
+
 save(REG_MORT, reg_mort, file = "Data/reg_mort.rdata")
 
 
