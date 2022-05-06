@@ -1,0 +1,613 @@
+"Notes"	"County"	"County Code"	"ICD Chapter"	"ICD Chapter Code"	Deaths	Population	Crude Rate	Crude Rate Lower 95% Confidence Interval	Crude Rate Upper 95% Confidence Interval	Crude Rate Standard Error
+	"Adams County, WI"	"55001"	"Neoplasms"	"C00-D48"	70	21185	330.4225	257.5808	417.4690	39.4930
+	"Adams County, WI"	"55001"	"Diseases of the circulatory system"	"I00-I99"	67	21185	316.2615	245.0995	401.6395	38.6375
+	"Adams County, WI"	"55001"	"Diseases of the respiratory system"	"J00-J98"	23	21185	108.5674	68.8219	162.9043	22.6379
+	"Adams County, WI"	"55001"	"External causes of morbidity and mortality"	"V01-Y89"	14	21185	Unreliable	36.1291	110.8785	17.6618
+	"Ashland County, WI"	"55003"	"Neoplasms"	"C00-D48"	45	16408	274.2565	200.0454	366.9771	40.8837
+	"Ashland County, WI"	"55003"	"Diseases of the nervous system"	"G00-G98"	15	16408	Unreliable	51.1662	150.7816	23.6042
+	"Ashland County, WI"	"55003"	"Diseases of the circulatory system"	"I00-I99"	53	16408	323.0132	241.9595	422.5077	44.3693
+	"Ashland County, WI"	"55003"	"Diseases of the respiratory system"	"J00-J98"	18	16408	Unreliable	65.0163	173.3773	25.8571
+	"Barron County, WI"	"55005"	"Neoplasms"	"C00-D48"	129	45968	280.6300	232.2021	329.0579	24.7081
+	"Barron County, WI"	"55005"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	12	45968	Unreliable	13.4888	45.6004	7.5359
+	"Barron County, WI"	"55005"	"Mental and behavioural disorders"	"F01-F99"	18	45968	Unreliable	23.2072	61.8860	9.2296
+	"Barron County, WI"	"55005"	"Diseases of the nervous system"	"G00-G98"	43	45968	93.5433	67.6973	126.0019	14.2652
+	"Barron County, WI"	"55005"	"Diseases of the circulatory system"	"I00-I99"	158	45968	343.7174	290.1218	397.3130	27.3447
+	"Barron County, WI"	"55005"	"Diseases of the respiratory system"	"J00-J98"	51	45968	110.9467	82.6076	145.8750	15.5357
+	"Barron County, WI"	"55005"	"Diseases of the digestive system"	"K00-K92"	12	45968	Unreliable	13.4888	45.6004	7.5359
+	"Barron County, WI"	"55005"	"Diseases of the genitourinary system"	"N00-N98"	16	45968	Unreliable	19.8952	56.5242	8.7017
+	"Barron County, WI"	"55005"	"External causes of morbidity and mortality"	"V01-Y89"	30	45968	65.2628	44.0328	93.1666	11.9153
+	"Bayfield County, WI"	"55007"	"Neoplasms"	"C00-D48"	41	15172	270.2346	193.9258	366.6030	42.2036
+	"Bayfield County, WI"	"55007"	"Diseases of the circulatory system"	"I00-I99"	34	15172	224.0970	155.1939	313.1532	38.4323
+	"Bayfield County, WI"	"55007"	"Diseases of the respiratory system"	"J00-J98"	10	15172	Unreliable	31.6069	121.2128	20.8429
+	"Brown County, WI"	"55009"	"Certain infectious and parasitic diseases"	"A00-B99"	17	240191	Unreliable	4.1230	11.3321	1.7166
+	"Brown County, WI"	"55009"	"Neoplasms"	"C00-D48"	393	240191	163.6198	147.4429	179.7967	8.2535
+	"Brown County, WI"	"55009"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	47	240191	19.5678	14.3776	26.0210	2.8543
+	"Brown County, WI"	"55009"	"Mental and behavioural disorders"	"F01-F99"	85	240191	35.3885	28.2669	43.7586	3.8384
+	"Brown County, WI"	"55009"	"Diseases of the nervous system"	"G00-G98"	121	240191	50.3766	41.4004	59.3528	4.5797
+	"Brown County, WI"	"55009"	"Diseases of the circulatory system"	"I00-I99"	568	240191	236.4785	217.0305	255.9264	9.9224
+	"Brown County, WI"	"55009"	"Diseases of the respiratory system"	"J00-J98"	133	240191	55.3726	45.9618	64.7834	4.8014
+	"Brown County, WI"	"55009"	"Diseases of the digestive system"	"K00-K92"	60	240191	24.9801	19.0626	32.1544	3.2249
+	"Brown County, WI"	"55009"	"Diseases of the musculoskeletal system and connective tissue"	"M00-M99"	11	240191	Unreliable	2.2862	8.1943	1.3808
+	"Brown County, WI"	"55009"	"Diseases of the genitourinary system"	"N00-N98"	47	240191	19.5678	14.3776	26.0210	2.8543
+	"Brown County, WI"	"55009"	"Congenital malformations, deformations and chromosomal abnormalities"	"Q00-Q99"	10	240191	Unreliable	1.9965	7.6566	1.3166
+	"Brown County, WI"	"55009"	"External causes of morbidity and mortality"	"V01-Y89"	105	240191	43.7152	35.3535	52.0769	4.2662
+	"Buffalo County, WI"	"55011"	"Neoplasms"	"C00-D48"	27	13908	194.1329	127.9355	282.4536	37.3609
+	"Buffalo County, WI"	"55011"	"Diseases of the circulatory system"	"I00-I99"	50	13908	359.5053	266.8320	473.9646	50.8417
+	"Buffalo County, WI"	"55011"	"External causes of morbidity and mortality"	"V01-Y89"	11	13908	Unreliable	39.4823	141.5162	23.8469
+	"Burnett County, WI"	"55013"	"Neoplasms"	"C00-D48"	50	16056	311.4101	231.1348	410.5568	44.0400
+	"Burnett County, WI"	"55013"	"Mental and behavioural disorders"	"F01-F99"	14	16056	Unreliable	47.6703	146.2981	23.3038
+	"Burnett County, WI"	"55013"	"Diseases of the circulatory system"	"I00-I99"	56	16056	348.7793	263.4644	452.9178	46.6076
+	"Burnett County, WI"	"55013"	"Diseases of the respiratory system"	"J00-J98"	12	16056	Unreliable	38.6181	130.5531	21.5751
+	"Burnett County, WI"	"55013"	"External causes of morbidity and mortality"	"V01-Y89"	13	16056	Unreliable	43.1115	138.4553	22.4561
+	"Calumet County, WI"	"55015"	"Neoplasms"	"C00-D48"	51	46809	108.9534	81.1234	143.2541	15.2565
+	"Calumet County, WI"	"55015"	"Mental and behavioural disorders"	"F01-F99"	10	46809	Unreliable	10.2446	39.2882	6.7557
+	"Calumet County, WI"	"55015"	"Diseases of the nervous system"	"G00-G98"	10	46809	Unreliable	10.2446	39.2882	6.7557
+	"Calumet County, WI"	"55015"	"Diseases of the circulatory system"	"I00-I99"	100	46809	213.6341	171.7618	255.5064	21.3634
+	"Calumet County, WI"	"55015"	"Diseases of the respiratory system"	"J00-J98"	17	46809	Unreliable	21.1566	58.1484	8.8084
+	"Calumet County, WI"	"55015"	"Diseases of the digestive system"	"K00-K92"	10	46809	Unreliable	10.2446	39.2882	6.7557
+	"Calumet County, WI"	"55015"	"Diseases of the genitourinary system"	"N00-N98"	15	46809	Unreliable	17.9353	52.8536	8.2740
+	"Calumet County, WI"	"55015"	"External causes of morbidity and mortality"	"V01-Y89"	27	46809	57.6812	38.0125	83.9233	11.1008
+	"Chippewa County, WI"	"55017"	"Neoplasms"	"C00-D48"	144	60271	238.9209	199.8971	277.9446	19.9101
+	"Chippewa County, WI"	"55017"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	13	60271	Unreliable	11.4848	36.8841	5.9822
+	"Chippewa County, WI"	"55017"	"Mental and behavioural disorders"	"F01-F99"	20	60271	33.1835	20.2694	51.2492	7.4200
+	"Chippewa County, WI"	"55017"	"Diseases of the nervous system"	"G00-G98"	18	60271	Unreliable	17.6999	47.1997	7.0393
+	"Chippewa County, WI"	"55017"	"Diseases of the circulatory system"	"I00-I99"	139	60271	230.6250	192.2847	268.9653	19.5614
+	"Chippewa County, WI"	"55017"	"Diseases of the respiratory system"	"J00-J98"	38	60271	63.0486	44.6169	86.5392	10.2278
+	"Chippewa County, WI"	"55017"	"Diseases of the digestive system"	"K00-K92"	16	60271	Unreliable	15.1739	43.1104	6.6367
+	"Chippewa County, WI"	"55017"	"Diseases of the genitourinary system"	"N00-N98"	14	60271	Unreliable	12.6992	38.9733	6.2081
+	"Chippewa County, WI"	"55017"	"External causes of morbidity and mortality"	"V01-Y89"	45	60271	74.6628	54.4598	99.9048	11.1301
+	"Clark County, WI"	"55019"	"Neoplasms"	"C00-D48"	66	34399	191.8660	148.3892	244.1016	23.6171
+	"Clark County, WI"	"55019"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	13	34399	Unreliable	20.1226	64.6251	10.4816
+	"Clark County, WI"	"55019"	"Mental and behavioural disorders"	"F01-F99"	17	34399	Unreliable	28.7892	79.1264	11.9861
+	"Clark County, WI"	"55019"	"Diseases of the nervous system"	"G00-G98"	18	34399	Unreliable	31.0122	82.6993	12.3336
+	"Clark County, WI"	"55019"	"Diseases of the circulatory system"	"I00-I99"	108	34399	313.9626	254.7489	373.1763	30.2111
+	"Clark County, WI"	"55019"	"Diseases of the respiratory system"	"J00-J98"	32	34399	93.0260	63.6298	131.3247	16.4448
+	"Clark County, WI"	"55019"	"Diseases of the genitourinary system"	"N00-N98"	10	34399	Unreliable	13.9405	53.4620	9.1929
+	"Clark County, WI"	"55019"	"External causes of morbidity and mortality"	"V01-Y89"	24	34399	69.7695	44.7027	103.8114	14.2416
+	"Columbia County, WI"	"55021"	"Neoplasms"	"C00-D48"	112	55820	200.6449	163.4850	237.8049	18.9592
+	"Columbia County, WI"	"55021"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	17	55820	Unreliable	17.7413	48.7616	7.3864
+	"Columbia County, WI"	"55021"	"Mental and behavioural disorders"	"F01-F99"	26	55820	46.5783	30.4263	68.2479	9.1348
+	"Columbia County, WI"	"55021"	"Diseases of the nervous system"	"G00-G98"	27	55820	48.3698	31.8762	70.3756	9.3088
+	"Columbia County, WI"	"55021"	"Diseases of the circulatory system"	"I00-I99"	167	55820	299.1759	253.8001	344.5517	23.1509
+	"Columbia County, WI"	"55021"	"Diseases of the respiratory system"	"J00-J98"	33	55820	59.1186	40.6943	83.0244	10.2912
+	"Columbia County, WI"	"55021"	"Diseases of the digestive system"	"K00-K92"	19	55820	Unreliable	20.4932	53.1544	7.8088
+	"Columbia County, WI"	"55021"	"External causes of morbidity and mortality"	"V01-Y89"	44	55820	78.8248	57.2741	105.8183	11.8833
+	"Crawford County, WI"	"55023"	"Neoplasms"	"C00-D48"	50	16953	294.9331	218.9052	388.8338	41.7098
+	"Crawford County, WI"	"55023"	"Diseases of the circulatory system"	"I00-I99"	69	16953	407.0076	316.6763	515.0925	48.9980
+	"Crawford County, WI"	"55023"	"Diseases of the respiratory system"	"J00-J98"	10	16953	Unreliable	28.2864	108.4787	18.6532
+	"Crawford County, WI"	"55023"	"External causes of morbidity and mortality"	"V01-Y89"	15	16953	Unreliable	49.5213	145.9343	22.8454
+	"Dane County, WI"	"55025"	"Certain infectious and parasitic diseases"	"A00-B99"	31	465018	6.6664	4.5295	9.4624	1.1973
+	"Dane County, WI"	"55025"	"Neoplasms"	"C00-D48"	674	465018	144.9406	133.9981	155.8831	5.5829
+	"Dane County, WI"	"55025"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	87	465018	18.7090	14.9851	23.0775	2.0058
+	"Dane County, WI"	"55025"	"Mental and behavioural disorders"	"F01-F99"	148	465018	31.8267	26.6991	36.9544	2.6161
+	"Dane County, WI"	"55025"	"Diseases of the nervous system"	"G00-G98"	183	465018	39.3533	33.6515	45.0551	2.9091
+	"Dane County, WI"	"55025"	"Diseases of the circulatory system"	"I00-I99"	808	465018	173.7567	161.7757	185.7377	6.1127
+	"Dane County, WI"	"55025"	"Diseases of the respiratory system"	"J00-J98"	243	465018	52.2560	45.6857	58.8264	3.3522
+	"Dane County, WI"	"55025"	"Diseases of the digestive system"	"K00-K92"	100	465018	21.5045	17.2897	25.7194	2.1505
+	"Dane County, WI"	"55025"	"Diseases of the musculoskeletal system and connective tissue"	"M00-M99"	15	465018	Unreliable	1.8054	5.3203	0.8329
+	"Dane County, WI"	"55025"	"Diseases of the genitourinary system"	"N00-N98"	59	465018	12.6877	9.6585	16.3662	1.6518
+	"Dane County, WI"	"55025"	"Certain conditions originating in the perinatal period"	"P00-P96"	10	465018	Unreliable	1.0312	3.9548	0.6800
+	"Dane County, WI"	"55025"	"Congenital malformations, deformations and chromosomal abnormalities"	"Q00-Q99"	12	465018	Unreliable	1.3334	4.5077	0.7449
+	"Dane County, WI"	"55025"	"External causes of morbidity and mortality"	"V01-Y89"	218	465018	46.8799	40.6567	53.1031	3.1751
+	"Dodge County, WI"	"55027"	"Certain infectious and parasitic diseases"	"A00-B99"	16	89003	Unreliable	10.2754	29.1934	4.4942
+	"Dodge County, WI"	"55027"	"Neoplasms"	"C00-D48"	220	89003	247.1827	214.5192	279.8462	16.6651
+	"Dodge County, WI"	"55027"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	25	89003	28.0889	18.1778	41.4649	5.6178
+	"Dodge County, WI"	"55027"	"Mental and behavioural disorders"	"F01-F99"	35	89003	39.3245	27.3911	54.6910	6.6471
+	"Dodge County, WI"	"55027"	"Diseases of the nervous system"	"G00-G98"	61	89003	68.5370	52.4253	88.0385	8.7753
+	"Dodge County, WI"	"55027"	"Diseases of the circulatory system"	"I00-I99"	322	89003	361.7856	322.2690	401.3021	20.1615
+	"Dodge County, WI"	"55027"	"Diseases of the respiratory system"	"J00-J98"	73	89003	82.0197	64.2903	103.1275	9.5997
+	"Dodge County, WI"	"55027"	"Diseases of the digestive system"	"K00-K92"	31	89003	34.8303	23.6654	49.4388	6.2557
+	"Dodge County, WI"	"55027"	"Diseases of the genitourinary system"	"N00-N98"	24	89003	26.9654	17.2773	40.1223	5.5043
+	"Dodge County, WI"	"55027"	"External causes of morbidity and mortality"	"V01-Y89"	53	89003	59.5486	44.6060	77.8907	8.1796
+	"Door County, WI"	"55029"	"Neoplasms"	"C00-D48"	64	28167	227.2162	174.9838	290.1506	28.4020
+	"Door County, WI"	"55029"	"Mental and behavioural disorders"	"F01-F99"	14	28167	Unreliable	27.1734	83.3941	13.2838
+	"Door County, WI"	"55029"	"Diseases of the nervous system"	"G00-G98"	21	28167	74.5553	46.1512	113.9660	16.2693
+	"Door County, WI"	"55029"	"Diseases of the circulatory system"	"I00-I99"	93	28167	330.1736	266.4930	404.4858	34.2374
+	"Door County, WI"	"55029"	"Diseases of the respiratory system"	"J00-J98"	29	28167	102.9574	68.9526	147.8643	19.1187
+	"Door County, WI"	"55029"	"Diseases of the digestive system"	"K00-K92"	13	28167	Unreliable	24.5748	78.9235	12.8006
+	"Door County, WI"	"55029"	"External causes of morbidity and mortality"	"V01-Y89"	17	28167	Unreliable	35.1588	96.6333	14.6381
+	"Douglas County, WI"	"55031"	"Neoplasms"	"C00-D48"	112	43815	255.6202	208.2787	302.9617	24.1538
+	"Douglas County, WI"	"55031"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	35	43815	79.8813	55.6405	111.0957	13.5024
+	"Douglas County, WI"	"55031"	"Mental and behavioural disorders"	"F01-F99"	29	43815	66.1874	44.3270	95.0563	12.2907
+	"Douglas County, WI"	"55031"	"Diseases of the nervous system"	"G00-G98"	21	43815	47.9288	29.6689	73.2644	10.4589
+	"Douglas County, WI"	"55031"	"Diseases of the circulatory system"	"I00-I99"	126	43815	287.5727	237.3595	337.7860	25.6190
+	"Douglas County, WI"	"55031"	"Diseases of the respiratory system"	"J00-J98"	52	43815	118.6808	88.6368	155.6345	16.4581
+	"Douglas County, WI"	"55031"	"Diseases of the digestive system"	"K00-K92"	25	43815	57.0581	36.9251	84.2291	11.4116
+	"Douglas County, WI"	"55031"	"Diseases of the genitourinary system"	"N00-N98"	12	43815	Unreliable	14.1516	47.8412	7.9062
+	"Douglas County, WI"	"55031"	"External causes of morbidity and mortality"	"V01-Y89"	26	43815	59.3404	38.7629	86.9473	11.6376
+	"Dunn County, WI"	"55033"	"Neoplasms"	"C00-D48"	65	42828	151.7699	117.1330	193.4428	18.8247
+	"Dunn County, WI"	"55033"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	13	42828	Unreliable	16.1623	51.9062	8.4187
+	"Dunn County, WI"	"55033"	"Mental and behavioural disorders"	"F01-F99"	17	42828	Unreliable	23.1231	63.5535	9.6271
+	"Dunn County, WI"	"55033"	"Diseases of the nervous system"	"G00-G98"	22	42828	51.3683	32.1920	77.7721	10.9518
+	"Dunn County, WI"	"55033"	"Diseases of the circulatory system"	"I00-I99"	88	42828	205.4731	164.7956	253.1490	21.9035
+	"Dunn County, WI"	"55033"	"Diseases of the respiratory system"	"J00-J98"	38	42828	88.7270	62.7885	121.7849	14.3934
+	"Dunn County, WI"	"55033"	"Diseases of the digestive system"	"K00-K92"	11	42828	Unreliable	12.8215	45.9561	7.7441
+	"Dunn County, WI"	"55033"	"External causes of morbidity and mortality"	"V01-Y89"	18	42828	Unreliable	24.9087	66.4232	9.9062
+	"Eau Claire County, WI"	"55035"	"Certain infectious and parasitic diseases"	"A00-B99"	15	95896	Unreliable	8.7546	25.7990	4.0387
+	"Eau Claire County, WI"	"55035"	"Neoplasms"	"C00-D48"	194	95896	202.3025	173.8345	230.7705	14.5245
+	"Eau Claire County, WI"	"55035"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	24	95896	25.0271	16.0354	37.2383	5.1086
+	"Eau Claire County, WI"	"55035"	"Mental and behavioural disorders"	"F01-F99"	43	95896	44.8402	32.4509	60.3994	6.8381
+	"Eau Claire County, WI"	"55035"	"Diseases of the nervous system"	"G00-G98"	43	95896	44.8402	32.4509	60.3994	6.8381
+	"Eau Claire County, WI"	"55035"	"Diseases of the circulatory system"	"I00-I99"	228	95896	237.7576	206.8956	268.6195	15.7459
+	"Eau Claire County, WI"	"55035"	"Diseases of the respiratory system"	"J00-J98"	99	95896	103.2368	83.9057	125.6867	10.3757
+	"Eau Claire County, WI"	"55035"	"Diseases of the digestive system"	"K00-K92"	24	95896	25.0271	16.0354	37.2383	5.1086
+	"Eau Claire County, WI"	"55035"	"Diseases of the genitourinary system"	"N00-N98"	28	95896	29.1983	19.4020	42.1997	5.5180
+	"Eau Claire County, WI"	"55035"	"External causes of morbidity and mortality"	"V01-Y89"	55	95896	57.3538	43.2069	74.6540	7.7336
+	"Florence County, WI"	"55037"	"Neoplasms"	"C00-D48"	14	4794	Unreliable	159.6567	489.9796	78.0488
+	"Florence County, WI"	"55037"	"Diseases of the circulatory system"	"I00-I99"	20	4794	417.1882	254.8310	644.3137	93.2861
+	"Fond du Lac County, WI"	"55039"	"Certain infectious and parasitic diseases"	"A00-B99"	17	99920	Unreliable	9.9111	27.2405	4.1264
+	"Fond du Lac County, WI"	"55039"	"Neoplasms"	"C00-D48"	210	99920	210.1681	181.7423	238.5940	14.5030
+	"Fond du Lac County, WI"	"55039"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	29	99920	29.0232	19.4374	41.6823	5.3895
+	"Fond du Lac County, WI"	"55039"	"Mental and behavioural disorders"	"F01-F99"	43	99920	43.0344	31.1440	57.9669	6.5627
+	"Fond du Lac County, WI"	"55039"	"Diseases of the nervous system"	"G00-G98"	60	99920	60.0480	45.8233	77.2938	7.7522
+	"Fond du Lac County, WI"	"55039"	"Diseases of the circulatory system"	"I00-I99"	356	99920	356.2850	319.2742	393.2958	18.8831
+	"Fond du Lac County, WI"	"55039"	"Diseases of the respiratory system"	"J00-J98"	72	99920	72.0576	56.3808	90.7444	8.4921
+	"Fond du Lac County, WI"	"55039"	"Diseases of the digestive system"	"K00-K92"	41	99920	41.0328	29.4460	55.6655	6.4083
+	"Fond du Lac County, WI"	"55039"	"Diseases of the genitourinary system"	"N00-N98"	19	99920	Unreliable	11.4485	29.6945	4.3624
+	"Fond du Lac County, WI"	"55039"	"External causes of morbidity and mortality"	"V01-Y89"	67	99920	67.0536	51.9659	85.1554	8.1919
+	"Forest County, WI"	"55041"	"Neoplasms"	"C00-D48"	32	9737	328.6433	224.7920	463.9458	58.0965
+	"Forest County, WI"	"55041"	"Diseases of the circulatory system"	"I00-I99"	44	9737	451.8846	328.3393	606.6324	68.1242
+	"Forest County, WI"	"55041"	"Diseases of the respiratory system"	"J00-J98"	16	9737	Unreliable	93.9246	266.8485	41.0804
+	"Grant County, WI"	"55043"	"Neoplasms"	"C00-D48"	111	50051	221.7738	180.5161	263.0315	21.0498
+	"Grant County, WI"	"55043"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	18	50051	Unreliable	21.3140	56.8375	8.4766
+	"Grant County, WI"	"55043"	"Mental and behavioural disorders"	"F01-F99"	19	50051	Unreliable	22.8553	59.2811	8.7089
+	"Grant County, WI"	"55043"	"Diseases of the nervous system"	"G00-G98"	35	50051	69.9287	48.7081	97.2540	11.8201
+	"Grant County, WI"	"55043"	"Diseases of the circulatory system"	"I00-I99"	210	50051	419.5720	362.8237	476.3204	28.9532
+	"Grant County, WI"	"55043"	"Diseases of the respiratory system"	"J00-J98"	50	50051	99.8981	74.1464	131.7037	14.1277
+	"Grant County, WI"	"55043"	"Diseases of the digestive system"	"K00-K92"	14	50051	Unreliable	15.2923	46.9314	7.4757
+	"Grant County, WI"	"55043"	"Diseases of the genitourinary system"	"N00-N98"	20	50051	39.9592	24.4083	61.7139	8.9352
+	"Grant County, WI"	"55043"	"External causes of morbidity and mortality"	"V01-Y89"	23	50051	45.9531	29.1301	68.9522	9.5819
+	"Green County, WI"	"55045"	"Neoplasms"	"C00-D48"	69	35869	192.3667	149.6728	243.4516	23.1582
+	"Green County, WI"	"55045"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	14	35869	Unreliable	21.3386	65.4872	10.4315
+	"Green County, WI"	"55045"	"Mental and behavioural disorders"	"F01-F99"	17	35869	Unreliable	27.6093	75.8836	11.4949
+	"Green County, WI"	"55045"	"Diseases of the nervous system"	"G00-G98"	21	35869	58.5464	36.2414	89.4946	12.7759
+	"Green County, WI"	"55045"	"Diseases of the circulatory system"	"I00-I99"	90	35869	250.9130	201.7642	308.4148	26.4486
+	"Green County, WI"	"55045"	"Diseases of the respiratory system"	"J00-J98"	33	35869	92.0014	63.3292	129.2041	16.0154
+	"Green County, WI"	"55045"	"Diseases of the genitourinary system"	"N00-N98"	11	35869	Unreliable	15.3090	54.8721	9.2465
+	"Green County, WI"	"55045"	"External causes of morbidity and mortality"	"V01-Y89"	28	35869	78.0618	51.8713	112.8212	14.7523
+	"Green Lake County, WI"	"55047"	"Neoplasms"	"C00-D48"	67	19195	349.0492	270.5097	443.2786	42.6432
+	"Green Lake County, WI"	"55047"	"Mental and behavioural disorders"	"F01-F99"	11	19195	Unreliable	28.6074	102.5375	17.2786
+	"Green Lake County, WI"	"55047"	"Diseases of the nervous system"	"G00-G98"	10	19195	Unreliable	24.9825	95.8083	16.4745
+	"Green Lake County, WI"	"55047"	"Diseases of the circulatory system"	"I00-I99"	91	19195	474.0818	381.7022	582.0681	49.6973
+	"Green Lake County, WI"	"55047"	"Diseases of the respiratory system"	"J00-J98"	22	19195	114.6132	71.8269	173.5255	24.4356
+	"Green Lake County, WI"	"55047"	"Diseases of the genitourinary system"	"N00-N98"	12	19195	Unreliable	32.3028	109.2034	18.0469
+	"Green Lake County, WI"	"55047"	"External causes of morbidity and mortality"	"V01-Y89"	11	19195	Unreliable	28.6074	102.5375	17.2786
+	"Iowa County, WI"	"55049"	"Neoplasms"	"C00-D48"	41	23589	173.8098	124.7294	235.7921	27.1445
+	"Iowa County, WI"	"55049"	"Mental and behavioural disorders"	"F01-F99"	10	23589	Unreliable	20.3290	77.9618	13.4057
+	"Iowa County, WI"	"55049"	"Diseases of the nervous system"	"G00-G98"	11	23589	Unreliable	23.2786	83.4375	14.0600
+	"Iowa County, WI"	"55049"	"Diseases of the circulatory system"	"I00-I99"	70	23589	296.7485	231.3303	374.9239	35.4682
+	"Iowa County, WI"	"55049"	"Diseases of the respiratory system"	"J00-J98"	20	23589	84.7853	51.7894	130.9441	18.9586
+	"Iowa County, WI"	"55049"	"External causes of morbidity and mortality"	"V01-Y89"	15	23589	Unreliable	35.5901	104.8805	16.4186
+	"Iron County, WI"	"55051"	"Neoplasms"	"C00-D48"	18	6236	Unreliable	171.0693	456.1857	68.0346
+	"Iron County, WI"	"55051"	"Diseases of the circulatory system"	"I00-I99"	34	6236	545.2213	377.5821	761.8922	93.5047
+	"Jackson County, WI"	"55053"	"Neoplasms"	"C00-D48"	41	20016	204.8361	146.9945	277.8827	31.9900
+	"Jackson County, WI"	"55053"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	11	20016	Unreliable	27.4341	98.3317	16.5699
+	"Jackson County, WI"	"55053"	"Diseases of the nervous system"	"G00-G98"	13	20016	Unreliable	34.5822	111.0631	18.0133
+	"Jackson County, WI"	"55053"	"Diseases of the circulatory system"	"I00-I99"	57	20016	284.7722	215.6836	368.9565	37.7190
+	"Jackson County, WI"	"55053"	"Diseases of the respiratory system"	"J00-J98"	15	20016	Unreliable	41.9432	123.6024	19.3494
+	"Jackson County, WI"	"55053"	"External causes of morbidity and mortality"	"V01-Y89"	20	20016	99.9201	61.0342	154.3185	22.3428
+	"Jefferson County, WI"	"55055"	"Neoplasms"	"C00-D48"	149	81300	183.2718	153.8440	212.6997	15.0142
+	"Jefferson County, WI"	"55055"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	23	81300	28.2903	17.9335	42.4493	5.8989
+	"Jefferson County, WI"	"55055"	"Mental and behavioural disorders"	"F01-F99"	21	81300	25.8303	15.9894	39.4844	5.6366
+	"Jefferson County, WI"	"55055"	"Diseases of the nervous system"	"G00-G98"	39	81300	47.9705	34.1118	65.5771	7.6814
+	"Jefferson County, WI"	"55055"	"Diseases of the circulatory system"	"I00-I99"	196	81300	241.0824	207.3309	274.8339	17.2202
+	"Jefferson County, WI"	"55055"	"Diseases of the respiratory system"	"J00-J98"	51	81300	62.7306	46.7073	82.4795	8.7840
+	"Jefferson County, WI"	"55055"	"Diseases of the digestive system"	"K00-K92"	13	81300	Unreliable	8.5141	27.3437	4.4349
+	"Jefferson County, WI"	"55055"	"Diseases of the genitourinary system"	"N00-N98"	24	81300	29.5203	18.9142	43.9238	6.0258
+	"Jefferson County, WI"	"55055"	"External causes of morbidity and mortality"	"V01-Y89"	40	81300	49.2005	35.1493	66.9973	7.7793
+	"Juneau County, WI"	"55057"	"Neoplasms"	"C00-D48"	75	26695	280.9515	220.9852	352.1755	32.4415
+	"Juneau County, WI"	"55057"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	18	26695	Unreliable	39.9621	106.5658	15.8930
+	"Juneau County, WI"	"55057"	"Mental and behavioural disorders"	"F01-F99"	15	26695	Unreliable	31.4491	92.6775	14.5083
+	"Juneau County, WI"	"55057"	"Diseases of the nervous system"	"G00-G98"	14	26695	Unreliable	28.6718	87.9926	14.0163
+	"Juneau County, WI"	"55057"	"Diseases of the circulatory system"	"I00-I99"	86	26695	322.1577	257.6843	397.8615	34.7392
+	"Juneau County, WI"	"55057"	"Diseases of the respiratory system"	"J00-J98"	25	26695	93.6505	60.6059	138.2469	18.7301
+	"Juneau County, WI"	"55057"	"External causes of morbidity and mortality"	"V01-Y89"	18	26695	Unreliable	39.9621	106.5658	15.8930
+	"Kenosha County, WI"	"55059"	"Certain infectious and parasitic diseases"	"A00-B99"	24	161607	14.8508	9.5152	22.0969	3.0314
+	"Kenosha County, WI"	"55059"	"Neoplasms"	"C00-D48"	260	161607	160.8841	141.3280	180.4402	9.9776
+	"Kenosha County, WI"	"55059"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	67	161607	41.4586	32.1300	52.6508	5.0650
+	"Kenosha County, WI"	"55059"	"Mental and behavioural disorders"	"F01-F99"	53	161607	32.7956	24.5662	42.8973	4.5048
+	"Kenosha County, WI"	"55059"	"Diseases of the nervous system"	"G00-G98"	58	161607	35.8895	27.2524	46.3955	4.7125
+	"Kenosha County, WI"	"55059"	"Diseases of the circulatory system"	"I00-I99"	459	161607	284.0224	258.0386	310.0061	13.2570
+	"Kenosha County, WI"	"55059"	"Diseases of the respiratory system"	"J00-J98"	128	161607	79.2045	65.4830	92.9260	7.0008
+	"Kenosha County, WI"	"55059"	"Diseases of the digestive system"	"K00-K92"	46	161607	28.4641	20.8394	37.9671	4.1968
+	"Kenosha County, WI"	"55059"	"Diseases of the genitourinary system"	"N00-N98"	36	161607	22.2763	15.6021	30.8397	3.7127
+	"Kenosha County, WI"	"55059"	"External causes of morbidity and mortality"	"V01-Y89"	108	161607	66.8288	54.2248	79.4328	6.4306
+	"Kewaunee County, WI"	"55061"	"Neoplasms"	"C00-D48"	37	20755	178.2703	125.5183	245.7224	29.3075
+	"Kewaunee County, WI"	"55061"	"Mental and behavioural disorders"	"F01-F99"	16	20755	Unreliable	44.0638	125.1893	19.2725
+	"Kewaunee County, WI"	"55061"	"Diseases of the circulatory system"	"I00-I99"	78	20755	375.8131	297.0652	469.0335	42.5524
+	"Kewaunee County, WI"	"55061"	"Diseases of the respiratory system"	"J00-J98"	12	20755	Unreliable	29.8748	100.9954	16.6904
+	"Kewaunee County, WI"	"55061"	"External causes of morbidity and mortality"	"V01-Y89"	12	20755	Unreliable	29.8748	100.9954	16.6904
+	"La Crosse County, WI"	"55063"	"Certain infectious and parasitic diseases"	"A00-B99"	22	110641	19.8841	12.4612	30.1048	4.2393
+	"La Crosse County, WI"	"55063"	"Neoplasms"	"C00-D48"	212	110641	191.6107	165.8173	217.4041	13.1599
+	"La Crosse County, WI"	"55063"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	28	110641	25.3071	16.8163	36.5758	4.7826
+	"La Crosse County, WI"	"55063"	"Mental and behavioural disorders"	"F01-F99"	62	110641	56.0371	42.9631	71.8368	7.1167
+	"La Crosse County, WI"	"55063"	"Diseases of the nervous system"	"G00-G98"	64	110641	57.8447	44.5474	73.8666	7.2306
+	"La Crosse County, WI"	"55063"	"Diseases of the circulatory system"	"I00-I99"	285	110641	257.5899	227.6836	287.4961	15.2583
+	"La Crosse County, WI"	"55063"	"Diseases of the respiratory system"	"J00-J98"	96	110641	86.7671	70.2814	105.9574	8.8556
+	"La Crosse County, WI"	"55063"	"Diseases of the digestive system"	"K00-K92"	37	110641	33.4415	23.5458	46.0947	5.4977
+	"La Crosse County, WI"	"55063"	"Diseases of the genitourinary system"	"N00-N98"	18	110641	Unreliable	9.6419	25.7118	3.8346
+	"La Crosse County, WI"	"55063"	"External causes of morbidity and mortality"	"V01-Y89"	56	110641	50.6141	38.2334	65.7265	6.7636
+	"Lafayette County, WI"	"55065"	"Neoplasms"	"C00-D48"	42	16785	250.2234	180.3385	338.2295	38.6103
+	"Lafayette County, WI"	"55065"	"Diseases of the circulatory system"	"I00-I99"	42	16785	250.2234	180.3385	338.2295	38.6103
+	"Lafayette County, WI"	"55065"	"Diseases of the respiratory system"	"J00-J98"	14	16785	Unreliable	45.5999	139.9441	22.2917
+	"Lafayette County, WI"	"55065"	"External causes of morbidity and mortality"	"V01-Y89"	14	16785	Unreliable	45.5999	139.9441	22.2917
+	"Langlade County, WI"	"55067"	"Neoplasms"	"C00-D48"	60	20440	293.5421	224.0049	377.8474	37.8961
+	"Langlade County, WI"	"55067"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	10	20440	Unreliable	23.4609	89.9726	15.4710
+	"Langlade County, WI"	"55067"	"Diseases of the nervous system"	"G00-G98"	12	20440	Unreliable	30.3352	102.5519	16.9477
+	"Langlade County, WI"	"55067"	"Diseases of the circulatory system"	"I00-I99"	76	20440	371.8200	292.9532	465.3885	42.6507
+	"Langlade County, WI"	"55067"	"Diseases of the respiratory system"	"J00-J98"	18	20440	Unreliable	52.1912	139.1768	20.7566
+	"Langlade County, WI"	"55067"	"External causes of morbidity and mortality"	"V01-Y89"	16	20440	Unreliable	44.7429	127.1186	19.5695
+	"Lincoln County, WI"	"55069"	"Neoplasms"	"C00-D48"	68	29457	230.8450	179.2603	292.6514	27.9941
+	"Lincoln County, WI"	"55069"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	13	29457	Unreliable	23.4986	75.4673	12.2400
+	"Lincoln County, WI"	"55069"	"Mental and behavioural disorders"	"F01-F99"	14	29457	Unreliable	25.9834	79.7421	12.7021
+	"Lincoln County, WI"	"55069"	"Diseases of the nervous system"	"G00-G98"	24	29457	81.4747	52.2025	121.2278	16.6310
+	"Lincoln County, WI"	"55069"	"Diseases of the circulatory system"	"I00-I99"	88	29457	298.7405	239.5989	368.0573	31.8458
+	"Lincoln County, WI"	"55069"	"Diseases of the respiratory system"	"J00-J98"	30	29457	101.8434	68.7137	145.3875	18.5940
+	"Lincoln County, WI"	"55069"	"Diseases of the genitourinary system"	"N00-N98"	20	29457	67.8956	41.4727	104.8593	15.1819
+	"Lincoln County, WI"	"55069"	"External causes of morbidity and mortality"	"V01-Y89"	21	29457	71.2904	44.1302	108.9752	15.5568
+	"Manitowoc County, WI"	"55071"	"Certain infectious and parasitic diseases"	"A00-B99"	13	81869	Unreliable	8.4549	27.1536	4.4040
+	"Manitowoc County, WI"	"55071"	"Neoplasms"	"C00-D48"	176	81869	214.9776	183.2167	246.7385	16.2045
+	"Manitowoc County, WI"	"55071"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	26	81869	31.7581	20.7453	46.5329	6.2283
+	"Manitowoc County, WI"	"55071"	"Mental and behavioural disorders"	"F01-F99"	46	81869	56.1873	41.1364	74.9460	8.2844
+	"Manitowoc County, WI"	"55071"	"Diseases of the nervous system"	"G00-G98"	36	81869	43.9727	30.7980	60.8767	7.3288
+	"Manitowoc County, WI"	"55071"	"Diseases of the circulatory system"	"I00-I99"	278	81869	339.5669	299.6498	379.4840	20.3659
+	"Manitowoc County, WI"	"55071"	"Diseases of the respiratory system"	"J00-J98"	73	81869	89.1668	69.8925	112.1139	10.4362
+	"Manitowoc County, WI"	"55071"	"Diseases of the digestive system"	"K00-K92"	23	81869	28.0937	17.8089	42.1543	5.8579
+	"Manitowoc County, WI"	"55071"	"Diseases of the genitourinary system"	"N00-N98"	29	81869	35.4224	23.7231	50.8727	6.5778
+	"Manitowoc County, WI"	"55071"	"External causes of morbidity and mortality"	"V01-Y89"	73	81869	89.1668	69.8925	112.1139	10.4362
+	"Marathon County, WI"	"55073"	"Certain infectious and parasitic diseases"	"A00-B99"	22	130516	16.8562	10.5636	25.5204	3.5937
+	"Marathon County, WI"	"55073"	"Neoplasms"	"C00-D48"	237	130516	181.5869	158.4681	204.7058	11.7953
+	"Marathon County, WI"	"55073"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	59	130516	45.2052	34.4124	58.3115	5.8852
+	"Marathon County, WI"	"55073"	"Mental and behavioural disorders"	"F01-F99"	44	130516	33.7123	24.4954	45.2571	5.0823
+	"Marathon County, WI"	"55073"	"Diseases of the nervous system"	"G00-G98"	36	130516	27.5828	19.3187	38.1862	4.5971
+	"Marathon County, WI"	"55073"	"Diseases of the circulatory system"	"I00-I99"	302	130516	231.3893	205.2919	257.4866	13.3150
+	"Marathon County, WI"	"55073"	"Diseases of the respiratory system"	"J00-J98"	70	130516	53.6333	41.8098	67.7624	6.4104
+	"Marathon County, WI"	"55073"	"Diseases of the digestive system"	"K00-K92"	40	130516	30.6476	21.8949	41.7334	4.8458
+	"Marathon County, WI"	"55073"	"Diseases of the genitourinary system"	"N00-N98"	33	130516	25.2843	17.4044	35.5085	4.4014
+	"Marathon County, WI"	"55073"	"External causes of morbidity and mortality"	"V01-Y89"	74	130516	56.6980	44.5204	71.1793	6.5910
+	"Marinette County, WI"	"55075"	"Neoplasms"	"C00-D48"	115	42389	271.2968	221.7116	320.8820	25.2986
+	"Marinette County, WI"	"55075"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	22	42389	51.9003	32.5254	78.5775	11.0652
+	"Marinette County, WI"	"55075"	"Mental and behavioural disorders"	"F01-F99"	23	42389	54.2594	34.3956	81.4156	11.3139
+	"Marinette County, WI"	"55075"	"Diseases of the nervous system"	"G00-G98"	24	42389	56.6185	36.2766	84.2437	11.5572
+	"Marinette County, WI"	"55075"	"Diseases of the circulatory system"	"I00-I99"	208	42389	490.6933	424.0074	557.3793	34.0235
+	"Marinette County, WI"	"55075"	"Diseases of the respiratory system"	"J00-J98"	46	42389	108.5187	79.4498	144.7488	16.0002
+	"Marinette County, WI"	"55075"	"Diseases of the digestive system"	"K00-K92"	23	42389	54.2594	34.3956	81.4156	11.3139
+	"Marinette County, WI"	"55075"	"Diseases of the genitourinary system"	"N00-N98"	20	42389	47.1821	28.8202	72.8689	10.5502
+	"Marinette County, WI"	"55075"	"External causes of morbidity and mortality"	"V01-Y89"	32	42389	75.4913	51.6360	106.5710	13.3451
+	"Marquette County, WI"	"55077"	"Neoplasms"	"C00-D48"	55	15437	356.2868	268.4051	463.7572	48.0417
+	"Marquette County, WI"	"55077"	"Diseases of the circulatory system"	"I00-I99"	61	15437	395.1545	302.2616	507.5918	50.5943
+	"Marquette County, WI"	"55077"	"Diseases of the respiratory system"	"J00-J98"	16	15437	Unreliable	59.2436	168.3166	25.9118
+	"Marquette County, WI"	"55077"	"External causes of morbidity and mortality"	"V01-Y89"	20	15437	129.5589	79.1384	200.0933	28.9702
+	"Milwaukee County, WI"	"55079"	"Certain infectious and parasitic diseases"	"A00-B99"	207	930263	22.2518	19.2204	25.2831	1.5466
+	"Milwaukee County, WI"	"55079"	"Neoplasms"	"C00-D48"	1832	930263	196.9336	187.9155	205.9516	4.6011
+	"Milwaukee County, WI"	"55079"	"Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism"	"D50-D89"	33	930263	3.5474	2.4418	4.9818	0.6175
+	"Milwaukee County, WI"	"55079"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	274	930263	29.4540	25.9664	32.9416	1.7794
+	"Milwaukee County, WI"	"55079"	"Mental and behavioural disorders"	"F01-F99"	506	930263	54.3932	49.6538	59.1326	2.4181
+	"Milwaukee County, WI"	"55079"	"Diseases of the nervous system"	"G00-G98"	429	930263	46.1160	41.7520	50.4799	2.2265
+	"Milwaukee County, WI"	"55079"	"Diseases of the circulatory system"	"I00-I99"	2639	930263	283.6832	272.8597	294.5068	5.5222
+	"Milwaukee County, WI"	"55079"	"Diseases of the respiratory system"	"J00-J98"	691	930263	74.2801	68.7416	79.8185	2.8257
+	"Milwaukee County, WI"	"55079"	"Diseases of the digestive system"	"K00-K92"	337	930263	36.2263	32.3585	40.0941	1.9734
+	"Milwaukee County, WI"	"55079"	"Diseases of the skin and subcutaneous tissue"	"L00-L98"	21	930263	2.2574	1.3974	3.4507	0.4926
+	"Milwaukee County, WI"	"55079"	"Diseases of the musculoskeletal system and connective tissue"	"M00-M99"	69	930263	7.4173	5.7711	9.3870	0.8929
+	"Milwaukee County, WI"	"55079"	"Diseases of the genitourinary system"	"N00-N98"	229	930263	24.6167	21.4283	27.8051	1.6267
+	"Milwaukee County, WI"	"55079"	"Certain conditions originating in the perinatal period"	"P00-P96"	88	930263	9.4597	7.5870	11.6546	1.0084
+	"Milwaukee County, WI"	"55079"	"Congenital malformations, deformations and chromosomal abnormalities"	"Q00-Q99"	47	930263	5.0523	3.7123	6.7185	0.7370
+	"Milwaukee County, WI"	"55079"	"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"	"R00-R99"	47	930263	5.0523	3.7123	6.7185	0.7370
+	"Milwaukee County, WI"	"55079"	"External causes of morbidity and mortality"	"V01-Y89"	760	930263	81.6973	75.8889	87.5057	2.9635
+	"Monroe County, WI"	"55081"	"Neoplasms"	"C00-D48"	101	43208	233.7530	188.1648	279.3412	23.2593
+	"Monroe County, WI"	"55081"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	17	43208	Unreliable	22.9198	62.9946	9.5425
+	"Monroe County, WI"	"55081"	"Mental and behavioural disorders"	"F01-F99"	17	43208	Unreliable	22.9198	62.9946	9.5425
+	"Monroe County, WI"	"55081"	"Diseases of the nervous system"	"G00-G98"	21	43208	48.6021	30.0857	74.2937	10.6059
+	"Monroe County, WI"	"55081"	"Diseases of the circulatory system"	"I00-I99"	131	43208	303.1846	251.2654	355.1037	26.4894
+	"Monroe County, WI"	"55081"	"Diseases of the respiratory system"	"J00-J98"	40	43208	92.5754	66.1368	126.0618	14.6375
+	"Monroe County, WI"	"55081"	"Diseases of the digestive system"	"K00-K92"	13	43208	Unreliable	16.0201	51.4497	8.3446
+	"Monroe County, WI"	"55081"	"Diseases of the genitourinary system"	"N00-N98"	11	43208	Unreliable	12.7088	45.5519	7.6760
+	"Monroe County, WI"	"55081"	"External causes of morbidity and mortality"	"V01-Y89"	26	43208	60.1740	39.3075	88.1688	11.8011
+	"Oconto County, WI"	"55083"	"Neoplasms"	"C00-D48"	86	37756	227.7784	182.1931	281.3040	24.5620
+	"Oconto County, WI"	"55083"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	28	37756	74.1604	49.2788	107.1825	14.0150
+	"Oconto County, WI"	"55083"	"Mental and behavioural disorders"	"F01-F99"	13	37756	Unreliable	18.3335	58.8791	9.5496
+	"Oconto County, WI"	"55083"	"Diseases of the nervous system"	"G00-G98"	16	37756	Unreliable	24.2225	68.8183	10.5943
+	"Oconto County, WI"	"55083"	"Diseases of the circulatory system"	"I00-I99"	110	37756	291.3444	236.8984	345.7905	27.7786
+	"Oconto County, WI"	"55083"	"Diseases of the respiratory system"	"J00-J98"	26	37756	68.8632	44.9835	100.9005	13.5052
+	"Oconto County, WI"	"55083"	"Diseases of the digestive system"	"K00-K92"	11	37756	Unreliable	14.5439	52.1297	8.7844
+	"Oconto County, WI"	"55083"	"External causes of morbidity and mortality"	"V01-Y89"	18	37756	Unreliable	28.2548	75.3463	11.2370
+	"Oneida County, WI"	"55085"	"Neoplasms"	"C00-D48"	111	36746	302.0737	245.8774	358.2700	28.6716
+	"Oneida County, WI"	"55085"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	12	36746	Unreliable	16.8740	57.0446	9.4272
+	"Oneida County, WI"	"55085"	"Mental and behavioural disorders"	"F01-F99"	34	36746	92.5271	64.0778	129.2973	15.8683
+	"Oneida County, WI"	"55085"	"Diseases of the nervous system"	"G00-G98"	24	36746	65.3132	41.8475	97.1809	13.3320
+	"Oneida County, WI"	"55085"	"Diseases of the circulatory system"	"I00-I99"	139	36746	378.2725	315.3865	441.1584	32.0847
+	"Oneida County, WI"	"55085"	"Diseases of the respiratory system"	"J00-J98"	36	36746	97.9698	68.6171	135.6314	16.3283
+	"Oneida County, WI"	"55085"	"Diseases of the digestive system"	"K00-K92"	23	36746	62.5918	39.6776	93.9184	13.0513
+	"Oneida County, WI"	"55085"	"Diseases of the genitourinary system"	"N00-N98"	12	36746	Unreliable	16.8740	57.0446	9.4272
+	"Oneida County, WI"	"55085"	"External causes of morbidity and mortality"	"V01-Y89"	21	36746	57.1491	35.3764	87.3587	12.4710
+	"Outagamie County, WI"	"55087"	"Certain infectious and parasitic diseases"	"A00-B99"	15	171632	Unreliable	4.8915	14.4147	2.2566
+	"Outagamie County, WI"	"55087"	"Neoplasms"	"C00-D48"	282	171632	164.3050	145.1279	183.4821	9.7842
+	"Outagamie County, WI"	"55087"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	32	171632	18.6445	12.7529	26.3205	3.2959
+	"Outagamie County, WI"	"55087"	"Mental and behavioural disorders"	"F01-F99"	58	171632	33.7932	25.6606	43.6855	4.4373
+	"Outagamie County, WI"	"55087"	"Diseases of the nervous system"	"G00-G98"	85	171632	49.5246	39.5582	61.2381	5.3717
+	"Outagamie County, WI"	"55087"	"Diseases of the circulatory system"	"I00-I99"	395	171632	230.1436	207.4472	252.8399	11.5798
+	"Outagamie County, WI"	"55087"	"Diseases of the respiratory system"	"J00-J98"	103	171632	60.0121	48.4223	71.6019	5.9132
+	"Outagamie County, WI"	"55087"	"Diseases of the digestive system"	"K00-K92"	38	171632	22.1404	15.6679	30.3895	3.5916
+	"Outagamie County, WI"	"55087"	"Diseases of the genitourinary system"	"N00-N98"	42	171632	24.4710	17.6365	33.0776	3.7760
+	"Outagamie County, WI"	"55087"	"External causes of morbidity and mortality"	"V01-Y89"	64	171632	37.2891	28.7171	47.6174	4.6611
+	"Ozaukee County, WI"	"55089"	"Neoplasms"	"C00-D48"	176	85362	206.1807	175.7195	236.6420	15.5415
+	"Ozaukee County, WI"	"55089"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	34	85362	39.8304	27.5837	55.6590	6.8309
+	"Ozaukee County, WI"	"55089"	"Mental and behavioural disorders"	"F01-F99"	31	85362	36.3159	24.6749	51.5476	6.5225
+	"Ozaukee County, WI"	"55089"	"Diseases of the nervous system"	"G00-G98"	39	85362	45.6878	32.4886	62.4566	7.3159
+	"Ozaukee County, WI"	"55089"	"Diseases of the circulatory system"	"I00-I99"	253	85362	296.3848	259.8630	332.9066	18.6336
+	"Ozaukee County, WI"	"55089"	"Diseases of the respiratory system"	"J00-J98"	62	85362	72.6319	55.6861	93.1104	9.2243
+	"Ozaukee County, WI"	"55089"	"Diseases of the digestive system"	"K00-K92"	22	85362	25.7726	16.1514	39.0200	5.4947
+	"Ozaukee County, WI"	"55089"	"Diseases of the genitourinary system"	"N00-N98"	12	85362	Unreliable	7.2638	24.5561	4.0581
+	"Ozaukee County, WI"	"55089"	"External causes of morbidity and mortality"	"V01-Y89"	32	85362	37.4874	25.6414	52.9210	6.6269
+	"Pepin County, WI"	"55091"	"Neoplasms"	"C00-D48"	22	7540	291.7772	182.8538	441.7536	62.2071
+	"Pepin County, WI"	"55091"	"Diseases of the circulatory system"	"I00-I99"	29	7540	384.6154	257.5846	552.3731	71.4213
+	"Pierce County, WI"	"55093"	"Neoplasms"	"C00-D48"	55	39915	137.7928	103.8048	179.3566	18.5800
+	"Pierce County, WI"	"55093"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	11	39915	Unreliable	13.7572	49.3100	8.3092
+	"Pierce County, WI"	"55093"	"Mental and behavioural disorders"	"F01-F99"	10	39915	Unreliable	12.0140	46.0739	7.9225
+	"Pierce County, WI"	"55093"	"Diseases of the circulatory system"	"I00-I99"	72	39915	180.3833	141.1391	227.1621	21.2584
+	"Pierce County, WI"	"55093"	"Diseases of the respiratory system"	"J00-J98"	17	39915	Unreliable	24.8107	68.1917	10.3297
+	"Pierce County, WI"	"55093"	"External causes of morbidity and mortality"	"V01-Y89"	20	39915	50.1065	30.6065	77.3854	11.2041
+	"Polk County, WI"	"55095"	"Neoplasms"	"C00-D48"	108	44367	243.4242	197.5141	289.3342	23.4235
+	"Polk County, WI"	"55095"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	11	44367	Unreliable	12.3768	44.3620	7.4754
+	"Polk County, WI"	"55095"	"Mental and behavioural disorders"	"F01-F99"	31	44367	69.8718	47.4744	99.1774	12.5493
+	"Polk County, WI"	"55095"	"Diseases of the nervous system"	"G00-G98"	14	44367	Unreliable	17.2514	52.9439	8.4334
+	"Polk County, WI"	"55095"	"Diseases of the circulatory system"	"I00-I99"	130	44367	293.0106	242.6411	343.3801	25.6987
+	"Polk County, WI"	"55095"	"Diseases of the respiratory system"	"J00-J98"	29	44367	65.3639	43.7755	93.8737	12.1378
+	"Polk County, WI"	"55095"	"Diseases of the digestive system"	"K00-K92"	20	44367	45.0785	27.5353	69.6202	10.0799
+	"Polk County, WI"	"55095"	"Diseases of the genitourinary system"	"N00-N98"	12	44367	Unreliable	13.9755	47.2459	7.8078
+	"Polk County, WI"	"55095"	"External causes of morbidity and mortality"	"V01-Y89"	33	44367	74.3796	51.1992	104.4565	12.9478
+	"Portage County, WI"	"55097"	"Certain infectious and parasitic diseases"	"A00-B99"	10	68481	Unreliable	7.0025	26.8547	4.6177
+	"Portage County, WI"	"55097"	"Neoplasms"	"C00-D48"	111	68481	162.0888	131.9346	192.2429	15.3848
+	"Portage County, WI"	"55097"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	16	68481	Unreliable	13.3547	37.9420	5.8410
+	"Portage County, WI"	"55097"	"Mental and behavioural disorders"	"F01-F99"	17	68481	Unreliable	14.4612	39.7464	6.0208
+	"Portage County, WI"	"55097"	"Diseases of the nervous system"	"G00-G98"	30	68481	43.8078	29.5571	62.5382	7.9982
+	"Portage County, WI"	"55097"	"Diseases of the circulatory system"	"I00-I99"	158	68481	230.7209	194.7448	266.6971	18.3552
+	"Portage County, WI"	"55097"	"Diseases of the respiratory system"	"J00-J98"	42	68481	61.3309	44.2018	82.9016	9.4636
+	"Portage County, WI"	"55097"	"Diseases of the digestive system"	"K00-K92"	19	68481	Unreliable	16.7044	43.3270	6.3651
+	"Portage County, WI"	"55097"	"Diseases of the genitourinary system"	"N00-N98"	14	68481	Unreliable	11.1767	34.3009	5.4638
+	"Portage County, WI"	"55097"	"External causes of morbidity and mortality"	"V01-Y89"	34	68481	49.6488	34.3833	69.3792	8.5147
+	"Price County, WI"	"55099"	"Neoplasms"	"C00-D48"	40	14882	268.7811	192.0199	366.0046	42.4980
+	"Price County, WI"	"55099"	"Mental and behavioural disorders"	"F01-F99"	13	14882	Unreliable	46.5124	149.3777	24.2276
+	"Price County, WI"	"55099"	"Diseases of the nervous system"	"G00-G98"	11	14882	Unreliable	36.8983	132.2543	22.2861
+	"Price County, WI"	"55099"	"Diseases of the circulatory system"	"I00-I99"	58	14882	389.7326	295.9395	503.8190	51.1744
+	"Price County, WI"	"55099"	"Diseases of the respiratory system"	"J00-J98"	14	14882	Unreliable	51.4309	157.8391	25.1422
+	"Price County, WI"	"55099"	"Diseases of the digestive system"	"K00-K92"	11	14882	Unreliable	36.8983	132.2543	22.2861
+	"Price County, WI"	"55099"	"Diseases of the genitourinary system"	"N00-N98"	13	14882	Unreliable	46.5124	149.3777	24.2276
+	"Price County, WI"	"55099"	"External causes of morbidity and mortality"	"V01-Y89"	13	14882	Unreliable	46.5124	149.3777	24.2276
+	"Racine County, WI"	"55101"	"Certain infectious and parasitic diseases"	"A00-B99"	20	193915	10.3138	6.3000	15.9288	2.3062
+	"Racine County, WI"	"55101"	"Neoplasms"	"C00-D48"	401	193915	206.7916	186.5513	227.0319	10.3267
+	"Racine County, WI"	"55101"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	67	193915	34.5512	26.7769	43.8787	4.2211
+	"Racine County, WI"	"55101"	"Mental and behavioural disorders"	"F01-F99"	82	193915	42.2866	33.6318	52.4886	4.6698
+	"Racine County, WI"	"55101"	"Diseases of the nervous system"	"G00-G98"	87	193915	44.8650	35.9351	55.3410	4.8100
+	"Racine County, WI"	"55101"	"Diseases of the circulatory system"	"I00-I99"	483	193915	249.0782	226.8646	271.2918	11.3335
+	"Racine County, WI"	"55101"	"Diseases of the respiratory system"	"J00-J98"	157	193915	80.9633	68.2986	93.6280	6.4616
+	"Racine County, WI"	"55101"	"Diseases of the digestive system"	"K00-K92"	72	193915	37.1297	29.0517	46.7585	4.3758
+	"Racine County, WI"	"55101"	"Diseases of the musculoskeletal system and connective tissue"	"M00-M99"	12	193915	Unreliable	3.1975	10.8097	1.7864
+	"Racine County, WI"	"55101"	"Diseases of the genitourinary system"	"N00-N98"	43	193915	22.1747	16.0478	29.8691	3.3816
+	"Racine County, WI"	"55101"	"Certain conditions originating in the perinatal period"	"P00-P96"	19	193915	Unreliable	5.8991	15.3009	2.2478
+	"Racine County, WI"	"55101"	"Congenital malformations, deformations and chromosomal abnormalities"	"Q00-Q99"	12	193915	Unreliable	3.1975	10.8097	1.7864
+	"Racine County, WI"	"55101"	"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"	"R00-R99"	10	193915	Unreliable	2.4729	9.4837	1.6308
+	"Racine County, WI"	"55101"	"External causes of morbidity and mortality"	"V01-Y89"	133	193915	68.5868	56.9302	80.2433	5.9472
+	"Richland County, WI"	"55103"	"Neoplasms"	"C00-D48"	41	18299	224.0560	160.7870	303.9566	34.9917
+	"Richland County, WI"	"55103"	"Diseases of the circulatory system"	"I00-I99"	71	18299	387.9993	303.0314	489.4069	46.0471
+	"Richland County, WI"	"55103"	"Diseases of the respiratory system"	"J00-J98"	16	18299	Unreliable	49.9778	141.9916	21.8591
+	"Richland County, WI"	"55103"	"External causes of morbidity and mortality"	"V01-Y89"	13	18299	Unreliable	37.8271	121.4842	19.7035
+	"Rock County, WI"	"55105"	"Certain infectious and parasitic diseases"	"A00-B99"	18	158538	Unreliable	6.7289	17.9438	2.6761
+	"Rock County, WI"	"55105"	"Neoplasms"	"C00-D48"	383	158538	241.5825	217.3877	265.7773	12.3443
+	"Rock County, WI"	"55105"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	54	158538	34.0612	25.5878	44.4424	4.6351
+	"Rock County, WI"	"55105"	"Mental and behavioural disorders"	"F01-F99"	74	158538	46.6765	36.6513	58.5982	5.4260
+	"Rock County, WI"	"55105"	"Diseases of the nervous system"	"G00-G98"	83	158538	52.3534	41.6989	64.8999	5.7465
+	"Rock County, WI"	"55105"	"Diseases of the circulatory system"	"I00-I99"	434	158538	273.7514	247.9960	299.5068	13.1405
+	"Rock County, WI"	"55105"	"Diseases of the respiratory system"	"J00-J98"	148	158538	93.3530	78.3128	108.3932	7.6736
+	"Rock County, WI"	"55105"	"Diseases of the digestive system"	"K00-K92"	48	158538	30.2767	22.3236	40.1423	4.3701
+	"Rock County, WI"	"55105"	"Diseases of the genitourinary system"	"N00-N98"	21	158538	13.2460	8.1996	20.2480	2.8905
+	"Rock County, WI"	"55105"	"External causes of morbidity and mortality"	"V01-Y89"	123	158538	77.5839	63.8727	91.2951	6.9955
+	"Rusk County, WI"	"55107"	"Neoplasms"	"C00-D48"	39	14945	260.9568	185.5664	356.7358	41.7865
+	"Rusk County, WI"	"55107"	"Diseases of the circulatory system"	"I00-I99"	61	14945	408.1633	312.2122	524.3020	52.2600
+	"Rusk County, WI"	"55107"	"Diseases of the respiratory system"	"J00-J98"	13	14945	Unreliable	46.3164	148.7480	24.1255
+	"Rusk County, WI"	"55107"	"External causes of morbidity and mortality"	"V01-Y89"	12	14945	Unreliable	41.4889	140.2583	23.1790
+	"St. Croix County, WI"	"55109"	"Neoplasms"	"C00-D48"	118	79784	147.8993	121.2135	174.5852	13.6152
+	"St. Croix County, WI"	"55109"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	18	79784	Unreliable	13.3710	35.6559	5.3177
+	"St. Croix County, WI"	"55109"	"Mental and behavioural disorders"	"F01-F99"	22	79784	27.5745	17.2806	41.7480	5.8789
+	"St. Croix County, WI"	"55109"	"Diseases of the nervous system"	"G00-G98"	35	79784	43.8684	30.5561	61.0105	7.4151
+	"St. Croix County, WI"	"55109"	"Diseases of the circulatory system"	"I00-I99"	133	79784	166.7001	138.3688	195.0314	14.4547
+	"St. Croix County, WI"	"55109"	"Diseases of the respiratory system"	"J00-J98"	42	79784	52.6421	37.9397	71.1569	8.1229
+	"St. Croix County, WI"	"55109"	"Diseases of the digestive system"	"K00-K92"	11	79784	Unreliable	6.8826	24.6692	4.1570
+	"St. Croix County, WI"	"55109"	"Diseases of the genitourinary system"	"N00-N98"	14	79784	Unreliable	9.5933	29.4415	4.6897
+	"St. Croix County, WI"	"55109"	"External causes of morbidity and mortality"	"V01-Y89"	32	79784	40.1083	27.4341	56.6209	7.0902
+	"Sauk County, WI"	"55111"	"Neoplasms"	"C00-D48"	134	59580	224.9077	186.8267	262.9887	19.4291
+	"Sauk County, WI"	"55111"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	18	59580	Unreliable	17.9051	47.7471	7.1209
+	"Sauk County, WI"	"55111"	"Mental and behavioural disorders"	"F01-F99"	14	59580	Unreliable	12.8465	39.4253	6.2801
+	"Sauk County, WI"	"55111"	"Diseases of the nervous system"	"G00-G98"	27	59580	45.3172	29.8645	65.9343	8.7213
+	"Sauk County, WI"	"55111"	"Diseases of the circulatory system"	"I00-I99"	181	59580	303.7932	259.5349	348.0515	22.5808
+	"Sauk County, WI"	"55111"	"Diseases of the respiratory system"	"J00-J98"	50	59580	83.9208	62.2877	110.6395	11.8682
+	"Sauk County, WI"	"55111"	"Diseases of the digestive system"	"K00-K92"	22	59580	36.9251	23.1406	55.9050	7.8725
+	"Sauk County, WI"	"55111"	"Diseases of the genitourinary system"	"N00-N98"	12	59580	Unreliable	10.4070	35.1823	5.8142
+	"Sauk County, WI"	"55111"	"External causes of morbidity and mortality"	"V01-Y89"	40	59580	67.1366	47.9631	91.4213	10.6152
+	"Sawyer County, WI"	"55113"	"Neoplasms"	"C00-D48"	49	16624	294.7546	218.0624	389.6803	42.1078
+	"Sawyer County, WI"	"55113"	"Diseases of the circulatory system"	"I00-I99"	69	16624	415.0626	322.9436	525.2866	49.9677
+	"Sawyer County, WI"	"55113"	"Diseases of the respiratory system"	"J00-J98"	27	16624	162.4158	107.0336	236.3068	31.2569
+	"Sawyer County, WI"	"55113"	"External causes of morbidity and mortality"	"V01-Y89"	18	16624	Unreliable	64.1716	171.1245	25.5212
+	"Shawano County, WI"	"55115"	"Neoplasms"	"C00-D48"	115	41639	276.1834	225.7051	326.6617	25.7542
+	"Shawano County, WI"	"55115"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	27	41639	64.8431	42.7322	94.3434	12.4791
+	"Shawano County, WI"	"55115"	"Mental and behavioural disorders"	"F01-F99"	33	41639	79.2526	54.5535	111.3000	13.7961
+	"Shawano County, WI"	"55115"	"Diseases of the nervous system"	"G00-G98"	16	41639	Unreliable	21.9636	62.4007	9.6064
+	"Shawano County, WI"	"55115"	"Diseases of the circulatory system"	"I00-I99"	132	41639	317.0105	262.9297	371.0912	27.5922
+	"Shawano County, WI"	"55115"	"Diseases of the respiratory system"	"J00-J98"	46	41639	110.4734	80.8809	147.3560	16.2884
+	"Shawano County, WI"	"55115"	"Diseases of the digestive system"	"K00-K92"	15	41639	Unreliable	20.1622	59.4161	9.3013
+	"Shawano County, WI"	"55115"	"Diseases of the genitourinary system"	"N00-N98"	11	41639	Unreliable	13.1876	47.2684	7.9652
+	"Shawano County, WI"	"55115"	"External causes of morbidity and mortality"	"V01-Y89"	25	41639	60.0399	38.8548	88.6309	12.0080
+	"Sheboygan County, WI"	"55117"	"Certain infectious and parasitic diseases"	"A00-B99"	14	114775	Unreliable	6.6686	20.4658	3.2600
+	"Sheboygan County, WI"	"55117"	"Neoplasms"	"C00-D48"	258	114775	224.7876	197.3581	252.2172	13.9947
+	"Sheboygan County, WI"	"55117"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	47	114775	40.9497	30.0882	54.4545	5.9731
+	"Sheboygan County, WI"	"55117"	"Mental and behavioural disorders"	"F01-F99"	93	114775	81.0281	65.4002	99.2651	8.4022
+	"Sheboygan County, WI"	"55117"	"Diseases of the nervous system"	"G00-G98"	60	114775	52.2762	39.8925	67.2899	6.7488
+	"Sheboygan County, WI"	"55117"	"Diseases of the circulatory system"	"I00-I99"	386	114775	336.3102	302.7594	369.8609	17.1177
+	"Sheboygan County, WI"	"55117"	"Diseases of the respiratory system"	"J00-J98"	102	114775	88.8695	71.6227	106.1163	8.7994
+	"Sheboygan County, WI"	"55117"	"Diseases of the digestive system"	"K00-K92"	45	114775	39.2071	28.5981	52.4623	5.8447
+	"Sheboygan County, WI"	"55117"	"Diseases of the genitourinary system"	"N00-N98"	23	114775	20.0392	12.7031	30.0686	4.1785
+	"Sheboygan County, WI"	"55117"	"External causes of morbidity and mortality"	"V01-Y89"	52	114775	45.3060	33.8368	59.4130	6.2828
+	"Taylor County, WI"	"55119"	"Neoplasms"	"C00-D48"	30	20394	147.1021	99.2498	209.9971	26.8570
+	"Taylor County, WI"	"55119"	"Diseases of the nervous system"	"G00-G98"	11	20394	Unreliable	26.9256	96.5092	16.2627
+	"Taylor County, WI"	"55119"	"Diseases of the circulatory system"	"I00-I99"	58	20394	284.3974	215.9543	367.6490	37.3432
+	"Taylor County, WI"	"55119"	"Diseases of the respiratory system"	"J00-J98"	14	20394	Unreliable	37.5304	115.1791	18.3469
+	"Trempealeau County, WI"	"55121"	"Neoplasms"	"C00-D48"	53	28286	187.3718	140.3546	245.0861	25.7375
+	"Trempealeau County, WI"	"55121"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	13	28286	Unreliable	24.4714	78.5915	12.7468
+	"Trempealeau County, WI"	"55121"	"Mental and behavioural disorders"	"F01-F99"	11	28286	Unreliable	19.4131	69.5824	11.7253
+	"Trempealeau County, WI"	"55121"	"Diseases of the nervous system"	"G00-G98"	26	28286	91.9183	60.0438	134.6814	18.0267
+	"Trempealeau County, WI"	"55121"	"Diseases of the circulatory system"	"I00-I99"	105	28286	371.2084	300.2050	442.2118	36.2262
+	"Trempealeau County, WI"	"55121"	"Diseases of the respiratory system"	"J00-J98"	34	28286	120.2008	83.2427	167.9686	20.6143
+	"Trempealeau County, WI"	"55121"	"Diseases of the genitourinary system"	"N00-N98"	16	28286	Unreliable	32.3320	91.8583	14.1413
+	"Trempealeau County, WI"	"55121"	"External causes of morbidity and mortality"	"V01-Y89"	19	28286	Unreliable	40.4417	104.8956	15.4101
+	"Vernon County, WI"	"55123"	"Neoplasms"	"C00-D48"	53	29123	181.9867	136.3208	238.0423	24.9978
+	"Vernon County, WI"	"55123"	"Mental and behavioural disorders"	"F01-F99"	14	29123	Unreliable	26.2814	80.6566	12.8478
+	"Vernon County, WI"	"55123"	"Diseases of the nervous system"	"G00-G98"	16	29123	Unreliable	31.4028	89.2183	13.7348
+	"Vernon County, WI"	"55123"	"Diseases of the circulatory system"	"I00-I99"	112	29123	384.5758	313.3513	455.8002	36.3390
+	"Vernon County, WI"	"55123"	"Diseases of the respiratory system"	"J00-J98"	30	29123	103.0114	69.5018	147.0549	18.8072
+	"Vernon County, WI"	"55123"	"Diseases of the digestive system"	"K00-K92"	12	29123	Unreliable	21.2908	71.9761	11.8947
+	"Vernon County, WI"	"55123"	"Diseases of the genitourinary system"	"N00-N98"	11	29123	Unreliable	18.8552	67.5826	11.3883
+	"Vernon County, WI"	"55123"	"External causes of morbidity and mortality"	"V01-Y89"	17	29123	Unreliable	34.0047	93.4612	14.1576
+	"Vilas County, WI"	"55125"	"Neoplasms"	"C00-D48"	72	22064	326.3234	255.3285	410.9489	38.4576
+	"Vilas County, WI"	"55125"	"Mental and behavioural disorders"	"F01-F99"	12	22064	Unreliable	28.1024	95.0036	15.7002
+	"Vilas County, WI"	"55125"	"Diseases of the nervous system"	"G00-G98"	15	22064	Unreliable	38.0500	112.1295	17.5534
+	"Vilas County, WI"	"55125"	"Diseases of the circulatory system"	"I00-I99"	101	22064	457.7592	368.4837	547.0348	45.5487
+	"Vilas County, WI"	"55125"	"Diseases of the respiratory system"	"J00-J98"	19	22064	Unreliable	51.8461	134.4760	19.7557
+	"Vilas County, WI"	"55125"	"Diseases of the digestive system"	"K00-K92"	11	22064	Unreliable	24.8876	89.2045	15.0318
+	"Vilas County, WI"	"55125"	"External causes of morbidity and mortality"	"V01-Y89"	17	22064	Unreliable	44.8839	123.3625	18.6870
+	"Walworth County, WI"	"55127"	"Certain infectious and parasitic diseases"	"A00-B99"	12	101026	Unreliable	6.1375	20.7487	3.4289
+	"Walworth County, WI"	"55127"	"Neoplasms"	"C00-D48"	195	101026	193.0196	165.9277	220.1116	13.8224
+	"Walworth County, WI"	"55127"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	30	101026	29.6953	20.0354	42.3919	5.4216
+	"Walworth County, WI"	"55127"	"Mental and behavioural disorders"	"F01-F99"	38	101026	37.6141	26.6180	51.6283	6.1018
+	"Walworth County, WI"	"55127"	"Diseases of the nervous system"	"G00-G98"	61	101026	60.3805	46.1862	77.5612	7.7309
+	"Walworth County, WI"	"55127"	"Diseases of the circulatory system"	"I00-I99"	280	101026	277.1564	244.6924	309.6204	16.5633
+	"Walworth County, WI"	"55127"	"Diseases of the respiratory system"	"J00-J98"	94	101026	93.0454	75.1900	113.8643	9.5969
+	"Walworth County, WI"	"55127"	"Diseases of the digestive system"	"K00-K92"	36	101026	35.6344	24.9580	49.3330	5.9391
+	"Walworth County, WI"	"55127"	"Diseases of the genitourinary system"	"N00-N98"	22	101026	21.7766	13.6472	32.9699	4.6428
+	"Walworth County, WI"	"55127"	"External causes of morbidity and mortality"	"V01-Y89"	53	101026	52.4617	39.2975	68.6210	7.2062
+	"Washburn County, WI"	"55129"	"Neoplasms"	"C00-D48"	48	16098	298.1737	219.8494	395.3336	43.0377
+	"Washburn County, WI"	"55129"	"Diseases of the circulatory system"	"I00-I99"	66	16098	409.9888	317.0854	521.6083	50.4661
+	"Washburn County, WI"	"55129"	"Diseases of the respiratory system"	"J00-J98"	16	16098	Unreliable	56.8110	161.4054	24.8478
+	"Washburn County, WI"	"55129"	"External causes of morbidity and mortality"	"V01-Y89"	14	16098	Unreliable	47.5459	145.9164	23.2430
+	"Washington County, WI"	"55131"	"Certain infectious and parasitic diseases"	"A00-B99"	17	127483	Unreliable	7.7682	21.3508	3.2342
+	"Washington County, WI"	"55131"	"Neoplasms"	"C00-D48"	252	127483	197.6734	173.2670	222.0798	12.4523
+	"Washington County, WI"	"55131"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	49	127483	38.4365	28.4357	50.8150	5.4909
+	"Washington County, WI"	"55131"	"Mental and behavioural disorders"	"F01-F99"	42	127483	32.9456	23.7442	44.5329	5.0836
+	"Washington County, WI"	"55131"	"Diseases of the nervous system"	"G00-G98"	47	127483	36.8677	27.0889	49.0262	5.3777
+	"Washington County, WI"	"55131"	"Diseases of the circulatory system"	"I00-I99"	279	127483	218.8527	193.1721	244.5334	13.1024
+	"Washington County, WI"	"55131"	"Diseases of the respiratory system"	"J00-J98"	57	127483	44.7118	33.8643	57.9296	5.9222
+	"Washington County, WI"	"55131"	"Diseases of the digestive system"	"K00-K92"	40	127483	31.3767	22.4159	42.7263	4.9611
+	"Washington County, WI"	"55131"	"Diseases of the genitourinary system"	"N00-N98"	17	127483	Unreliable	7.7682	21.3508	3.2342
+	"Washington County, WI"	"55131"	"External causes of morbidity and mortality"	"V01-Y89"	64	127483	50.2028	38.6622	64.1079	6.2753
+	"Waukesha County, WI"	"55133"	"Certain infectious and parasitic diseases"	"A00-B99"	43	380799	11.2920	8.1721	15.2103	1.7220
+	"Waukesha County, WI"	"55133"	"Neoplasms"	"C00-D48"	771	380799	202.4690	188.1772	216.7608	7.2917
+	"Waukesha County, WI"	"55133"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	87	380799	22.8467	18.2993	28.1814	2.4494
+	"Waukesha County, WI"	"55133"	"Mental and behavioural disorders"	"F01-F99"	223	380799	58.5611	50.8749	66.2473	3.9215
+	"Waukesha County, WI"	"55133"	"Diseases of the nervous system"	"G00-G98"	173	380799	45.4308	38.6609	52.2007	3.4540
+	"Waukesha County, WI"	"55133"	"Diseases of the circulatory system"	"I00-I99"	934	380799	245.2738	229.5436	261.0039	8.0256
+	"Waukesha County, WI"	"55133"	"Diseases of the respiratory system"	"J00-J98"	233	380799	61.1871	53.3305	69.0438	4.0085
+	"Waukesha County, WI"	"55133"	"Diseases of the digestive system"	"K00-K92"	93	380799	24.4223	19.7120	29.9191	2.5325
+	"Waukesha County, WI"	"55133"	"Diseases of the musculoskeletal system and connective tissue"	"M00-M99"	20	380799	5.2521	3.2081	8.1115	1.1744
+	"Waukesha County, WI"	"55133"	"Diseases of the genitourinary system"	"N00-N98"	74	380799	19.4328	15.2590	24.3962	2.2590
+	"Waukesha County, WI"	"55133"	"Certain conditions originating in the perinatal period"	"P00-P96"	13	380799	Unreliable	1.8178	5.8378	0.9468
+	"Waukesha County, WI"	"55133"	"External causes of morbidity and mortality"	"V01-Y89"	235	380799	61.7123	53.8220	69.6027	4.0257
+	"Waupaca County, WI"	"55135"	"Neoplasms"	"C00-D48"	148	52634	281.1871	235.8847	326.4894	23.1134
+	"Waupaca County, WI"	"55135"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	15	52634	Unreliable	15.9504	47.0043	7.3583
+	"Waupaca County, WI"	"55135"	"Mental and behavioural disorders"	"F01-F99"	42	52634	79.7963	57.5100	107.8615	12.3128
+	"Waupaca County, WI"	"55135"	"Diseases of the nervous system"	"G00-G98"	50	52634	94.9956	70.5077	125.2403	13.4344
+	"Waupaca County, WI"	"55135"	"Diseases of the circulatory system"	"I00-I99"	269	52634	511.0765	450.0012	572.1518	31.1609
+	"Waupaca County, WI"	"55135"	"Diseases of the respiratory system"	"J00-J98"	85	52634	161.4926	128.9938	199.6888	17.5163
+	"Waupaca County, WI"	"55135"	"Diseases of the digestive system"	"K00-K92"	24	52634	45.5979	29.2155	67.8460	9.3076
+	"Waupaca County, WI"	"55135"	"Diseases of the genitourinary system"	"N00-N98"	27	52634	51.2976	33.8057	74.6355	9.8722
+	"Waupaca County, WI"	"55135"	"External causes of morbidity and mortality"	"V01-Y89"	36	52634	68.3969	47.9045	94.6900	11.3995
+	"Waushara County, WI"	"55137"	"Neoplasms"	"C00-D48"	67	24690	271.3649	210.3051	344.6226	33.1525
+	"Waushara County, WI"	"55137"	"Mental and behavioural disorders"	"F01-F99"	10	24690	Unreliable	19.4224	74.4852	12.8079
+	"Waushara County, WI"	"55137"	"Diseases of the nervous system"	"G00-G98"	10	24690	Unreliable	19.4224	74.4852	12.8079
+	"Waushara County, WI"	"55137"	"Diseases of the circulatory system"	"I00-I99"	96	24690	388.8214	314.9453	474.8170	39.6839
+	"Waushara County, WI"	"55137"	"Diseases of the respiratory system"	"J00-J98"	14	24690	Unreliable	31.0002	95.1382	15.1545
+	"Waushara County, WI"	"55137"	"Diseases of the genitourinary system"	"N00-N98"	13	24690	Unreliable	28.0356	90.0380	14.6033
+	"Waushara County, WI"	"55137"	"External causes of morbidity and mortality"	"V01-Y89"	17	24690	Unreliable	40.1101	110.2418	16.6995
+	"Winnebago County, WI"	"55139"	"Certain infectious and parasitic diseases"	"A00-B99"	19	162727	Unreliable	7.0298	18.2335	2.6787
+	"Winnebago County, WI"	"55139"	"Neoplasms"	"C00-D48"	363	162727	223.0730	200.1247	246.0213	11.7083
+	"Winnebago County, WI"	"55139"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	77	162727	47.3185	37.3428	59.1401	5.3924
+	"Winnebago County, WI"	"55139"	"Mental and behavioural disorders"	"F01-F99"	69	162727	42.4023	32.9915	53.6627	5.1046
+	"Winnebago County, WI"	"55139"	"Diseases of the nervous system"	"G00-G98"	79	162727	48.5476	38.4356	60.5048	5.4620
+	"Winnebago County, WI"	"55139"	"Diseases of the circulatory system"	"I00-I99"	399	162727	245.1959	221.1366	269.2552	12.2752
+	"Winnebago County, WI"	"55139"	"Diseases of the respiratory system"	"J00-J98"	128	162727	78.6593	65.0323	92.2864	6.9526
+	"Winnebago County, WI"	"55139"	"Diseases of the digestive system"	"K00-K92"	43	162727	26.4246	19.1235	35.5937	4.0297
+	"Winnebago County, WI"	"55139"	"Diseases of the musculoskeletal system and connective tissue"	"M00-M99"	10	162727	Unreliable	2.9469	11.3014	1.9433
+	"Winnebago County, WI"	"55139"	"Diseases of the genitourinary system"	"N00-N98"	31	162727	19.0503	12.9437	27.0404	3.4215
+	"Winnebago County, WI"	"55139"	"External causes of morbidity and mortality"	"V01-Y89"	89	162727	54.6928	43.9227	67.3044	5.7974
+	"Wood County, WI"	"55141"	"Neoplasms"	"C00-D48"	166	74603	222.5112	188.6615	256.3608	17.2702
+	"Wood County, WI"	"55141"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	15	74603	Unreliable	11.2534	33.1625	5.1915
+	"Wood County, WI"	"55141"	"Mental and behavioural disorders"	"F01-F99"	39	74603	52.2767	37.1740	71.4638	8.3710
+	"Wood County, WI"	"55141"	"Diseases of the nervous system"	"G00-G98"	58	74603	77.7449	59.0348	100.5031	10.2084
+	"Wood County, WI"	"55141"	"Diseases of the circulatory system"	"I00-I99"	240	74603	321.7029	281.0019	362.4039	20.7658
+	"Wood County, WI"	"55141"	"Diseases of the respiratory system"	"J00-J98"	77	74603	103.2130	81.4536	128.9987	11.7622
+	"Wood County, WI"	"55141"	"Diseases of the digestive system"	"K00-K92"	24	74603	32.1703	20.6121	47.8668	6.5667
+	"Wood County, WI"	"55141"	"Diseases of the genitourinary system"	"N00-N98"	27	74603	36.1916	23.8506	52.6569	6.9651
+	"Wood County, WI"	"55141"	"External causes of morbidity and mortality"	"V01-Y89"	46	74603	61.6597	45.1429	82.2454	9.0912
+"---"
+"Dataset: Underlying Cause of Death, 1999-2020"
+"Query Parameters:"
+"States: Wisconsin (55)"
+"Year/Month: 2006"
+"Group By: County; ICD Chapter"
+"Show Totals: False"
+"Show Zero Values: False"
+"Show Suppressed: False"
+"Calculate Rates Per: 100,000"
+"Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups)"
+"---"
+"Help: See http://wonder.cdc.gov/wonder/help/ucd.html for more information."
+"---"
+"Query Date: May 6, 2022 1:00:46 PM"
+"---"
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics"
+"System, Mortality 1999-2020 on CDC WONDER Online Database, released in 2021. Data are from the Multiple Cause of Death Files,"
+"1999-2020, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative"
+"Program. Accessed at http://wonder.cdc.gov/ucd-icd10.html on May 6, 2022 1:00:46 PM"
+"---"
+Messages:
+"1. Rows with suppressed Deaths are hidden. Use Quick Options above to show suppressed rows."
+"---"
+Caveats:
+"1. Data are Suppressed when the data meet the criteria for confidentiality constraints. More information:"
+"http://wonder.cdc.gov/wonder/help/ucd.html#Assurance of Confidentiality."
+"2. Death rates are flagged as Unreliable when the rate is calculated with a numerator of 20 or less. More information:"
+"http://wonder.cdc.gov/wonder/help/ucd.html#Unreliable."
+"3. The method used to calculate 95% confidence intervals is documented here: More information:"
+"http://wonder.cdc.gov/wonder/help/ucd.html#Confidence-Intervals."
+"4. The method used to calculate standard errors is documented here: More information:"
+"http://wonder.cdc.gov/wonder/help/ucd.html#Standard-Errors."
+"5. The population figures for year 2020 are bridged-race estimates of the July 1 resident population, from the Vintage 2020"
+"postcensal series released by NCHS on September 22, 2021. The population figures for year 2019 are bridged-race estimates of the"
+"July 1 resident population, from the Vintage 2019 postcensal series released by NCHS on July 9, 2020. The population figures for"
+"year 2018 are bridged-race estimates of the July 1 resident population, from the Vintage 2018 postcensal series released by NCHS"
+"on June 25, 2019. The population figures for year 2017 are bridged-race estimates of the July 1 resident population, from the"
+"Vintage 2017 postcensal series released by NCHS on June 27, 2018. The population figures for year 2016 are bridged-race"
+"estimates of the July 1 resident population, from the Vintage 2016 postcensal series released by NCHS on June 26, 2017. The"
+"population figures for year 2015 are bridged-race estimates of the July 1 resident population, from the Vintage 2015 postcensal"
+"series released by NCHS on June 28, 2016. The population figures for year 2014 are bridged-race estimates of the July 1 resident"
+"population, from the Vintage 2014 postcensal series released by NCHS on June 30, 2015. The population figures for year 2013 are"
+"bridged-race estimates of the July 1 resident population, from the Vintage 2013 postcensal series released by NCHS on June 26,"
+"2014. The population figures for year 2012 are bridged-race estimates of the July 1 resident population, from the Vintage 2012"
+"postcensal series released by NCHS on June 13, 2013. The population figures for year 2011 are bridged-race estimates of the July"
+"1 resident population, from the Vintage 2011 postcensal series released by NCHS on July 18, 2012. Population figures for 2010"
+"are April 1 Census counts. The population figures for years 2001 - 2009 are bridged-race estimates of the July 1 resident"
+"population, from the revised intercensal county-level 2000 - 2009 series released by NCHS on October 26, 2012. Population"
+"figures for 2000 are April 1 Census counts. Population figures for 1999 are from the 1990-1999 intercensal series of July 1"
+"estimates. Population figures for the infant age groups are the number of live births. <br/><b>Note:</b> Rates and population"
+"figures for years 2001 - 2009 differ slightly from previously published reports, due to use of the population estimates which"
+"were available at the time of release."
+"6. The population figures used in the calculation of death rates for the age group 'under 1 year' are the estimates of the"
+"resident population that is under one year of age. More information: http://wonder.cdc.gov/wonder/help/ucd.html#Age Group."
+"7. Beginning with the 2018 data, changes have been implemented that affect the counts for ICD-10 cause of death codes O00-O99"
+"compared to previous practice. In addition, data for the cause of death codes O00-O99 for 2003 through 2017 reflect differences"
+"in information available to individual states and probable errors. Caution should be used in interpreting these data. More"
+"information can be found at: https://www.cdc.gov/nchs/maternal-mortality/."
+"8. On March 11, 2021, the 2019 mortality data on CDC WONDER was updated with the 2019 mortality data updated by NCHS on March 4,"
+"2021 to include corrected information for residents of Texas affecting 5 records previously coded to cause code *U01.4,"
+"Terrorism involving firearms (homicide). The underlying and multiple cause of death codes for 5 records were corrected in the"
+"2019 data. Underlying and multiple cause of death codes for those 5 records were recoded to Assault (homicide) by other and"
+"unspecified firearm discharge, ICD-10 code X95. The corrected final death records replaces the data released on December 22,"
+"2020."
