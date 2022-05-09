@@ -16,6 +16,10 @@
 # 2021 is provisional - subject to change with updates
 # 2022 is incomplete (March most recent month) and is also provisional 
 
+### ----- Packages ----- ### 
+library(dplyr)
+library(stringr)
+library(tidyr)
 
 ### ----- Start Monthly Data ----- ###
 # Result is stored as REG_MORT
@@ -26,7 +30,7 @@ base_path_2020 <- "Data/REG/2020/"
 base_path_2021 <- "Data/REG/2021/"
 base_path_2022 <- "Data/REG/2022/"
 
-paste0(base_path_2018, "REG_2018_JAN.txt")
+# paste0(base_path_2018, "REG_2018_JAN.txt")
 negative_index_value <- as.integer(-65)
 
 REG_2018_JAN <- head(read.delim(file = paste0(base_path_2018, "REG_2018_JAN.txt"), header = T, sep = "\t", 
@@ -470,30 +474,90 @@ reg_mort <- rbind(REG2018, REG2019, REG2020, REG2021, REG2022)
 ### ----- Begin UCD ICD-10 Non-Provisional ----- ###
 # Result is stored as UCD
 
-head(read.delim(file = "Data/UCD/UCD_ICD_1999.txt", header = T, sep = "\t", 
-                quote = "\"", dec = ".", fill = T, comment.char = ""), negative_index_value)
+# head(read.delim(file = "Data/UCD/UCD_ICD_1999.txt", header = T, sep = "\t", 
+#                 quote = "\"", dec = ".", fill = T, comment.char = ""), negative_index_value)
+# 
+# head(read.delim(file = "Data/UCD/UCD_ICD_1999.txt", header = T, sep = "\t",
+#                 quote = "\"", dec = ".", fill = T, comment.char = ""), -65) %>%
+#   mutate(Year = 1999,
+#          Month = "ALL",
+#          Date = as.Date("2022-12-31"))
 
 
-head(read.delim(file = "Data/UCD/UCD_ICD_1999.txt", header = T, sep = "\t", 
-                quote = "\"", dec = ".", fill = T, comment.char = ""), -65)
-  mutate(Year = 1999, 
-         Month = "ALL", 
-         Date = as.Date("2022-12-31"))
-
-library(stringr) 
 paths <- Sys.glob("Data/UCD/UCD_*.txt")
 paths_ucd_years <- str_extract_all(paths, "\\d{4}")
-paths_ucd_base <- str_extract_all(paths, "UCD_ICD_")
-order(paths_ucd_years)
+# paths_ucd_base <- str_extract_all(paths, "\\s*UCD_ICD_")
+paths_ucd_base <- "Data/UCD/"
+paths_ucd_mid <- "UCD_ICD_"
+paths_file_type <- ".txt"
 
-for (i in length(paths)){
+# df <- data.frame(year = t(paths_ucd_years))
+# data.frame(years = paths_ucd_years) 
+# df <- ""
+# df$year <- paths_ucd_years
+# df <- as.data.frame(df)
+
+paths_ucd_years <- paths_ucd_years %>% 
+  data.frame() %>% 
+  gather() %>% 
+  arrange(desc(value)) %>% 
+  mutate(file_name = paste0(paths_ucd_mid, value, paths_file_type))
+
+# paste0(paths_ucd_base[[1]], paths_ucd_years$value)
+
+# for (y in length(paths_ucd_years$value)){
+#   df$paths <- tibble(path = paste0(paths_ucd_base[[1]], paths_ucd_years$value))
+# }
+
+
+# Extracts for the year 1999 (at the end of the values - 2020 to 1999)
+# for (i in length(paths_ucd_years$value)){
+#     test <- head(read.delim(file = paste0("Data/UCD/", paths_ucd_years$path[[i]], ".txt"), 
+#                         header = T, sep = "\t", quote = "\"", dec = ".", fill = T, 
+#                         comment.char = ""), -65) %>%
+#                       mutate(Year = paths_ucd_years$value[[i]], 
+#                          Month = "ALL", 
+#                          Date = as.Date(paste0(paths_ucd_years$value[[i]], "-12-31"))
+#                          )
+# }
+
+df_all <- head(read.delim(file = paste0(paths_ucd_base, paths_ucd_mid, paths_ucd_years$value[[1]], paths_file_type), 
+                          header = T, sep = "\t", quote = "\"", dec = ".", 
+                          fill = T, comment.char = ""), negative_index_value) %>%
+                mutate(Year = 2020,
+                       Month = "ALL",
+                       Date = as.Date("2020-12-31"))
+
+
+# Create a dataframe for 1 df 
+# This gives it the right shape (dims)
+# Either denote duplicate information in the notes field OR
+# read in the first dataframe from the list to give it the right shape then 
+# start at the second item in the list in the loop since the first has already 
+# been read in
+# df$Notes <- "Duplicate"
+# df_all <- df
+
+for (i in 2:length(paths_ucd_years$value)){
   
+  # Read-in 
+   df <- head(read.delim(file = paste0(paths_ucd_base, paths_ucd_mid, 
+                                       paths_ucd_years$value[[i]], paths_file_type), 
+                          header = T, sep = "\t", quote = "\"", dec = ".", fill = T, 
+                          comment.char = ""), negative_index_value) %>%
+                          mutate(Year = paths_ucd_years$value[[i]], 
+                                 Month = "ALL", 
+                                 Date = as.Date(paste0(paths_ucd_years$value[[i]], "-12-31")))
+   df_all <- rbind(df_all, df)
+   
 }
 
-### ----- Begin UCD ICD-10 Non-Provisional ----- ###
+UCD <- df_all
+
+### ----- End UCD ICD-10 Non-Provisional ----- ###
 # Result is stored as UCD
 
-save(REG_MORT, reg_mort, file = "Data/reg_mort.rdata")
+save(REG_MORT, reg_mort, UCD, file = "Data/reg_mort.rdata")
 
 
-?tigris
+
