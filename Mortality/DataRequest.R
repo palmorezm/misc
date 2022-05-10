@@ -6,7 +6,7 @@
 # This set consists of results grouped by: 
     # 1. Occurrence County
     # 2. UCD - ICD Chapter
-    # 3. Single Race 6
+    # 3. Single Race 6 
     # 4. Hispanic Origin
     # 5. Gender 
 # Other Data Notes
