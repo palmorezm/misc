@@ -1,6 +1,8 @@
 
 # Shiny Mortality REG exploration
 
+load("Data/reg_mort.rdata")
+
 df <- REG_MORT
 
 ui <- fluidPage(

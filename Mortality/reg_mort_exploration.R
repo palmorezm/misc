@@ -23,3 +23,17 @@ reg_mort %>%
   filter(UCD...ICD.Chapter == "Mental and behavioural disorders") %>% 
   ggplot(aes(UCD...ICD.Chapter)) + geom_col(aes(y = Deaths))
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

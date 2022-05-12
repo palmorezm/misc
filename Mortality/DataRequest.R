@@ -483,7 +483,6 @@ reg_mort <- rbind(REG2018, REG2019, REG2020, REG2021, REG2022)
 #          Month = "ALL",
 #          Date = as.Date("2022-12-31"))
 
-
 paths <- Sys.glob("Data/UCD/UCD_*.txt")
 paths_ucd_years <- str_extract_all(paths, "\\d{4}")
 # paths_ucd_base <- str_extract_all(paths, "\\s*UCD_ICD_")
