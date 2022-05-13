@@ -1,0 +1,818 @@
+"Notes"	"County"	"County Code"	"UCD - ICD Chapter"	"UCD - ICD Chapter Code"	"Race"	"Race Code"	"Hispanic Origin"	"Hispanic Origin Code"	"Gender"	"Gender Code"	Deaths	Population	Crude Rate	Age Adjusted Rate
+	"Adams County, WI"	"55001"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	24	8880	270.2703	166.1751
+	"Adams County, WI"	"55001"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	34	9151	371.5441	236.6912
+	"Adams County, WI"	"55001"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	41	8880	461.7117	309.9319
+	"Adams County, WI"	"55001"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	42	9151	458.9662	351.2527
+	"Adams County, WI"	"55001"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	9151	Unreliable	Unreliable
+	"Adams County, WI"	"55001"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	9151	Unreliable	Unreliable
+	"Ashland County, WI"	"55003"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	7584	Unreliable	Unreliable
+	"Ashland County, WI"	"55003"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	20	7340	272.4796	249.1169
+	"Ashland County, WI"	"55003"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	41	7584	540.6118	291.2896
+	"Ashland County, WI"	"55003"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	35	7340	476.8392	431.0666
+	"Barron County, WI"	"55005"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	44	22093	199.1581	137.8661
+	"Barron County, WI"	"55005"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	63	21659	290.8722	259.9033
+	"Barron County, WI"	"55005"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	21659	Unreliable	Unreliable
+	"Barron County, WI"	"55005"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	22093	Unreliable	Unreliable
+	"Barron County, WI"	"55005"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	97	22093	439.0531	257.9614
+	"Barron County, WI"	"55005"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	91	21659	420.1487	387.4219
+	"Barron County, WI"	"55005"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	30	22093	135.7896	79.8259
+	"Barron County, WI"	"55005"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	23	21659	106.1914	95.1500
+	"Barron County, WI"	"55005"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	21659	Unreliable	Unreliable
+	"Barron County, WI"	"55005"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	22093	Unreliable	Unreliable
+	"Barron County, WI"	"55005"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	25	21659	115.4255	114.6092
+	"Bayfield County, WI"	"55007"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	27	6601	409.0289	288.8743
+	"Bayfield County, WI"	"55007"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	19	6738	Unreliable	Unreliable
+	"Bayfield County, WI"	"55007"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	21	6601	318.1336	209.4040
+	"Bayfield County, WI"	"55007"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	33	6738	489.7596	395.9432
+	"Bayfield County, WI"	"55007"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	6601	Unreliable	Unreliable
+	"Brown County, WI"	"55009"	"Certain infectious and parasitic diseases"	"A00-B99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	104018	Unreliable	Unreliable
+	"Brown County, WI"	"55009"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	175	104018	168.2401	155.2079
+	"Brown County, WI"	"55009"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	198	100354	197.3016	252.1427
+	"Brown County, WI"	"55009"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	23	104018	22.1116	18.7570
+	"Brown County, WI"	"55009"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	20	100354	19.9294	27.5982
+	"Brown County, WI"	"55009"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	104018	Unreliable	Unreliable
+	"Brown County, WI"	"55009"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	100354	Unreliable	Unreliable
+	"Brown County, WI"	"55009"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	73	104018	70.1802	54.2856
+	"Brown County, WI"	"55009"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	31	100354	30.8906	47.6189
+	"Brown County, WI"	"55009"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	334	104018	321.0983	259.1330
+	"Brown County, WI"	"55009"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	291	100354	289.9735	405.0296
+	"Brown County, WI"	"55009"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	61	104018	58.6437	49.6941
+	"Brown County, WI"	"55009"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	61	100354	60.7848	88.6381
+	"Brown County, WI"	"55009"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	104018	Unreliable	Unreliable
+	"Brown County, WI"	"55009"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	100354	Unreliable	Unreliable
+	"Brown County, WI"	"55009"	"Diseases of the musculoskeletal system and connective tissue"	"M00-M99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	14	104018	Unreliable	Unreliable
+	"Brown County, WI"	"55009"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	25	104018	24.0343	20.0690
+	"Brown County, WI"	"55009"	"Certain conditions originating in the perinatal period"	"P00-P96"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	100354	Unreliable	Unreliable
+	"Brown County, WI"	"55009"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	29	104018	27.8798	25.8624
+	"Brown County, WI"	"55009"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	57	100354	56.7989	61.4728
+	"Buffalo County, WI"	"55011"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	15	6786	Unreliable	Unreliable
+	"Buffalo County, WI"	"55011"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	24	6855	350.1094	317.1617
+	"Buffalo County, WI"	"55011"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	29	6786	427.3504	263.8720
+	"Buffalo County, WI"	"55011"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	41	6855	598.1036	561.4634
+	"Buffalo County, WI"	"55011"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	6855	Unreliable	Unreliable
+	"Buffalo County, WI"	"55011"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	6855	Unreliable	Unreliable
+	"Burnett County, WI"	"55013"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	18	7219	Unreliable	Unreliable
+	"Burnett County, WI"	"55013"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	31	7351	421.7113	290.6383
+	"Burnett County, WI"	"55013"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	31	7219	429.4224	236.5833
+	"Burnett County, WI"	"55013"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	42	7351	571.3508	416.3190
+	"Calumet County, WI"	"55015"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	33	19564	168.6772	170.0820
+	"Calumet County, WI"	"55015"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	39	19525	199.7439	263.4966
+	"Calumet County, WI"	"55015"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	19564	Unreliable	Unreliable
+	"Calumet County, WI"	"55015"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	53	19564	270.9057	263.3743
+	"Calumet County, WI"	"55015"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	44	19525	225.3521	322.3051
+	"Calumet County, WI"	"55015"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	19525	Unreliable	Unreliable
+	"Chippewa County, WI"	"55017"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	65	27017	240.5893	179.4019
+	"Chippewa County, WI"	"55017"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	64	26764	239.1272	243.2840
+	"Chippewa County, WI"	"55017"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	26764	Unreliable	Unreliable
+	"Chippewa County, WI"	"55017"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	27017	Unreliable	Unreliable
+	"Chippewa County, WI"	"55017"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	26764	Unreliable	Unreliable
+	"Chippewa County, WI"	"55017"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	117	27017	433.0607	274.0577
+	"Chippewa County, WI"	"55017"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	114	26764	425.9453	460.6237
+	"Chippewa County, WI"	"55017"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	25	27017	92.5343	62.4722
+	"Chippewa County, WI"	"55017"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	39	26764	145.7181	159.7113
+	"Chippewa County, WI"	"55017"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	24	26764	89.6727	90.0890
+	"Clark County, WI"	"55019"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	29	16399	176.8401	133.3501
+	"Clark County, WI"	"55019"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	27	16465	163.9842	151.4937
+	"Clark County, WI"	"55019"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	16399	Unreliable	Unreliable
+	"Clark County, WI"	"55019"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	67	16399	408.5615	254.4287
+	"Clark County, WI"	"55019"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	65	16465	394.7768	362.3380
+	"Clark County, WI"	"55019"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	18	16399	Unreliable	Unreliable
+	"Clark County, WI"	"55019"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	16465	Unreliable	Unreliable
+	"Clark County, WI"	"55019"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	16465	Unreliable	Unreliable
+	"Columbia County, WI"	"55021"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	59	25282	233.3676	175.1183
+	"Columbia County, WI"	"55021"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	72	25162	286.1458	296.3327
+	"Columbia County, WI"	"55021"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	25282	Unreliable	Unreliable
+	"Columbia County, WI"	"55021"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	25162	Unreliable	Unreliable
+	"Columbia County, WI"	"55021"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	25282	Unreliable	Unreliable
+	"Columbia County, WI"	"55021"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	110	25282	435.0922	257.7895
+	"Columbia County, WI"	"55021"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	91	25162	361.6565	392.7387
+	"Columbia County, WI"	"55021"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	26	25282	102.8400	70.0074
+	"Columbia County, WI"	"55021"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	25	25162	99.3562	106.8777
+	"Columbia County, WI"	"55021"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	25282	Unreliable	Unreliable
+	"Columbia County, WI"	"55021"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	25162	Unreliable	Unreliable
+	"Columbia County, WI"	"55021"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	25282	Unreliable	Unreliable
+	"Columbia County, WI"	"55021"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	22	25162	87.4334	88.1652
+	"Crawford County, WI"	"55023"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	23	8400	273.8095	195.1730
+	"Crawford County, WI"	"55023"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	18	8381	Unreliable	Unreliable
+	"Crawford County, WI"	"55023"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	37	8400	440.4762	266.6004
+	"Crawford County, WI"	"55023"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	51	8381	608.5193	590.6979
+	"Crawford County, WI"	"55023"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	8381	Unreliable	Unreliable
+	"Dane County, WI"	"55025"	"Certain infectious and parasitic diseases"	"A00-B99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	191354	Unreliable	Unreliable
+	"Dane County, WI"	"55025"	"Certain infectious and parasitic diseases"	"A00-B99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	183717	Unreliable	Unreliable
+	"Dane County, WI"	"55025"	"Neoplasms"	"C00-D48"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	8568	Unreliable	Unreliable
+	"Dane County, WI"	"55025"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	298	191354	155.7323	159.5293
+	"Dane County, WI"	"55025"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	297	183717	161.6617	230.1911
+	"Dane County, WI"	"55025"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	44	191354	22.9940	21.9110
+	"Dane County, WI"	"55025"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	38	183717	20.6840	28.2094
+	"Dane County, WI"	"55025"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	43	191354	22.4714	19.5430
+	"Dane County, WI"	"55025"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	26	183717	14.1522	20.7975
+	"Dane County, WI"	"55025"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	82	191354	42.8525	38.7299
+	"Dane County, WI"	"55025"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	34	183717	18.5067	28.8639
+	"Dane County, WI"	"55025"	"Diseases of the circulatory system"	"I00-I99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	8568	Unreliable	Unreliable
+	"Dane County, WI"	"55025"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	497	191354	259.7280	233.5341
+	"Dane County, WI"	"55025"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	415	183717	225.8909	336.6351
+	"Dane County, WI"	"55025"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	152	191354	79.4339	73.7924
+	"Dane County, WI"	"55025"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	131	183717	71.3053	111.0945
+	"Dane County, WI"	"55025"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	58	191354	30.3103	27.5396
+	"Dane County, WI"	"55025"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	42	183717	22.8612	32.1112
+	"Dane County, WI"	"55025"	"Diseases of the musculoskeletal system and connective tissue"	"M00-M99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	191354	Unreliable	Unreliable
+	"Dane County, WI"	"55025"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	27	191354	14.1100	13.4522
+	"Dane County, WI"	"55025"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	28	183717	15.2408	25.6960
+	"Dane County, WI"	"55025"	"Certain conditions originating in the perinatal period"	"P00-P96"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	183717	Unreliable	Unreliable
+	"Dane County, WI"	"55025"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	62	191354	32.4007	31.2872
+	"Dane County, WI"	"55025"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	106	183717	57.6974	67.4281
+	"Dodge County, WI"	"55027"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	86	39600	217.1717	164.2540
+	"Dodge County, WI"	"55027"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	101	41051	246.0354	257.1335
+	"Dodge County, WI"	"55027"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	20	39600	50.5051	35.2227
+	"Dodge County, WI"	"55027"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	13	41051	Unreliable	Unreliable
+	"Dodge County, WI"	"55027"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	23	39600	58.0808	37.7276
+	"Dodge County, WI"	"55027"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	18	41051	Unreliable	Unreliable
+	"Dodge County, WI"	"55027"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	238	39600	601.0101	377.0020
+	"Dodge County, WI"	"55027"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	146	41051	355.6552	380.5402
+	"Dodge County, WI"	"55027"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	37	39600	93.4343	57.6655
+	"Dodge County, WI"	"55027"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	33	41051	80.3878	88.2149
+	"Dodge County, WI"	"55027"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	39600	Unreliable	Unreliable
+	"Dodge County, WI"	"55027"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	41051	Unreliable	Unreliable
+	"Dodge County, WI"	"55027"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	39600	Unreliable	Unreliable
+	"Dodge County, WI"	"55027"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	41051	Unreliable	Unreliable
+	"Dodge County, WI"	"55027"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	15	39600	Unreliable	Unreliable
+	"Dodge County, WI"	"55027"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	24	41051	58.4639	61.2560
+	"Door County, WI"	"55029"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	33	13805	239.0438	149.6354
+	"Door County, WI"	"55029"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	36	13361	269.4409	229.9046
+	"Door County, WI"	"55029"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	85	13805	615.7189	311.4031
+	"Door County, WI"	"55029"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	58	13361	434.0992	370.3866
+	"Door County, WI"	"55029"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	13805	Unreliable	Unreliable
+	"Door County, WI"	"55029"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	23	13361	172.1428	157.5627
+	"Douglas County, WI"	"55031"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	62	21015	295.0274	226.7268
+	"Douglas County, WI"	"55031"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	67	20241	331.0113	345.2226
+	"Douglas County, WI"	"55031"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	21015	Unreliable	Unreliable
+	"Douglas County, WI"	"55031"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	20241	Unreliable	Unreliable
+	"Douglas County, WI"	"55031"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	20	21015	95.1701	53.8060
+	"Douglas County, WI"	"55031"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	20	20241	98.8093	108.0765
+	"Douglas County, WI"	"55031"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	88	21015	418.7485	255.6042
+	"Douglas County, WI"	"55031"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	77	20241	380.4160	409.6849
+	"Douglas County, WI"	"55031"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	28	21015	133.2382	83.1489
+	"Douglas County, WI"	"55031"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	25	20241	123.5117	129.2782
+	"Douglas County, WI"	"55031"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	20241	Unreliable	Unreliable
+	"Douglas County, WI"	"55031"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	18	20241	Unreliable	Unreliable
+	"Dunn County, WI"	"55033"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	28	18920	147.9915	147.6998
+	"Dunn County, WI"	"55033"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	28	19198	145.8485	185.5480
+	"Dunn County, WI"	"55033"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	18920	Unreliable	Unreliable
+	"Dunn County, WI"	"55033"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	51	18920	269.5560	223.7068
+	"Dunn County, WI"	"55033"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	71	19198	369.8302	481.0247
+	"Dunn County, WI"	"55033"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	19	19198	Unreliable	Unreliable
+	"Dunn County, WI"	"55033"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	19198	Unreliable	Unreliable
+	"Eau Claire County, WI"	"55035"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	71	45591	155.7325	134.2903
+	"Eau Claire County, WI"	"55035"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	91	42617	213.5298	262.4413
+	"Eau Claire County, WI"	"55035"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	24	45591	52.6420	37.1310
+	"Eau Claire County, WI"	"55035"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	42617	Unreliable	Unreliable
+	"Eau Claire County, WI"	"55035"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	19	45591	Unreliable	Unreliable
+	"Eau Claire County, WI"	"55035"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	139	45591	304.8847	229.5799
+	"Eau Claire County, WI"	"55035"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	149	42617	349.6257	444.9227
+	"Eau Claire County, WI"	"55035"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	32	45591	70.1893	54.3752
+	"Eau Claire County, WI"	"55035"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	27	42617	63.3550	78.7786
+	"Eau Claire County, WI"	"55035"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	45591	Unreliable	Unreliable
+	"Eau Claire County, WI"	"55035"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	45591	Unreliable	Unreliable
+	"Eau Claire County, WI"	"55035"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	45591	Unreliable	Unreliable
+	"Eau Claire County, WI"	"55035"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	22	42617	51.6226	54.9582
+	"Florence County, WI"	"55037"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	15	2458	Unreliable	Unreliable
+	"Fond du Lac County, WI"	"55039"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	108	47651	226.6479	174.5216
+	"Fond du Lac County, WI"	"55039"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	102	45396	224.6894	236.3014
+	"Fond du Lac County, WI"	"55039"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	47651	Unreliable	Unreliable
+	"Fond du Lac County, WI"	"55039"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	45396	Unreliable	Unreliable
+	"Fond du Lac County, WI"	"55039"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	47651	Unreliable	Unreliable
+	"Fond du Lac County, WI"	"55039"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	35	47651	73.4507	43.0369
+	"Fond du Lac County, WI"	"55039"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	21	45396	46.2596	52.5013
+	"Fond du Lac County, WI"	"55039"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	213	47651	447.0001	281.4028
+	"Fond du Lac County, WI"	"55039"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	157	45396	345.8454	382.1084
+	"Fond du Lac County, WI"	"55039"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	41	47651	86.0423	57.4088
+	"Fond du Lac County, WI"	"55039"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	39	45396	85.9107	99.0337
+	"Fond du Lac County, WI"	"55039"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	18	47651	Unreliable	Unreliable
+	"Fond du Lac County, WI"	"55039"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	45396	Unreliable	Unreliable
+	"Fond du Lac County, WI"	"55039"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	47651	Unreliable	Unreliable
+	"Fond du Lac County, WI"	"55039"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	45396	Unreliable	Unreliable
+	"Fond du Lac County, WI"	"55039"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	19	47651	Unreliable	Unreliable
+	"Fond du Lac County, WI"	"55039"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	28	45396	61.6794	63.0032
+	"Forest County, WI"	"55041"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	4378	Unreliable	Unreliable
+	"Forest County, WI"	"55041"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	4284	Unreliable	Unreliable
+	"Forest County, WI"	"55041"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	4378	Unreliable	Unreliable
+	"Forest County, WI"	"55041"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	26	4284	606.9094	456.5356
+	"Forest County, WI"	"55041"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	4378	Unreliable	Unreliable
+	"Grant County, WI"	"55043"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	39	24199	161.1637	121.9096
+	"Grant County, WI"	"55043"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	71	24728	287.1239	304.5585
+	"Grant County, WI"	"55043"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	24199	Unreliable	Unreliable
+	"Grant County, WI"	"55043"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	24728	Unreliable	Unreliable
+	"Grant County, WI"	"55043"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	114	24199	471.0938	276.4712
+	"Grant County, WI"	"55043"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	115	24728	465.0599	514.8348
+	"Grant County, WI"	"55043"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	26	24199	107.4425	66.1656
+	"Grant County, WI"	"55043"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	35	24728	141.5400	156.9753
+	"Grant County, WI"	"55043"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	14	24199	Unreliable	Unreliable
+	"Grant County, WI"	"55043"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	24728	Unreliable	Unreliable
+	"Green County, WI"	"55045"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	31	16796	184.5678	132.6420
+	"Green County, WI"	"55045"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	36	16229	221.8251	228.4259
+	"Green County, WI"	"55045"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	16796	Unreliable	Unreliable
+	"Green County, WI"	"55045"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	16796	Unreliable	Unreliable
+	"Green County, WI"	"55045"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	79	16796	470.3501	286.2630
+	"Green County, WI"	"55045"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	57	16229	351.2231	376.6164
+	"Green County, WI"	"55045"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	23	16796	136.9374	80.0164
+	"Green County, WI"	"55045"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	19	16229	Unreliable	Unreliable
+	"Green County, WI"	"55045"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	16229	Unreliable	Unreliable
+	"Green County, WI"	"55045"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	16229	Unreliable	Unreliable
+	"Green Lake County, WI"	"55047"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	26	9486	274.0881	178.7743
+	"Green Lake County, WI"	"55047"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	35	9161	382.0544	311.5055
+	"Green Lake County, WI"	"55047"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	58	9486	611.4274	293.4450
+	"Green Lake County, WI"	"55047"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	40	9161	436.6336	370.4612
+	"Green Lake County, WI"	"55047"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	9161	Unreliable	Unreliable
+	"Iowa County, WI"	"55049"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	26	11347	229.1355	192.9436
+	"Iowa County, WI"	"55049"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	23	11244	204.5535	232.3551
+	"Iowa County, WI"	"55049"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	40	11347	352.5161	276.8431
+	"Iowa County, WI"	"55049"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	35	11244	311.2771	362.0594
+	"Iowa County, WI"	"55049"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	13	11244	Unreliable	Unreliable
+	"Iowa County, WI"	"55049"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	11244	Unreliable	Unreliable
+	"Iron County, WI"	"55051"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	3337	Unreliable	Unreliable
+	"Iron County, WI"	"55051"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	21	3472	604.8387	265.8816
+	"Iron County, WI"	"55051"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	20	3337	599.3407	401.6395
+	"Jackson County, WI"	"55053"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	23	8221	279.7713	210.8732
+	"Jackson County, WI"	"55053"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	22	8912	246.8582	242.3917
+	"Jackson County, WI"	"55053"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	45	8221	547.3787	306.0482
+	"Jackson County, WI"	"55053"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	42	8912	471.2747	469.8766
+	"Jefferson County, WI"	"55055"	"Certain infectious and parasitic diseases"	"A00-B99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	35582	Unreliable	Unreliable
+	"Jefferson County, WI"	"55055"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	71	35582	199.5391	164.9256
+	"Jefferson County, WI"	"55055"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	79	34537	228.7402	255.9949
+	"Jefferson County, WI"	"55055"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	35582	Unreliable	Unreliable
+	"Jefferson County, WI"	"55055"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	34537	Unreliable	Unreliable
+	"Jefferson County, WI"	"55055"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	123	35582	345.6804	254.8666
+	"Jefferson County, WI"	"55055"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	136	34537	393.7806	467.8233
+	"Jefferson County, WI"	"55055"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	20	35582	56.2082	41.8117
+	"Jefferson County, WI"	"55055"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	28	34537	81.0725	94.7582
+	"Jefferson County, WI"	"55055"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	14	35582	Unreliable	Unreliable
+	"Jefferson County, WI"	"55055"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	34537	Unreliable	Unreliable
+	"Jefferson County, WI"	"55055"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	35582	Unreliable	Unreliable
+	"Jefferson County, WI"	"55055"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	22	34537	63.6998	67.8675
+	"Juneau County, WI"	"55057"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	35	11747	297.9484	212.7145
+	"Juneau County, WI"	"55057"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	57	11731	485.8921	446.3142
+	"Juneau County, WI"	"55057"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	11731	Unreliable	Unreliable
+	"Juneau County, WI"	"55057"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	45	11747	383.0765	231.9836
+	"Juneau County, WI"	"55057"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	54	11731	460.3188	441.0009
+	"Juneau County, WI"	"55057"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	11747	Unreliable	Unreliable
+	"Juneau County, WI"	"55057"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	11731	Unreliable	Unreliable
+	"Juneau County, WI"	"55057"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	11731	Unreliable	Unreliable
+	"Kenosha County, WI"	"55059"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	127	65024	195.3125	167.1366
+	"Kenosha County, WI"	"55059"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	140	63173	221.6137	270.0151
+	"Kenosha County, WI"	"55059"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	25	65024	38.4473	31.2623
+	"Kenosha County, WI"	"55059"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	17	63173	Unreliable	Unreliable
+	"Kenosha County, WI"	"55059"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	65024	Unreliable	Unreliable
+	"Kenosha County, WI"	"55059"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	65024	Unreliable	Unreliable
+	"Kenosha County, WI"	"55059"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	63173	Unreliable	Unreliable
+	"Kenosha County, WI"	"55059"	"Diseases of the circulatory system"	"I00-I99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	3894	Unreliable	Unreliable
+	"Kenosha County, WI"	"55059"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	249	65024	382.9355	292.3607
+	"Kenosha County, WI"	"55059"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	216	63173	341.9182	437.4179
+	"Kenosha County, WI"	"55059"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	56	65024	86.1220	67.9003
+	"Kenosha County, WI"	"55059"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	60	63173	94.9773	119.0328
+	"Kenosha County, WI"	"55059"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	21	65024	32.2958	27.2521
+	"Kenosha County, WI"	"55059"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	63173	Unreliable	Unreliable
+	"Kenosha County, WI"	"55059"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	65024	Unreliable	Unreliable
+	"Kenosha County, WI"	"55059"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	28	65024	43.0610	34.9889
+	"Kenosha County, WI"	"55059"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	42	63173	66.4841	71.5158
+	"Kewaunee County, WI"	"55061"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	26	9943	261.4905	199.8157
+	"Kewaunee County, WI"	"55061"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	26	9994	260.1561	261.0334
+	"Kewaunee County, WI"	"55061"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	44	9943	442.5224	264.2894
+	"Kewaunee County, WI"	"55061"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	32	9994	320.1921	326.6612
+	"Kewaunee County, WI"	"55061"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	9943	Unreliable	Unreliable
+	"La Crosse County, WI"	"55063"	"Certain infectious and parasitic diseases"	"A00-B99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	52108	Unreliable	Unreliable
+	"La Crosse County, WI"	"55063"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	98	52108	188.0709	161.6241
+	"La Crosse County, WI"	"55063"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	109	48417	225.1275	256.9432
+	"La Crosse County, WI"	"55063"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	24	52108	46.0582	35.1228
+	"La Crosse County, WI"	"55063"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	21	48417	43.3732	51.1188
+	"La Crosse County, WI"	"55063"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	31	52108	59.4918	37.9945
+	"La Crosse County, WI"	"55063"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	48417	Unreliable	Unreliable
+	"La Crosse County, WI"	"55063"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	27	52108	51.8155	35.9392
+	"La Crosse County, WI"	"55063"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	17	48417	Unreliable	Unreliable
+	"La Crosse County, WI"	"55063"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	187	52108	358.8700	257.1674
+	"La Crosse County, WI"	"55063"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	161	48417	332.5278	404.6645
+	"La Crosse County, WI"	"55063"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	39	52108	74.8446	53.5721
+	"La Crosse County, WI"	"55063"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	44	48417	90.8772	118.6795
+	"La Crosse County, WI"	"55063"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	22	52108	42.2200	30.5758
+	"La Crosse County, WI"	"55063"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	18	48417	Unreliable	Unreliable
+	"La Crosse County, WI"	"55063"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	52108	Unreliable	Unreliable
+	"La Crosse County, WI"	"55063"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	20	48417	41.3078	42.8982
+	"Lafayette County, WI"	"55065"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	20	8068	247.8929	188.8963
+	"Lafayette County, WI"	"55065"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	24	8010	299.6255	285.6622
+	"Lafayette County, WI"	"55065"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	28	8068	347.0501	209.7004
+	"Lafayette County, WI"	"55065"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	36	8010	449.4382	458.8060
+	"Langlade County, WI"	"55067"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	22	10292	213.7583	132.7202
+	"Langlade County, WI"	"55067"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	31	10071	307.8145	261.0372
+	"Langlade County, WI"	"55067"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	50	10292	485.8142	249.5954
+	"Langlade County, WI"	"55067"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	60	10071	595.7700	509.7922
+	"Lincoln County, WI"	"55069"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	36	14532	247.7291	172.7883
+	"Lincoln County, WI"	"55069"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	40	14323	279.2711	251.4878
+	"Lincoln County, WI"	"55069"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	14532	Unreliable	Unreliable
+	"Lincoln County, WI"	"55069"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	65	14532	447.2887	238.0914
+	"Lincoln County, WI"	"55069"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	71	14323	495.7062	484.0698
+	"Lincoln County, WI"	"55069"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	20	14532	137.6273	81.8031
+	"Lincoln County, WI"	"55069"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	14323	Unreliable	Unreliable
+	"Lincoln County, WI"	"55069"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	14323	Unreliable	Unreliable
+	"Manitowoc County, WI"	"55071"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	90	40218	223.7804	158.1109
+	"Manitowoc County, WI"	"55071"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	107	39096	273.6853	262.3531
+	"Manitowoc County, WI"	"55071"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	40218	Unreliable	Unreliable
+	"Manitowoc County, WI"	"55071"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	39096	Unreliable	Unreliable
+	"Manitowoc County, WI"	"55071"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	15	40218	Unreliable	Unreliable
+	"Manitowoc County, WI"	"55071"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	18	40218	Unreliable	Unreliable
+	"Manitowoc County, WI"	"55071"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	17	39096	Unreliable	Unreliable
+	"Manitowoc County, WI"	"55071"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	193	40218	479.8846	276.6334
+	"Manitowoc County, WI"	"55071"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	161	39096	411.8068	412.3184
+	"Manitowoc County, WI"	"55071"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	37	40218	91.9986	53.7641
+	"Manitowoc County, WI"	"55071"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	45	39096	115.1013	119.1916
+	"Manitowoc County, WI"	"55071"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	14	40218	Unreliable	Unreliable
+	"Manitowoc County, WI"	"55071"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	39096	Unreliable	Unreliable
+	"Manitowoc County, WI"	"55071"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	30	40218	74.5935	53.7291
+	"Manitowoc County, WI"	"55071"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	47	39096	120.2169	124.8984
+	"Marathon County, WI"	"55073"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	100	59394	168.3672	139.0187
+	"Marathon County, WI"	"55073"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	127	58773	216.0856	236.5636
+	"Marathon County, WI"	"55073"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	33	59394	55.5612	43.4843
+	"Marathon County, WI"	"55073"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	32	58773	54.4468	59.4631
+	"Marathon County, WI"	"55073"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	59394	Unreliable	Unreliable
+	"Marathon County, WI"	"55073"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	30	59394	50.5102	38.0798
+	"Marathon County, WI"	"55073"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	58773	Unreliable	Unreliable
+	"Marathon County, WI"	"55073"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	192	59394	323.2650	229.6915
+	"Marathon County, WI"	"55073"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	127	58773	216.0856	247.9683
+	"Marathon County, WI"	"55073"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	43	59394	72.3979	51.1445
+	"Marathon County, WI"	"55073"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	46	58773	78.2672	92.9481
+	"Marathon County, WI"	"55073"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	59394	Unreliable	Unreliable
+	"Marathon County, WI"	"55073"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	18	58773	Unreliable	Unreliable
+	"Marathon County, WI"	"55073"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	21	59394	35.3571	30.3092
+	"Marathon County, WI"	"55073"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	48	58773	81.6702	82.8665
+	"Marinette County, WI"	"55075"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	55	21596	254.6768	165.9917
+	"Marinette County, WI"	"55075"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	66	21016	314.0464	266.0140
+	"Marinette County, WI"	"55075"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	21596	Unreliable	Unreliable
+	"Marinette County, WI"	"55075"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	21016	Unreliable	Unreliable
+	"Marinette County, WI"	"55075"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	113	21596	523.2450	290.1363
+	"Marinette County, WI"	"55075"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	135	21016	642.3677	563.5429
+	"Marinette County, WI"	"55075"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	23	21596	106.5012	56.4855
+	"Marinette County, WI"	"55075"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	19	21016	Unreliable	Unreliable
+	"Marinette County, WI"	"55075"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	21596	Unreliable	Unreliable
+	"Marinette County, WI"	"55075"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	18	21016	Unreliable	Unreliable
+	"Marquette County, WI"	"55077"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	14	7266	Unreliable	Unreliable
+	"Marquette County, WI"	"55077"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	26	7754	335.3108	280.1663
+	"Marquette County, WI"	"55077"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	22	7266	302.7801	198.0239
+	"Marquette County, WI"	"55077"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	31	7754	399.7937	323.0254
+	"Marquette County, WI"	"55077"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	7754	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Certain infectious and parasitic diseases"	"A00-B99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	125780	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Certain infectious and parasitic diseases"	"A00-B99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	24	106469	22.5418	35.1858
+	"Milwaukee County, WI"	"55079"	"Certain infectious and parasitic diseases"	"A00-B99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	45	311662	14.4387	8.4488
+	"Milwaukee County, WI"	"55079"	"Certain infectious and parasitic diseases"	"A00-B99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	58	286116	20.2715	19.0399
+	"Milwaukee County, WI"	"55079"	"Neoplasms"	"C00-D48"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	140	125780	111.3055	184.0246
+	"Milwaukee County, WI"	"55079"	"Neoplasms"	"C00-D48"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	171	106469	160.6101	359.6283
+	"Milwaukee County, WI"	"55079"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	"Male"	"M"	14	37704	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	878	311662	281.7154	184.9675
+	"Milwaukee County, WI"	"55079"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	852	286116	297.7813	277.5169
+	"Milwaukee County, WI"	"55079"	"Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism"	"D50-D89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	311662	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism"	"D50-D89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	286116	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	39	125780	31.0065	56.3959
+	"Milwaukee County, WI"	"55079"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	26	106469	24.4203	58.4603
+	"Milwaukee County, WI"	"55079"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	153	311662	49.0916	28.4445
+	"Milwaukee County, WI"	"55079"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	103	286116	35.9994	33.5365
+	"Milwaukee County, WI"	"55079"	"Mental and behavioural disorders"	"F01-F99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	25	125780	19.8760	38.0083
+	"Milwaukee County, WI"	"55079"	"Mental and behavioural disorders"	"F01-F99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	106469	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	151	311662	48.4499	24.7416
+	"Milwaukee County, WI"	"55079"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	60	286116	20.9705	21.1604
+	"Milwaukee County, WI"	"55079"	"Diseases of the nervous system"	"G00-G98"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	125780	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Diseases of the nervous system"	"G00-G98"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	106469	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	195	311662	62.5678	34.2450
+	"Milwaukee County, WI"	"55079"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	106	286116	37.0479	35.6441
+	"Milwaukee County, WI"	"55079"	"Diseases of the circulatory system"	"I00-I99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	226	125780	179.6788	354.6168
+	"Milwaukee County, WI"	"55079"	"Diseases of the circulatory system"	"I00-I99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	214	106469	200.9975	456.8749
+	"Milwaukee County, WI"	"55079"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	"Female"	"F"	14	33201	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	"Male"	"M"	18	37704	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	1706	311662	547.3879	291.0527
+	"Milwaukee County, WI"	"55079"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	1460	286116	510.2825	486.9085
+	"Milwaukee County, WI"	"55079"	"Diseases of the respiratory system"	"J00-J98"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	42	125780	33.3916	59.5662
+	"Milwaukee County, WI"	"55079"	"Diseases of the respiratory system"	"J00-J98"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	59	106469	55.4152	137.6347
+	"Milwaukee County, WI"	"55079"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	391	311662	125.4564	69.6404
+	"Milwaukee County, WI"	"55079"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	339	286116	118.4834	114.9253
+	"Milwaukee County, WI"	"55079"	"Diseases of the digestive system"	"K00-K92"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	125780	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Diseases of the digestive system"	"K00-K92"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	18	106469	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	122	311662	39.1450	23.9608
+	"Milwaukee County, WI"	"55079"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	100	286116	34.9509	33.2379
+	"Milwaukee County, WI"	"55079"	"Diseases of the musculoskeletal system and connective tissue"	"M00-M99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	25	311662	8.0215	4.5765
+	"Milwaukee County, WI"	"55079"	"Diseases of the genitourinary system"	"N00-N98"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	19	125780	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Diseases of the genitourinary system"	"N00-N98"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	17	106469	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	121	311662	38.8241	21.1009
+	"Milwaukee County, WI"	"55079"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	72	286116	25.1646	23.9272
+	"Milwaukee County, WI"	"55079"	"Certain conditions originating in the perinatal period"	"P00-P96"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	20	125780	15.9008	12.0894
+	"Milwaukee County, WI"	"55079"	"Certain conditions originating in the perinatal period"	"P00-P96"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	19	106469	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Congenital malformations, deformations and chromosomal abnormalities"	"Q00-Q99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	125780	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Congenital malformations, deformations and chromosomal abnormalities"	"Q00-Q99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	311662	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Congenital malformations, deformations and chromosomal abnormalities"	"Q00-Q99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	17	286116	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"	"R00-R99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	125780	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"	"R00-R99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	106469	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"	"R00-R99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	15	311662	Unreliable	Unreliable
+	"Milwaukee County, WI"	"55079"	"External causes of morbidity and mortality"	"V01-Y89"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	40	125780	31.8016	34.0023
+	"Milwaukee County, WI"	"55079"	"External causes of morbidity and mortality"	"V01-Y89"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	151	106469	141.8253	155.7384
+	"Milwaukee County, WI"	"55079"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	"Male"	"M"	28	37704	74.2627	64.7029
+	"Milwaukee County, WI"	"55079"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	143	311662	45.8830	31.0956
+	"Milwaukee County, WI"	"55079"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	223	286116	77.9404	74.8961
+	"Monroe County, WI"	"55081"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	29	19502	148.7027	120.0315
+	"Monroe County, WI"	"55081"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	46	19635	234.2755	240.2588
+	"Monroe County, WI"	"55081"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	79	19502	405.0867	281.4946
+	"Monroe County, WI"	"55081"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	82	19635	417.6216	446.2230
+	"Monroe County, WI"	"55081"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	23	19502	117.9366	80.7472
+	"Monroe County, WI"	"55081"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	31	19635	157.8813	164.1199
+	"Monroe County, WI"	"55081"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	13	19635	Unreliable	Unreliable
+	"Monroe County, WI"	"55081"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	19502	Unreliable	Unreliable
+	"Monroe County, WI"	"55081"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	20	19635	101.8589	104.8896
+	"Oconto County, WI"	"55083"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	45	17161	262.2225	205.4063
+	"Oconto County, WI"	"55083"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	61	17428	350.0115	324.6065
+	"Oconto County, WI"	"55083"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	17161	Unreliable	Unreliable
+	"Oconto County, WI"	"55083"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	17428	Unreliable	Unreliable
+	"Oconto County, WI"	"55083"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	70	17161	407.9016	282.4974
+	"Oconto County, WI"	"55083"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	61	17428	350.0115	356.7813
+	"Oconto County, WI"	"55083"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	17161	Unreliable	Unreliable
+	"Oconto County, WI"	"55083"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	17428	Unreliable	Unreliable
+	"Oconto County, WI"	"55083"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	17428	Unreliable	Unreliable
+	"Oneida County, WI"	"55085"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	38	18031	210.7482	140.0289
+	"Oneida County, WI"	"55085"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	53	17822	297.3853	252.1326
+	"Oneida County, WI"	"55085"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	14	18031	Unreliable	Unreliable
+	"Oneida County, WI"	"55085"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	91	18031	504.6864	301.5157
+	"Oneida County, WI"	"55085"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	96	17822	538.6601	475.5335
+	"Oneida County, WI"	"55085"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	22	18031	122.0121	72.5271
+	"Oneida County, WI"	"55085"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	24	17822	134.6650	121.5443
+	"Oneida County, WI"	"55085"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	17822	Unreliable	Unreliable
+	"Oneida County, WI"	"55085"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	18031	Unreliable	Unreliable
+	"Oneida County, WI"	"55085"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	17822	Unreliable	Unreliable
+	"Outagamie County, WI"	"55087"	"Certain infectious and parasitic diseases"	"A00-B99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	74118	Unreliable	Unreliable
+	"Outagamie County, WI"	"55087"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	133	75184	176.8993	170.8297
+	"Outagamie County, WI"	"55087"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	139	74118	187.5388	245.8280
+	"Outagamie County, WI"	"55087"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	21	75184	27.9315	23.5548
+	"Outagamie County, WI"	"55087"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	74118	Unreliable	Unreliable
+	"Outagamie County, WI"	"55087"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	75184	Unreliable	Unreliable
+	"Outagamie County, WI"	"55087"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	74118	Unreliable	Unreliable
+	"Outagamie County, WI"	"55087"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	41	75184	54.5329	45.0709
+	"Outagamie County, WI"	"55087"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	26	74118	35.0792	52.0947
+	"Outagamie County, WI"	"55087"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	247	75184	328.5273	272.3242
+	"Outagamie County, WI"	"55087"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	213	74118	287.3796	401.3952
+	"Outagamie County, WI"	"55087"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	55	75184	73.1539	62.8782
+	"Outagamie County, WI"	"55087"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	38	74118	51.2696	73.8046
+	"Outagamie County, WI"	"55087"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	19	75184	Unreliable	Unreliable
+	"Outagamie County, WI"	"55087"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	74118	Unreliable	Unreliable
+	"Outagamie County, WI"	"55087"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	75184	Unreliable	Unreliable
+	"Outagamie County, WI"	"55087"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	74118	Unreliable	Unreliable
+	"Outagamie County, WI"	"55087"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	75184	Unreliable	Unreliable
+	"Outagamie County, WI"	"55087"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	44	74118	59.3648	66.3462
+	"Ozaukee County, WI"	"55089"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	81	40000	202.5000	176.0984
+	"Ozaukee County, WI"	"55089"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	99	38924	254.3418	277.3187
+	"Ozaukee County, WI"	"55089"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	40000	Unreliable	Unreliable
+	"Ozaukee County, WI"	"55089"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	38924	Unreliable	Unreliable
+	"Ozaukee County, WI"	"55089"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	40000	Unreliable	Unreliable
+	"Ozaukee County, WI"	"55089"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	38924	Unreliable	Unreliable
+	"Ozaukee County, WI"	"55089"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	117	40000	292.5000	242.3369
+	"Ozaukee County, WI"	"55089"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	105	38924	269.7564	340.9106
+	"Ozaukee County, WI"	"55089"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	22	40000	55.0000	47.3697
+	"Ozaukee County, WI"	"55089"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	24	38924	61.6586	76.8395
+	"Ozaukee County, WI"	"55089"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	38924	Unreliable	Unreliable
+	"Ozaukee County, WI"	"55089"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	38924	Unreliable	Unreliable
+	"Pepin County, WI"	"55091"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	24	3607	665.3729	319.0677
+	"Pepin County, WI"	"55091"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	13	3643	Unreliable	Unreliable
+	"Pierce County, WI"	"55093"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	24	18159	132.1659	143.6498
+	"Pierce County, WI"	"55093"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	28	17686	158.3173	233.6837
+	"Pierce County, WI"	"55093"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	56	18159	308.3870	309.9295
+	"Pierce County, WI"	"55093"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	56	17686	316.6346	476.9258
+	"Pierce County, WI"	"55093"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	18159	Unreliable	Unreliable
+	"Pierce County, WI"	"55093"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	13	17686	Unreliable	Unreliable
+	"Pierce County, WI"	"55093"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	17	17686	Unreliable	Unreliable
+	"Polk County, WI"	"55095"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	27	20018	134.8786	101.1695
+	"Polk County, WI"	"55095"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	53	19912	266.1712	255.9365
+	"Polk County, WI"	"55095"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	20018	Unreliable	Unreliable
+	"Polk County, WI"	"55095"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	19912	Unreliable	Unreliable
+	"Polk County, WI"	"55095"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	84	20018	419.6223	251.4823
+	"Polk County, WI"	"55095"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	74	19912	371.6352	370.9002
+	"Polk County, WI"	"55095"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	20018	Unreliable	Unreliable
+	"Polk County, WI"	"55095"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	19912	Unreliable	Unreliable
+	"Polk County, WI"	"55095"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	17	19912	Unreliable	Unreliable
+	"Portage County, WI"	"55097"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	70	32156	217.6888	216.3755
+	"Portage County, WI"	"55097"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	64	31885	200.7213	254.0915
+	"Portage County, WI"	"55097"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	32156	Unreliable	Unreliable
+	"Portage County, WI"	"55097"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	100	32156	310.9840	266.2266
+	"Portage County, WI"	"55097"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	88	31885	275.9918	394.9615
+	"Portage County, WI"	"55097"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	32156	Unreliable	Unreliable
+	"Portage County, WI"	"55097"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	26	31885	81.5430	124.5894
+	"Portage County, WI"	"55097"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	35	31885	109.7695	121.3884
+	"Price County, WI"	"55099"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	7754	Unreliable	Unreliable
+	"Price County, WI"	"55099"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	27	7852	343.8614	265.2284
+	"Price County, WI"	"55099"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	38	7754	490.0696	250.0965
+	"Price County, WI"	"55099"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	45	7852	573.1024	430.2543
+	"Price County, WI"	"55099"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	7852	Unreliable	Unreliable
+	"Racine County, WI"	"55101"	"Certain infectious and parasitic diseases"	"A00-B99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	74359	Unreliable	Unreliable
+	"Racine County, WI"	"55101"	"Neoplasms"	"C00-D48"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	14	10306	Unreliable	Unreliable
+	"Racine County, WI"	"55101"	"Neoplasms"	"C00-D48"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	18	9939	Unreliable	Unreliable
+	"Racine County, WI"	"55101"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	181	77306	234.1345	186.6635
+	"Racine County, WI"	"55101"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	169	74359	227.2758	240.1819
+	"Racine County, WI"	"55101"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	37	77306	47.8617	35.9361
+	"Racine County, WI"	"55101"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	35	74359	47.0689	53.5898
+	"Racine County, WI"	"55101"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	30	77306	38.8068	25.3544
+	"Racine County, WI"	"55101"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	18	74359	Unreliable	Unreliable
+	"Racine County, WI"	"55101"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	52	77306	67.2652	46.0109
+	"Racine County, WI"	"55101"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	24	74359	32.2759	40.4522
+	"Racine County, WI"	"55101"	"Diseases of the circulatory system"	"I00-I99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	19	10306	Unreliable	Unreliable
+	"Racine County, WI"	"55101"	"Diseases of the circulatory system"	"I00-I99"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	21	9939	211.2889	417.6737
+	"Racine County, WI"	"55101"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	260	77306	336.3258	238.2619
+	"Racine County, WI"	"55101"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	272	74359	365.7930	413.8178
+	"Racine County, WI"	"55101"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	76	77306	98.3106	69.9120
+	"Racine County, WI"	"55101"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	70	74359	94.1379	111.1406
+	"Racine County, WI"	"55101"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	29	77306	37.5133	28.1382
+	"Racine County, WI"	"55101"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	25	74359	33.6207	35.4943
+	"Racine County, WI"	"55101"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	25	77306	32.3390	22.4408
+	"Racine County, WI"	"55101"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	74359	Unreliable	Unreliable
+	"Racine County, WI"	"55101"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	33	77306	42.6875	36.6910
+	"Racine County, WI"	"55101"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	48	74359	64.5517	67.2970
+	"Richland County, WI"	"55103"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	8817	Unreliable	Unreliable
+	"Richland County, WI"	"55103"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	30	8641	347.1820	299.4418
+	"Richland County, WI"	"55103"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	33	8817	374.2770	195.3833
+	"Richland County, WI"	"55103"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	31	8641	358.7548	329.4264
+	"Richland County, WI"	"55103"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	8817	Unreliable	Unreliable
+	"Rock County, WI"	"55105"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	123	69927	175.8977	145.5242
+	"Rock County, WI"	"55105"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	142	66956	212.0796	235.5975
+	"Rock County, WI"	"55105"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	29	69927	41.4718	30.6175
+	"Rock County, WI"	"55105"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	21	66956	31.3639	31.4308
+	"Rock County, WI"	"55105"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	20	69927	28.6013	18.7635
+	"Rock County, WI"	"55105"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	13	66956	Unreliable	Unreliable
+	"Rock County, WI"	"55105"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	38	69927	54.3424	40.2720
+	"Rock County, WI"	"55105"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	25	66956	37.3380	45.1374
+	"Rock County, WI"	"55105"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	261	69927	373.2464	270.8854
+	"Rock County, WI"	"55105"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	240	66956	358.4444	419.8081
+	"Rock County, WI"	"55105"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	79	69927	112.9750	84.0805
+	"Rock County, WI"	"55105"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	69	66956	103.0528	121.1290
+	"Rock County, WI"	"55105"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	19	69927	Unreliable	Unreliable
+	"Rock County, WI"	"55105"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	25	66956	37.3380	44.0052
+	"Rock County, WI"	"55105"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	69927	Unreliable	Unreliable
+	"Rock County, WI"	"55105"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	66956	Unreliable	Unreliable
+	"Rock County, WI"	"55105"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	20	69927	28.6013	26.1462
+	"Rock County, WI"	"55105"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	55	66956	82.1435	86.2886
+	"Rusk County, WI"	"55107"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	19	7595	Unreliable	Unreliable
+	"Rusk County, WI"	"55107"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	25	7442	335.9312	265.4559
+	"Rusk County, WI"	"55107"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	29	7595	381.8302	201.2464
+	"Rusk County, WI"	"55107"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	38	7442	510.6154	411.1093
+	"Rusk County, WI"	"55107"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	7595	Unreliable	Unreliable
+	"St. Croix County, WI"	"55109"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	49	30238	162.0478	161.5777
+	"St. Croix County, WI"	"55109"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	41	30232	135.6179	200.7291
+	"St. Croix County, WI"	"55109"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	30238	Unreliable	Unreliable
+	"St. Croix County, WI"	"55109"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	21	30238	69.4490	59.4571
+	"St. Croix County, WI"	"55109"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	108	30238	357.1665	316.4724
+	"St. Croix County, WI"	"55109"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	84	30232	277.8513	427.5605
+	"St. Croix County, WI"	"55109"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	18	30238	Unreliable	Unreliable
+	"St. Croix County, WI"	"55109"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	30232	Unreliable	Unreliable
+	"St. Croix County, WI"	"55109"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	15	30238	Unreliable	Unreliable
+	"St. Croix County, WI"	"55109"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	24	30232	79.3861	90.6682
+	"Sauk County, WI"	"55111"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	45	26923	167.1433	124.2685
+	"Sauk County, WI"	"55111"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	56	26158	214.0836	213.9878
+	"Sauk County, WI"	"55111"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	26923	Unreliable	Unreliable
+	"Sauk County, WI"	"55111"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	107	26923	397.4297	257.7309
+	"Sauk County, WI"	"55111"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	96	26158	367.0005	376.8574
+	"Sauk County, WI"	"55111"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	27	26923	100.2860	64.4948
+	"Sauk County, WI"	"55111"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	32	26158	122.3335	127.7115
+	"Sauk County, WI"	"55111"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	26923	Unreliable	Unreliable
+	"Sauk County, WI"	"55111"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	26923	Unreliable	Unreliable
+	"Sauk County, WI"	"55111"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	22	26158	84.1043	87.1608
+	"Sawyer County, WI"	"55113"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	22	6572	334.7535	208.8675
+	"Sawyer County, WI"	"55113"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	19	6680	Unreliable	Unreliable
+	"Sawyer County, WI"	"55113"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	37	6572	562.9945	334.1345
+	"Sawyer County, WI"	"55113"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	44	6680	658.6826	484.9877
+	"Shawano County, WI"	"55115"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	42	18645	225.2615	148.4637
+	"Shawano County, WI"	"55115"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	56	18542	302.0170	251.3596
+	"Shawano County, WI"	"55115"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	124	18645	665.0577	371.3944
+	"Shawano County, WI"	"55115"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	108	18542	582.4614	500.7637
+	"Shawano County, WI"	"55115"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	14	18645	Unreliable	Unreliable
+	"Shawano County, WI"	"55115"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	18542	Unreliable	Unreliable
+	"Shawano County, WI"	"55115"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	18542	Unreliable	Unreliable
+	"Sheboygan County, WI"	"55117"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	123	52088	236.1388	180.7363
+	"Sheboygan County, WI"	"55117"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	99	51083	193.8022	196.8052
+	"Sheboygan County, WI"	"55117"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	26	52088	49.9155	32.4087
+	"Sheboygan County, WI"	"55117"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	20	51083	39.1520	43.1648
+	"Sheboygan County, WI"	"55117"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	23	52088	44.1560	24.3471
+	"Sheboygan County, WI"	"55117"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	51083	Unreliable	Unreliable
+	"Sheboygan County, WI"	"55117"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	21	52088	40.3164	25.1684
+	"Sheboygan County, WI"	"55117"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	51083	Unreliable	Unreliable
+	"Sheboygan County, WI"	"55117"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	252	52088	483.7967	300.8922
+	"Sheboygan County, WI"	"55117"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	189	51083	369.9861	390.9750
+	"Sheboygan County, WI"	"55117"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	48	52088	92.1517	55.5080
+	"Sheboygan County, WI"	"55117"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	57	51083	111.5831	116.7188
+	"Sheboygan County, WI"	"55117"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	14	52088	Unreliable	Unreliable
+	"Sheboygan County, WI"	"55117"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	21	51083	41.1096	42.4603
+	"Sheboygan County, WI"	"55117"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	52088	Unreliable	Unreliable
+	"Sheboygan County, WI"	"55117"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	24	52088	46.0759	34.1875
+	"Sheboygan County, WI"	"55117"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	22	51083	43.0672	43.7512
+	"Taylor County, WI"	"55119"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	18	9594	Unreliable	Unreliable
+	"Taylor County, WI"	"55119"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	25	9828	254.3753	243.9278
+	"Taylor County, WI"	"55119"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	36	9594	375.2345	230.8273
+	"Taylor County, WI"	"55119"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	32	9828	325.6003	313.1293
+	"Taylor County, WI"	"55119"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	9828	Unreliable	Unreliable
+	"Trempealeau County, WI"	"55121"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	30	13289	225.7506	149.0069
+	"Trempealeau County, WI"	"55121"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	38	13275	286.2524	254.6459
+	"Trempealeau County, WI"	"55121"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	13275	Unreliable	Unreliable
+	"Trempealeau County, WI"	"55121"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	69	13289	519.2264	273.2224
+	"Trempealeau County, WI"	"55121"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	59	13275	444.4444	399.7569
+	"Trempealeau County, WI"	"55121"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	13289	Unreliable	Unreliable
+	"Trempealeau County, WI"	"55121"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	13	13275	Unreliable	Unreliable
+	"Vernon County, WI"	"55123"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	35	14048	249.1458	158.5539
+	"Vernon County, WI"	"55123"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	42	13737	305.7436	266.4689
+	"Vernon County, WI"	"55123"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	67	14048	476.9362	254.0353
+	"Vernon County, WI"	"55123"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	60	13737	436.7766	394.5694
+	"Vernon County, WI"	"55123"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	14048	Unreliable	Unreliable
+	"Vernon County, WI"	"55123"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	13	13737	Unreliable	Unreliable
+	"Vernon County, WI"	"55123"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	13737	Unreliable	Unreliable
+	"Vilas County, WI"	"55125"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	28	9411	297.5242	167.6484
+	"Vilas County, WI"	"55125"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	33	9304	354.6862	225.8973
+	"Vilas County, WI"	"55125"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	61	9411	648.1777	313.8868
+	"Vilas County, WI"	"55125"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	56	9304	601.8917	427.3997
+	"Vilas County, WI"	"55125"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	9411	Unreliable	Unreliable
+	"Vilas County, WI"	"55125"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	9304	Unreliable	Unreliable
+	"Walworth County, WI"	"55127"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	89	43270	205.6852	173.3108
+	"Walworth County, WI"	"55127"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	91	41887	217.2512	233.6772
+	"Walworth County, WI"	"55127"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	18	43270	Unreliable	Unreliable
+	"Walworth County, WI"	"55127"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	41887	Unreliable	Unreliable
+	"Walworth County, WI"	"55127"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	20	43270	46.2214	28.4877
+	"Walworth County, WI"	"55127"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	41887	Unreliable	Unreliable
+	"Walworth County, WI"	"55127"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	37	43270	85.5096	57.4906
+	"Walworth County, WI"	"55127"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	185	43270	427.5480	291.9164
+	"Walworth County, WI"	"55127"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	140	41887	334.2326	383.9822
+	"Walworth County, WI"	"55127"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	49	43270	113.2424	78.5571
+	"Walworth County, WI"	"55127"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	36	41887	85.9455	103.0911
+	"Walworth County, WI"	"55127"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	43270	Unreliable	Unreliable
+	"Walworth County, WI"	"55127"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	13	41887	Unreliable	Unreliable
+	"Walworth County, WI"	"55127"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	14	43270	Unreliable	Unreliable
+	"Walworth County, WI"	"55127"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	43270	Unreliable	Unreliable
+	"Walworth County, WI"	"55127"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	36	41887	85.9455	83.8145
+	"Washburn County, WI"	"55129"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	30	7733	387.9478	282.4459
+	"Washburn County, WI"	"55129"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	31	7829	395.9637	316.0730
+	"Washburn County, WI"	"55129"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	38	7733	491.4005	286.0826
+	"Washburn County, WI"	"55129"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	28	7829	357.6447	285.2221
+	"Washburn County, WI"	"55129"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	7733	Unreliable	Unreliable
+	"Washburn County, WI"	"55129"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	7829	Unreliable	Unreliable
+	"Washington County, WI"	"55131"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	75	56813	132.0120	119.3888
+	"Washington County, WI"	"55131"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	115	56437	203.7670	259.9122
+	"Washington County, WI"	"55131"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	56813	Unreliable	Unreliable
+	"Washington County, WI"	"55131"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	56437	Unreliable	Unreliable
+	"Washington County, WI"	"55131"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	56813	Unreliable	Unreliable
+	"Washington County, WI"	"55131"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	19	56813	Unreliable	Unreliable
+	"Washington County, WI"	"55131"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	56437	Unreliable	Unreliable
+	"Washington County, WI"	"55131"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	154	56813	271.0647	229.5194
+	"Washington County, WI"	"55131"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	161	56437	285.2738	394.0017
+	"Washington County, WI"	"55131"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	35	56813	61.6056	54.7978
+	"Washington County, WI"	"55131"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	54	56437	95.6819	136.2270
+	"Washington County, WI"	"55131"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	19	56813	Unreliable	Unreliable
+	"Washington County, WI"	"55131"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	56437	Unreliable	Unreliable
+	"Washington County, WI"	"55131"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	56813	Unreliable	Unreliable
+	"Washington County, WI"	"55131"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	56813	Unreliable	Unreliable
+	"Washington County, WI"	"55131"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	42	56437	74.4193	83.3437
+	"Waukesha County, WI"	"55133"	"Certain infectious and parasitic diseases"	"A00-B99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	173053	Unreliable	Unreliable
+	"Waukesha County, WI"	"55133"	"Certain infectious and parasitic diseases"	"A00-B99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	166533	Unreliable	Unreliable
+	"Waukesha County, WI"	"55133"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	329	173053	190.1152	167.4660
+	"Waukesha County, WI"	"55133"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	367	166533	220.3767	265.4282
+	"Waukesha County, WI"	"55133"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	48	173053	27.7372	22.9540
+	"Waukesha County, WI"	"55133"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	37	166533	22.2178	29.1062
+	"Waukesha County, WI"	"55133"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	30	173053	17.3357	13.2777
+	"Waukesha County, WI"	"55133"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	166533	Unreliable	Unreliable
+	"Waukesha County, WI"	"55133"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	39	173053	22.5364	18.7068
+	"Waukesha County, WI"	"55133"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	36	166533	21.6173	29.4424
+	"Waukesha County, WI"	"55133"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	557	173053	321.8667	255.6161
+	"Waukesha County, WI"	"55133"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	485	166533	291.2336	389.3059
+	"Waukesha County, WI"	"55133"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	141	173053	81.4779	65.0629
+	"Waukesha County, WI"	"55133"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	118	166533	70.8568	97.3117
+	"Waukesha County, WI"	"55133"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	60	173053	34.6715	28.6057
+	"Waukesha County, WI"	"55133"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	32	166533	19.2154	25.0294
+	"Waukesha County, WI"	"55133"	"Diseases of the musculoskeletal system and connective tissue"	"M00-M99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	15	173053	Unreliable	Unreliable
+	"Waukesha County, WI"	"55133"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	47	173053	27.1593	21.1215
+	"Waukesha County, WI"	"55133"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	25	166533	15.0120	23.3024
+	"Waukesha County, WI"	"55133"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	60	173053	34.6715	29.7805
+	"Waukesha County, WI"	"55133"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	75	166533	45.0361	52.2115
+	"Waupaca County, WI"	"55135"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	58	25183	230.3141	165.7240
+	"Waupaca County, WI"	"55135"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	78	25131	310.3736	269.9504
+	"Waupaca County, WI"	"55135"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	10	25183	Unreliable	Unreliable
+	"Waupaca County, WI"	"55135"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	17	25131	Unreliable	Unreliable
+	"Waupaca County, WI"	"55135"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	25131	Unreliable	Unreliable
+	"Waupaca County, WI"	"55135"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	25183	Unreliable	Unreliable
+	"Waupaca County, WI"	"55135"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	25131	Unreliable	Unreliable
+	"Waupaca County, WI"	"55135"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	157	25183	623.4364	334.6918
+	"Waupaca County, WI"	"55135"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	144	25131	572.9975	491.2736
+	"Waupaca County, WI"	"55135"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	25	25183	99.2733	55.6934
+	"Waupaca County, WI"	"55135"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	51	25131	202.9366	171.9624
+	"Waupaca County, WI"	"55135"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	12	25183	Unreliable	Unreliable
+	"Waupaca County, WI"	"55135"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	25131	Unreliable	Unreliable
+	"Waupaca County, WI"	"55135"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	10	25131	Unreliable	Unreliable
+	"Waupaca County, WI"	"55135"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	14	25183	Unreliable	Unreliable
+	"Waupaca County, WI"	"55135"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	25	25131	99.4787	99.6536
+	"Waushara County, WI"	"55137"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	27	10921	247.2301	157.8655
+	"Waushara County, WI"	"55137"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	40	10993	363.8679	285.0098
+	"Waushara County, WI"	"55137"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	59	10921	540.2436	297.1918
+	"Waushara County, WI"	"55137"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	55	10993	500.3184	436.9821
+	"Waushara County, WI"	"55137"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	10993	Unreliable	Unreliable
+	"Waushara County, WI"	"55137"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	10993	Unreliable	Unreliable
+	"Winnebago County, WI"	"55139"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	160	74760	214.0182	179.3628
+	"Winnebago County, WI"	"55139"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	169	72749	232.3056	271.0491
+	"Winnebago County, WI"	"55139"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	18	74760	Unreliable	Unreliable
+	"Winnebago County, WI"	"55139"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	21	72749	28.8664	32.4715
+	"Winnebago County, WI"	"55139"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	30	74760	40.1284	26.0282
+	"Winnebago County, WI"	"55139"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	34	74760	45.4789	32.3481
+	"Winnebago County, WI"	"55139"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	28	72749	38.4885	45.5625
+	"Winnebago County, WI"	"55139"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	263	74760	351.7924	249.8559
+	"Winnebago County, WI"	"55139"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	213	72749	292.7875	360.0334
+	"Winnebago County, WI"	"55139"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	78	74760	104.3339	79.1692
+	"Winnebago County, WI"	"55139"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	45	72749	61.8565	78.0474
+	"Winnebago County, WI"	"55139"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	27	74760	36.1156	28.7103
+	"Winnebago County, WI"	"55139"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	14	72749	Unreliable	Unreliable
+	"Winnebago County, WI"	"55139"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	74760	Unreliable	Unreliable
+	"Winnebago County, WI"	"55139"	"Diseases of the genitourinary system"	"N00-N98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	12	72749	Unreliable	Unreliable
+	"Winnebago County, WI"	"55139"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	17	74760	Unreliable	Unreliable
+	"Winnebago County, WI"	"55139"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	47	72749	64.6057	66.8985
+	"Wood County, WI"	"55141"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	64	37231	171.8998	130.6822
+	"Wood County, WI"	"55141"	"Neoplasms"	"C00-D48"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	97	35700	271.7087	265.2048
+	"Wood County, WI"	"55141"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	13	37231	Unreliable	Unreliable
+	"Wood County, WI"	"55141"	"Endocrine, nutritional and metabolic diseases"	"E00-E88"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	16	35700	Unreliable	Unreliable
+	"Wood County, WI"	"55141"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	37231	Unreliable	Unreliable
+	"Wood County, WI"	"55141"	"Mental and behavioural disorders"	"F01-F99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	15	35700	Unreliable	Unreliable
+	"Wood County, WI"	"55141"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	19	37231	Unreliable	Unreliable
+	"Wood County, WI"	"55141"	"Diseases of the nervous system"	"G00-G98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	11	35700	Unreliable	Unreliable
+	"Wood County, WI"	"55141"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	143	37231	384.0885	232.7769
+	"Wood County, WI"	"55141"	"Diseases of the circulatory system"	"I00-I99"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	128	35700	358.5434	353.6671
+	"Wood County, WI"	"55141"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	47	37231	126.2389	80.0458
+	"Wood County, WI"	"55141"	"Diseases of the respiratory system"	"J00-J98"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	33	35700	92.4370	94.4660
+	"Wood County, WI"	"55141"	"Diseases of the digestive system"	"K00-K92"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	11	37231	Unreliable	Unreliable
+	"Wood County, WI"	"55141"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Female"	"F"	16	37231	Unreliable	Unreliable
+	"Wood County, WI"	"55141"	"External causes of morbidity and mortality"	"V01-Y89"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-2"	"Male"	"M"	20	35700	56.0224	58.1406
+"---"
+"Dataset: Multiple Cause of Death, 1999-2020"
+"Query Parameters:"
+"States: Wisconsin (55)"
+"Year/Month: 1999"
+"Group By: County; UCD - ICD Chapter; Race; Hispanic Origin; Gender"
+"Show Totals: Disabled"
+"Show Zero Values: False"
+"Show Suppressed: False"
+"Standard Population: 2000 U.S. Std. Population"
+"Calculate Rates Per: 100,000"
+"Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups)"
+"---"
+"Help: See http://wonder.cdc.gov/wonder/help/mcd.html for more information."
+"---"
+"Query Date: May 13, 2022 12:09:58 PM"
+"---"
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics"
+"System, Mortality 1999-2020 on CDC WONDER Online Database, released in 2021. Data are from the Multiple Cause of Death Files,"
+"1999-2020, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative"
+"Program. Accessed at http://wonder.cdc.gov/mcd-icd10.html on May 13, 2022 12:09:58 PM"
+"---"
+Messages:
+"1. Totals are not available for these results due to suppression constraints. More Information:"
+"http://wonder.cdc.gov/wonder/help/faq.html#Privacy."
+"2. Rows with suppressed Deaths are hidden. Use Quick Options above to show suppressed rows."
+"---"
+Caveats:
+"1. Data are Suppressed when the data meet the criteria for confidentiality constraints. More information:"
+"http://wonder.cdc.gov/wonder/help/mcd.html#Assurance of Confidentiality."
+"2. Death rates are flagged as Unreliable when the rate is calculated with a numerator of 20 or less. More information:"
+"http://wonder.cdc.gov/wonder/help/mcd.html#Unreliable."
+"3. The populations used to calculate standard age-adjusted rates are documented here: More information:"
+"http://wonder.cdc.gov/wonder/help/mcd.html#2000 Standard Population."
+"4. The method used to calculate age-adjusted rates is documented here: More information:"
+"http://wonder.cdc.gov/wonder/help/mcd.html#Age-Adjusted Rates."
+"5. Deaths for persons of unknown age are included in counts and crude rates, but are not included in age-adjusted rates."
+"6. Deaths of persons with Hispanic origin ""Not Stated"" are included in ""All"" counts and rates, but are not distributed among"
+"Hispanic Origin groups, so are not included in the Hispanic Origin specific counts and rates. More information:"
+"http://wonder.cdc.gov/wonder/help/mcd.html#Not Stated."
+"7. Information included on the death certificate about the race and Hispanic ethnicity of the decedent is reported by the"
+"funeral director as provided by an informant, often the surviving next of kin, or, in the absence of an informant, on the basis"
+"of observation. Race and ethnicity information from the census is by self-report. To the extent that race and Hispanic origin"
+"are inconsistent between these two data sources, death rates will be biased. More information:"
+"http://wonder.cdc.gov/wonder/help/mcd.html#Racial Differences."
+"8. The population figures for year 2020 are bridged-race estimates of the July 1 resident population, from the Vintage 2020"
+"postcensal series released by NCHS on September 22, 2021. The population figures for year 2019 are bridged-race estimates of the"
+"July 1 resident population, from the Vintage 2019 postcensal series released by NCHS on July 9, 2020. The population figures for"
+"year 2018 are bridged-race estimates of the July 1 resident population, from the Vintage 2018 postcensal series released by NCHS"
+"on June 25, 2019. The population figures for year 2017 are bridged-race estimates of the July 1 resident population, from the"
+"Vintage 2017 postcensal series released by NCHS on June 27, 2018. The population figures for year 2016 are bridged-race"
+"estimates of the July 1 resident population, from the Vintage 2016 postcensal series released by NCHS on June 26, 2017. The"
+"population figures for year 2015 are bridged-race estimates of the July 1 resident population, from the Vintage 2015 postcensal"
+"series released by NCHS on June 28, 2016. The population figures for year 2014 are bridged-race estimates of the July 1 resident"
+"population, from the Vintage 2014 postcensal series released by NCHS on June 30, 2015. The population figures for year 2013 are"
+"bridged-race estimates of the July 1 resident population, from the Vintage 2013 postcensal series released by NCHS on June 26,"
+"2014. The population figures for year 2012 are bridged-race estimates of the July 1 resident population, from the Vintage 2012"
+"postcensal series released by NCHS on June 13, 2013. Population figures for 2011 are bridged-race estimates of the July 1"
+"resident population, from the county-level postcensal Vintage 2011 series released by NCHS on July 18, 2012. Population figures"
+"for 2010 are April 1 Census counts. The population figures for years 2001 - 2009, are bridged-race estimates of the July 1"
+"resident population, from the revised intercensal county-level 2000 - 2009 series released by NCHS on October 26, 2012."
+"Population figures for 2000 are April 1 Census counts. Population figures for 1999 are from the 1990-1999 intercensal series of"
+"July 1 estimates. Population figures for Infant Age Groups are the number of live births. <br/><b>Note:</b> Rates and population"
+"figures for years 2001 - 2009 differ slightly from previously published reports, due to use of the population estimates which"
+"were available at the time of release."
+"9. The population figures used in the calculation of death rates for the age group 'under 1 year' are the estimates of the"
+"resident population that is under one year of age. More information: http://wonder.cdc.gov/wonder/help/mcd.html#Age Group."
+"10. Beginning with the 2018 data, changes have been implemented that affect the counts for ICD-10 cause of death codes O00-O99"
+"compared to previous practice. In addition, data for the cause of death codes O00-O99 for 2003 through 2017 reflect differences"
+"in information available to individual states and probable errors. Caution should be used in interpreting these data. More"
+"information can be found at: https://www.cdc.gov/nchs/maternal-mortality/."
+"11. On March 11, 2021, the 2019 mortality data on CDC WONDER was updated with the 2019 mortality data updated by NCHS on March"
+"4, 2021 to include corrected information for residents of Texas affecting 5 records previously coded to cause code *U01.4,"
+"Terrorism involving firearms (homicide). The underlying and multiple cause of death codes for 5 records were corrected in the"
+"2019 data. Underlying and multiple cause of death codes for those 5 records were recoded to Assault (homicide) by other and"
+"unspecified firearm discharge, ICD-10 code X95. The corrected final death records replaces the data released on December 22,"
+"2020."
