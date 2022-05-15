@@ -26,7 +26,7 @@ UCD %>%
   geom_text(aes(label = paste0(round(Percent, 1), "%"), y = Deaths), 
             hjust = -.25, colour = "black") + 
   coord_flip() + 
-  labs(x = "Deaths", y = "Cause", 
+  labs(x = "Cause", y = "Deaths", 
        subtitle = "Leading Causes of Death in Rock County")
 # plotly::ggplotly(Rock_COD_plot)
 
@@ -40,22 +40,33 @@ UCD %>%
   ggplot(aes(x = Deaths)) + geom_density(aes(col = County)) # select different functions? Density/histogram/boxplot
 
 
-# Have more or less people died over time in Rock County? 
+# Have more or less people died of [x] over time in Rock County? 
 UCD %>% 
-  filter(County == "Rock County, WI", 
-         Year >= 1999, Year <= 2001) %>% 
-  gather(key, value, -Date, -Deaths, -Crude.Rate) %>% 
-  ggplot(aes(Date, Deaths)) + geom_point() 
+  filter(County == c("Rock County, WI"), 
+         Year >= 1999, Year <= 2020, 
+         ICD.Chapter == c("Neoplasms", "Diseases of the circulatory system")) %>% 
+  ggplot(aes(Date, Deaths, col = ICD.Chapter)) + 
+  geom_line() + geom_point()
 
-# Does ICD chapter crude mortality rate seem normal 
-# for Rock County compared to the rest of WI? 
+# Compared to the rest of WI, does the crude mortality rate seem normal in Rock County? 
+boxfunci <- function(d) {
+  stats <- boxplot.stats(d)
+  data.frame(ymin = stats$conf[1], ymax = stats$conf[2], y = stats$stats[3])
+}
+
 UCD %>%
-  filter(Year == 2019) %>% 
+  filter(Year == 2019, ) %>% 
   group_by(County, ICD.Chapter) %>% 
   summarise(Crude_Mortality = sum(Deaths), 
             Population = sum(Population), 
             Crude_Mortality_Rate = Crude_Mortality / Population * 100000) %>% 
-  ggplot(aes(ICD.Chapter, Crude_Mortality_Rate)) + geom_boxplot() + coord_flip()
+  ggplot(aes(reorder(ICD.Chapter, Crude_Mortality_Rate), Crude_Mortality_Rate)) + 
+  geom_point(aes(fill = ICD.Chapter), alpha = 0.10) +
+  geom_boxplot(aes(fill = ICD.Chapter, alpha = 0.5, col = ICD.Chapter), 
+               notch = TRUE, notchwidth = 0.5) + 
+  stat_summary(fun.data = boxfunci, geom = "crossbar", 
+               colour = NA, fill = "light grey", width = 0.8, alpha = 0.45) + 
+  coord_flip() + theme(legend.position = "none")
 
 ###############################
 
