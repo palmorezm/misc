@@ -22,13 +22,13 @@ UCD %>%
   summarise(Percent = (Deaths / total_deaths)*100 ) %>%
   arrange(desc(Percent)) %>%  
   ggplot(aes(reorder(ICD.Chapter, Deaths), Deaths)) + 
-  geom_col(fill = "light blue", col = "black") + 
+  geom_col(fill = "sky blue", col = "black") + 
   geom_text(aes(label = paste0(round(Percent, 1), "%"), y = Deaths), 
             hjust = -.25, colour = "black") + 
   coord_flip() + 
   labs(x = "Cause", y = "Deaths", 
        subtitle = "Leading Causes of Death in Rock County")
-# plotly::ggplotly(Rock_COD_plot)
+# plotly::ggplotly(Rock_COD_UCD_plot)
 
 # Unknown question - what is the distribution of each varaible?
 UCD %>% 
@@ -105,12 +105,64 @@ UCDsf %>%
   addSearchOSM() %>% 
   addReverseSearchOSM() %>%
   addPolygons(weight = 1, color = ~pal_UCD(Crude_Mortality_Rate),
-              label = ~paste(NAME, "</br>",
-                             "Total Deaths:", signif(Crude_Mortality, digits = 1)),
+              label = ~paste0(NAME,
+                             ", ", signif(Crude_Mortality, digits = 1)),
               highlight = highlightOptions(weight = 1, color = "black",
                                            bringToFront = TRUE)) %>% 
-  addLegend(, position = "bottomright", pal = pal2) %>%
-  addLayersControl(baseGroups = c("OSM", "Carto", "Esri"), 
-                   overlayGroups = c("Endangered", "Threatened", "Not Listed")) 
+  # addLegend(pal_UCD, position = "bottomright", pal = pal_UCD) %>%
+  addLayersControl(baseGroups = c("OSM", "Carto", "Esri")) 
 # setView(lat = 42.94033923, lng = -75.05859375, zoom = 4)
+
+### -----  ----- ### 
+
+#  Map Filter Testing
+
+### -----  ----- ###
+WI_counties <- tigris::counties(state = "WI")
+UCD <- UCD %>% 
+  rename(GEOID = County.Code)
+UCD$GEOID <- as.character(UCD$GEOID)
+UCD_Crude <- UCD %>% 
+  group_by(County, GEOID, ICD.Chapter) %>% 
+  summarise(Crude_Mortality = sum(Deaths, na.rm = T), 
+            Population = sum(Population, na.rm = T), 
+            Crude_Mortality_Rate = as.numeric(Crude_Mortality / Population * 100000))
+pal_UCD_max <- as.numeric(max(UCD_Crude$Crude_Mortality_Rate, na.rm = T))
+pal_UCD_min <- as.numeric(min(UCD_Crude$Crude_Mortality_Rate, na.rm = T))
+pal_UCD <- colorNumeric(c("RdYlGn"), pal_UCD_min:pal_UCD_max)
+
+UCD_sub <- UCD_Crude %>% 
+  filter(ICD.Chapter == "Neoplasms")
+
+UCD_sub_wi <- WI_counties %>% 
+  left_join(UCD_sub, by = "GEOID")
+UCD_sub_sf <- sf::as_Spatial(UCD_sub_wi)
+
+pal_UCD_mx <- as.numeric(max(UCD_sub_wi$Crude_Mortality_Rate, na.rm = T))
+pal_UCD_mn <- as.numeric(min(UCD_sub_wi$Crude_Mortality_Rate, na.rm = T))
+pal_UCD <- colorNumeric(c("RdYlGn"), pal_UCD_mn:pal_UCD_mx, reverse = T)
+
+names(providers)
+?leaflet::addTiles()
+
+UCD_sub_sf %>%
+  leaflet() %>%
+  addTiles(layerId = "OSM", group = "OSM", 
+           options = providerTileOptions(opacity = 0.5)) %>% 
+  addProviderTiles(layerId = "CARTO", "CartoDB", group = "CARTO", 
+                   options = providerTileOptions(opacity = 0.99)) %>% 
+  addProviderTiles(layerId = "ESRI", "Esri", group = "ESRI") %>%
+  addSearchOSM() %>% 
+  # addReverseSearchOSM() %>%
+  addPolygons(weight = 2, color = ~pal_UCD(Crude_Mortality_Rate),
+              label = ~paste0(NAME,
+                              ", ", signif(Crude_Mortality_Rate, digits = 4)),
+              highlight = highlightOptions(weight = 1, color = "Black",
+                                           bringToFront = TRUE)) %>% 
+  addLegend(UCD_sub_wi$Crude_Mortality_Rate, position = "bottomright", pal = pal_UCD) %>%
+  addLayersControl(baseGroups = c("CARTO", "OSM", "ESRI")) 
+# setView(lat = 42.94033923, lng = -75.05859375, zoom = 4)
+
+
+
 
