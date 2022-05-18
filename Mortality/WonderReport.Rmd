@@ -9,73 +9,82 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Background
 
-## Background 
+[This might answer the questions; What data are you working with? Where did it come from? How was it collected? Why was it collected? Who did the collecting? Develop a working knowledge of the data so that a good procedure can come naturally]
 
-[This might answer the questions; What data are you working with? Where did it come from? How was it collected? Why was it collected? Who did the collecting? Develop a working knowledge of the data so that a good procedure can come naturally] 
+Objectives
 
+[Set clear objectives. Are there any questions you want to answer? If so, what are they? State them.]
 
+Goals:
 
+-   How long can we expect to live in Rock County?
 
-Objectives 
+    -   Do Males or Females live longer and by how much?
+    -   Do white live longer than black, asian, etc... and by how much?
 
-[Set clear objectives. Are there any questions you want to answer? If so, what are they? State them.] 
+-   How many people died in Rock County
 
- Goals: 
+    -   Is this similar to neighboring counties?
+    -   Is this similar to all counties in Wisconsin?
+    -   Did more black, asian, etc... people die than white?
 
-- How long can we expect to live in Rock County? 
-  - Do Males or Females live longer and by how much? 
-  - Do white live longer than black, asian, etc... and by how much? 
-- How many people died in Rock County
-  - Is this similar to neighboring counties? 
-  - Is this similar to all counties in Wisconsin? 
-  - Did more black, asian, etc... people die than white? 
-- What did the people in Rock County die from? 
-  - Is this similar to neighboring counties? 
-  - Is this similar to all counties in Wisconsin? 
-  - Did more black, asian, etc... people die from any specific disease than white people?
-    - If so, what disease caused greater death to black, white, asian population in Rock?
-  - Did more females die of a specific disease, if so what disease and by how much?
-  - Did more males die of a specific disease, if so what disease and by how much?
-- What are the age-adjusted death rates for race-ethnicity-sex groups? (See CDC US Mortality Report)
-  - What is an age-adjusted death rate? 
-  - Are the age-adjusted death rates equal across racial, ethinic, and gender groups? 
-    - If not, how do they differ? 
-- Did age-specific death rates change from previous years for those aged 1 year and over? (See CDC US Mortality Report)
-  - If so, how did they change? 
-  - Are things improving or getting worse for white, black, asian, etc... and how much? 
-  - Are things improving or getting worse for male/females and how much? 
-- What are the death rates for the 10 leading causes of death? (See CDC US Mortality Report)
-  - What are the 10 leading causes in Rock County? 
-  - Are they improving or getting worse from previous years? 
-  - How do they compare to the rest of Wisconsin? 
-- What are the mortality rates for the 10 leading causes of infant death?
-  - What are the 10 leading causes of infant death? 
-  - Are they improving or getting worse from previous years? 
-  - How do these rates for infants compare to the rest of Wisconsin? 
+-   What did the people in Rock County die from?
 
+    -   Is this similar to neighboring counties?
 
-Hypothesis 
+    -   Is this similar to all counties in Wisconsin?
 
-[Answer the prompt; given what we know about the data and having set clear objectives and questions we intend to elucidate upon, what do we expect the outcome of this project to be?] 
+    -   Did more black, asian, etc... people die from any specific disease than white people?
 
- 
+        -   If so, what disease caused greater death to black, white, asian population in Rock?
 
-Collection 
+    -   Did more females die of a specific disease, if so what disease and by how much?
 
-[Here we investigate the process currently used to collect and enter the data into the spreadsheets] 
+    -   Did more males die of a specific disease, if so what disease and by how much?
 
- 
+-   What are the age-adjusted death rates for race-ethnicity-sex groups? (See CDC US Mortality Report)
 
-Exploration 
+    -   What is an age-adjusted death rate?
 
-[Section for learning about the data, its validity, challenges, and how we might solve or improve it before analysis] 
+    -   Are the age-adjusted death rates equal across racial, ethinic, and gender groups?
 
+        -   If not, how do they differ?
 
+-   Did age-specific death rates change from previous years for those aged 1 year and over? (See CDC US Mortality Report)
 
-Preparation 
+    -   If so, how did they change?
+    -   Are things improving or getting worse for white, black, asian, etc... and how much?
+    -   Are things improving or getting worse for male/females and how much?
 
-[ Section for cleaning up the data and documenting our steps as well as providing an explanation of why. This should build on the findings of the exploration section] 
+-   What are the death rates for the 10 leading causes of death? (See CDC US Mortality Report)
+
+    -   What are the 10 leading causes in Rock County?
+    -   Are they improving or getting worse from previous years?
+    -   How do they compare to the rest of Wisconsin?
+
+-   What are the mortality rates for the 10 leading causes of infant death?
+
+    -   What are the 10 leading causes of infant death?
+    -   Are they improving or getting worse from previous years?
+    -   How do these rates for infants compare to the rest of Wisconsin?
+
+Hypothesis
+
+[Answer the prompt; given what we know about the data and having set clear objectives and questions we intend to elucidate upon, what do we expect the outcome of this project to be?]
+
+Collection
+
+[Here we investigate the process currently used to collect and enter the data into the spreadsheets]
+
+Exploration
+
+[Section for learning about the data, its validity, challenges, and how we might solve or improve it before analysis]
+
+Preparation
+
+[ Section for cleaning up the data and documenting our steps as well as providing an explanation of why. This should build on the findings of the exploration section]
 
 ```{r}
 load("Data/reg_mort.rdata")
@@ -107,16 +116,15 @@ reg_mort <- reg_mort %>%
            endsWith(Year, '2022') ~RockPop2022))
 ```
 
- 
+Modeling and Analysis
 
-Modeling and Analysis 
+[ Conduct analysis as achieve the objective, assess any models developed, and document the process ]
 
-[ Conduct analysis as achieve the objective, assess any models developed, and document the process ] 
+-   How many people died in Rock County
 
-- How many people died in Rock County
-  - Is this similar to neighboring counties? 
-  - Is this similar to all counties in Wisconsin? 
-  - Did more black, asian, etc... people die than white? 
+    -   Is this similar to neighboring counties?
+    -   Is this similar to all counties in Wisconsin?
+    -   Did more black, asian, etc... people die than white?
 
 ```{r}
 sum(REG_MORT$Deaths)
@@ -137,23 +145,16 @@ reg_mort %>%
   filter(Occurrence.County == "Rock County, WI")
 ```
 
-Based on the provisional data set organized by years (2018 - 2022) we have a table that shows 47252 deaths in 2018, 47511 in 2019, 55263 in 2020, and 52797 in 2021. 
+Based on the provisional data set organized by years (2018 - 2022) we have a table that shows 47252 deaths in 2018, 47511 in 2019, 55263 in 2020, and 52797 in 2021.
 
+Conclusion
 
+[ Describe the results of the modeling and analysis section in plain easy to understand language. Determine; are the results significant? How do you know? Why does it matter? ]
 
+Discussion
 
-Conclusion 
+[ How might these results impact the audience? Are there any ways in which you could improve the process in future studies? Why should we continue/not continue this kind of study? ]
 
-[ Describe the results of the modeling and analysis section in plain easy to understand language. Determine; are the results significant? How do you know? Why does it matter? ]  
+Sources
 
- 
-
-Discussion 
-
-[ How might these results impact the audience? Are there any ways in which you could improve the process in future studies? Why should we continue/not continue this kind of study? ] 
-
- 
-
-Sources 
-
-[ Cite any sources that are not your own and when applicable ]  
+[ Cite any sources that are not your own and when applicable ]
