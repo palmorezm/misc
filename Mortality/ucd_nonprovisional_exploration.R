@@ -37,8 +37,8 @@ UCD %>%
          ) %>% 
   group_by(ICD.Chapter) %>% 
   arrange(desc(Deaths)) %>% 
-  ggplot(aes(x = Deaths)) + geom_density(aes(col = County)) # select different functions? Density/histogram/boxplot
-
+  ggplot(aes(x = Deaths)) + geom_density(aes(col = County)) + 
+  facet_wrap(~ICD.Chapter, scales = "free")# select different functions? Density/histogram/boxplot
 
 # Have more or less people died of [x] over time in Rock County? 
 UCD %>% 
@@ -54,7 +54,7 @@ boxfunci <- function(d) {
   data.frame(ymin = stats$conf[1], ymax = stats$conf[2], y = stats$stats[3])
 }
 
-UCD %>%
+UCDboxplot <- UCD %>%
   filter(Year == 2019, ) %>% 
   group_by(County, ICD.Chapter) %>% 
   summarise(Crude_Mortality = sum(Deaths), 
@@ -66,7 +66,29 @@ UCD %>%
                notch = TRUE, notchwidth = 0.5) + 
   stat_summary(fun.data = boxfunci, geom = "crossbar", 
                colour = NA, fill = "light grey", width = 0.8, alpha = 0.45) + 
-  coord_flip() + theme(legend.position = "none")
+  labs(y = "Crude Mortality Rate",
+       x = "ICD-10 Chapter Cause of Death"
+       ) +
+  coord_flip() + theme(legend.position = "none", 
+                       axis.title.y = element_blank())
+ggplotly(UCDboxplot)
+
+
+    UCD %>% 
+      filter(Year == 2019) %>% 
+      group_by(County, ICD.Chapter) %>% 
+      summarise(Crude_Mortality = sum(Deaths), 
+            Population = sum(Population), 
+            Crude_Mortality_Rate = Crude_Mortality / Population * 100000) %>%
+      ggplot(aes(Crude_Mortality_Rate)) + 
+      # geom_point(aes(fill = ICD.Chapter), alpha = 0.10) +
+      geom_bar(aes(fill = ICD.Chapter)) + 
+      labs(y = "Crude Mortality Rate",
+           x = "ICD-10 Chapter Cause of Death") +
+      theme(legend.position = "none", 
+            axis.title.y = element_blank()) + 
+      facet_wrap(~ICD.Chapter, scales = "free")
+
 
 ###############################
 
@@ -79,39 +101,6 @@ library(leaflet)
 library(leaflet.extras)
 library(RColorBrewer)
 library(dplyr)
-WI_counties <- tigris::counties(state = "WI")
-UCD <- UCD %>% 
-  rename(GEOID = County.Code)
-UCD$GEOID <- as.character(UCD$GEOID)
-
-UCD_Crude <- UCD %>% 
-  group_by(County, GEOID, ICD.Chapter) %>% 
-  summarise(Crude_Mortality = sum(Deaths, na.rm = T), 
-            Population = sum(Population, na.rm = T), 
-            Crude_Mortality_Rate = as.numeric(Crude_Mortality / Population * 100000))
-pal_UCD_max <- as.numeric(max(UCD_Crude$Crude_Mortality_Rate, na.rm = T))
-pal_UCD_min <- as.numeric(min(UCD_Crude$Crude_Mortality_Rate, na.rm = T))
-pal_UCD <- colorNumeric(c("RdYlGn"), pal_UCD_min:pal_UCD_max)
-
-UCDsf <- WI_counties %>% 
-  left_join(UCD_Crude, by = "GEOID")
-UCDsf <- sf::as_Spatial(UCDsf)
-
-UCDsf %>%
-  leaflet() %>%
-  addTiles(group = "OSM") %>% #group = "OSM"
-  addProviderTiles("CartoDB", group = "Carto") %>% 
-  addProviderTiles("Esri", group = "Esri") %>%
-  addSearchOSM() %>% 
-  addReverseSearchOSM() %>%
-  addPolygons(weight = 1, color = ~pal_UCD(Crude_Mortality_Rate),
-              label = ~paste0(NAME,
-                             ", ", signif(Crude_Mortality, digits = 1)),
-              highlight = highlightOptions(weight = 1, color = "black",
-                                           bringToFront = TRUE)) %>% 
-  # addLegend(pal_UCD, position = "bottomright", pal = pal_UCD) %>%
-  addLayersControl(baseGroups = c("OSM", "Carto", "Esri")) 
-# setView(lat = 42.94033923, lng = -75.05859375, zoom = 4)
 
 ### -----  ----- ### 
 
@@ -164,5 +153,5 @@ UCD_sub_sf %>%
 # setView(lat = 42.94033923, lng = -75.05859375, zoom = 4)
 
 
-
+save(WI_counties, UCD_Crude, file = "Data/UCD_monprovisional.rdata")
 

@@ -25,7 +25,7 @@ UCDREG_Summary %>%
   filter(County == "Rock County, WI") %>% 
   group_by(Race, CMR, County) %>% 
   summarise(Percent = (Deaths / total_deaths)*100) %>% 
-  ggplot(aes(Race, )) + geom_col()
+  ggplot(aes(Race)) + geom_bar()
   
   
 UCDREG %>% 

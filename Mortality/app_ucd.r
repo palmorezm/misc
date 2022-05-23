@@ -17,6 +17,15 @@ theme_set(theme_bw())
 load("Data/reg_mort.rdata")
 # load() Mapping data?
 
+UCD_Crude <- UCD %>% 
+  group_by(County, GEOID, ICD.Chapter) %>% 
+  summarise(Crude_Mortality = sum(Deaths, na.rm = T), 
+            Population = sum(Population, na.rm = T), 
+            Crude_Mortality_Rate = as.numeric(Crude_Mortality / Population * 100000))
+pal_UCD_max <- as.numeric(max(UCD_Crude$Crude_Mortality_Rate, na.rm = T))
+pal_UCD_min <- as.numeric(min(UCD_Crude$Crude_Mortality_Rate, na.rm = T))
+pal_UCD <- colorNumeric(c("RdYlGn"), pal_UCD_min:pal_UCD_max)
+
 ui <- navbarPage(
   "4D Rock County",   
   fluidRow(

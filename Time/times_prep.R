@@ -72,7 +72,7 @@ df %>%
             non_prj_time = as.numeric(work_duration_day - prj_time),
             tot_time = (prj_time + non_prj_time), # = work_duration_day
             # project_time = work_duration_day - non_prj_time 
-            ) %>% View()# prj_time and project_time should overlay exactly on plot 
+            ) %>% # prj_time and project_time should overlay exactly on plot 
   gather(key, value, -day) %>% 
   ggplot(aes(day, (value/3600), col = key)) + 
   geom_line() + geom_point() + theme_bw()
