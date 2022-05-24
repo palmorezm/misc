@@ -1,0 +1,580 @@
+---
+title: "Rock County Mortality"
+author: "Z. Palmore"
+date: "5/4/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## The Query 
+
+We organize the endpoints of the query using the selector layout of Provisional Mortality Statistics provided by the CDC data request system. This begins with the table layout containing group-by 
+
+This begins with the organization of the table layout itself using group by functions. 
+
+
+# Warnings
+
+All 2021 data is provisional - subject to change
+All 2022 data is provisional and partial - subject to change and missing records from states
+
+```{r}
+# REG stands for Race, Ethnicity, Gender
+REG2018 <- read.delim(file = "Data/ICD10_REG_2018.txt", header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = "")
+REG2019 <- read.delim(file = "Data/ICD10_REG_2019.txt", header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = "")
+REG2020 <- read.delim(file = "Data/ICD10_REG_2020.txt", header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = "")
+REG2021 <- read.delim(file = "Data/ICD10_REG_2021.txt", header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = "")
+REG2022 <- read.delim(file = "Data/ICD10_REG_2022.txt", header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = "")
+ROCKREG2018 <- REG2018 %>% 
+  filter(Occurrence.County == "Rock County, WI")
+ROCKREG2019 <- REG2019 %>% 
+  filter(Occurrence.County == "Rock County, WI")
+
+rbind(ROCKREG2018, ROCKREG2019) # Need a Year attached to each from read-in
+
+REG2018$Year <- as.numeric(2018)
+REG2019$Year <- as.numeric(2019)
+REG2020$Year <- as.numeric(2020)
+REG2021$Year <- as.numeric(2021)
+REG2022$Year <- as.numeric(2022)
+
+reg <- rbind(REG2018, REG2019, REG2020, REG2021, REG2022) # Note that CDC data goes through March in 2022
+```
+
+
+Does not matter whether the 95% CI is checked nor any other box. It will either produce an error and request changes or spit out the data set as if the boxes were not checked.
+
+"---"
+"Dataset: Provisional Mortality Statistics, 2018 through Last Month"
+"Query Parameters:"
+"Occurrence States: Wisconsin (55)"
+"Residence States: Wisconsin (55)"
+"Year/Month: Jan., 2018"
+"Group By: Occurrence County; UCD - ICD Chapter; Single Race 6; Hispanic Origin; Gender"
+"Show Totals: Disabled"
+"Show Zero Values: Disabled"
+"Show Suppressed: False"
+"Calculate Rates Per: 100,000"
+"Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups)"
+"---"
+"Help: See http://wonder.cdc.gov/wonder/help/mcd-provisional.html for more information."
+"---"
+"Query Date: May 4, 2022 10:32:28 AM"
+"---"
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. Provisional Multiple"
+"Cause of Death on CDC WONDER Online Database. Data are from the final Multiple Cause of Death Files, 2018-2020, and from"
+"provisional data for years 2021-2022, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital"
+"Statistics Cooperative Program. Accessed at http://wonder.cdc.gov/mcd-icd10-provisional.html on May 4, 2022 10:32:28 AM"
+"---"
+
+
+
+
+```{r}
+# Data need cleaning before read-in? Yes. Last 64 rows contain notes in every instance. 
+REG2018_JAN <- read.delim(file = "Data/REG_2018_JAN.txt", header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = "")
+tail(REG2018_JAN, 65)
+REG2018_APR <- read.delim(file = "Data/REG_2018_APR.txt", header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = "")
+tail(REG2018_APR, 65)
+REG2019_APR <- read.delim(file = "Data/REG_2019_APR.txt", header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = "")
+tail(REG2019_APR, 64)
+head(REG2019_APR, -64)
+
+head(read.delim(file = "Data/REG_2019_APR.txt", header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = ""), -64) %>% 
+  mutate(Path = "Data/REG_2019_APR.txt")
+?as.Date()
+```
+
+
+
+
+```{r}
+
+dataFiles <- lapply(Sys.glob("REG_*.txt"), read.delim(., 
+                    header = T, sep = "\t", quote = "\"", dec = ".", 
+                    fill = T, comment.char = ""))
+
+files <- lapply(Sys.glob("REG_*.txt"), read.delim)
+Sys.glob("Data/*.txt")
+dataFiles <- lapply(Sys.glob("Data/REG_*.txt"), read.delim)
+
+paths <- Sys.glob("Data/REG_*.txt")
+
+ldf <- list()
+for (k in 1:length(paths)){
+ ldf[[k]] <- read.delim(paths[k])
+}
+
+for (k in 1:length(paths)){
+ ldf[[k]] <- head(read.delim(file = paths[k], header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = ""), -64) %>% 
+   mutate(Path = paths[k])
+}
+
+library(stringr)
+str_extract_all(paths, pattern = "_\\d{4}_")
+paths$year <- str_extract_all(paths, pattern = "\\d{4}")
+str_extract_all(paths, pattern = "REG_")
+str_extract_all()
+
+class(paths)
+
+for (i in 1:length(ldf)){
+  
+}
+
+
+Sys.glob("Data/REG_*.txt")
+
+list.files()
+
+```
+
+
+
+```{r}
+months <- c("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", 
+     "OCT", "NOV", "DEC")
+for (k in 1:length(months)){
+ df <- head(read.delim(file = months[k], header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = ""), -64) %>% 
+   mutate(Path = month[k])
+}
+
+
+paths_2018 <- ""
+
+for (i in 1:length(months)){
+  paths_2018[[i]] <- paste0("Data/2018/REG_2018_", months[i], ".txt")
+}
+ldf <- ""
+for (i in 1:length(paths_2018)){
+ ldf[[i]] <- head(read.delim(file = paths_2018[i], header = T, sep = "\t", quote = "\"", 
+           dec = ".", fill = T, comment.char = ""), -64) %>% 
+   mutate(Path = paths_2018[i])
+}
+
+paths_2018
+
+```
+
+
+
+```{r}
+REG_2018_JAN <- head(read.delim(file = "Data/2018/REG_2018_JAN.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "JAN", 
+         Date = as.Date("2018-01-01"))
+
+REG_2018_FEB <- head(read.delim(file = "Data/2018/REG_2018_FEB.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "FEB", 
+         Date = as.Date("2018-02-01"))
+
+REG_2018_MAR <- head(read.delim(file = "Data/2018/REG_2018_MAR.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "MAR", 
+         Date = as.Date("2018-03-01"))
+
+REG_2018_APR <- head(read.delim(file = "Data/2018/REG_2018_APR.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "APR", 
+         Date = as.Date("2018-04-01"))
+
+REG_2018_MAY <- head(read.delim(file = "Data/2018/REG_2018_MAY.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "MAY", 
+         Date = as.Date("2018-05-01"))
+
+REG_2018_JUN <- head(read.delim(file = "Data/2018/REG_2018_JUN.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "JUN", 
+         Date = as.Date("2018-06-01"))
+
+REG_2018_JUL <- head(read.delim(file = "Data/2018/REG_2018_JUL.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "JUL", 
+         Date = as.Date("2018-07-01"))
+
+REG_2018_AUG <- head(read.delim(file = "Data/2018/REG_2018_AUG.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "AUG", 
+         Date = as.Date("2018-08-01"))
+
+REG_2018_SEP <- head(read.delim(file = "Data/2018/REG_2018_SEP.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "SEP", 
+         Date = as.Date("2018-09-01"))
+
+REG_2018_OCT <- head(read.delim(file = "Data/2018/REG_2018_OCT.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "OCT", 
+         Date = as.Date("2018-10-01"))
+
+REG_2018_NOV <- head(read.delim(file = "Data/2018/REG_2018_NOV.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "NOV", 
+         Date = as.Date("2018-11-01"))
+
+REG_2018_DEC <- head(read.delim(file = "Data/2018/REG_2018_DEC.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2018, 
+         Month = "DEC", 
+         Date = as.Date("2018-12-01"))
+
+REG_2018_MONTHS <- 
+  rbind(REG_2018_JAN, REG_2018_FEB, REG_2018_MAR, REG_2018_APR, REG_2018_MAY, REG_2018_JUN,
+      REG_2018_JUL, REG_2018_AUG, REG_2018_SEP, REG_2018_OCT, REG_2018_NOV, REG_2018_DEC)
+```
+
+
+
+
+```{r}
+REG_2019_JAN <- head(read.delim(file = "Data/2019/REG_2019_JAN.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "JAN", 
+         Date = as.Date("2019-01-01"))
+
+REG_2019_FEB <- head(read.delim(file = "Data/2019/REG_2019_FEB.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "FEB", 
+         Date = as.Date("2019-02-01"))
+
+REG_2019_MAR <- head(read.delim(file = "Data/2019/REG_2019_MAR.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "MAR", 
+         Date = as.Date("2019-03-01"))
+
+REG_2019_APR <- head(read.delim(file = "Data/2019/REG_2019_APR.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "APR", 
+         Date = as.Date("2019-04-01"))
+
+REG_2019_MAY <- head(read.delim(file = "Data/2019/REG_2019_MAY.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "MAY", 
+         Date = as.Date("2019-05-01"))
+
+REG_2019_JUN <- head(read.delim(file = "Data/2019/REG_2019_JUN.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "JUN", 
+         Date = as.Date("2019-06-01"))
+
+REG_2019_JUL <- head(read.delim(file = "Data/2019/REG_2019_JUL.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "JUL", 
+         Date = as.Date("2019-07-01"))
+
+REG_2019_AUG <- head(read.delim(file = "Data/2019/REG_2019_AUG.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "AUG", 
+         Date = as.Date("2019-08-01"))
+
+REG_2019_SEP <- head(read.delim(file = "Data/2019/REG_2019_SEP.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "SEP", 
+         Date = as.Date("2019-09-01"))
+
+REG_2019_OCT <- head(read.delim(file = "Data/2019/REG_2019_OCT.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "OCT", 
+         Date = as.Date("2019-10-01"))
+
+REG_2019_NOV <- head(read.delim(file = "Data/2019/REG_2019_NOV.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "NOV", 
+         Date = as.Date("2019-11-01"))
+
+REG_2019_DEC <- head(read.delim(file = "Data/2019/REG_2019_DEC.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2019, 
+         Month = "DEC", 
+         Date = as.Date("2019-12-01"))
+
+REG_2019_MONTHS <- 
+  rbind(REG_2019_JAN, REG_2019_FEB, REG_2019_MAR, REG_2019_APR, REG_2019_MAY, REG_2019_JUN,
+      REG_2019_JUL, REG_2019_AUG, REG_2019_SEP, REG_2019_OCT, REG_2019_NOV, REG_2019_DEC)
+```
+
+
+```{r}
+REG_2020_JAN <- head(read.delim(file = "Data/2020/REG_2020_JAN.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "JAN", 
+         Date = as.Date("2020-01-01"))
+
+REG_2020_FEB <- head(read.delim(file = "Data/2020/REG_2020_FEB.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "FEB", 
+         Date = as.Date("2020-02-01"))
+
+REG_2020_MAR <- head(read.delim(file = "Data/2020/REG_2020_MAR.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "MAR", 
+         Date = as.Date("2020-03-01"))
+
+REG_2020_APR <- head(read.delim(file = "Data/2020/REG_2020_APR.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "APR", 
+         Date = as.Date("2020-04-01"))
+
+REG_2020_MAY <- head(read.delim(file = "Data/2020/REG_2020_MAY.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "MAY", 
+         Date = as.Date("2020-05-01"))
+
+REG_2020_JUN <- head(read.delim(file = "Data/2020/REG_2020_JUN.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "JUN", 
+         Date = as.Date("2020-06-01"))
+
+REG_2020_JUL <- head(read.delim(file = "Data/2020/REG_2020_JUL.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "JUL", 
+         Date = as.Date("2020-07-01"))
+
+REG_2020_AUG <- head(read.delim(file = "Data/2020/REG_2020_AUG.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "AUG", 
+         Date = as.Date("2020-08-01"))
+
+REG_2020_SEP <- head(read.delim(file = "Data/2020/REG_2020_SEP.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "SEP", 
+         Date = as.Date("2020-09-01"))
+
+REG_2020_OCT <- head(read.delim(file = "Data/2020/REG_2020_OCT.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "OCT", 
+         Date = as.Date("2020-10-01"))
+
+REG_2020_NOV <- head(read.delim(file = "Data/2020/REG_2020_NOV.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "NOV", 
+         Date = as.Date("2020-11-01"))
+
+REG_2020_DEC <- head(read.delim(file = "Data/2020/REG_2020_DEC.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2020, 
+         Month = "DEC", 
+         Date = as.Date("2020-12-01"))
+
+REG_2020_MONTHS <- 
+  rbind(REG_2020_JAN, REG_2020_FEB, REG_2020_MAR, REG_2020_APR, REG_2020_MAY, REG_2020_JUN,
+      REG_2020_JUL, REG_2020_AUG, REG_2020_SEP, REG_2020_OCT, REG_2020_NOV, REG_2020_DEC)
+```
+
+
+```{r}
+REG_2021_JAN <- head(read.delim(file = "Data/2021/REG_2021_JAN.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "JAN", 
+         Date = as.Date("2021-01-01"))
+
+REG_2021_FEB <- head(read.delim(file = "Data/2021/REG_2021_FEB.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "FEB", 
+         Date = as.Date("2021-02-01"))
+
+REG_2021_MAR <- head(read.delim(file = "Data/2021/REG_2021_MAR.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "MAR", 
+         Date = as.Date("2021-03-01"))
+
+REG_2021_APR <- head(read.delim(file = "Data/2021/REG_2021_APR.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "APR", 
+         Date = as.Date("2021-04-01"))
+
+REG_2021_MAY <- head(read.delim(file = "Data/2021/REG_2021_MAY.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "MAY", 
+         Date = as.Date("2021-05-01"))
+
+REG_2021_JUN <- head(read.delim(file = "Data/2021/REG_2021_JUN.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "JUN", 
+         Date = as.Date("2021-06-01"))
+
+REG_2021_JUL <- head(read.delim(file = "Data/2021/REG_2021_JUL.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "JUL", 
+         Date = as.Date("2021-07-01"))
+
+REG_2021_AUG <- head(read.delim(file = "Data/2021/REG_2021_AUG.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "AUG", 
+         Date = as.Date("2021-08-01"))
+
+REG_2021_SEP <- head(read.delim(file = "Data/2021/REG_2021_SEP.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "SEP", 
+         Date = as.Date("2021-09-01"))
+
+REG_2021_OCT <- head(read.delim(file = "Data/2021/REG_2021_OCT.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "OCT", 
+         Date = as.Date("2021-10-01"))
+
+REG_2021_NOV <- head(read.delim(file = "Data/2021/REG_2021_NOV.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "NOV", 
+         Date = as.Date("2021-11-01"))
+
+REG_2021_DEC <- head(read.delim(file = "Data/2021/REG_2021_DEC.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2021, 
+         Month = "DEC", 
+         Date = as.Date("2021-12-01"))
+
+REG_2021_MONTHS <- 
+  rbind(REG_2021_JAN, REG_2021_FEB, REG_2021_MAR, REG_2021_APR, REG_2021_MAY, REG_2021_JUN,
+      REG_2021_JUL, REG_2021_AUG, REG_2021_SEP, REG_2021_OCT, REG_2021_NOV, REG_2021_DEC)
+```
+
+
+```{r}
+REG_2022_JAN <- head(read.delim(file = "Data/2022/REG_2022_JAN.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2022, 
+         Month = "JAN", 
+         Date = as.Date("2022-01-01"))
+
+REG_2022_FEB <- head(read.delim(file = "Data/2022/REG_2022_FEB.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2022, 
+         Month = "FEB", 
+         Date = as.Date("2022-02-01"))
+
+REG_2022_MAR <- head(read.delim(file = "Data/2022/REG_2022_MAR.txt", header = T, sep = "\t", 
+                                quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+  mutate(Year = 2022, 
+         Month = "MAR", 
+         Date = as.Date("2022-03-01"))
+# 
+# REG_2022_APR <- head(read.delim(file = "Data/2022/REG_2022_APR.txt", header = T, sep = "\t", 
+#                                 quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+#   mutate(Year = 2022, 
+#          Month = "APR", 
+#          Date = as.Date("2022-04-01"))
+# 
+# REG_2022_MAY <- head(read.delim(file = "Data/2022/REG_2022_MAY.txt", header = T, sep = "\t", 
+#                                 quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+#   mutate(Year = 2022, 
+#          Month = "MAY", 
+#          Date = as.Date("2022-05-01"))
+# 
+# REG_2022_JUN <- head(read.delim(file = "Data/2022/REG_2022_JUN.txt", header = T, sep = "\t", 
+#                                 quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+#   mutate(Year = 2022, 
+#          Month = "JUN", 
+#          Date = as.Date("2022-06-01"))
+# 
+# REG_2022_JUL <- head(read.delim(file = "Data/2022/REG_2022_JUL.txt", header = T, sep = "\t", 
+#                                 quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+#   mutate(Year = 2022, 
+#          Month = "JUL", 
+#          Date = as.Date("2022-07-01"))
+# 
+# REG_2022_AUG <- head(read.delim(file = "Data/2022/REG_2022_AUG.txt", header = T, sep = "\t", 
+#                                 quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+#   mutate(Year = 2022, 
+#          Month = "AUG", 
+#          Date = as.Date("2022-08-01"))
+# 
+# REG_2022_SEP <- head(read.delim(file = "Data/2022/REG_2022_SEP.txt", header = T, sep = "\t", 
+#                                 quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+#   mutate(Year = 2022, 
+#          Month = "SEP", 
+#          Date = as.Date("2022-09-01"))
+# 
+# REG_2022_OCT <- head(read.delim(file = "Data/2022/REG_2022_OCT.txt", header = T, sep = "\t", 
+#                                 quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+#   mutate(Year = 2022, 
+#          Month = "OCT", 
+#          Date = as.Date("2022-10-01"))
+# 
+# REG_2022_NOV <- head(read.delim(file = "Data/2022/REG_2022_NOV.txt", header = T, sep = "\t", 
+#                                 quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+#   mutate(Year = 2022, 
+#          Month = "NOV", 
+#          Date = as.Date("2022-11-01"))
+# 
+# REG_2022_DEC <- head(read.delim(file = "Data/2022/REG_2022_DEC.txt", header = T, sep = "\t", 
+#                                 quote = "\"", dec = ".", fill = T, comment.char = ""), -64) %>%
+#   mutate(Year = 2022, 
+#          Month = "DEC", 
+#          Date = as.Date("2022-12-01"))
+# 
+REG_2022_MONTHS <- 
+  rbind(REG_2022_JAN, REG_2022_FEB, REG_2022_MAR#, REG_2022_APR, REG_2022_MAY, REG_2022_JUN, 
+        # REG_2022_JUL, REG_2022_AUG, REG_2022_SEP, REG_2022_OCT, REG_2022_NOV, REG_2022_DEC
+        )
+```
+
+
+
+```{r}
+REG_MORT <- rbind(REG_2018_MONTHS, REG_2019_MONTHS, REG_2020_MONTHS, 
+           REG_2021_MONTHS, REG_2022_MONTHS)
+```
+
+

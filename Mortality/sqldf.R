@@ -1,0 +1,78 @@
+
+library(sqldf)
+library(dplyr)
+
+
+path <- "C:/Users/Zachary.Palmore/Downloads/mort2020us/VS20MORT.DUSMCPUB_r20220105"
+columns <- data.frame(widths=c(19,1,40,2,1,1,2,2,1,4,1,2,2,2,2,1,1,1,16,4,1,1,1,
+                               1,34,1,1,4,3,1,3,3,2,1,2,7,7,7,7,7,7,7,7,7,7,7,7,
+                               7,7,7,7,7,7,7,7,36,2,1,5,5,5,5,5,5,5,5,5,5,5,5,5,
+                               5,5,5,5,5,5,5,1,2,1,1,1,1,33,3,1,1,2,315,4,2,4,2))
+columns$names <- c("blank1", 
+                   "Resident_Status_US",
+                   "blank2", 
+                   "Education_1989",
+                   "Education_2003",
+                   "Education_flag", 
+                   "Month_of_Death", 
+                   "blank3",
+                   "Sex", 
+                   "DetailAge",
+                   "Age_Substitution_Flag", 
+                   "Age_Recode_52",
+                   "Age_Recode_27", 
+                   "Age_Recode_12",
+                   "Infant_Age_Recode_22",
+                   "Place_of_Death_and_Status",
+                   "Marital_Status",
+                   "Day_of_Week_of_Death",
+                   "blank4",
+                   "Current_Data_Year",
+                   "Injury_at_Work",
+                   "Manner_of_Death",
+                   "Method_of_Disposition",
+                   "Autopsy",
+                   "blank5",
+                   "Activity_Code",
+                   "Place_of_Injury",
+                   "ICD_Code_10",
+                   "Cause_Recode_358",
+                   "blank6",
+                   "Cause_Recode_113",
+                   "Infant_Cause_Recode_130",
+                   "Cause_Recode_39",
+                   "blank7",
+                   "Number_Entity_Axis_Conditions",
+                   "Condition_1EA", "Condition_2EA", "Condition_3EA", "Condition_4EA", "Condition_5EA",
+                   "Condition_6EA", "Condition_7EA", "Condition_8EA", "Condition_9EA", "Condition_10EA",
+                   "Condition_11EA", "Condition_12EA", "Condition_13EA", "Condition_14EA", "Condition_15EA",
+                   "Condition_16EA", "Condition_17EA", "Condition_18EA", "Condition_19EA", "Condition_20EA",
+                   "blank8",
+                   "Number_Record_Axis_Conditions",
+                   "blank9",
+                   "Condition_1RA", "Condition_2RA", "Condition_3RA", "Condition_4RA", "Condition_5RA",
+                   "Condition_6RA", "Condition_7RA", "Condition_8RA", "Condition_9RA", "Condition_10RA",
+                   "Condition_11RA", "Condition_12RA", "Condition_13RA", "Condition_14RA", "Condition_15RA",
+                   "Condition_16RA", "Condition_17RA", "Condition_18RA", "Condition_19RA", "Condition_20RA",
+                   "blank10",
+                   "Race",
+                   "Bridged_Race_Flag",
+                   "Race_Imputation_Flag",
+                   "Race_Recode_3",
+                   "Race_Recode_5",
+                   "blank11",
+                   "Hispanic_Origin",
+                   "blank12",
+                   "Hispanic_Origin_9_Race_Recode",
+                   "Race_Recode_40",
+                   "blank13",
+                   "CensusOcc",
+                   "Occ_26",
+                   "CensusInd",
+                   "Ind_23")
+mort_2022<- read.fwf(path, widths=columns$widths, stringsAsFactors=F)
+# Attach column names to variables
+colnames(mort_2022) <- columns$names
+
+
+

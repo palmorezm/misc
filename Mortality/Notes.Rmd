@@ -1,0 +1,113 @@
+---
+title: "Notes"
+author: "Z. Palmore"
+date: "5/4/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Quick Notes
+
+Data for COVID-19 is coded by hand. There is not existing structure in the ICD-10 classification system that captures the disease. According to the CDC this takes an average of 7 days. 
+
+We want to use this data for surveillance. We use mortality reports from the United States CDC to guide our analysis. They explicitly ask the same few questions on each year's report. We try to answer these questions at the level of Rock County. 
+
+```{r}
+load("Data/reg_mort.rdata")
+# Source US Census Bureau and World Population Review
+RockPop2018 <- 162874 
+RockPop2019 <- 163354
+RockPop2020 <- 163687
+RockPop2021 <- 164314
+RockPop2022 <- RockPop2021 + (RockPop2021 * 0.0029) # Uses Annual Growth Rate each year for last 3 years (2021, 2020, and 2019)
+# Rate taken from World Population Review 
+# https://worldpopulationreview.com/us-counties/wi/rock-county-population
+library(dplyr)
+REG_MORT$Year <- as.character(REG_MORT$Year)
+REG_MORT %>% 
+  mutate(Population = 
+           case_when(endsWith(Year, '2018') ~RockPop2018, 
+           endsWith(Year, '2019') ~RockPop2019,
+           endsWith(Year, '2020') ~RockPop2020,
+           endsWith(Year, '2021') ~RockPop2021, 
+           endsWith(Year, '2022') ~RockPop2022)) %>% 
+  filter(Occurrence.County.Code == 55105)
+  
+reg_mort$Year <- as.character(reg_mort$Year)
+reg_mort %>% 
+  mutate(Population = 
+           case_when(endsWith(Year, '2018') ~RockPop2018, 
+           endsWith(Year, '2019') ~RockPop2019,
+           endsWith(Year, '2020') ~RockPop2020,
+           endsWith(Year, '2021') ~RockPop2021, 
+           endsWith(Year, '2022') ~RockPop2022))
+```
+
+
+
+
+```{r}
+colnames(REG_MORT) <- c("notes", "county", "county_code", "icd_chapter", "icd_code", "race", "race_code", 
+  "ethnicity", "ethnicity_code", "gender", "gender_code", "deaths", "year", "month", 
+  "date")
+
+REG_MORT %>%
+  group_by(county, icd_chapter) %>% 
+  summarise(crude_mortality = sum(deaths)) # This is what did for us already in the annual report
+reg_mort %>% 
+  group_by(Occurrence.County, UCD...ICD.Chapter) %>% 
+  summarise(crude_mortality = sum(Deaths))
+```
+
+The goal is surveillance.
+
+Goals: 
+
+- How long can we expect to live in Rock County? 
+  - Do Males or Females live longer and by how much? 
+  - Do white live longer than black, asian, etc... and by how much? 
+- How many people died in Rock County
+  - Is this similar to neighboring counties? 
+  - Is this similar to all counties in Wisconsin? 
+  - Did more black, asian, etc... people die than white? 
+- What did the people in Rock County die from? 
+  - Is this similar to neighboring counties? 
+  - Is this similar to all counties in Wisconsin? 
+  - Did more black, asian, etc... people die from any specific disease than white people?
+    - If so, what disease caused greater death to black, white, asian population in Rock?
+  - Did more females die of a specific disease, if so what disease and by how much?
+  - Did more males die of a specific disease, if so what disease and by how much?
+- What are the age-adjusted death rates for race-ethnicity-sex groups? (See CDC US Mortality Report)
+  - What is an age-adjusted death rate? 
+  - Are the age-adjusted death rates equal across racial, ethinic, and gender groups? 
+    - If not, how do they differ? 
+- Did age-specific death rates change from previous years for those aged 1 year and over? (See CDC US Mortality Report)
+  - If so, how did they change? 
+  - Are things improving or getting worse for white, black, asian, etc... and how much? 
+  - Are things improving or getting worse for male/females and how much? 
+- What are the death rates for the 10 leading causes of death? (See CDC US Mortality Report)
+  - What are the 10 leading causes in Rock County? 
+  - Are they improving or getting worse from previous years? 
+  - How do they compare to the rest of Wisconsin? 
+- What are the mortality rates for the 10 leading causes of infant death?
+  - What are the 10 leading causes of infant death? 
+  - Are they improving or getting worse from previous years? 
+  - How do these rates for infants compare to the rest of Wisconsin? 
+
+
+Geospatial: 
+- Map of Deaths by ICD_Chapter (Cause of Death) for all counties in Wisconsin
+
+
+
+
+
+
+
+
+
+

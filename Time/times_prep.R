@@ -8,6 +8,7 @@ require(dplyr)
 require(ggplot2)
 require(tidyr)
 require(stringr)
+
 library(ggvenn)
 require(ggVennDiagram)
 # list.of.packages <- c("ggplot2", "dplyr", "lubridate", "data.table")
@@ -74,7 +75,6 @@ df.stats <- df %>%
             tot_time = (prj_time + non_prj_time)) %>% 
   summarise(avg = mean(prj_time/3600),
             med = median(prj_time/3600))
-
 
 # How much time have I had leftover each day? 
 df %>% 
@@ -333,6 +333,7 @@ ggVennDiagram(z, label_alpha = 0)
 library(RVenn)
 RVenn::Venn(z)
 RVenn::Venn(w)
+
 
 # 
 

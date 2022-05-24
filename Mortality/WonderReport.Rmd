@@ -1,0 +1,160 @@
+---
+title: "WonderReport"
+author: "Z. Palmore"
+date: "5/6/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Background
+
+[This might answer the questions; What data are you working with? Where did it come from? How was it collected? Why was it collected? Who did the collecting? Develop a working knowledge of the data so that a good procedure can come naturally]
+
+Objectives
+
+[Set clear objectives. Are there any questions you want to answer? If so, what are they? State them.]
+
+Goals:
+
+-   How long can we expect to live in Rock County?
+
+    -   Do Males or Females live longer and by how much?
+    -   Do white live longer than black, asian, etc... and by how much?
+
+-   How many people died in Rock County
+
+    -   Is this similar to neighboring counties?
+    -   Is this similar to all counties in Wisconsin?
+    -   Did more black, asian, etc... people die than white?
+
+-   What did the people in Rock County die from?
+
+    -   Is this similar to neighboring counties?
+
+    -   Is this similar to all counties in Wisconsin?
+
+    -   Did more black, asian, etc... people die from any specific disease than white people?
+
+        -   If so, what disease caused greater death to black, white, asian population in Rock?
+
+    -   Did more females die of a specific disease, if so what disease and by how much?
+
+    -   Did more males die of a specific disease, if so what disease and by how much?
+
+-   What are the age-adjusted death rates for race-ethnicity-sex groups? (See CDC US Mortality Report)
+
+    -   What is an age-adjusted death rate?
+
+    -   Are the age-adjusted death rates equal across racial, ethinic, and gender groups?
+
+        -   If not, how do they differ?
+
+-   Did age-specific death rates change from previous years for those aged 1 year and over? (See CDC US Mortality Report)
+
+    -   If so, how did they change?
+    -   Are things improving or getting worse for white, black, asian, etc... and how much?
+    -   Are things improving or getting worse for male/females and how much?
+
+-   What are the death rates for the 10 leading causes of death? (See CDC US Mortality Report)
+
+    -   What are the 10 leading causes in Rock County?
+    -   Are they improving or getting worse from previous years?
+    -   How do they compare to the rest of Wisconsin?
+
+-   What are the mortality rates for the 10 leading causes of infant death?
+
+    -   What are the 10 leading causes of infant death?
+    -   Are they improving or getting worse from previous years?
+    -   How do these rates for infants compare to the rest of Wisconsin?
+
+Hypothesis
+
+[Answer the prompt; given what we know about the data and having set clear objectives and questions we intend to elucidate upon, what do we expect the outcome of this project to be?]
+
+Collection
+
+[Here we investigate the process currently used to collect and enter the data into the spreadsheets]
+
+Exploration
+
+[Section for learning about the data, its validity, challenges, and how we might solve or improve it before analysis]
+
+Preparation
+
+[ Section for cleaning up the data and documenting our steps as well as providing an explanation of why. This should build on the findings of the exploration section]
+
+```{r}
+load("Data/reg_mort.rdata")
+# Source US Census Bureau and World Population Review
+RockPop2018 <- 162874 
+RockPop2019 <- 163354
+RockPop2020 <- 163687
+RockPop2021 <- 164314
+RockPop2022 <- RockPop2021 + (RockPop2021 * 0.0029) # Uses Annual Growth Rate each year for last 3 years (2021, 2020, and 2019)
+# Rate taken from World Population Review 
+# https://worldpopulationreview.com/us-counties/wi/rock-county-population
+library(dplyr)
+REG_MORT$Year <- as.character(REG_MORT$Year)
+REG_MORT <- REG_MORT %>% 
+  mutate(Population = 
+           case_when(endsWith(Year, '2018') ~RockPop2018, 
+           endsWith(Year, '2019') ~RockPop2019,
+           endsWith(Year, '2020') ~RockPop2020,
+           endsWith(Year, '2021') ~RockPop2021, 
+           endsWith(Year, '2022') ~RockPop2022)) 
+  
+reg_mort$Year <- as.character(reg_mort$Year)
+reg_mort <- reg_mort %>% 
+  mutate(Population = 
+           case_when(endsWith(Year, '2018') ~RockPop2018, 
+           endsWith(Year, '2019') ~RockPop2019,
+           endsWith(Year, '2020') ~RockPop2020,
+           endsWith(Year, '2021') ~RockPop2021, 
+           endsWith(Year, '2022') ~RockPop2022))
+```
+
+Modeling and Analysis
+
+[ Conduct analysis as achieve the objective, assess any models developed, and document the process ]
+
+-   How many people died in Rock County
+
+    -   Is this similar to neighboring counties?
+    -   Is this similar to all counties in Wisconsin?
+    -   Did more black, asian, etc... people die than white?
+
+```{r}
+sum(REG_MORT$Deaths)
+sum(reg_mort$Deaths)
+sum(reg_mort$Deaths, na.rm = T)
+REG_MORT %>% 
+  group_by(Year, Occurrence.County) %>% 
+  summarise(Total = sum(Deaths))
+reg_mort %>% 
+  group_by(Year, Occurrence.County) %>% 
+  summarise(Total = sum(Deaths, na.rm = T))
+reg_mort %>% 
+  group_by(Year) %>% 
+  summarise(Total = sum(Deaths, na.rm = T))
+reg_mort %>% 
+  group_by(Year, Occurrence.County) %>% 
+  summarise(Total = sum(Deaths, na.rm = T)) %>% 
+  filter(Occurrence.County == "Rock County, WI")
+```
+
+Based on the provisional data set organized by years (2018 - 2022) we have a table that shows 47252 deaths in 2018, 47511 in 2019, 55263 in 2020, and 52797 in 2021.
+
+Conclusion
+
+[ Describe the results of the modeling and analysis section in plain easy to understand language. Determine; are the results significant? How do you know? Why does it matter? ]
+
+Discussion
+
+[ How might these results impact the audience? Are there any ways in which you could improve the process in future studies? Why should we continue/not continue this kind of study? ]
+
+Sources
+
+[ Cite any sources that are not your own and when applicable ]
