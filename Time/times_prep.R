@@ -8,12 +8,15 @@ require(dplyr)
 require(ggplot2)
 require(tidyr)
 require(stringr)
-list.of.packages <- c("ggplot2", "dplyr", "lubridate", "data.table")
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages)
+
+library(ggvenn)
+require(ggVennDiagram)
+# list.of.packages <- c("ggplot2", "dplyr", "lubridate", "data.table")
+# new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+# if(length(new.packages)) install.packages(new.packages)
 # alternative?
-if (!require(devtools)) install.packages("devtools")
-devtools::install_github("yanlinlin82/ggvenn")
+# if (!require(devtools)) install.packages("devtools")
+# devtools::install_github("yanlinlin82/ggvenn")
 # link <- paste0("https://docs.google.com/spreadsheets/",
 #        "d/e/2PACX-1vRbI6ljkD0T2Mbf0_o0oTczrPm6d7fSQTiVNM",
 #        "-u2MPe56tQ-Ex92rUQbzaT3OPvJQ/pub?output=xlsx")
@@ -65,18 +68,32 @@ setDT(df_all)
 df <- times[df_all, on = "Date"] # Merge to DF
 df$project_duration[which(is.na(df$project_duration))] <- 0 # NA is equivalent to zero s
 
+df.stats <- df %>% 
+  group_by(day = floor_date(Date, "day")) %>% 
+  summarise(prj_time = sum(as.numeric(project_duration)), 
+            non_prj_time = as.numeric(work_duration_day - prj_time),
+            tot_time = (prj_time + non_prj_time)) %>% 
+  summarise(avg = mean(prj_time/3600),
+            med = median(prj_time/3600))
+
 # How much time have I had leftover each day? 
 df %>% 
   group_by(day = floor_date(Date, "day")) %>% 
   summarise(prj_time = sum(as.numeric(project_duration)), 
-            non_prj_time = as.numeric(work_duration_day - prj_time),
-            tot_time = (prj_time + non_prj_time), # = work_duration_day
+            # non_prj_time = as.numeric(work_duration_day - prj_time),
+            # tot_time = (prj_time + non_prj_time), # = work_duration_day
             # project_time = work_duration_day - non_prj_time 
             ) %>% # prj_time and project_time should overlay exactly on plot 
+  filter(prj_time >= 0) %>% 
   gather(key, value, -day) %>% 
-  ggplot(aes(day, (value/3600), col = key)) + 
-  geom_line() + geom_point() + theme_bw()
+  ggplot(aes(day, (value/3600))) + 
+  geom_col(position = "stack", fill = "light blue", col = "black", alpha = 0.75) + 
+  geom_hline(yintercept = df.stats$med, lty = "dashed") + 
+  labs(x = "Day", y = "Hours", title = "Title", subtitle = "subtitle") + 
+  theme_classic() + theme(plot.title = element_text(hjust = 0.5), 
+                     plot.subtitle = element_text(hjust = 0.5))
 
+# How would this line chart look with 0 as the minimum time (ignore OT)? 
 
 
 # Locate overtime locations (where prj_time > work_duration_day)
@@ -120,7 +137,7 @@ factors %>%
   gather(key, value, -Primary_Venn_Class) %>% 
   ggplot(aes(key, value, col = Primary_Venn_Class)) + 
   geom_point(alpha = 0.95) + 
-  geom_line(aes(fill = Primary_Venn_Class)) + theme_minimal()
+  geom_col(aes(fill = Primary_Venn_Class)) + theme_minimal()
 
 # Based on Common Data Science Groupings
 # What areas do I spend the most and least time?
@@ -316,6 +333,9 @@ ggVennDiagram(z, label_alpha = 0)
 library(RVenn)
 RVenn::Venn(z)
 RVenn::Venn(w)
+
+
+# 
 
 Area1 <- rep(paste0("BKCS", 1:(factors_matrixsummary[[6]][[3]] + 
                       factors_matrixsummary[[3]][[3]] + 

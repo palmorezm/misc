@@ -1,0 +1,20 @@
+---
+title: "Times"
+author: "Zachary Palmore"
+date: "5/23/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Summary 
+
+The average time spent on projects was ``. 
+
+
+
+
+
+
