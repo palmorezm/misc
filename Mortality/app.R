@@ -14,6 +14,7 @@ library(tidyr)
 library(markdown)
 library(shinythemes)
 library(thematic)
+library(shiny)
 theme_set(theme_classic())
 
 # Data
@@ -73,16 +74,16 @@ You can put anything in absolutePanel, including inputs and outputs:"
       choices = unique(UCD$Year), 
       selected = 2019, 
       multiple = F), 
-    selectizeInput(
+    checkboxGroupInput(
       inputId = "tab2_ucdicd",
       label = "ICD-10 Chapter",
-      choices = unique(UCD$ICD.Chapter),
-      selected = UCD$ICD.Chapter[[1]], 
-      multiple = F), 
+      choices = unique(UCD$ICD.Chapter)[1:17],
+      selected = UCD$ICD.Chapter[[1]]), 
     h4("Lorem ipsum dolor sit amet, ea nam aeterno regione, cu qui quaeque civibus gloriatur. Ut qui nobis causae omittam, mea malis nulla dolore ea. Mel graece essent no. Summo civibus dolores ex mei. At his indoctum torquatos reprimique, duo ea labores commune adipiscing. Fugit prodesset ei duo.")
   ),
   mainPanel("Main", 
-            plotOutput(outputId = "UCD_COD_Column_All")) 
+            plotOutput(outputId = "UCD_COD_Column_All"), 
+            plotOutput(outputId = "UCD_COD_Line_All")) 
   ),
   tabPanel("Distributions", 
            radioButtons("method_geom_function", "Visual Type",
@@ -93,6 +94,7 @@ You can put anything in absolutePanel, including inputs and outputs:"
            plotlyOutput(outputId = "UCD_MethodFunction_Plotly", height = 900)
            ),
   navbarMenu("Sources", 
+        # Contains tables of the data with a download button? 
              tabPanel("Local", "Rock"),
              tabPanel("State", "DHS"),
              tabPanel("Federal", "CDC")
@@ -154,6 +156,17 @@ server <- function(input, output){
       labs(x = "Cause", y = "Deaths", 
            subtitle = paste("Leading Causes of Death in", input$tab2_ucdcounty))
   })
+  
+  # Have more or less people died of [x] over time in Rock County? 
+  output$UCD_COD_Line_All <- renderPlot({
+    UCD %>% 
+      filter(County == c(input$tab2_ucdcounty), 
+             Year >= 1999, Year <= 2020, 
+             ICD.Chapter == c(input$tab2_ucdicd)) %>% 
+      ggplot(aes(Date, Deaths, col = ICD.Chapter)) + 
+      geom_line() + geom_point()
+  })
+    
   
   output$UCD_MethodFunction_Plotly <- renderPlotly({
     

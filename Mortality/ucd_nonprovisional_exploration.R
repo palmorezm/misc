@@ -48,6 +48,17 @@ UCD %>%
   ggplot(aes(Date, Deaths, col = ICD.Chapter)) + 
   geom_line() + geom_point()
 
+
+# Can we model and predict if more or less people will die of [x] over time? 
+UCD %>% 
+  filter(County == c("Rock County, WI"), 
+         Year >= 1999, Year <= 2020, 
+         ICD.Chapter == c("Neoplasms", "Diseases of the circulatory system")) %>% 
+  ggplot(aes(Date, Deaths, col = ICD.Chapter)) + 
+  geom_point() + geom_smooth()
+
+?geom_smooth()
+
 # Compared to the rest of WI, does the crude mortality rate seem normal in Rock County? 
 boxfunci <- function(d) {
   stats <- boxplot.stats(d)
@@ -61,7 +72,7 @@ UCDboxplot <- UCD %>%
             Population = sum(Population), 
             Crude_Mortality_Rate = Crude_Mortality / Population * 100000) %>% 
   ggplot(aes(reorder(ICD.Chapter, Crude_Mortality_Rate), Crude_Mortality_Rate)) + 
-  geom_point(aes(fill = ICD.Chapter), alpha = 0.10) +
+  # geom_point(aes(fill = ICD.Chapter), alpha = 0.10) +
   geom_boxplot(aes(fill = ICD.Chapter, alpha = 0.5, col = ICD.Chapter), 
                notch = TRUE, notchwidth = 0.5) + 
   stat_summary(fun.data = boxfunci, geom = "crossbar", 
