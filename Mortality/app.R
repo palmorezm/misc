@@ -20,6 +20,37 @@ theme_set(theme_classic())
 # Data
 load("Data/reg_mort.rdata")
 load("Data/UCD_nonprovisional.rdata") # Mapping data?
+load("C:/Users/Zachary.Palmore/GitHub/rock/Mortality/Data/D2_Mapping.rdata")
+base <- "C:/Users/Zachary.Palmore/GitHub/rock/Mortality/"
+df <- read.csv(paste0(base,"Data/DeathData2021.csv"))
+df <- df[1:22]
+colnames(df) <- c("Gender", "DOB", "DOD", "AOD", "POD", 
+                  "FacilityName", "HomeAddress", "Area", 
+                  "Occupation", "Ethnicity", "Race", "Education", 
+                  "Autopsy", "Pregnancy", "TobaccoUse", 
+                  "AlcoholUse", "MOD", "COD", "Consequence1", 
+                  "Consequence2", "Consequence3", "Other")
+df <- as.data.frame(unclass(df), stringsAsFactors = TRUE)
+df$DOB <- as.Date.character(df$DOB, format = "%m/%d/%Y")
+df$DOD <- as.Date.character(df$DOD, format = "%m/%d/%Y")
+df$AOD <- stringr::str_extract_all(as.character(df$AOD), "\\d(.*?) ")
+df$AOD <- as.numeric(str_remove(df$AOD, " "))
+df$HomeAddress <- as.character(df$HomeAddress)
+df$Consequence1 <- as.character(df$Consequence1)
+df$Consequence2 <- as.character(df$Consequence2)
+df$Consequence3 <- as.character(df$Consequence3)
+df$Other <- as.character(df$Other)
+df$FullAddress <- paste0(df$HomeAddress,", ", df$Area, ", ", "WI")
+geo1 <- read.csv(paste0(base, "Data/geos1.csv"))
+geo2 <- read.csv(paste0(base, "Data/geos2.csv"))
+geo3 <- read.csv(paste0(base, "Data/geos3.csv"))
+geo4 <- read.csv(paste0(base, "Data/geos4.csv"))
+geos <- rbind(geo1, geo2, geo3, geo4)
+geos <- geos[1:3]
+colnames(geos) <- c("FullAddress", "lat", "lon")
+d2 <- geos %>% 
+  left_join(df, by = "FullAddress")
+
 
 ui <- navbarPage(
   "4D Rock County",   
