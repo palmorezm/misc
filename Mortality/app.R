@@ -21,6 +21,41 @@ theme_set(theme_classic())
 load("Data/reg_mort.rdata")
 load("Data/UCD_nonprovisional.rdata") # Mapping data?
 load("C:/Users/Zachary.Palmore/GitHub/rock/Mortality/Data/D2_Mapping.rdata")
+load("C:/Users/Zachary.Palmore/GitHub/rock/Mortality/Data/EthRaceGen2021.rdata")
+path <- "C:/Users/Zachary.Palmore/GitHub/rock/Mortality/Data/Classified_DeathData2021.xlsx"
+df <- readxl::read_xlsx(path)
+# Cleaning
+# Change variable names
+colnames(df) <- c("DecedentName", "Gender", "DOB", "DOD", "AOD", "POD", 
+                  "FacilityName", "DecedentAddress", "DecedentCity", 
+                  "UsualOccupation", "Ethnicity", "Race", "Education", 
+                  "Autopsy", "PregStatus", "TobaccoUse", 
+                  "AlcoholUse", "MOD", "ImmediateCOD", "Consequence1", 
+                  "Consequence2", "Consequence3", "OtherSignificant", 
+                  "Multiple", "SingleCOD", "Consider", 
+                  "Include", "Notes", "Links", "Empty")
+# Convert to proper data type
+df <- as.data.frame(unclass(df), stringsAsFactors = TRUE)
+tmp <- df %>% 
+  select(DecedentName, DecedentCity, DecedentAddress, 
+         Consequence1, Consequence2, Consequence3, 
+         FacilityName, ImmediateCOD, OtherSignificant, 
+         Notes, Links)
+tmp <- as.data.frame(lapply(df %>% 
+                              select(DecedentName, DecedentCity, DecedentAddress, 
+                                     Consequence1, Consequence2, Consequence3, 
+                                     FacilityName, ImmediateCOD, OtherSignificant, 
+                                     Notes, Links), 
+                            as.character))
+df <- cbind(df %>% 
+              select(-DecedentName, -DecedentCity, -DecedentAddress, 
+                     -Consequence1, -Consequence2, -Consequence3, 
+                     -FacilityName, -ImmediateCOD, -OtherSignificant, 
+                     -Notes, -Links), tmp)
+df$DOB <- as.Date.character(df$DOB, format = "%m/%d/%Y")
+df$DOD <- as.Date.character(df$DOD, format = "%m/%d/%Y")
+df$AOD <- stringr::str_extract_all(as.character(df$AOD), "\\d(.*?) ")
+df$AOD <- as.numeric(str_remove(df$AOD, " "))
 # base <- "C:/Users/Zachary.Palmore/GitHub/rock/Mortality/"
 # df <- read.csv(paste0(base,"Data/DeathData2021.csv"))
 # df <- df[1:22]
@@ -114,6 +149,9 @@ You can put anything in absolutePanel, including inputs and outputs:"
   ),
   mainPanel("Main", 
             plotOutput(outputId = "UCD_COD_Column_All"), 
+            hr(),
+            h5("Some words may go here"),
+            hr(),
             plotOutput(outputId = "UCD_COD_Line_All")) 
   ),
   tabPanel("Distributions", 
@@ -124,13 +162,25 @@ You can put anything in absolutePanel, including inputs and outputs:"
                           "Bar Chart" = "bar")),
            plotlyOutput(outputId = "UCD_MethodFunction_Plotly", height = 900)
            ),
+tabPanel("Disparities", 
+         h3("Disclaimer"),
+         h4("The information presented here is not representative 
+            of the county at large"),
+         selectizeInput(
+           inputId = "tab4_AODhist",
+           label = "Select Group",
+           choices = c("Gender", "Race", "Ethnicity"),
+           selected = "Gender",
+           multiple = F),
+         hr(),
+         plotOutput("hist_AOD")),
   navbarMenu("Sources", 
         # Contains tables of the data with a download button? 
              tabPanel("Local", "Rock"),
              tabPanel("State", "DHS"),
-             tabPanel("Federal", "CDC")
+             tabPanel("Federal", "CDC & Census Bureau")
     )
-  )
+)
 
 
 
@@ -230,6 +280,78 @@ server <- function(input, output){
       ) +
       coord_flip() + theme(legend.position = "none", 
                            axis.title.y = element_blank()))
+  })
+  
+  output$hist_AOD <- renderPlot({
+    
+   disparities_df <- switch(
+      input$tab4_AODhist, 
+      'Race' = df %>% 
+        ggplot(aes(AOD)) + 
+        geom_histogram(binwidth = 1, fill = "light grey", col = "grey", alpha = 0.5) + 
+        geom_vline(xintercept = mean(df$AOD), lty = "dashed") +
+        geom_vline(xintercept = Race2021$Med_AOD[1], col = "mediumblue") + 
+        geom_vline(xintercept = Race2021$Med_AOD[2], col = "seagreen") + 
+        geom_vline(xintercept = Race2021$Med_AOD[3], col = "red") + 
+        geom_vline(xintercept = Race2021$Med_AOD[4], col = "orange") +
+        labs(subtitle = "Post-Extraction Distribution of Individuals\' Age at Death", 
+             x = "Age", 
+             y = "Number of Individuals") + 
+        annotate('text', x = 15, y = 40, 
+                 label = paste0("~mu==", Race2021$Med_AOD[2], "~(Black)"), parse = TRUE, size=5, 
+                 col = "orange") +
+        annotate('text', x = 15, y = 50, 
+                 label = paste0("~mu==", Race2021$Med_AOD[1], "~(White)"), parse = TRUE, size=5, 
+                 col = "mediumblue") +
+        annotate('text', x = 15, y = 30, 
+                 label = paste0("~mu==", Race2021$Med_AOD[4], "~(Asian)"), parse = TRUE, size=5, 
+                 col = "seagreen") +
+        annotate('text', x = 15, y = 20, 
+                 label = paste0("~mu==", Race2021$Med_AOD[3], "~(AmericanIndian)"), parse = TRUE, size=5, 
+                 col = "red") +
+        theme_minimal() + 
+        theme(plot.subtitle = element_text(hjust = 0.5), 
+              legend.text = element_text()), 
+      'Ethnicity' = df %>% 
+        ggplot(aes(AOD)) + 
+        geom_histogram(binwidth = 1, fill = "light grey", col = "grey", alpha = 0.5) + 
+        geom_vline(xintercept = mean(df$AOD), lty = "dashed") +
+        geom_vline(xintercept = Eth2021$Med_AOD[1], col = "mediumblue") + 
+        geom_vline(xintercept = Eth2021$Med_AOD[2], col = "orange") +
+        labs(subtitle = "Post-Extraction Distribution of Individuals\' Age at Death", 
+             x = "Age", 
+             y = "Number of Individuals") + 
+        annotate('text', x = 15, y = 40, 
+                 label = paste0("~mu==", Eth2021$Med_AOD[2], "~(Hispanic)"), parse = TRUE, size=5, 
+                 col = "orange") +
+        annotate('text', x = 15, y = 50, 
+                 label = paste0("~mu==", Eth2021$Med_AOD[1], "~(Not~Hispanic)"), parse = TRUE, size=5, 
+                 col = "mediumblue") +
+        theme_minimal() + 
+        theme(plot.subtitle = element_text(hjust = 0.5), 
+              legend.text = element_text()),
+      'Gender' = df %>% 
+        ggplot(aes(AOD)) + 
+        geom_histogram(binwidth = 1, fill = "light grey", col = "grey", alpha = 0.5) + 
+        geom_vline(xintercept = mean(df$AOD), lty = "dashed") +
+        geom_vline(xintercept = Gender2021$Med_AOD[1], col = "orange") + 
+        geom_vline(xintercept = Gender2021$Med_AOD[2], col = "mediumblue") +
+        labs(subtitle = "Post-Extraction Distribution of Individuals\' Age at Death", 
+             x = "Age", 
+             y = "Number of Individuals") + 
+        annotate('text', x = 15, y = 40, 
+                 label = paste0("~mu==", Gender2021$Med_AOD[2], "~(Female)"), parse = TRUE, size=5, 
+                 col = "mediumblue") +
+        annotate('text', x = 15, y = 50, 
+                 label = paste0("~mu==", Gender2021$Med_AOD[1], "~(Male)"), parse = TRUE, size=5, 
+                 col = "orange") +
+        theme_minimal() + 
+        theme(plot.subtitle = element_text(hjust = 0.5), 
+              legend.text = element_text()) 
+      ) 
+    
+    disparities_df
+    
   })
   
   

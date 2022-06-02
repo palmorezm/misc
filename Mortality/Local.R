@@ -5,7 +5,10 @@
 pkgs <- c("dplyr", "data.table")
 npkgs <- pkgs[!(pkgs %in% installed.packages()[,"Package"])]
 if(length(npkgs)) install.packages(npkgs)
-
+library(dplyr)
+library(data.table)
+library(stringr)
+library(ggplot2)
 # Loading
 path <- "C:/Users/Zachary.Palmore/GitHub/rock/Mortality/Data/Classified_DeathData2021.xlsx"
 df <- readxl::read_xlsx(path)
@@ -62,6 +65,12 @@ Eth2021 <- data.frame(matrix(c("NOT HISPANIC", 82.3,
          Percent = X2) %>% 
   mutate(Pop = pop2021, 
          EthPop = as.numeric(Percent)/100 * Pop)
+Gender2021 <- data.frame(matrix(c("MALE", 49.3,
+                                  "FEMALE", 50.7), ncol = 2, byrow = T)) %>%   
+  rename(Gender = X1, 
+         Percent = X2) %>% 
+  mutate(Pop = pop2021, 
+         GenderPop = as.numeric(Percent)/100 * Pop)
 df$DOB <- as.numeric(2021 - df$AOD) # Since everyone has a AOD we use it to calculate DOB 
 df$Race[which(is.na(df$Race))] <- "UNKNOWN"
 tmp <- df %>% 
@@ -84,19 +93,85 @@ setDT(tmp)
 setDT(Eth2021)
 Eth2021 <- tmp[Eth2021, on = "Ethnicity"] %>% 
   mutate(CrudeRate = N / EthPop)
+df$Gender[which(is.na(df$Gender))] <- "UNKNOWN"
+tmp <- df %>% 
+  group_by(Gender) %>% 
+  summarise(Mean_AOD = mean(AOD), 
+            Med_AOD = median(AOD), 
+            N = n())
+setDT(tmp)
+setDT(Gender2021)
+Gender2021 <- tmp[Gender2021, on = "Gender"] %>% 
+  mutate(CrudeRate = N / GenderPop)
 
+# save(Eth2021, Race2021, Gender2021, file = "C:/Users/Zachary.Palmore/GitHub/rock/Mortality/Data/EthRaceGen2021.rdata")
+
+# Race
 df %>% 
   ggplot(aes(AOD)) + 
-  geom_histogram(binwidth = 1, fill = "light blue", col = "grey", alpha = 0.5) + 
+  geom_histogram(binwidth = 1, fill = "light grey", col = "grey", alpha = 0.5) + 
   geom_vline(xintercept = mean(df$AOD), lty = "dashed") +
-  geom_vline(xintercept = Race2021$Med_AOD[1]) + 
-  geom_vline(xintercept = Race2021$Med_AOD[2]) + 
-  geom_vline(xintercept = Race2021$Med_AOD[3]) + 
-  geom_vline(xintercept = Race2021$Med_AOD[4]) +
+  geom_vline(xintercept = Race2021$Med_AOD[1], col = "mediumblue") + 
+  geom_vline(xintercept = Race2021$Med_AOD[2], col = "seagreen") + 
+  geom_vline(xintercept = Race2021$Med_AOD[3], col = "red") + 
+  geom_vline(xintercept = Race2021$Med_AOD[4], col = "orange") +
   labs(subtitle = "Post-Extraction Distribution of Individuals\' Age at Death", 
        x = "Age", 
        y = "Number of Individuals") + 
-  theme(plot.subtitle = element_text(hjust = 0.5))
+  annotate('text', x = 15, y = 40, 
+           label = paste0("~mu==", Race2021$Med_AOD[2], "~(Black)"), parse = TRUE, size=5, 
+           col = "orange") +
+  annotate('text', x = 15, y = 50, 
+           label = paste0("~mu==", Race2021$Med_AOD[1], "~(White)"), parse = TRUE, size=5, 
+           col = "mediumblue") +
+  annotate('text', x = 15, y = 30, 
+           label = paste0("~mu==", Race2021$Med_AOD[4], "~(Asian)"), parse = TRUE, size=5, 
+           col = "seagreen") +
+  annotate('text', x = 21, y = 20, 
+           label = paste0("~mu==", Race2021$Med_AOD[3], "~(AmericanIndian)"), parse = TRUE, size=5, 
+           col = "red") +
+  theme_minimal() + 
+  theme(plot.subtitle = element_text(hjust = 0.5), 
+        legend.text = element_text())
 
+# Ethnicity
+df %>% 
+  ggplot(aes(AOD)) + 
+  geom_histogram(binwidth = 1, fill = "light grey", col = "grey", alpha = 0.5) + 
+  geom_vline(xintercept = mean(df$AOD), lty = "dashed") +
+  geom_vline(xintercept = Eth2021$Med_AOD[1], col = "mediumblue") + 
+  geom_vline(xintercept = Eth2021$Med_AOD[2], col = "orange") +
+  labs(subtitle = "Post-Extraction Distribution of Individuals\' Age at Death", 
+       x = "Age", 
+       y = "Number of Individuals") + 
+  annotate('text', x = 15, y = 40, 
+           label = paste0("~mu==", Eth2021$Med_AOD[2], "~(Hispanic)"), parse = TRUE, size=5, 
+           col = "orange") +
+  annotate('text', x = 15, y = 50, 
+           label = paste0("~mu==", Eth2021$Med_AOD[1], "~(Not~Hispanic)"), parse = TRUE, size=5, 
+           col = "mediumblue") +
+  theme_minimal() + 
+  theme(plot.subtitle = element_text(hjust = 0.5), 
+        legend.text = element_text())
+
+# Gender
+df %>% 
+  ggplot(aes(AOD)) + 
+  geom_histogram(binwidth = 1, fill = "light grey", col = "grey", alpha = 0.5) + 
+  geom_vline(xintercept = median(df$AOD), lty = "dashed") +
+  geom_vline(xintercept = Gender2021$Med_AOD[1], col = "orange") + 
+  geom_vline(xintercept = Gender2021$Med_AOD[2], col = "mediumblue") +
+  labs(subtitle = "Post-Extraction Distribution of Individuals\' Age at Death", 
+       x = "Age", 
+       y = "Number of Individuals") + 
+  annotate('text', x = 15, y = 40, 
+           label = paste0("~mu==", Gender2021$Med_AOD[2], "~(Male)"), parse = TRUE, size=5, 
+           col = "mediumblue") +
+  annotate('text', x = 15, y = 50, 
+           label = paste0("~mu==", Gender2021$Med_AOD[1], "~(Female)"), parse = TRUE, size=5, 
+           col = "orange") +
+  theme_minimal() + 
+  theme(plot.subtitle = element_text(hjust = 0.5), 
+        legend.text = element_text())
 
 
