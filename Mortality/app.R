@@ -9,6 +9,7 @@ library(leaflet.extras)
 library(RColorBrewer)
 library(dplyr)
 library(ggplot2)
+library(stringr)
 library(plotly)
 library(tidyr)
 library(markdown)
@@ -88,7 +89,7 @@ df$AOD <- as.numeric(str_remove(df$AOD, " "))
 
 
 ui <- navbarPage(
-  "4D Rock County",   
+  "Rock County Mortality Dashboard",   
   theme = shinytheme("cosmo"),
  # header = "Header Section for all Tabs in Navbar",
    tabPanel("Map",
@@ -99,7 +100,7 @@ ui <- navbarPage(
               column(c(2, 2, 8), 
                      Title = "Selection Options"),
             tags$style(type = "text/css", "html, body {width:100%; height:100%}"),
-            leafletOutput("Leaflet_Map", height = 850),
+            leafletOutput("Leaflet_Map", height = 800),
             absolutePanel(
               top = 125,
               left = 120,
@@ -148,18 +149,18 @@ You can put anything in absolutePanel, including inputs and outputs:"
     h4("Lorem ipsum dolor sit amet, ea nam aeterno regione, cu qui quaeque civibus gloriatur. Ut qui nobis causae omittam, mea malis nulla dolore ea. Mel graece essent no. Summo civibus dolores ex mei. At his indoctum torquatos reprimique, duo ea labores commune adipiscing. Fugit prodesset ei duo.")
   ),
   mainPanel("Main", 
-            plotOutput(outputId = "UCD_COD_Column_All"), 
+            plotlyOutput(outputId = "UCD_COD_Column_All"), 
             hr(),
             h5("Some words may go here"),
             hr(),
-            plotOutput(outputId = "UCD_COD_Line_All")) 
+            plotlyOutput(outputId = "UCD_COD_Line_All")) 
   ),
   tabPanel("Distributions", 
-           radioButtons("method_geom_function", "Visual Type",
-                        c("Boxplot" = "boxplot",
-                          "Density Plot" = "density",
-                          "Histogram" = "hist",
-                          "Bar Chart" = "bar")),
+           # radioButtons("method_geom_function", "Visual Type",
+           #              c("Boxplot" = "boxplot",
+           #                "Density Plot" = "density",
+           #                "Histogram" = "hist",
+           #                "Bar Chart" = "bar")),
            plotlyOutput(outputId = "UCD_MethodFunction_Plotly", height = 900)
            ),
 tabPanel("Disparities", 
@@ -173,11 +174,13 @@ tabPanel("Disparities",
            selected = "Gender",
            multiple = F),
          hr(),
-         plotOutput("hist_AOD")),
+         plotlyOutput("hist_AOD", height = 600)),
   navbarMenu("Sources", 
         # Contains tables of the data with a download button? 
-             tabPanel("Local", "Rock"),
-             tabPanel("State", "DHS"),
+             tabPanel("Local", "Rock",
+                      tableOutput("summary_table_iris")),
+             tabPanel("State", "DHS", 
+                      dataTableOutput("summary_datatable_iris")),
              tabPanel("Federal", "CDC & Census Bureau")
     )
 )
@@ -221,8 +224,8 @@ server <- function(input, output){
     
   })
   
-  output$UCD_COD_Column_All <- renderPlot({
-     UCD %>% 
+  output$UCD_COD_Column_All <- renderPlotly({
+    UCD_COD_Column_All_Plotly <- UCD %>% 
       filter(Year == input$tab2_ucdyear, 
              County == input$tab2_ucdcounty) %>% 
       mutate(total_deaths = sum(Deaths)) %>% 
@@ -230,22 +233,24 @@ server <- function(input, output){
       summarise(Percent = (Deaths / total_deaths)*100 ) %>%
       arrange(desc(Percent)) %>%  
       ggplot(aes(reorder(ICD.Chapter, Deaths), Deaths)) + 
-      geom_col(fill = "sky blue", col = "black") + 
+      geom_col(fill = "orange", col = "white") + 
       geom_text(aes(label = paste0(round(Percent, 1), "%"), y = Deaths), 
-                hjust = -.25, colour = "black") + 
+                hjust = 1.50, colour = "black") + 
       coord_flip() + 
-      labs(x = "Cause", y = "Deaths", 
+      labs(x = "", y = "Deaths", 
            subtitle = paste("Leading Causes of Death in", input$tab2_ucdcounty))
+    ggplotly(UCD_COD_Column_All_Plotly)
   })
   
   # Have more or less people died of [x] over time in Rock County? 
-  output$UCD_COD_Line_All <- renderPlot({
-    UCD %>% 
+  output$UCD_COD_Line_All <- renderPlotly({
+    UCD_COD_Line_All_Plotly <- UCD %>% 
       filter(County == c(input$tab2_ucdcounty), 
              Year >= 1999, Year <= 2020, 
              ICD.Chapter == c(input$tab2_ucdicd)) %>% 
       ggplot(aes(Date, Deaths, col = ICD.Chapter)) + 
       geom_line() + geom_point()
+    ggplotly(UCD_COD_Line_All_Plotly)
   })
     
   
@@ -282,7 +287,7 @@ server <- function(input, output){
                            axis.title.y = element_blank()))
   })
   
-  output$hist_AOD <- renderPlot({
+  output$hist_AOD <- renderPlotly({
     
    disparities_df <- switch(
       input$tab4_AODhist, 
@@ -350,8 +355,16 @@ server <- function(input, output){
               legend.text = element_text()) 
       ) 
     
-    disparities_df
+    ggplotly(disparities_df)
     
+  })
+  
+  output$summary_table_iris <-  renderTable(
+    iris
+  )
+  
+  output$summary_datatable_iris <-  renderDataTable({
+    iris
   })
   
   
