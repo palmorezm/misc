@@ -1,16 +1,9 @@
 
 # Shiny Application Word Cloud Generator
-
-library(tm)
-library(wordcloud)
-library(memoise)
-library(dplyr)
-library(ggplot2)
-library(shinythemes)
-library(stringr)
-library(rsconnect)
-
-
+# Packages
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tm, wordcloud, memoise, ggplot2,
+               stringr, shinythemes, rsconnect, dplyr)
 # The function
 getWordFreq <- function(Q)({
   path <- paste0("https://docs.google.com/spreadsheets/d/e/", 
