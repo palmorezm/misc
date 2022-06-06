@@ -1,9 +1,17 @@
 
 # Shiny Application Word Cloud Generator
 # Packages
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(tm, wordcloud, memoise, ggplot2,
-               stringr, shinythemes, rsconnect, dplyr)
+# if (!require("pacman")) install.packages("pacman")
+# pacman::p_load(tm, wordcloud, memoise, ggplot2,
+#                stringr, shinythemes, rsconnect, dplyr)
+library(tm)
+library(wordcloud)
+library(memoise)
+library(ggplot2)
+library(dplyr)
+library(stringr)
+library(shinythemes)
+library(rsconnect)
 # The function
 getWordFreq <- function(Q)({
   path <- paste0("https://docs.google.com/spreadsheets/d/e/", 
@@ -39,12 +47,14 @@ getWordFreq <- function(Q)({
                    geom_col(aes(y = reorder(word, freq)), fill = "light blue", alpha = 0.90) +
                    labs(x = "Frequency", y = "Word", 
                         title = "10 Most Frequent Words", 
-                        subtitle = "Extracted from Data Survey Responses") + coord_flip() + 
+                        subtitle = "Extracted from Data Survey Responses", 
+                        caption = "Anonymized from source and stored only temporarily as cache and cookies") + coord_flip() + 
                    theme_minimal() + theme(panel.grid.major.y = element_blank(),
                                            panel.grid.major.x = element_blank(), 
                                            panel.grid = element_blank(), 
                                            plot.title = element_text(hjust = 0.5), 
-                                           plot.subtitle = element_text(hjust = 0.5))
+                                           plot.subtitle = element_text(hjust = 0.5), 
+                                           plot.caption = element_text(hjust = 0.5))
 })
 
 
@@ -67,12 +77,13 @@ getTermMatrix <- memoise(function(Q) {
   colnames(df) <- c("Timestamp", "Question1", "Question2", "Empty") 
   txt <- df %>% 
     dplyr::select(Q)
+  txt <- str_replace_all(txt,"[^[:graph:]]", " ") 
   myCorpus = Corpus(VectorSource(txt))
   myCorpus = tm_map(myCorpus, content_transformer(tolower))
   myCorpus = tm_map(myCorpus, removePunctuation)
   myCorpus = tm_map(myCorpus, removeNumbers)
   myCorpus = tm_map(myCorpus, removeWords,
-                    c(stopwords("SMART"), "the", "and", "but", "don"))
+                    c(stopwords("SMART"), "the", "and", "but", "don", ","))
   
   myDTM = TermDocumentMatrix(myCorpus,
                              control = list(minWordLength = 1))
