@@ -14,7 +14,7 @@ library(shinythemes)
 library(rsconnect)
 # The function
 getWordFreq <- function(Q)({
-  path <- paste0("https://docs.google.com/spreadsheets/d/e/", 
+  path <- paste0("https://docs.google.com/spreadsheets/d/e/",  
                  "2PACX-1vQYdcn-sC_a0GvWYmwIEHNUGwWpcnPYlA-", 
                  "RacDqmXKl0dxhFvigLm537HL8EkxOqwIKNC7_uD6_okD3/", 
                  "pub?gid=970557300&single=true&output=csv")

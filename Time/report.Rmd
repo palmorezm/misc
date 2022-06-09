@@ -2,16 +2,28 @@
 title: "Times"
 author: "Zachary Palmore"
 date: "5/23/2022"
-output: html_document
+output: 
+   rmdformats::readthedown:
+    highlight: kate
+    toc_depth: 3
+    code_folding: "hide"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+ 
+
+*This report was began prior to mention of a presentation of our performance management system* 
+
+<hr/>
 
 ## Summary 
 
-The average time spent on projects was ``. 
+The average time spent on projects was `r` [units]. There were 
+
+## Background 
+
 
 
 

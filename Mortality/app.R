@@ -18,6 +18,39 @@ library(thematic)
 library(shiny)
 theme_set(theme_classic())
 
+
+tmp_all <- data.frame(Date = rep(unique(UCD$Date)[[1]], length(unique(UCD$County.Code))))
+tmp <- data.frame(Date = rep(unique(UCD$Date)[[2]], length(unique(UCD$County.Code))))
+for (i in 2:length(unique(UCD$County.Code))){
+  # Create list with appended dates and form tmp df
+  tmp <- data.frame(Date = rep(unique(UCD$Date)[[i]], length(unique(UCD$County.Code))))
+  tmp_all <- rbind(tmp_all, tmp)
+}
+tmp2_all <- data.frame(County.Code = rep(unique(UCD$County.Code), length(unique(UCD$Date))), 
+                       County = rep(unique(UCD$County), length(unique(UCD$Date))))
+df <- cbind(tmp_all, tmp2_all)
+tmp3_all <- UCD %>% left_join(df, by = "Date") 
+tmp4_all <- merge(UCD, df)
+tmp_all <- data.frame(ICD.Chapter = rep(unique(UCD$ICD.Chapter)[[1]], length(unique(UCD$County.Code))))
+tmp <- data.frame(ICD.Chapter = rep(unique(UCD$ICD.Chapter)[[2]], length(unique(UCD$County.Code))))
+for (i in 2:length(unique(UCD$County.Code))){
+  # Create list with appended dates and form tmp df
+  tmp <- data.frame(ICD.Chapter = rep(unique(UCD$ICD.Chapter)[[i]], length(unique(UCD$County.Code))))
+  tmp_all <- rbind(tmp_all, tmp)
+}
+unique(tmp_all$ICD.Chapter) == unique(UCD$ICD.Chapter) # All True 
+tmp4_all <- data.frame(ICD.Chapter = rep(unique(UCD$ICD.Chapter), length(df$County.Code)))
+merge(tmp4_all, df)
+
+# for (i in 1:length(unique(UCD$Date))){
+#   for (j in 1:length(unique(UCD$County.Code))){
+#     print(unique(UCD$County.Code[[j]]))
+#     print(unique(UCD$Date[[i]]))
+#   }
+# }
+
+
+
 # Data
 load("Data/reg_mort.rdata")
 load("Data/UCD_nonprovisional.rdata") # Mapping data?
@@ -86,6 +119,11 @@ df$AOD <- as.numeric(str_remove(df$AOD, " "))
 # colnames(geos) <- c("FullAddress", "lat", "lon")
 # d2 <- geos %>% 
 #   left_join(df, by = "FullAddress")
+boxfunci <- function(d) {
+  stats <- boxplot.stats(d)
+  data.frame(ymin = stats$conf[1], ymax = stats$conf[2], y = stats$stats[3])
+}
+
 
 
 ui <- navbarPage(
@@ -257,19 +295,14 @@ server <- function(input, output){
   output$UCD_MethodFunction_Plotly <- renderPlotly({
     
     # Compared to the rest of WI, does the crude mortality rate seem normal in Rock County? 
-    boxfunci <- function(d) {
-      stats <- boxplot.stats(d)
-      data.frame(ymin = stats$conf[1], ymax = stats$conf[2], y = stats$stats[3])
-    }
     
-    method_function <- switch(input$method_geom_function,
-                              boxplot = geom_boxplot,
-                              density = geom_density,
-                              hist = geom_histogram, 
-                              bar = geom_bar)
-    ggplotly(
-      UCD %>%
-      filter(Year == 2019, ) %>% 
+    # method_function <- switch(input$method_geom_function,
+    #                           boxplot = geom_boxplot,
+    #                           density = geom_density,
+    #                           hist = geom_histogram, 
+    #                           bar = geom_bar)
+      tab3_UCD_distribution_box <- UCD %>%
+      filter(Year == 2019) %>% 
       group_by(County, ICD.Chapter) %>% 
       summarise(Crude_Mortality = sum(Deaths), 
                 Population = sum(Population), 
@@ -284,7 +317,8 @@ server <- function(input, output){
            x = "ICD-10 Chapter Cause of Death"
       ) +
       coord_flip() + theme(legend.position = "none", 
-                           axis.title.y = element_blank()))
+                           axis.title.y = element_blank())
+      ggplotly(tab3_UCD_distribution_box)
   })
   
   output$hist_AOD <- renderPlotly({
