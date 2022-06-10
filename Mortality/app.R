@@ -18,39 +18,6 @@ library(thematic)
 library(shiny)
 theme_set(theme_classic())
 
-
-tmp_all <- data.frame(Date = rep(unique(UCD$Date)[[1]], length(unique(UCD$County.Code))))
-tmp <- data.frame(Date = rep(unique(UCD$Date)[[2]], length(unique(UCD$County.Code))))
-for (i in 2:length(unique(UCD$County.Code))){
-  # Create list with appended dates and form tmp df
-  tmp <- data.frame(Date = rep(unique(UCD$Date)[[i]], length(unique(UCD$County.Code))))
-  tmp_all <- rbind(tmp_all, tmp)
-}
-tmp2_all <- data.frame(County.Code = rep(unique(UCD$County.Code), length(unique(UCD$Date))), 
-                       County = rep(unique(UCD$County), length(unique(UCD$Date))))
-df <- cbind(tmp_all, tmp2_all)
-tmp3_all <- UCD %>% left_join(df, by = "Date") 
-tmp4_all <- merge(UCD, df)
-tmp_all <- data.frame(ICD.Chapter = rep(unique(UCD$ICD.Chapter)[[1]], length(unique(UCD$County.Code))))
-tmp <- data.frame(ICD.Chapter = rep(unique(UCD$ICD.Chapter)[[2]], length(unique(UCD$County.Code))))
-for (i in 2:length(unique(UCD$County.Code))){
-  # Create list with appended dates and form tmp df
-  tmp <- data.frame(ICD.Chapter = rep(unique(UCD$ICD.Chapter)[[i]], length(unique(UCD$County.Code))))
-  tmp_all <- rbind(tmp_all, tmp)
-}
-unique(tmp_all$ICD.Chapter) == unique(UCD$ICD.Chapter) # All True 
-tmp4_all <- data.frame(ICD.Chapter = rep(unique(UCD$ICD.Chapter), length(df$County.Code)))
-merge(tmp4_all, df)
-
-# for (i in 1:length(unique(UCD$Date))){
-#   for (j in 1:length(unique(UCD$County.Code))){
-#     print(unique(UCD$County.Code[[j]]))
-#     print(unique(UCD$Date[[i]]))
-#   }
-# }
-
-
-
 # Data
 load("Data/reg_mort.rdata")
 load("Data/UCD_nonprovisional.rdata") # Mapping data?
@@ -142,25 +109,37 @@ ui <- navbarPage(
             absolutePanel(
               top = 125,
               left = 120,
-              width = 300,
+              width = 450,
               draggable = TRUE,
               wellPanel(
                 HTML(markdownToHTML(fragment.only=TRUE, text=c(
-                  "This is an absolutePanel that uses `bottom` and `right` attributes.
+                  "Welcome!
 
-It also has `draggable = TRUE`, so you can drag it to move it around the page.
+This is the Mortality Surveillance Dashboard of Rock County.  
 
-The slight transparency is due to `style = 'opacity: 0.92'`.
+For the best experience, navigate the tabs at the top of the screen for details on leading causes of death, statistics and distributions in the distributions tab, disparities among rock county residents, or review data sources in the sources tab. You will notice several options to transform the data and see things from a different perspective. 
 
-You can put anything in absolutePanel, including inputs and outputs:"
+On this tab:
+
+Select an ICD-10 Chapter from the list to see how Rock County compares to the rest of Wisconsin."
                 ))),
              selectizeInput(
                inputId = "tab1_ucdicd",
                label = "ICD-10 Chapter",
                choices = unique(UCD$ICD.Chapter),
                selected = UCD$ICD.Chapter[[1]], 
-               multiple = F) 
-              ), 
+               multiple = F), 
+HTML(markdownToHTML(fragment.only=TRUE, text=c(
+  "Numbers provided are shown as crude rates which are relative to the population size of each county."
+))), 
+hr(), 
+HTML(markdownToHTML(fragment.only=TRUE, text=c(
+  "*Disclaimer*
+  
+  *Due to the relative nature of crude rates, in some cases these numbers may not be representative or reliable*
+  "
+))), 
+           ), 
           style = "opacity: 0.85")
              # ))
             )
@@ -398,7 +377,7 @@ server <- function(input, output){
   )
   
   output$summary_datatable_iris <-  renderDataTable({
-    iris
+    summary(iris)
   })
   
   
