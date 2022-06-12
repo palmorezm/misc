@@ -2,6 +2,8 @@
 # Column Chart
 
 library(plotly)
+library(tidyverse)
+library(stats)
 load("Data/reg_mort.rdata")
 
 
@@ -93,13 +95,226 @@ output$UCD_COD_Line_All <- renderPlotly({
   ggplotly(UCD_COD_Line_All_Plotly)
 })
 
+
+UCD %>% 
+  filter(County == c("Rock County, WI"), 
+         Year >= 1999, Year <= 2020, 
+         # ICD.Chapter == c("Diseases of the circulatory system"), 
+         ICD.Chapter == c("Neoplasms")) %>% 
+  ggplot(aes(Date, Deaths, col = ICD.Chapter)) + 
+  geom_line() + geom_point()
+
 # Plotly Converted Plot
 # UCD Line Graph for Leading Causes
-UCD_Line_All_Data<- UCD %>% 
+UCD_Line_All_Data <- UCDc %>% 
   filter(County == "Rock County, WI", 
          Year >= 1999, Year <= 2020, 
-         ICD.Chapter == c("Neoplasms")) 
+         ICD.Chapter == c("Neoplasms"))
+UCD_Line_All_Data <- UCDc %>% 
+  filter(County == "Rock County, WI", 
+         Year >= 1999, Year <= 2020,
+         ICD.Chapter == c("Neoplasms") 
+         )
+# Alternative
+UCDc_Line_All_Data <- UCDc[UCDc$ICD.Chapter %in% c("Neoplasms", 
+                             "Diseases of the circulatory system", 
+                             "Diseases of the respiratory system"),]
+UCDc_Line_All_Data <- UCDc_Line_All_Data %>% 
+  filter(County == "Rock County, WI")
+# Need a way to select / subset by unique ICD.Chapters from input 
+UCDc_Line_All_Data1 <- UCDc_Line_All_Data %>% 
+  filter(ICD.Chapter == unique(UCDc_Line_All_Data$ICD.Chapter)[1])
+UCDc_Line_All_Data2 <- UCDc_Line_All_Data %>% 
+  filter(ICD.Chapter == unique(UCDc_Line_All_Data$ICD.Chapter)[2])
+
+View(subset(UCDc_Line_All_Data, ICD.Chapter == unique(UCDc_Line_All_Data$ICD.Chapter)[1]))
+
+for (i in 1:length(unique(UCDc_Line_All_Data$ICD.Chapter))){
+  paste0("UCDc_Line_All_Data", i) <- 
+    subset(UCDc_Line_All_Data,
+           ICD.Chapter == unique(UCDc_Line_All_Data$ICD.Chapter)[1])
+}
+?assign()
+assign(paste0("UCDc_Line_All_Data", 2), subset(UCDc_Line_All_Data,
+                                               ICD.Chapter == unique(UCDc_Line_All_Data$ICD.Chapter)[2]))
+paste0("UCDc_Line_All_Data", 1)
+
+plot_ly(UCDc_Line_All_Data, 
+        type = "scatter", mode = "lines+markers") %>%
+  add_lines(UCDc_Line_All_Data1, x = ~Date, y=~Deaths)
+  add_trace(UCDc_Line_All_Data2, x = ~Date, y=~Deaths)
+
+fig <- plot_ly(UCDc_Line_All_Data1, x = ~Date) 
+fig <- fig %>% add_trace(y = ~UCDc_Line_All_Data1$Deaths, name = UCDc_Line_All_Data1$ICD.Chapter, 
+                         mode = "lines+markers", type = "scatter") 
+fig <- fig %>% add_trace(y = ~UCDc_Line_All_Data2$Deaths, name = UCDc_Line_All_Data2$ICD.Chapter, 
+                         mode = "lines+markers", type = "scatter")
+fig
+
+fig <- fig %>% add_lines(y = y + 5, name = "spline", line = list(shape = "spline")) 
+fig <- fig %>% add_lines(y = y + 10, name = "vhv", line = list(shape = "vhv")) 
+fig
+
+if (length(input$variable) > 1){
+  plot_ly(dataDf(), x = ~time, y =~get(input$variable[1]), 
+          type = 'scatter', mode = 'lines', name = "temp") %>%
+    add_trace(dataDf(), x = ~time, y = ~get(input$variable[2]), 
+              type = 'scatter', mode = 'lines',name = "weight") %>%
+    layout(xaxis = list(title = "Time"))
+}
+else {
+  plot_ly(dataDf(), x = ~time, y =~get(input$variable[1]), type = 'scatter', mode = 'lines', name = "temp") %>%
+    add_trace(dataDf(), x = ~time, y = ~get(input$variable[1]), type = 'scatter', mode = 'lines',name = "weight") %>%
+    layout(xaxis = list(title = "Time"), yaxis = list(title = input$variable))
+}  
 
 
-  
-  
+###########################
+
+# Chart 3 - Boxplot - Distributions
+
+########################### 
+
+# Helper Function for Boxplot
+boxfunci <- function(d) {
+  stats <- boxplot.stats(d)
+  data.frame(ymin = stats$conf[1], ymax = stats$conf[2], y = stats$stats[3])
+}
+
+
+# Original Boxplot
+tab3_UCD_distribution_box <- UCD %>%
+  filter(Year == 2019) %>% 
+  group_by(County, ICD.Chapter) %>% 
+  summarise(Crude_Mortality = sum(Deaths), 
+            Population = sum(Population), 
+            Crude_Mortality_Rate = Crude_Mortality / Population * 100000) %>% 
+  ggplot(aes(reorder(ICD.Chapter, Crude_Mortality_Rate), Crude_Mortality_Rate)) + 
+  # geom_point(aes(fill = ICD.Chapter), alpha = 0.10) +
+  geom_boxplot(aes(fill = ICD.Chapter, alpha = 0.5, col = ICD.Chapter), 
+               notch = TRUE, notchwidth = 0.5) + 
+  stat_summary(fun.data = boxfunci, geom = "crossbar", 
+               colour = NA, fill = "light grey", width = 0.8, alpha = 0.45) + 
+  labs(y = "Crude Mortality Rate",
+       x = "ICD-10 Chapter Cause of Death"
+  ) +
+  coord_flip() + theme(legend.position = "none", 
+                       axis.title.y = element_blank())
+ggplotly(tab3_UCD_distribution_box)
+
+
+# Plotly Boxplot 
+UCD_Boxplot_All_Data <- UCD %>% 
+  filter(Year == 2019) %>% 
+  group_by(County, ICD.Chapter) %>% 
+  summarise(Crude_Mortality = sum(Deaths), 
+            Population = sum(Population), 
+            Crude_Mortality_Rate = Crude_Mortality / Population * 100000)
+UCDc_Boxplot_All_Data <- UCDc %>% # Identical to UCD_Boxplot_All_Data
+  filter(Year == 2019) %>% 
+  group_by(County, ICD.Chapter) %>% 
+  summarise(Crude_Mortality = sum(Deaths), 
+            Population = sum(Population), 
+            Crude_Mortality_Rate = Crude_Mortality / Population * 100000) 
+ggplotly(UCDc %>%
+  filter(Year == 2019) %>% 
+  group_by(County, ICD.Chapter) %>% 
+  summarise(Crude_Mortality = sum(Deaths), 
+            Population = sum(Population), 
+            Crude_Mortality_Rate = Crude_Mortality / Population * 100000) %>% 
+  ggplot(aes(reorder(ICD.Chapter, Crude_Mortality_Rate), Crude_Mortality_Rate)) + 
+  # geom_point(aes(fill = ICD.Chapter), alpha = 0.10) +
+  geom_boxplot(aes(fill = ICD.Chapter, alpha = 0.5, col = ICD.Chapter), 
+               notch = TRUE, notchwidth = 0.5) + 
+  stat_summary(fun.data = boxfunci, geom = "crossbar", 
+               colour = NA, fill = "light grey", width = 0.8, alpha = 0.45) + 
+  labs(y = "Crude Mortality Rate",
+       x = "ICD-10 Chapter Cause of Death"
+  ) +
+  coord_flip() + theme(legend.position = "none", 
+                       axis.title.y = element_blank()))
+
+UCDc_Boxplot_All_Data %>% 
+  select_if(ICD.Chapter == "Neoplasms")
+
+UCDc_Boxplot_All_Data %>% 
+  select(which(sapply(.,filter)==""))
+
+ 
+View(UCDc_Boxplot_All_Data[UCDc_Boxplot_All_Data$ICD.Chapter %in% c("Neoplasms", 
+                                                               "Diseases of the circulatory system"), ])
+
+View(UCDc[UCDc$ICD.Chapter %in% c("Neoplasms", 
+                             "Diseases of the circulatory system"),])
+
+
+plot_ly(UCDc_Boxplot_All_Data, x = ~UCDc_Boxplot_All_Data$Crude_Mortality_Rate,
+        type = "box", quartilemethod="linear", 
+        name=unique(UCDc_Boxplot_All_Data$ICD.Chapter[1])) %>% 
+  add_trace(x = UCDc_Boxplot_All_Data$Crude_Mortality_Rate, 
+            quartilemethod="inclusive", 
+            name=unique(UCDc_Boxplot_All_Data$ICD.Chapter[2])) %>% 
+  add_trace(x = UCDc_Boxplot_All_Data$Crude_Mortality_Rate, 
+            quartilemethod="exclusive", 
+            name=unique(UCDc_Boxplot_All_Data$ICD.Chapter[3]))
+
+
+
+unique(UCDc_Boxplot_All_Data$ICD.Chapter[2])
+
+plot_ly(x = UCDc_Boxplot_All_Data$Crude_Mortality_Rate, 
+        type = "box", 
+        q1=list(quantile(UCDc_Boxplot_All_Data$Crude_Mortality_Rate)[[2]]), 
+        median=boxplot.stats(UCDc_Boxplot_All_Data$Crude_Mortality_Rate)$stats[[3]],
+        q3=list(quantile(UCDc_Boxplot_All_Data$Crude_Mortality_Rate)[[4]]), 
+        lowerfence=list(boxplot.stats(UCDc_Boxplot_All_Data$Crude_Mortality_Rate)$stats[[1]]),
+        upperfence=list(boxplot.stats(UCDc_Boxplot_All_Data$Crude_Mortality_Rate)$stats[[5]]), 
+        mean=mean(UCDc_Boxplot_All_Data$Crude_Mortality_Rate), 
+        sd=list(sd(UCDc_Boxplot_All_Data$Crude_Mortality_Rate)),
+        notchspan=list(median(UCDc_Boxplot_All_Data$Crude_Mortality_Rate)*.13), 
+        boxpoints = 'suspectedoutliers')
+        # sd=list(0.2, 0.4, 0.6), notchspan=list(0.2, 0.4, 0.6))
+        # jitter = 0.3, pointpos = -1.5, boxpoints = "all"),
+        
+plot_ly
+
+mean(UCDc_Boxplot_All_Data$Crude_Mortality_Rate)
+quantile(UCDc_Boxplot_All_Data$Crude_Mortality_Rate)[[4]]
+boxplot.stats(UCDc_Boxplot_All_Data$Crude_Mortality_Rate)
+sd(UCDc_Boxplot_All_Data$Crude_Mortality_Rate)
+
+###########################
+
+# Chart 4 - Histogram - Disparities
+
+########################### 
+
+# Original Histogram
+input$tab4_AODhist, 
+'Race' = df %>% 
+  ggplot(aes(AOD)) + 
+  geom_histogram(binwidth = 1, fill = "light grey", col = "grey", alpha = 0.5) + 
+  geom_vline(xintercept = mean(df$AOD), lty = "dashed") +
+  geom_vline(xintercept = Race2021$Med_AOD[1], col = "mediumblue") + 
+  geom_vline(xintercept = Race2021$Med_AOD[2], col = "seagreen") + 
+  geom_vline(xintercept = Race2021$Med_AOD[3], col = "red") + 
+  geom_vline(xintercept = Race2021$Med_AOD[4], col = "orange") +
+  labs(subtitle = "Post-Extraction Distribution of Individuals\' Age at Death", 
+       x = "Age", 
+       y = "Number of Individuals") + 
+  annotate('text', x = 15, y = 40, 
+           label = paste0("~mu==", Race2021$Med_AOD[2], "~(Black)"), parse = TRUE, size=5, 
+           col = "orange") +
+  annotate('text', x = 15, y = 50, 
+           label = paste0("~mu==", Race2021$Med_AOD[1], "~(White)"), parse = TRUE, size=5, 
+           col = "mediumblue") +
+  annotate('text', x = 15, y = 30, 
+           label = paste0("~mu==", Race2021$Med_AOD[4], "~(Asian)"), parse = TRUE, size=5, 
+           col = "seagreen") +
+  annotate('text', x = 15, y = 20, 
+           label = paste0("~mu==", Race2021$Med_AOD[3], "~(AmericanIndian)"), parse = TRUE, size=5, 
+           col = "red") +
+  theme_minimal() + 
+  theme(plot.subtitle = element_text(hjust = 0.5), 
+        legend.text = element_text())
+
