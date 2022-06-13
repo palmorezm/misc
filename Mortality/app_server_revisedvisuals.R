@@ -113,8 +113,6 @@ UCDc_Line_All_Data <- UCDc[UCDc$ICD.Chapter %in% c("Neoplasms",
 UCDc_Line_All_Data <- UCDc_Line_All_Data %>% 
   filter(County == "Rock County, WI")
 
-length(unique(UCDc_Line_All_Data$ICD.Chapter))
-
 # Assigns subset ucdc line data to global environment
 for (i in 1:length(unique(UCDc_Line_All_Data$ICD.Chapter))){
   assign(paste0("UCDc_Line_All_Data", i), 
@@ -137,7 +135,6 @@ for (i in 1:length(unique(UCDc_Line_All_Data$ICD.Chapter))){
 
 # Plot traces 1:length(unique(UCDc$ICD.Chapters)) 
 plotly_lineplot <- plot_ly(type = 'scatter', mode = 'lines+markers')
-# add one trace for each "sale" column
 for(i in 1:length(unique(UCDc_Line_All_Data$ICD.Chapter))){
   plotly_lineplot <- plotly_lineplot %>%
     add_trace(x = subset(UCDc_Line_All_Data, 
@@ -212,7 +209,12 @@ UCD_Boxplot_All_Data2 <- UCD %>%
             Crude_Mortality_Rate = Crude_Mortality / Population * 100000)
 UCD_Boxplot_All_Data2_sub <- UCD_Boxplot_All_Data2[UCD_Boxplot_All_Data2$ICD.Chapter %in% c("Neoplasms", 
                                                    "Diseases of the circulatory system", 
-                                                   "Diseases of the respiratory system"),]
+                                                   "Diseases of the respiratory system", 
+                                                   "Diseases of the nervous system"),]
+
+UCD_Boxplot_All_Data2_sub <- UCD_Boxplot_All_Data2_sub %>% 
+  arrange(Crude_Mortality_Rate)
+
 
 plotly_boxplot <- plot_ly(type = 'box', quartilemethod = "linear")
 # add one trace for each "sale" column
@@ -291,7 +293,7 @@ plotly_boxplot
 ########################### 
 
 # Original Histogram
-input$tab4_AODhist, 
+input$tab4_AODhist
 'Race' = df %>% 
   ggplot(aes(AOD)) + 
   geom_histogram(binwidth = 1, fill = "light grey", col = "grey", alpha = 0.5) + 
@@ -320,21 +322,289 @@ input$tab4_AODhist,
         legend.text = element_text())
 
 
+# Plotly Histogram with Lines
+# Helper function for vertical lines
+vline <- function(x = 0, color = "green", dash = "dot") {
+  list(
+    type = "line",
+    y0 = 0,
+    y1 = 1,
+    yref = "paper",
+    x0 = x,
+    x1 = x,
+    line = list(color = color, dash=dash)
+  )
+}
+hline <- function(y = 0, color = "black", dash = "dot") {
+  list(
+    type = "line",
+    x0 = 0,
+    x1 = 1,
+    xref = "paper",
+    y0 = y,
+    y1 = y,
+    line = list(color = color, dash=dash)
+  )
+}
+
+
 
 
 plotly_hist <- plot_ly(type = 'histogram')
-# add one trace for each "sale" column
-for(i in 1:length(unique(UCD_Boxplot_All_Data2_sub$ICD.Chapter))){
-  plotly_hist <- plotly_hist %>%
-    add_trace(x = subset(UCD_Boxplot_All_Data2_sub, 
-                         ICD.Chapter == unique(UCD_Boxplot_All_Data2_sub$ICD.Chapter)[i])$Crude_Mortality_Rate, 
-              name= subset(UCD_Boxplot_All_Data2_sub,
-                           ICD.Chapter == unique(UCD_Boxplot_All_Data2_sub$ICD.Chapter)[i])[1, "ICD.Chapter"]
-    )
-}
+plotly_hist <- plotly_hist %>% 
+  add_trace(x = df$AOD, bingroup=1, name = "AOD, Count", 
+            marker = list(color = "lightgrey")) # "rgba(150, 150, 150, 0.7)"
+
+# base plotly_hist
 plotly_hist
 
-UCDc %>% 
+# Race
+plotly_hist %>% 
+  layout(
+    shapes=list(vline(mean(df$AOD), color = "black", dash = "dot"),
+                vline(Race2021$Med_AOD[[1]], color = "mediumblue", dash = "solid"),
+                vline(Race2021$Med_AOD[[2]], color = "seagreen", dash = "solid"),
+                vline(Race2021$Med_AOD[[3]], color = "red", dash = "solid"),
+                vline(Race2021$Med_AOD[[4]], color = "orange", dash = "solid")
+                # Too few to reasonably display 
+                # vline(Race2021$Med_AOD[[5]], color = "orange", dash = "solid"),
+                # vline(Race2021$Med_AOD[[6]], color = "orange", dash = "solid")
+                ),
+    barmode="relative",
+    bargap=0.1, 
+    title = "Disparities in Age of Death", 
+    # Age of Death for Racial, Ethnic, and Gender Groups Differ Across All Causes
+    # Hover for More Information about Each Cause
+    plot_bgcolor='#ffff',
+    yaxis = list(title = 'Number of Individuals', 
+                 showticklabels = T, 
+                 visible = T,
+                 zerolinecolor = '#ffff', 
+                 zerolinewidth = 1, 
+                 gridcolor = 'ffff'), 
+    showlegend = F, 
+    xaxis = list(title = 'Age', 
+                 showticklabels = T, 
+                 visible = T,
+                 zerolinecolor = '#ffff', 
+                 zerolinewidth = 1, 
+                 gridcolor = 'ffff'), 
+    showlegend = F) %>% 
+  add_text(showlegend = T, 
+           x = 30, y = 95,
+           size = I(14),
+           text = c(
+             paste(
+               "\U003BC", "=", Race2021$Med_AOD[[1]], "(White)")
+           ),
+           textposition = "left center") %>% 
+  add_text(showlegend = T, 
+           x = 30, y = 90,
+           size = I(14),
+           text = c(
+             paste(
+               "\U003BC", "=", Race2021$Med_AOD[[2]], "(Black)")
+           ),
+           textposition = "left center") %>% 
+  add_text(showlegend = T, 
+           x = 30, y = 85,
+           size = I(14),
+           text = c(
+             paste(
+               "\U003BC", "=", Race2021$Med_AOD[[3]], "(American Indian)")
+           ),
+           textposition = "left center") %>% 
+  add_text(showlegend = T, 
+           x = 30, y = 80,
+           size = I(14),
+           text = c(
+             paste(
+               "\U003BC", "=", Race2021$Med_AOD[[4]], "(Asian)")
+           ),
+           textposition = "left center") %>%
+  # add_text(showlegend = T, 
+  #          x = 25, y = 75,
+  #          size = I(14),
+  #          text = c(
+  #            paste(
+  #              "\U003BC", "=", Race2021$Med_AOD[[5]], "(Native Hawaiian & PI)")
+  #          ),
+  #          textposition = "left center") %>% 
+  # add_text(showlegend = T, 
+  #          x = 25, y = 70,
+  #          size = I(14),
+  #          text = c(
+  #            paste(
+  #              "\U003BC", "=", Race2021$Med_AOD[[6]], "(Mixed)")
+  #          ),
+  #          textposition = "left center")
+  add_annotations(x = Race2021$Med_AOD[[1]],
+                  y = 40,
+                  text = "White",
+                  xref = "x",
+                  yref = "y",
+                  showarrow = TRUE,
+                  arrowhead = 4,
+                  arrowsize = .5,
+                  ax = 30,
+                  ay = 50) %>%
+  add_annotations(x = Race2021$Med_AOD[[2]],
+                  y = 80,
+                  text = "Black",
+                  xref = "x",
+                  yref = "y",
+                  showarrow = TRUE,
+                  arrowhead = 4,
+                  arrowsize = .5,
+                  ax = -25,
+                  ay = 40) %>% 
+  add_annotations(x = Race2021$Med_AOD[[3]],
+                  y = 40,
+                  text = "American Indian",
+                  xref = "x",
+                  yref = "y",
+                  showarrow = TRUE,
+                  arrowhead = 4,
+                  arrowsize = .5,
+                  ax = -25,
+                  ay = 40) %>% 
+  add_annotations(x = Race2021$Med_AOD[[4]],
+                  y = 60,
+                  text = "Asian",
+                  xref = "x",
+                  yref = "y",
+                  showarrow = TRUE,
+                  arrowhead = 4,
+                  arrowsize = .5,
+                  ax = -25,
+                  ay = 40)
+
+# Ethnicity
+plotly_hist %>% 
+  layout(
+    shapes=list(vline(mean(df$AOD), color = "black", dash = "dot"),
+                vline(Eth2021$Med_AOD[[1]], color = "orange", dash = "solid"),
+                vline(Eth2021$Med_AOD[[2]], color = "blue", dash = "solid")),
+    barmode="relative",
+    bargap=0.1, 
+    title = "Disparities in Age of Death", 
+    # Age of Death for Racial, Ethnic, and Gender Groups Differ Across All Causes
+    # Hover for More Information about Each Cause
+    plot_bgcolor='#ffff',
+    yaxis = list(title = 'Number of Individuals', 
+                 showticklabels = T, 
+                 visible = T,
+                 zerolinecolor = '#ffff', 
+                 zerolinewidth = 1, 
+                 gridcolor = 'ffff'), 
+    showlegend = F, 
+    xaxis = list(title = 'Age', 
+                 showticklabels = T, 
+                 visible = T,
+                 zerolinecolor = '#ffff', 
+                 zerolinewidth = 1, 
+                 gridcolor = 'ffff'), 
+    showlegend = F) %>% 
+  add_text(showlegend = T, 
+           x = 25, y = 95,
+           size = I(14),
+           text = c(
+             paste(
+               "\U003BC", "=", Eth2021$Med_AOD[[1]], "(Non-hispanic)")
+           ),
+           textposition = "left center") %>% 
+  add_text(showlegend = T, 
+           x = 25, y = 90,
+           size = I(14),
+           text = c(
+             paste(
+               "\U003BC", "=", Eth2021$Med_AOD[[2]], "(Hispanic)")
+           ),
+           textposition = "left center") %>% 
+  add_annotations(x = Eth2021$Med_AOD[[1]],
+                  y = 30,
+                  text = "Non-hispanic",
+                  xref = "x",
+                  yref = "y",
+                  showarrow = TRUE,
+                  arrowhead = 4,
+                  arrowsize = .5,
+                  ax = 30,
+                  ay = 50) %>%
+  add_annotations(x = Eth2021$Med_AOD[[2]],
+                  y = 40,
+                  text = "Hispanic",
+                  xref = "x",
+                  yref = "y",
+                  showarrow = TRUE,
+                  arrowhead = 4,
+                  arrowsize = .5,
+                  ax = -30,
+                  ay = 40)
+
+  
+# Gender
+plotly_hist %>% 
+  layout(
+    shapes=list(vline(mean(df$AOD), color = "black", dash = "dot"),
+                vline(Gender2021$Med_AOD[[1]], color = "orange", dash = "solid"),
+                vline(Gender2021$Med_AOD[[2]], color = "blue", dash = "solid")),
+    barmode="relative",
+    bargap=0.1, 
+    title = "Disparities in Age of Death", 
+    # Age of Death for Racial, Ethnic, and Gender Groups Differ Across All Causes
+    # Hover for More Information about Each Cause
+    plot_bgcolor='#ffff',
+    yaxis = list(title = 'Number of Individuals', 
+                 showticklabels = T, 
+                 visible = T,
+                 zerolinecolor = '#ffff', 
+                 zerolinewidth = 1, 
+                 gridcolor = 'ffff'), 
+    showlegend = F, 
+    xaxis = list(title = 'Age', 
+                 showticklabels = T, 
+                 visible = T,
+                 zerolinecolor = '#ffff', 
+                 zerolinewidth = 1, 
+                 gridcolor = 'ffff'), 
+    showlegend = F) %>% 
+  add_text(showlegend = T, 
+           x = 25, y = 95,
+           size = I(14),
+           text = c(
+             paste(
+               "\U003BC", "=", Gender2021$Med_AOD[[1]], "(Male)")
+           ),
+           textposition = "left center") %>% 
+  add_text(showlegend = T, 
+           x = 25, y = 90,
+           size = I(14),
+           text = c(
+             paste(
+               "\U003BC", "=", Gender2021$Med_AOD[[2]], "(Female)")
+           ),
+           textposition = "left center") %>% 
+  add_annotations(x = Gender2021$Med_AOD[[2]],
+                  y = 40,
+                  text = "Female",
+                  xref = "x",
+                  yref = "y",
+                  showarrow = TRUE,
+                  arrowhead = 4,
+                  arrowsize = .5,
+                  ax = 30,
+                  ay = 40) %>%
+  add_annotations(x = Gender2021$Med_AOD[[1]],
+                  y = 40,
+                  text = "Male",
+                  xref = "x",
+                  yref = "y",
+                  showarrow = TRUE,
+                  arrowhead = 4,
+                  arrowsize = .5,
+                  ax = -25,
+                  ay = 40)
 
 
 
