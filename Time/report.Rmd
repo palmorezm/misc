@@ -1,5 +1,6 @@
 ---
 title: "Times"
+subtitle: "A Reproducible Guide to Measure and Quantify Time Estimates of Projects"
 author: "Zachary Palmore"
 date: "5/23/2022"
 output: 
@@ -12,21 +13,27 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
- 
-
-*This report was began prior to mention of a presentation of our performance management system* 
 
 <hr/>
 
-## Summary 
+<i>This report was began prior to mention of a presentation of my times or use of my time management systems for our performance management system</i>
 
-The average time spent on projects was `r` [units]. There were 
+<hr/>
 
-## Background 
+```{r packages}
 
+```
 
+## Summary
 
+The average time spent on projects was `r` [units].
 
+## Background
 
+As of this writing there are several methods in-use for tracking employee time, one for HR, another for the In-Out Health Board, and one for Grant Tracking known as Dailies. There are benefits and drawbacks to each of these methods, however, their end goals are the same. They each want to know how much time is being spent in each category.
 
+In the HR method we edit and email excel spreadsheets that each individual fills out for themselves each pay period. These are sent to an in-house RCPHD accountant who validates with supervisors then sends it to the accountants in HR. These spreadsheets are ultimately delivered to an approval accounting body who has specific interests in what they track. For example, they want to know when the individual took a lunch, when you started and ended the day, whether any sick or leave time was used and how much, how m among other things.
 
+There no methods for tracking data science projects or time at RCPHD.
+
+Management is interested learning what the data scientist is doing, when, and gaining an overall better understanding of how much time the data scientist spends on various projects. At this time (6/14/2022) they are also interested in learning what projects the data scientist is choosing to work on (since no specifics have been given). It is also important that the process be automatic as much as possible.
