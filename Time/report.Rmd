@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <hr/>
 
-<i>This report was began prior to mention of a presentation of my times or use of my time management systems for our performance management system</i>
+<i>This report was started prior to any mention of a presentation of my times or use of my time management system for our performance management system</i>
 
 <hr/>
 
@@ -30,9 +30,39 @@ The average time spent on projects was `r` [units].
 
 ## Background
 
-As of this writing there are several methods in-use for tracking employee time, one for HR, another for the In-Out Health Board, and one for Grant Tracking known as Dailies. There are benefits and drawbacks to each of these methods, however, their end goals are the same. They each want to know how much time is being spent in each category.
+As of this writing there are three methods in-use for tracking employee time including one designed for HR, another for the In-Out Health Board, and one for Rock County Public Health Department (RCPHD) Grant Tracking and Billing known as Dailies. A new employee ID-based method is also being considered by county officials. There are benefits and drawbacks to each of these methods, however, their end goals are the same. They each want to know how much time is being spent in an area. Where they differ is in their specific area's of interest.
 
-In the HR method we edit and email excel spreadsheets that each individual fills out for themselves each pay period. These are sent to an in-house RCPHD accountant who validates with supervisors then sends it to the accountants in HR. These spreadsheets are ultimately delivered to an approval accounting body who has specific interests in what they track. For example, they want to know when the individual took a lunch, when you started and ended the day, whether any sick or leave time was used and how much, how m among other things.
+### HR Method
+
+#### Process
+
+The traditional accounting process for our team is the HR method. In this method every individual employee edits and emails an excel spreadsheet that the individual fills out for themselves based on a template provided by HR. Individuals repeat this process each pay period. These excel spreadsheets are also known as employee time sheets. These are sent to an in-house RCPHD accountant who validates the times entered with the employee's supervisor. If the supervisor, accountant, and employee are in agreement then the in-house accountant sends it to the accountants in HR.
+
+These spreadsheets are eventually delivered to an HR accounting group who has specific interests in what they track and must follow applicable rules and statutes. For example, they want to know when the individual took a lunch, when the individual came back from lunch, they started and ended their day, whether any sick or leave time was used, if it was a holiday, and other figures because they are required to report those statistics. This method requires the individual calculates using excel or general estimation and all fields within the template spreadsheet are present due to rules and regulations. For these reasons, they are also limited in the insights they can produce.
+
+#### Limitations
+
+The main limitations that stem from the enforcement of these rules and regulations of the HR method come from the validity, reporting, and collection of the data. Validity refers to how truthful the data is and can be observed by measuring how closely the data collected from the individuals matches reality of how the individual's spend their time. Reporting concerns stem from the manner in which the data are presented. These could be observed through bias assessments and other evaluations of the sources when presenting finalized, approved information, which are subjectively delivered to adhere to political statute. Lastly, the collection of the data refers to the process by which the data came to exist. It contains the steps involved from rules and statute to submission of approved spreadsheets for payment of the employee.
+
+Employees are required to report times in 15-minute intervals, make sound judgement regarding what categories to enter the time into, and perform their own calculations using each interval of time correctly and may face consequences for violations. There are safeguards in place in the event that the individual miscalculates or fails to categorize correctly. Usually, this is corrected by the in-house accountant or supervisor prior to submission to the HR accountants. However, it does not solve the root cause of the issue.
+
+Asking for employees to be this precise with their time entries when few individuals track their time in these intervals introduces new sources of error and discourages employees to be truthful. Employees, who are motivated by their pay, would like to have as much pay as possible for the least amount of time. Employees also typically have set schedules, for example 9 - 5. Having them track time in 15-minute intervals means the individual would not get paid for time beyond the interval. This shrinks the total time paid in the day to only the intervals in which work is being done. The idea is great for business interests, where the goal is to be as productive as possible with the least amount of money, but lacking in personnel interests. Personnel, when not strictly managed by someone with keen sights on the business interest, then deviate from the business interests to promote their own wealth and well being. This competition at scale opens new opportunities for exploitation for both business and personnel, discouraging both from being truthful.
+
+Workplace culture influences this method negatively by forcing all employees to follow a rigid structure that may not function for them. Consider for a moment, when an individual starts in a new role, what category does the time for orientation get placed under? How about the time driving to and from orientation if it is at a separate building and is it paid? It is because of this culture that only a small subset of the working population second guesses how this data is entered or handled. This contributes to the improper reporting of this information where individuals who are immersed in this workplace culture are pressured to contribute to its business interests.
+
+How the data is collected is just as important or more important than the resulting statistics and the HR method give little to no consideration for this beyond their legal obligations. A culmination of negative workplace culture influences, outdated policies, business interested employee subjectivity, and employee requirements have led to a poor data collection process. As it exists, employees are encouraged to submit the same time sheets repeatedly with only a name change. Deviations are cause for concern or questioning. To avoid conflict and get paid, the individual submits and moves forward.
+
+For these reasons the HR method is not an accurate representation of reality and could benefit from a reevaluation of its purpose. Policies may dictate what gets tracked and produce a rigid system but how we track it is flexible and new options should be explored.
+
+### In-Out Health Board
+
+#### Process
+
+Within the virtual environment of a Citrix-based virtual network an application was developed to track the presence or absence of health staff. This was named the "In-Out Health Board." It is a spreadsheet user interface originally designed to make it easier for personnel to determine whether another person is in the office or not. It was also intended to be used to denote if an individual was out to lunch, working in the field, and provided some conditional formatting and coloration to assist the reader.
+
+This system is only available to those with administrative privileges and it is granted by an IT professional. It is meant to function as a time clock where an individual, upon arrival to the office or logging in at home, would open the application and set their status to working with a check-in time entry. Upon leaving for lunch or at the end of their day, the same individual would then check-out with another corresponding time entry beside their name. By this mechanism for check-in and check-out, one could also use this system for informing the existing HR method.
+
+#### Limitations
 
 There no methods for tracking data science projects or time at RCPHD.
 
