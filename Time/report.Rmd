@@ -36,7 +36,7 @@ As of this writing there are three methods in-use for tracking employee time inc
 
 #### Process
 
-The traditional accounting process for our team is the HR method. In this method every individual employee edits and emails an excel spreadsheet that the individual fills out for themselves based on a template provided by HR. Individuals repeat this process each pay period. These excel spreadsheets are also known as employee time sheets. These are sent to an in-house RCPHD accountant who validates the times entered with the employee's supervisor. If the supervisor, accountant, and employee are in agreement then the in-house accountant sends it to the accountants in HR.
+The traditional accounting process for our team is the human resources (HR) method. In this method every individual employee edits and emails an excel spreadsheet that the individual fills out for themselves based on a template provided by HR. Individuals repeat this process each pay period. These excel spreadsheets are also known as employee time sheets. These are sent to an in-house RCPHD accountant who validates the times entered with the employee's supervisor. If the supervisor, accountant, and employee are in agreement then the in-house accountant sends it to the accountants in HR.
 
 These spreadsheets are eventually delivered to an HR accounting group who has specific interests in what they track and must follow applicable rules and statutes. For example, they want to know when the individual took a lunch, when the individual came back from lunch, they started and ended their day, whether any sick or leave time was used, if it was a holiday, and other figures because they are required to report those statistics. This method requires the individual calculates using excel or general estimation and all fields within the template spreadsheet are present due to rules and regulations. For these reasons, they are also limited in the insights they can produce.
 
@@ -54,7 +54,7 @@ How the data is collected is just as important or more important than the result
 
 For these reasons the HR method is not an accurate representation of reality and could benefit from a reevaluation of its purpose. Policies may dictate what gets tracked and produce a rigid system but how we track it is flexible and new options should be explored.
 
-### In-Out Health Board
+### In-Out Board
 
 #### Process
 
@@ -63,6 +63,10 @@ Within the virtual environment of a Citrix-based virtual network an application 
 This system is only available to those with administrative privileges and it is granted by an IT professional. It is meant to function as a time clock where an individual, upon arrival to the office or logging in at home, would open the application and set their status to working with a check-in time entry. Upon leaving for lunch or at the end of their day, the same individual would then check-out with another corresponding time entry beside their name. By this mechanism for check-in and check-out, one could also use this system for informing the existing HR method.
 
 #### Limitations
+
+Currently, hardly anyone is using it.
+
+#### DS Method
 
 There no methods for tracking data science projects or time at RCPHD.
 
