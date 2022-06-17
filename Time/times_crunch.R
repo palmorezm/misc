@@ -19,7 +19,11 @@
 # Packages
 require(pacman)
 pacman::p_install(c("dplyr", "lubridate", "data.table", "ggplot2"))
-
+pacman::p_library("dplyr", "lubridate", "data.table", "ggplot2")
+library(dplyr)
+library(lubridate)
+library(data.table)
+library(ggplot2)
 # Source
 glink <- paste0("https://docs.google.com/spreadsheets/",
                 "d/e/2PACX-1vQrgIzP3_8Fbn7I7kiwKuH8aYPzIRYDXqMj",
@@ -68,18 +72,20 @@ df %>%
 
 # How much time have I had leftover each day? 
 # How would this line chart look with 0 as the minimum time (ignore OT)? 
+library(tidyr)
 df %>% 
-  group_by(Project) %>% 
+  group_by(Job_Category) %>% 
   summarise(prj_time = sum(as.numeric(project_duration)), 
             # non_prj_time = as.numeric(work_duration_day - prj_time),
             # tot_time = (prj_time + non_prj_time), # = work_duration_day
             # project_time = work_duration_day - non_prj_time 
   ) %>% # prj_time and project_time should overlay exactly on plot 
   filter(prj_time >= 0) %>% 
-  gather(key, value, -Project) %>% 
-  ggplot(aes(Project, (value/3600))) + 
+  gather(key, value, -Job_Category) %>% 
+  ggplot(aes(reorder(Job_Category, value), (value/3600))) + 
   geom_col(position = "stack", fill = "light blue", col = "black", alpha = 0.75) + 
-  geom_hline(yintercept = df.stats$med, lty = "dashed") + coord_flip() +
+  # geom_hline(yintercept = median(df$project_duration), lty = "dashed") + 
+  coord_flip() +
   labs(x = "Day", y = "Hours", title = "Title", subtitle = "subtitle") + 
   theme_classic() + theme(plot.title = element_text(hjust = 0.5), 
                           plot.subtitle = element_text(hjust = 0.5))
