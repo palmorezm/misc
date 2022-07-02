@@ -19,7 +19,7 @@ sum(is.na(df))
 df[which(is.na(df)),]
 as.Date.character(df$Date)
 library(lubridate)
-df$Bedtime
+
 df$Bedtime <- lubridate::as_datetime(df$Bedtime)
 df$`Wake Time` <- lubridate::as_datetime(df$`Wake Time`)
 df$Timeslept <- df$`Wake Time` - df$Bedtime
@@ -29,4 +29,6 @@ lubridate::as_date(df$Date) # Results in NA
 class(df$Date) # character as 
 head(df$Date) # seemingly sequential numbers
 # to a date or date time object? 
+
+
 
