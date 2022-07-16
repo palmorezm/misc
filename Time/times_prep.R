@@ -88,9 +88,8 @@ df %>%
   ggplot(aes(day, (value/3600))) + 
   geom_col(position = "stack", fill = "light blue", col = "black", alpha = 0.75) + 
   geom_hline(yintercept = df.stats$med, lty = "dashed") + 
-  geom_hline(yintercept = work_duration_day/3600, lty = "solid") + 
   labs(x = "Day", y = "Hours", title = "Title", subtitle = "subtitle") + 
-  theme_minimal() + theme(plot.title = element_text(hjust = 0.5), 
+  theme_classic() + theme(plot.title = element_text(hjust = 0.5), 
                      plot.subtitle = element_text(hjust = 0.5))
 
 # How would this line chart look with 0 as the minimum time (ignore OT)? 
@@ -201,17 +200,151 @@ factors_matrixsummary %>%
   mutate(total = sum(value), 
          percent = (value / total) * 100) 
 
-# Calculate by area
+# Example VennDiagram
+library(ggVennDiagram)
+set.seed(20220519)
+genes <- paste("gene",1:1000,sep="")
+x <- list(
+  A = sample(genes,300), 
+  B = sample(genes,525), 
+  C = sample(genes,440),
+  D = sample(genes,350)
+)
+ggVennDiagram(x[1:3], label_alpha = 0)
 
-Area1 <- rep(paste0("BKCS", 1:(factors_matrixsummary[[6]][[3]] + 
-                      factors_matrixsummary[[3]][[3]] + 
+
+
+### ----- Testing Start ----- ###
+
+# Unique (Primary) Classes
+factors_matrixsummary[[3]][[1]] # BK | BK
+factors_matrixsummary[[2]][[2]] # CS | CS
+factors_matrixsummary[[4]][[3]] # MT | MT
+
+# Area 1 (BK and MT)
+factors_matrixsummary[[4]][[1]] # BK | MT = 11
+factors_matrixsummary[[6]][[1]] # BK | BKMT = 9
+factors_matrixsummary[[3]][[3]] # MT | BK = 14
+factors_matrixsummary[[6]][[3]] # MT | BKMT = 6
+
+# Area 2 (BK and CS)
+factors_matrixsummary[[3]][[2]] # CS | BK = 48
+factors_matrixsummary[[7]][[2]] # CS | CSBK = 31
+factors_matrixsummary[[2]][[1]] # BK | CS = 14
+factors_matrixsummary[[7]][[1]] # BK | CSBK = 12
+
+# Area 3 (CS and MT)
+factors_matrixsummary[[4]][[2]] # CS | MT = 42 
+factors_matrixsummary[[5]][[2]] # CS | CSMT = 36
+factors_matrixsummary[[2]][[3]] # MT | CS = 17
+factors_matrixsummary[[5]][[3]] # MT | CSMT = 14
+
+# Area 4 (DS)
+factors_matrixsummary[[5]][[1]] # BK | CSMT = 4
+factors_matrixsummary[[6]][[2]] # CS | BKMT = 23
+factors_matrixsummary[[7]][[3]] # MT | CSBK = 11
+factors_matrixsummary[[8]][[1]] # BK | DS = 4
+factors_matrixsummary[[8]][[2]] # CS | DS = 23
+factors_matrixsummary[[8]][[3]] # MT | DS = 11
+
+### ----- Testing End ----- ###
+
+# Need 3 classes with overlap (duplication) in each while preserving ratios
+# BK Primary Class (Areas 1, 2, 4, and 5)
+BK_Primary_Class <- c(rep(1, (factors_matrixsummary[[6]][[3]] + 
+  factors_matrixsummary[[3]][[3]] + 
+  factors_matrixsummary[[6]][[1]] + 
+  factors_matrixsummary[[4]][[1]])), # Area 1
+rep(2, (factors_matrixsummary[[3]][[2]]  + 
+  factors_matrixsummary[[7]][[2]] + 
+  factors_matrixsummary[[2]][[1]] + 
+  factors_matrixsummary[[7]][[1]])), # Area 2 
+rep(4, (factors_matrixsummary[[5]][[1]] + 
+  factors_matrixsummary[[6]][[2]] +
+  factors_matrixsummary[[7]][[3]] + 
+  factors_matrixsummary[[8]][[1]] +
+  factors_matrixsummary[[8]][[2]] +
+  factors_matrixsummary[[8]][[3]])), # Area 4 
+rep(5, factors_matrixsummary[[3]][[1]]) # BK only
+)
+
+# CS Primary Class (Areas 1, 3, 4, and 6) 
+
+CS_Primary_Class <- c(rep(1, (factors_matrixsummary[[6]][[3]] + 
+          factors_matrixsummary[[3]][[3]] + 
+          factors_matrixsummary[[6]][[1]] + 
+          factors_matrixsummary[[4]][[1]])), # Area 1
+  rep(3, (factors_matrixsummary[[4]][[2]] +
+          factors_matrixsummary[[5]][[2]] +
+          factors_matrixsummary[[2]][[3]] +
+          factors_matrixsummary[[5]][[3]])), # Area 3
+  rep(4, (factors_matrixsummary[[5]][[1]] + 
+          factors_matrixsummary[[6]][[2]] +
+          factors_matrixsummary[[7]][[3]] + 
+          factors_matrixsummary[[8]][[1]] +
+          factors_matrixsummary[[8]][[2]] +
+          factors_matrixsummary[[8]][[3]])), # Area 4
+  rep(6, factors_matrixsummary[[2]][[2]]) # CS only
+)
+# MT Primary Class (Areas 2, 3, 4, and 7) 
+
+MT_Primary_Class <- c(rep(2, (factors_matrixsummary[[3]][[2]]  + 
+          factors_matrixsummary[[7]][[2]] + 
+          factors_matrixsummary[[2]][[1]] + 
+          factors_matrixsummary[[7]][[1]])), # Area 2 
+  rep(3, (factors_matrixsummary[[4]][[2]] +
+          factors_matrixsummary[[5]][[2]] +
+          factors_matrixsummary[[2]][[3]] +
+          factors_matrixsummary[[5]][[3]])), # Area 3
+  rep(4, (factors_matrixsummary[[5]][[1]] + 
+          factors_matrixsummary[[6]][[2]] +
+          factors_matrixsummary[[7]][[3]] + 
+          factors_matrixsummary[[8]][[1]] +
+          factors_matrixsummary[[8]][[2]] +
+          factors_matrixsummary[[8]][[3]])), # Area 4
+  rep(7, factors_matrixsummary[[4]][[3]]) # MT only
+)
+
+z <- list(
+  BK_Primary_Class, 
+  CS_Primary_Class, 
+  MT_Primary_Class
+)
+
+ggVennDiagram(z, label_alpha = 0)
+
+y = list(
+  E = c(1,2,3,8,9,10),
+  D = c(1, 2, 4, 5, 6, 11, 12, 13),
+  S = c(1, 2, 2, 3, 4, 5, 6, 7)
+)
+
+ggVennDiagram(y, label_alpha = 50)
+
+z <- list(
+  BK = c(1, 2, 4, 5),
+  CS = c(1, 3, 4, 6),
+  MT = c(2, 3, 4, 7)
+)
+
+ggVennDiagram(z, label_alpha = 0)
+
+library(RVenn)
+RVenn::Venn(z)
+RVenn::Venn(w)
+
+
+# 
+
+Area1 <- rep(paste0("BKCS", 1:(factors_matrixsummary[[6]][[3]] + # Specific to BKCS 
+                      factors_matrixsummary[[3]][[3]] +  
                       factors_matrixsummary[[6]][[1]] + 
                       factors_matrixsummary[[4]][[1]])), 
     (factors_matrixsummary[[6]][[3]] + 
      factors_matrixsummary[[3]][[3]] + 
      factors_matrixsummary[[6]][[1]] + 
      factors_matrixsummary[[4]][[1]])) # Area 1 
-Area2 <- rep(paste0("BKMT", 1:(factors_matrixsummary[[3]][[2]]  + 
+Area2 <- rep(paste0("BKMT", 1:(factors_matrixsummary[[3]][[2]]  + # Specific to BKMT
                         factors_matrixsummary[[7]][[2]] + 
                         factors_matrixsummary[[2]][[1]] + 
                         factors_matrixsummary[[7]][[1]])), 
@@ -219,7 +352,7 @@ Area2 <- rep(paste0("BKMT", 1:(factors_matrixsummary[[3]][[2]]  +
      factors_matrixsummary[[7]][[2]] + 
      factors_matrixsummary[[2]][[1]] + 
      factors_matrixsummary[[7]][[1]])) # Area 2 
-Area3 <- rep(paste0("CSMT", 1:(factors_matrixsummary[[4]][[2]] +
+Area3 <- rep(paste0("CSMT", 1:(factors_matrixsummary[[4]][[2]] + # Specific to  CSMT
                         factors_matrixsummary[[5]][[2]] +
                         factors_matrixsummary[[2]][[3]] +
                         factors_matrixsummary[[5]][[3]])), 
@@ -227,7 +360,7 @@ Area3 <- rep(paste0("CSMT", 1:(factors_matrixsummary[[4]][[2]] +
      factors_matrixsummary[[5]][[2]] +
      factors_matrixsummary[[2]][[3]] +
      factors_matrixsummary[[5]][[3]])) # Area 3
-Area4 <- rep(paste0("DS", 1:(factors_matrixsummary[[5]][[1]] + 
+Area4 <- rep(paste0("DS", 1:(factors_matrixsummary[[5]][[1]] + # Specific to DS
                       factors_matrixsummary[[6]][[2]] +
                       factors_matrixsummary[[7]][[3]] + 
                       factors_matrixsummary[[8]][[1]] +
@@ -278,5 +411,6 @@ ggVennDiagram(w,
 # scale_color_manual(values=wes_palette(n=3, name="GrandBudapest2")) + 
 # scale_fill_distiller(palette = "Blues", direction = 1)  
 
+?guides()
 
 
