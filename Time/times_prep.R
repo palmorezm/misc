@@ -248,9 +248,7 @@ w <- list(
   MT = c(Area2, Area3, Area4, Area7)
 )
 
-?ggVennDiagram()
 library(ggVennDiagram)
-library(wesanderson)
 library(ggplot2)
 
 ggVennDiagram(w, 
