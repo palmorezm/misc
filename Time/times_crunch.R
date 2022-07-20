@@ -36,6 +36,7 @@ times$End <- hms::as_hms(lubridate::parse_date_time(times$End, "%I:%M %p"))
 times$project_duration <- (times$End - times$Start)
 work_duration_day <- 8 * 60 * 60 # h * m * s = s
 work_duration_week <- work_duration_day * 5 
+times <- times %>% filter(Date >= "2022-03-21") 
 work_week_startdate <- seq(
   as_date(min(times$Date)), as_date(max(times$Date)), by = "7 days"
 ) 

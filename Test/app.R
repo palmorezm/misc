@@ -158,7 +158,7 @@ server <- function(input, output, session) {
   
 }
 
-options(shiny.host={"10.1.250.150"})
+options(shiny.host={"192.168.58.116":22})
 
 shinyApp(ui, server)
 
