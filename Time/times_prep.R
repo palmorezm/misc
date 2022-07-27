@@ -88,6 +88,7 @@ df %>%
   ggplot(aes(day, (value/3600))) + 
   geom_col(position = "stack", fill = "light blue", col = "black", alpha = 0.75) + 
   geom_hline(yintercept = df.stats$med, lty = "dashed") + 
+  geom_hline(yintercept = 8, lty = "solid") + 
   labs(x = "Day", y = "Hours", title = "Title", subtitle = "subtitle") + 
   theme_classic() + theme(plot.title = element_text(hjust = 0.5), 
                      plot.subtitle = element_text(hjust = 0.5))
