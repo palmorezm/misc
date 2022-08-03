@@ -114,6 +114,6 @@ This juxtaposition of the changes necessary to support valid, useful information
 
 ### DS Method
 
-There no methods for tracking data science projects or time at RCPHD. Upon employment, the data scientist
+There no methods for tracking data science projects or time at RCPHD other than the HR method, In-Out Board, or Dailies Method.
 
 Management is interested learning what the data scientist is doing, when, and gaining an overall better understanding of how much time the data scientist spends on various projects. At this time (6/14/2022) they are also interested in learning what projects the data scientist is choosing to work on (since no specifics have been given). It is also important that the process be automatic as much as possible.
