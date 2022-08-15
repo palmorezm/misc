@@ -1,0 +1,726 @@
+---
+title: "Claim Prediction"
+subtitle: "An Auto Insurance Example"
+author: "Zach Palmore"
+date: "2022-08-14"
+categories: [news, code, analysis]
+image: "image.jpg"
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    code-link: true
+    highlight-style: pygments
+    html-math-method: katex
+    df-print: paged
+    cache: true
+---
+
+------------------------------------------------------------------------
+
+```{r Packages, warning=F, message=F}
+#| label: load-pkgs
+#| code-summary: "Packages"
+#| message: false
+#| echo: false
+#| warning: false
+library(tidyverse)
+library(kableExtra)
+library(ggcorrplot)
+library(reshape2)
+library(bestNormalize)
+library(caret)
+library(MASS)
+library(pROC)
+library(stats)
+library(ROCR)
+theme_set(theme_minimal())
+```
+
+\newpage
+
+## The Challenge
+
+A key part of insurance is charging each customer the appropriate price for the risk they represent. In this challenge, we attempt to predict how often a customer will submit a claim and estimate the total amount of the insurance claim payment. We explore, analyze and model a data set containing approximately 8000 records with each record representing a customer at an auto insurance company.
+
+Based on these auto insurance records, we know whether a person was involved in an accident and we know approximately how much the claim amount is, rounded to the nearest whole dollar. There are many other characteristics including make, model, age of the vehicle, motor vehicle points of the driver, the frequency of claims, the vehicle's estimated bluebook value, and more. These are thought to be related to the probability of claim submittal. Our most important response variables are named `TARGET_FLAG` and `TARGET_AMT` denoting a flag of 0 when no claim is submitted and 1 whenever a claim was made. Where a flag of 1 occurs, there is a corresponding dollar amount for that claim. We use this information to build our training data.
+
+Our objective is to build multiple linear regression and binary logistic regression models on the training data to predict the probability that a person will crash their car and also the amount of money it will cost if the person does crash their car. We can only use the variables given (or variables derived from the variables provided). Below is a short description of the variables of interest in the data set:
+
+```{r}
+# short descriptions of variables as table from matrix
+vardesc <- data.frame(matrix(c(
+'INDEX',	'Identification variable',
+'TARGET_FLAG',	'Was car in a crash? 1 = Yes, 0 = No',
+'TARGET_AMT',	'Cost of car crash',
+'AGE',	'Age of driver',
+'BLUEBOOK',	'Value of vehicle',
+'CAR_AGE',	'Vehicle age',
+'CAR_TYPE',	'Type of car',
+'CAR_USE', 'Main purpose the vehicle is used for',
+'CLM_FREQ',	'Number of claims filed in past five years',
+'EDUCATION',	'Maximum education level',
+'HOMEKIDS',	'Number of children at home',
+'HOME_VAL',	'Value of driver\'s home',
+'INCOME',	'Annual income of the driver',
+'JOB',	'Type of job by standard collar categories',
+'KIDSDRIV',	'Number of children who drive',
+'MSTATUS',	'Marital status',
+'MVR_PTS',	'Motor vehicle inspection points',
+'OLDCLAIM',	'Total claims payout in past five years',
+'PARENT1',	'Single parent status',
+'RED_CAR',	'1 if car is red, 0 if not',
+'REVOKED',	'License revoked in past 7 years status',
+'SEX',	'Driver gender',
+'TIF',	'Time in force',
+'TRAVETIME',	'Distance to work in minutes',
+'URBANICITY',	'Category of how urban the area the driver lives is',
+'YOJ', 'Number of years on the job'
+),  byrow = TRUE, ncol = 2))
+colnames(vardesc) <- c('Variable', 'Description')
+kbl(vardesc, booktabs = T, caption = "Variable Descriptions") %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"), full_width = F)
+```
+
+------------------------------------------------------------------------
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+tdata <- read.csv(
+  "https://raw.githubusercontent.com/palmorezm/msds/main/Business%20Analytics%20and%20Data%20Mining/HW4/insurance_training_data.csv")
+edata <- read.csv(
+  "https://raw.githubusercontent.com/palmorezm/msds/main/Business%20Analytics%20and%20Data%20Mining/HW4/insurance-evaluation-data.csv")
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+initialobs <- tdata[1:4,]
+kbl(t(initialobs), booktabs = T, caption = "Initial Observations") %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"), full_width = F) %>%
+  add_header_above(c(" ", " ", "Row Number", " ", " ")) %>%
+  footnote(c("Includes the first four observations of all variables in the data"))
+```
+
+------------------------------------------------------------------------
+
+\newpage
+
+## Data Exploration
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+# theoretical effects
+vareffects <- data.frame(matrix(c(
+'INDEX',	'None',
+'TARGET_FLAG',	'None',
+'TARGET_AMT',	'None',
+'AGE',	'Youngest and Oldest may have higher risk of accident',
+'BLUEBOOK',	'Unknown on probability of collision but correlated with payout',
+'CAR_AGE',	'Unknown on probability of collision but correlated with payout',
+'CAR_TYPE',	'Unknown on probability of collision but correlated with payout',
+'CAR_USE', 'Commerical vehicles might increase risk of accident',
+'CLM_FREQ',	'Higher claim frequency increases likelihood of future claims',
+'EDUCATION',	'Theoretically higher education levels lower risk',
+'HOMEKIDS',	'Unknown',
+'HOME_VAL',	'Theoretically home owners reduce risk due to more responsible driving',
+'INCOME',	'Theoretically wealthier drivers have fewer accidents',
+'JOB',	'Theoretically white collar+ jobs are safer',
+'KIDSDRIV',	'Increased risk of accident from inexperienced driver',
+'MSTATUS',	'Theoretically married people drive safer',
+'MVR_PTS',	'Increased risk of accident',
+'OLDCLAIM',	'Increased risk of higher payout with previous payout',
+'PARENT1',	'Unknown',
+'RED_CAR',	'Theoretically increased risk of accident based on urban legend',
+'REVOKED',	'Increased risk of accident if revoked',
+'SEX',	'Theoretically increased risk of accident for women based on urban legend',
+'TIF',	'Decreased risk for those who have greater loyalty',
+'TRAVETIME',	'Longer distances increase risk of accident',
+'URBANICITY',	'The more urban the area the greater the risk of accident',
+'YOJ', 'Decreased risk for those with greater longevity'
+),  byrow = TRUE, ncol = 2))
+colnames(vareffects) <- c('Variable', 'Effect')
+kbl(vareffects, booktabs = T, caption = "Theoretical Variable Effects") %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"), full_width = F)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+tdata.nas <- lapply(tdata, function(x) sum(is.na(x)))
+tdata.len <- lapply(tdata, function(x) length(x))
+tdata.permis <- lapply(tdata, function(x) round(sum(is.na(x))/length(x)*100, 1))
+tdata.types <- lapply(tdata, function(x) class(x))
+tdata.firstob <- lapply(tdata, function(x) head(x, 1))
+tdata.uniques <- lapply(tdata, function(x) length(unique(factor(x))))
+tdata.tbl.natypes <- cbind(tdata.nas, tdata.len, tdata.permis, tdata.types, tdata.firstob, tdata.uniques) 
+colnames(tdata.tbl.natypes) <- c("Missing", "Total", "%", "Data Type", "Example", "Factors")
+kbl(tdata.tbl.natypes, booktabs = T, caption = "Data Characteristics") %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"), full_width = F)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+tdata.summary.tbl <- summary(tdata)
+kbl(t(tdata.summary.tbl), booktabs = T, caption = "Summary Characteristics") %>%
+  kable_styling(latex_options = c("striped", "scale_down", "hold_position"), full_width = F)
+```
+
+```{r}
+tdata %>% 
+  select_if(is.numeric) %>% 
+  gather %>% 
+  ggplot() +
+  facet_wrap(~ key, scales = "free") +
+  geom_density(aes(value, color = value, fill = key, alpha = .5)) + theme(axis.title = element_blank(), legend.position = "none") + ggtitle("Numeric Variable Density") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+tdata %>% 
+  select_if(is.integer) %>%
+  gather() %>% 
+  filter(value == 0 | 1) %>% 
+  group_by(key) %>% 
+  ggplot() +
+  facet_wrap(~ key, scales = "free") +
+  geom_bar(aes(value, color = value, fill = key, alpha = .5)) + theme(axis.title = element_blank(), legend.position = "none") + ggtitle("Integer Frequencies") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+tdata %>% 
+  dplyr::select(TARGET_FLAG, MVR_PTS, CLM_FREQ, HOMEKIDS, KIDSDRIV, TIF) %>% 
+  gather() %>% 
+  ggplot(aes(value)) +
+  facet_wrap(~ key, scales = "free") + 
+  geom_bar(aes(value, color = key, fill = key, alpha = .5)) + theme(axis.title = element_blank(), legend.position = "none") + ggtitle("Select Integer Frequencies") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+tdata %>%
+  select_if(is.numeric) %>% 
+  cor() %>% 
+  ggcorrplot(method = "circle", type="upper", 
+             ggtheme = ggplot2::theme_minimal, legend.title = "Influence") + coord_flip() 
+```
+
+------------------------------------------------------------------------
+
+\newpage
+
+## Data Preparation
+
+```{r}
+# Select character variables
+chars <- tdata %>% 
+  dplyr::select_if(is.character)
+# Use function to extract dollars
+to_num <- function(x){
+  x <- as.character(x)
+  x <- gsub(",", "", x)
+  x <- gsub("\\$", "", x)
+  as.numeric(x)
+}
+# Specify those dollar variables 
+income.values <- to_num(chars$INCOME)
+home.values <- to_num(chars$HOME_VAL)
+bluebook.values <- to_num(chars$BLUEBOOK)
+oldclaim.values <- to_num(chars$OLDCLAIM)
+concept_df <- as.data.frame(cbind(income.values, 
+                    home.values, 
+                    bluebook.values, 
+                    oldclaim.values))
+income.values.stat <- to_num(chars$INCOME)
+home.values.stat <- to_num(chars$HOME_VAL)
+bluebook.values.stat <- to_num(chars$BLUEBOOK)
+oldclaim.values.stat <- to_num(chars$OLDCLAIM)
+# impute median values for missing variables
+income.values[is.na(income.values)] <- 
+  median(income.values, na.rm = TRUE)
+home.values[is.na(home.values)] <- 
+  median(home.values, na.rm = TRUE)
+bluebook.values[is.na(bluebook.values)] <- 
+  median(bluebook.values, na.rm = TRUE)
+oldclaim.values[is.na(oldclaim.values)] <- 
+  median(oldclaim.values, na.rm = TRUE)
+# Recombine into data frame
+dollar.values <- 
+  data.frame(cbind(income.values, 
+                   home.values, 
+                   bluebook.values, 
+                   oldclaim.values))
+dollar.values.stats <- 
+  data.frame(cbind(income.values.stat, 
+                   home.values.stat, 
+                   bluebook.values.stat,
+                   oldclaim.values.stat))
+# Join with training data
+tdata <- data.frame(cbind(tdata, dollar.values))
+# Check the difference
+dollar.values.tbl <- summary(dollar.values)
+dollar.values.stats.tbl <- summary(dollar.values.stats)
+kbl(dollar.values.tbl, booktabs = T, caption = "Imputed Summary Statistics") %>%
+kable_styling(latex_options = c("striped", "hold_position"), full_width = F)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+kbl(dollar.values.stats.tbl, booktabs = T, caption = "Original Summary Statistics") %>%
+kable_styling(latex_options = c("striped", "hold_position"), full_width = F)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+# Covert categorical variables to factors 
+factors <- tdata %>% 
+  dplyr::select("PARENT1", 
+         "MSTATUS", 
+         "SEX", 
+         "EDUCATION", 
+         "JOB", 
+         "CAR_USE",
+         "CAR_TYPE",
+         "RED_CAR", 
+         "REVOKED", 
+         "URBANICITY") 
+factors <- data.frame(lapply(factors, function(x) as.factor(x)))
+factors <- factors %>% 
+  rename("parent1" = "PARENT1", 
+         "mstatus" = "MSTATUS", 
+         "sex" = "SEX", 
+         "education" = "EDUCATION", 
+         "job" = "JOB", 
+         "car_use" = "CAR_USE", 
+         "car_type" = "CAR_TYPE",
+         "red_car" = "RED_CAR", 
+         "revoked" = "REVOKED", 
+         "urbanicity" = "URBANICITY")
+tdata <- cbind(tdata, factors)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+# Exclude unrealistic values
+tdata <- tdata %>% 
+  mutate(car_age = ifelse(CAR_AGE<0, NA, CAR_AGE))
+summary(tdata$car_age)
+summary(tdata$CAR_AGE)
+```
+
+```{r include=F}
+#| message: false
+#| echo: false
+#| warning: false
+full41 <- tdata
+full41
+full41[c(2:7, 15, 18, 22, 24, 27:41)]
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+# Drop INDEX and other unnecessary columns
+tdata <- tdata %>% 
+  dplyr::select("TARGET_FLAG",
+         "TARGET_AMT",
+         "KIDSDRIV",
+         "AGE",
+         "HOMEKIDS",
+         "YOJ",
+         "TRAVTIME",
+         "TIF",
+         "CLM_FREQ",
+         "MVR_PTS",
+         "income.values", 
+         "home.values",
+         "bluebook.values",
+         "oldclaim.values",
+         "parent1", 
+         "mstatus",
+         "sex",
+         "education",
+         "job",
+         "car_use",
+         "car_age",
+         "car_type",
+         "red_car", 
+         "revoked",
+         "urbanicity")
+# Check total variables present
+length(colnames(tdata))
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+# More imputation
+tdata$AGE[is.na(tdata$AGE)] <-
+  median(tdata$AGE, na.rm = T)
+tdata$YOJ[is.na(tdata$YOJ)] <-
+  median(tdata$YOJ, na.rm = T)
+tdata$car_age[is.na(tdata$car_age)] <- 
+  median(tdata$car_age, na.rm = T)
+sum(is.na(tdata))
+```
+
+```{r}
+tdata %>% 
+  dplyr::select(is.factor) %>%
+  dplyr::select("car_type", "education", "job") %>% 
+  gather() %>% 
+  ggplot(aes(value)) + 
+  facet_wrap(~ key, nrow = 3, scales = "free") + 
+  geom_bar(aes(, fill = key )) + theme(axis.title = element_blank(), axis.text.x = element_blank(), legend.position = "none") + coord_flip() + ggtitle("Nonbinary Classifiers") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+tdata %>% 
+  dplyr::select(is.factor) %>%
+  dplyr::select("car_use", 
+         "mstatus", 
+         "parent1", 
+         "red_car",
+         "revoked",
+         "sex",
+         "urbanicity") %>% 
+  gather() %>% 
+  ggplot(aes(value)) + 
+  facet_wrap(~ key, scales = "free") + 
+  geom_bar(aes(, fill = key )) + theme(axis.title = element_blank(), axis.text.x = element_blank(), legend.position = "none") + coord_flip() + ggtitle("Binary Classifiers Counts") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+tdata %>% 
+  select_if(is.numeric) %>%
+  gather() %>% 
+  ggplot(aes(key)) + 
+  facet_wrap(~ key, scales = "free") + 
+  geom_boxplot(aes(key, value, fill = key, alpha = .5)) + theme(axis.title = element_blank(), axis.text.x = element_blank(), legend.position = "none") + ggtitle("Numeric Distributions") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+# New features
+tdata <- tdata %>% 
+  mutate(city = ifelse(urbanicity == "Highly Urban/ Urban", 0, 1)) %>% 
+  mutate(young = ifelse(AGE < 25, 1, 0)) %>% 
+  mutate(clean_rec = ifelse(MVR_PTS == 0, 1, 0)) %>%
+  mutate(previous_accident = ifelse(CLM_FREQ == 0 & oldclaim.values == 0, 0, 1)) %>% 
+  mutate(educated = ifelse(education %in% c("Bachelors", "Masters", "PhD"), 1, 0)) %>% 
+  mutate(avg_claim = ifelse(CLM_FREQ > 0, oldclaim.values/CLM_FREQ, 0))
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+# Convert to factors 
+tdata$city <- as.factor(tdata$city)
+tdata$young <- as.factor(tdata$young)
+tdata$clean_rec <- as.factor(tdata$clean_rec)
+tdata$previous_accident <- as.factor(tdata$previous_accident)
+tdata$educated <- as.factor(tdata$educated)
+```
+
+```{r}
+tdata[26:31] %>% 
+  select_if(is.factor) %>% 
+  gather() %>% 
+  ggplot(aes(value)) + 
+  facet_wrap(~key, scales = "free") + 
+  geom_bar(aes(fill = key, alpha = .5)) + theme(legend.position = "none", axis.title = element_blank()) + ggtitle("New Features") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+# Produce recommended transformations
+bestNorms <- tdata[1:11,1:16]
+df <- tdata %>% 
+  select_if(is.numeric)
+for (i in colnames(df)) {
+  bestNorms[[i]] <- bestNormalize(df[[i]],
+                                  allow_orderNorm = FALSE,
+                                  out_of_sample =FALSE)
+}
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+# Continue focusing on realistic values
+accident_costs <- tdata$TARGET_AMT[tdata$TARGET_AMT>.0]
+```
+
+```{r}
+# Focus on selected variables 
+bestNorms$target_amt$chosen_transform
+tdata$target_amt <- scale(log(tdata$TARGET_AMT + 1))
+tdata %>% 
+  dplyr::select(where(is.numeric)) %>%
+  gather %>% 
+  ggplot() +
+  facet_wrap(~ key, scales = "free") +
+  geom_density(aes(value, color = value, fill = key, alpha = .5)) + theme(axis.title = element_blank(), legend.position = "none") + ggtitle("Numeric Variable Density") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+tdata %>% 
+  dplyr::select(where(is.numeric)) %>%
+  dplyr::select("TARGET_AMT","target_amt") %>%
+  gather %>% 
+  ggplot() +
+  facet_wrap(~ key, scales = "free") +
+  geom_density(aes(value, color = value, fill = key, alpha = .5)) + theme(axis.title = element_blank(), legend.position = "none") + ggtitle("Numeric Variable Density") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+# Split 70-30 training test
+set.seed(1102)
+tindex <- createDataPartition(tdata$TARGET_FLAG, p = .7, list = FALSE, times = 1)
+train <- tdata[tindex,]
+test <- tdata[-tindex,]
+rindex <- tdata %>%
+  filter(TARGET_FLAG == 1)
+reg.tindex <- createDataPartition(rindex$TARGET_AMT, p = .7, list = FALSE, times = 1)
+reg.train <- rindex[reg.tindex,]
+reg.test <- rindex[-reg.tindex,]
+```
+
+------------------------------------------------------------------------
+
+\newpage
+
+## Model Building
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+model1 <- glm(TARGET_FLAG ~ previous_accident, 
+              family = binomial(link = "logit"), train)
+summary(model1)
+```
+
+```{r}
+model2 <- glm(TARGET_FLAG ~ previous_accident + 
+                city + young + clean_rec + 
+                educated, family = binomial(link = "logit"), train)
+summary(model2)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+model3 <- glm(TARGET_FLAG ~ previous_accident + 
+                city + mstatus + income.values + 
+                sex + car_use + educated + KIDSDRIV + 
+                revoked, family = binomial(link = "logit"), 
+              train)
+summary(model3)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+model4 <- lm(target_amt ~ ., train) 
+summary(model4)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+model5 <- lm(target_amt ~ income.values +
+               home.values + bluebook.values + 
+               oldclaim.values + avg_claim, 
+             train) 
+summary(model5)
+```
+
+```{r include=F, eval=F}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+model7 <- lm(target_amt ~ 
+               income.values + 
+               home.values + 
+               bluebook.values + 
+               oldclaim.values + 
+               # 2nd Degree
+               ident(avg_claim, train^2) + 
+               I(income.values^2) + 
+               I(home.values^2) + 
+               I(bluebook.values^2) + 
+               I(oldclaim.values^2) + 
+               I(avg_claim, train^2) + 
+               # 3rd Degree
+               I(avg_claim, train^3) + 
+               I(income.values^3) + 
+               I(home.values^3) + 
+               I(bluebook.values^3) + 
+               I(oldclaim.values^3) + 
+               I(avg_claim, train^3), train
+             ) 
+pm <- stepAIC(model7, trace = F, direction = "both")
+p <- summary(pm)$call
+pm <- lm(p[2], df)
+summary(pm)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+model6 <- lm(target_amt ~ . -TARGET_AMT -TARGET_FLAG, train) 
+pm <- stepAIC(model6, trace = F, direction = "both")
+summary(pm)
+```
+
+Lastly, we took a new approach. Our kitchen sink model is the model that contain the most realistic expectations and so we optimize the model to perform a a stepAIC in both directions and ideally improve accuracy. With this, we attempt to create the most realistic model with a higher AUC regardless of coefficient significance. This method should produce the highest coefficient of determination without compromising the data's integrity. We will review these results in the model selection process.
+
+------------------------------------------------------------------------
+
+\newpage
+
+## Model Selection
+
+To select the best model we will run some statistics on each. We will utilize a prediction model statistics function called 'modstat' rather than repeating the same estimates by hand. This will put all models on the same level of focus. It includes and confusion matrix, predicted probability and amount values, the AUC, F1 scores, a ROC plot for each model. The process is documented in the function below. We start with the binary logistic classification models and then move onto the multiple linear regression.
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+# Calculate predicted values
+# Classifier Model
+mod1.pred <- predict.glm(model1, test)
+mod2.pred <- predict.glm(model2, test)
+mod3.pred <- predict.glm(model3, test)
+# Regression Model
+mod4.pred <- predict(model4, test, interval = "prediction")
+mod5.pred <- predict(model5, test, interval = "prediction")
+mod6.pred <- predict(model6, test, interval = "prediction")
+```
+
+```{r}
+#| label: model-predictions
+#| code-summary: "Prediction"
+#| include: false
+modstat <- function(model, test, target = "TARGET_FLAG", threshold = 0.5){
+  test$new <- ifelse(predict.glm(model, test, "response") >= threshold, 1, 0)
+  cm <- confusionMatrix(factor(test$new), factor(test[[target]]), "1")
+  df <- data.frame(obs = test$TARGET_FLAG, predicted = test$new, probs = predict(model, test))
+  Pscores <- prediction(df$probs, df$obs)
+  AUC <- performance(Pscores, measure = "auc")@y.values[[1]]
+  pscores <- performance(Pscores, "tpr", "fpr")
+  plot(pscores,main="ROC Curve", sub = paste0("AUC: ", round(AUC, 3)))
+  results <- paste(cat("F1 = ", cm$byClass[7], " "), cm)
+  return(results)
+}
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+modstat(model1, test)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+modstat(model2, test)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+modstat(model3, test)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+modstat(model4, test)
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| include: false
+modstat(model5, test)
+```
+
+mod1.stats <- modstat(model1, test)
+mod2.stats <- modstat(model2, test)
+mod3.stats <- modstat(model3, test)
+mod4.stats <- modstat(model4, test)
+mod5.stats <- modstat(model5, test)
+mod6.stats <- modstat(model6, test)
+
+```{r}
+modstat(model6, test)
+```
+
+
+
+
+
+
+## Conclusion
+
+View the full report on my GitHub page.

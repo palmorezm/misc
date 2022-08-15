@@ -1,0 +1,48 @@
+---
+title: "HW4"
+author: "Zachary Palmore"
+subtitle: Business Analytics and Data Mining
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    code-link: true
+    highlight-style: pygments
+    html-math-method: katex
+    df-print: paged
+    cache: true
+
+---
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```
+
+\bcenter
+
+# Assignment 4
+
+\ecenter
+
+___
+
+```{r warning=F, message=F}
+# Packages
+library(tidyverse)
+library(kableExtra)
+library(ggcorrplot)
+library(reshape2)
+library(bestNormalize)
+library(caret)
+library(MASS)
+library(pROC)
+library(stats)
+library(ROCR)
+theme_set(theme_minimal())
+```
+
+\newpage
+
+## Purpose 
+
+In this homework assignment, we will explore, analyze and model a data set containing approximately 8000 records representing a customer at an auto insurance company. Each record has two response variables. The first response variable, TARGET_FLAG, is a 1 or a 0. A b
