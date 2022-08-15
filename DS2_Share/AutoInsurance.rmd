@@ -1,18 +1,26 @@
 ---
-title: "Client Prediction"
+title: "Claims Prediction"
 author: "Zachary Palmore"
-subtitle: A Business Analytics and Data Mining Challenge
-format: pdf
-
+date: "4/17/2021"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+subtitle: Challenges in Business Analytics and Data Science
+header-includes:
+- \newcommand{\bcenter}{\begin{center}}
+- \newcommand{\ecenter}{\end{center}}
 ---
 
-```{r setup}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
+\bcenter
 
 # Challenge 4
 
+\ecenter
 
 ___
 
@@ -35,4 +43,839 @@ theme_set(theme_minimal())
 
 ## Purpose 
 
-In this challenge, we will explore, analyze and model a data set containing approximately 8000 records representing a customer at an auto insurance company. Each record has two response variables. The first response variable, TARGET_FLAG, is a 1 or a 0. A b
+In this challenge we will explore, analyze and model a data set containing approximately 8000 records representing a customer at an auto insurance company. Each record has two response variables. The first response variable, TARGET_FLAG, is a 1 or a 0. A “1” means that the person was in a car crash. A zero means that the person was not in a car crash. The second response variable is TARGET_AMT. This value is zero if the person did not crash their car. But if they did crash their car, this number will be a value greater than zero.
+
+Our objective is to build multiple linear regression and binary logistic regression models on the training data to predict the probability that a person will crash their car and also the amount of money it will cost if the person does crash their car. We can only use the variables given (or variables derived from the variables provided). Below is a short description of the variables of interest in the data set:
+
+
+
+```{r}
+# short descriptions of variables as table from matrix
+vardesc <- data.frame(matrix(c(
+'INDEX',	'Identification variable',
+'TARGET_FLAG',	'Was car in a crash? 1 = Yes, 0 = No',
+'TARGET_AMT',	'Cost of car crash',
+'AGE',	'Age of driver',
+'BLUEBOOK',	'Value of vehicle',
+'CAR_AGE',	'Vehicle age',
+'CAR_TYPE',	'Type of car',
+'CAR_USE', 'Main purpose the vehicle is used for',
+'CLM_FREQ',	'Number of claims filed in past five years',
+'EDUCATION',	'Maximum education level',
+'HOMEKIDS',	'Number of children at home',
+'HOME_VAL',	'Value of driver\'s home',
+'INCOME',	'Annual income of the driver',
+'JOB',	'Type of job by standard collar categories',
+'KIDSDRIV',	'Number of children who drive',
+'MSTATUS',	'Marital status',
+'MVR_PTS',	'Motor vehicle inspection points',
+'OLDCLAIM',	'Total claims payout in past five years',
+'PARENT1',	'Single parent status',
+'RED_CAR',	'1 if car is red, 0 if not',
+'REVOKED',	'License revoked in past 7 years status',
+'SEX',	'Driver gender',
+'TIF',	'Time in force',
+'TRAVETIME',	'Distance to work in minutes',
+'URBANICITY',	'Category of how urban the area the driver lives is',
+'YOJ', 'Number of years on the job'
+),  byrow = TRUE, ncol = 2))
+colnames(vardesc) <- c('Variable', 'Description')
+kbl(vardesc, booktabs = T, caption = "Variable Descriptions") %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"), full_width = F)
+```
+
+
+
+
+
+
+
+___
+
+
+\newpage
+
+
+## Introduction
+
+There are 8161 observations of 26 variables in this data set. Each variable is a statistic describing the behavior of an individual driver. Presumably, they are connected to the presence or absence of an accident and contain enough information to estimate the cost of a claim for the accident. To begin, we read in two data sets, one for model training appropriately named, 'tdata,' and one for evaluation named 'edata.' 
+
+
+```{r}
+tdata <- read.csv(
+  "https://raw.githubusercontent.com/palmorezm/msds/main/Business%20Analytics%20and%20Data%20Mining/HW4/insurance_training_data.csv")
+edata <- read.csv(
+  "https://raw.githubusercontent.com/palmorezm/msds/main/Business%20Analytics%20and%20Data%20Mining/HW4/insurance-evaluation-data.csv")
+```
+
+
+
+We capture the first four initial observations of driver behavior. In this case, we are looking for any immediate or glaring problems with the first few rows. For example, we check that the data type matches the intended variable, that the observation makes logical sense for its intended column header, and that the data is organized appropriately into rows and columns among other big picture things. Those observations are displayed in table 2 titled "Initial Observations."
+
+
+
+```{r}
+initialobs <- tdata[1:4,]
+kbl(t(initialobs), booktabs = T, caption = "Initial Observations") %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"), full_width = F) %>%
+  add_header_above(c(" ", " ", "Row Number", " ", " ")) %>%
+  footnote(c("Includes the first four observations of all variables in the data"))
+```
+
+
+As a positive, each row does seem to contain the proper corresponding variable. There is no blatant mixing. However, there are noticeable issues. The variables 'INCOME' and 'HOME_VAL' contain '\$' character symbols which are completely irrelevant and will cause major problems if we were to interpret or analyze with the data as is. Interestingly, there is also a 'z_' present in some categories and not in others. To understand how these variables may affect the analysis as is and to learn exactly what must be done to prepare the data, we must explore further. 
+
+
+
+
+___
+
+
+
+\newpage
+
+
+
+## Data Exploration
+
+Before we delve into the nitty gritty of this data set, we should consider what effect each of these variables might exert on the outcome. Since there are two targets of different types, and thus two models (one binary logistic classifier and one multiple linear regression) there could be an influence on either or both models. As we understand it, the theoretical effects of each variable are recorded in the table below.
+
+```{r}
+# theoretical effects
+vareffects <- data.frame(matrix(c(
+'INDEX',	'None',
+'TARGET_FLAG',	'None',
+'TARGET_AMT',	'None',
+'AGE',	'Youngest and Oldest may have higher risk of accident',
+'BLUEBOOK',	'Unknown on probability of collision but correlated with payout',
+'CAR_AGE',	'Unknown on probability of collision but correlated with payout',
+'CAR_TYPE',	'Unknown on probability of collision but correlated with payout',
+'CAR_USE', 'Commerical vehicles might increase risk of accident',
+'CLM_FREQ',	'Higher claim frequency increases likelihood of future claims',
+'EDUCATION',	'Theoretically higher education levels lower risk',
+'HOMEKIDS',	'Unknown',
+'HOME_VAL',	'Theoretically home owners reduce risk due to more responsible driving',
+'INCOME',	'Theoretically wealthier drivers have fewer accidents',
+'JOB',	'Theoretically white collar+ jobs are safer',
+'KIDSDRIV',	'Increased risk of accident from inexperienced driver',
+'MSTATUS',	'Theoretically married people drive safer',
+'MVR_PTS',	'Increased risk of accident',
+'OLDCLAIM',	'Increased risk of higher payout with previous payout',
+'PARENT1',	'Unknown',
+'RED_CAR',	'Theoretically increased risk of accident based on urban legend',
+'REVOKED',	'Increased risk of accident if revoked',
+'SEX',	'Theoretically increased risk of accident for women based on urban legend',
+'TIF',	'Decreased risk for those who have greater loyalty',
+'TRAVETIME',	'Longer distances increase risk of accident',
+'URBANICITY',	'The more urban the area the greater the risk of accident',
+'YOJ', 'Decreased risk for those with greater longevity'
+),  byrow = TRUE, ncol = 2))
+colnames(vareffects) <- c('Variable', 'Effect')
+kbl(vareffects, booktabs = T, caption = "Theoretical Variable Effects") %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"), full_width = F)
+```
+
+
+
+This table considers the effects of both models but they are only theoretical and may not necessarily reflect the true influence. We will evaluate these directly in the model selection process. For now, they will serve as general baseline expectations for exploration and preparation. We continue by exploring the data to determine where munging may be necessary. 
+
+Unfortunately, this data needs work even before we are able to make visualizations and contemplate improvements to the model. We consider the amount of missing values in relative proportions to each variable, followed by their respective data types, an example observation of each type, and the quantity of unique factors to each variable. We already know that some major work needs to be done in readjusting data types but we do not know the extent to which each variable needs improvement. This will help narrow down what is needed to prepare the data for modeling. Results are shown in the table:
+
+
+
+```{r}
+tdata.nas <- lapply(tdata, function(x) sum(is.na(x)))
+tdata.len <- lapply(tdata, function(x) length(x))
+tdata.permis <- lapply(tdata, function(x) round(sum(is.na(x))/length(x)*100, 1))
+tdata.types <- lapply(tdata, function(x) class(x))
+tdata.firstob <- lapply(tdata, function(x) head(x, 1))
+tdata.uniques <- lapply(tdata, function(x) length(unique(factor(x))))
+tdata.tbl.natypes <- cbind(tdata.nas, tdata.len, tdata.permis, tdata.types, tdata.firstob, tdata.uniques) 
+colnames(tdata.tbl.natypes) <- c("Missing", "Total", "%", "Data Type", "Example", "Factors")
+kbl(tdata.tbl.natypes, booktabs = T, caption = "Data Characteristics") %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"), full_width = F)
+```
+
+
+
+Three variables contain incomplete records including ‘AGE’, ‘YOJ’,  and ‘CAR_AGE’ with 0.1%, 5.6%, and 6.2% of their data missing respectively. Theoretically each variable would have 8161 total observations as noted in the table. The data types are either integer or numeric and the examples display what the type looks like for easy referencing. A calculation of the unique factors for each variable is included to gauge whether converting to a factor data type would be right for the variable and count the number of unique values to each. These are major concerns. 
+
+Minima, quartiles, averages, and maximums were computed to compare the numeric integer variables. Although the order of the variables remains the same as in the previous table, we added a missing values column with the row identifier ‘NA’ to count the number missing for tracking purposes. We put this together in a table called Summary Characteristics. Of course, several of the variables will need to be altered before we can evaluate if the data makes sense in a real-life scenario. These are shown as NA in the table. 
+
+
+
+```{r}
+tdata.summary.tbl <- summary(tdata)
+kbl(t(tdata.summary.tbl), booktabs = T, caption = "Summary Characteristics") %>%
+  kable_styling(latex_options = c("striped", "scale_down", "hold_position"), full_width = F)
+```
+
+Notice, there are quite a few NA values and our binary outcomes such as 'KIDSDRIV',and even our 'TARGET_FLAG' appear to be skewed heavily. It will require a closer at their distributions look to be sure of this but regardless, they will need to be dealt with if we plan to use them in our models. Factors like the single parent indicator, 'PARENT1', the individuals binary gender 'SEX', whether a driver's license was revoked 'REVOKED' and others like 'MSTATUS,''URBANICITY,' and 'CAR_USE,' take on a character data types that are not useful in modeling. For practical purposes, they should be made factors so that their categories may be understood fully.  
+
+Several of these variables also have statistics that do not make logical sense. For example, 'CAR_AGE' has a minimum value of -3. This is not possible. Other numeric variables are clearly sets of dollar values but show as character strings. These will need to converted to numeric data types and the quantitative value portion of the string extracted. This and the factorization of cateogircal variables without  a necessary order should help eliminate the many missing or 'NA' calculations performed above. 
+
+Generally, it is best to avoid reviewing the distribution of variables prior to munging the full data set to visualize all variables simultaneously.However, we have enough variables that are already of the numeric type that plotting them each together might overcrowd the chart. A new strategy should be considered. In this effort, we review the density of the numeric variables as they exist now to evaluate agreement with the assumptions of linearity. 
+
+
+```{r}
+tdata %>% 
+  select_if(is.numeric) %>% 
+  gather %>% 
+  ggplot() +
+  facet_wrap(~ key, scales = "free") +
+  geom_density(aes(value, color = value, fill = key, alpha = .5)) + theme(axis.title = element_blank(), legend.position = "none") + ggtitle("Numeric Variable Density") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+Variables 'CLM_FREQ,' 'HOMEKIDS,' and 'KIDSDRIV' show integer values for a discrete distribution. These will be treated differently in the preparation process because their non-conformity with a linearity will not effect their ability to predict in the binary logistic classification model. Results in that model to examine the probability of 'TARGET_FLAG' will remain stable. However, the multiple linear regression model suffers a loss of potential predictors due to their inability to meet the assumptions of linear regression. 
+
+
+Our continuous variables, 'AGE,' 'CAR_AGE,' 'TRAVTIME,' 'MVR_PTS,' and 'YOJ' are much better suited to predict 'TARGET_AMT.' To our benefit, age is normally distributed with the bulk of the driver ages' falling between 30 and 60. Given the theoretical effect of younger drivers on the likelihood of an accident this variable could be useful in our logistic regression model especially when converted to a binary outcome of young or not. But there are now reasons to doubt their agreement with the assumptions. 
+
+Consider the assumption of normality where only the 'AGE' variable satisfies. All other non-discrete and non-integer values, including 'CAR_AGE,' 'YOJ,' 'MVR_PTS,' 'TIF,' and 'TRAVTIME' are poorly classified as normal, if at all. There are at least two distinct peaks in the distribution of 'YOJ,' 'TIF,' and 'CAR_AGE.' Our 'MVR_PTS' is too dense at the front of the distribution but still manages to have less skewness than our 'TARGET_AMT.' The variable closest to satisfying this assumption is perhaps 'TRAVTIME' which has an unproven theoretical effect to increase the chance of an accident as the time increases and may also be bimodal. 
+
+Given the problematic nature of a major assumption of linear regression it would be tough to say modeling with any of these could make useful predictions. Without intense transformations we risk guessing wildly at the resultant amount. However, the degree to which transformations must be performed to cause this data to appear normal would grossly misrepresent the data and greatly increase our error rate in both models if we chose to use assign them places in each. However, we must continue knowing this and attempt to improve upon the expectation. In this endevaour, we also check a few other assumptions with violin plots and a boxplot estimation. 
+
+```{r}
+tdata %>% 
+  select_if(is.numeric) %>% 
+  gather %>% 
+  ggplot(aes(value, key)) +
+  facet_wrap(~ key, scales = "free") +
+  geom_violin(aes(color = key, alpha = 1)) + 
+  geom_boxplot(aes(fill = key, alpha = .5), notch = TRUE, size = .1, lty = 3) +  
+  stat_summary(fun.y = mean, geom = "point",
+               shape = 8, size = 1.5, color = "#000000") + 
+  theme(axis.text = element_blank(), 
+        axis.title = element_blank(), 
+        legend.position = "none") + 
+  ggtitle("Numeric Variable KDE & Distribution") + 
+  theme(plot.title = element_text(hjust = 0.5)) 
+```
+
+
+While the good news is our discrete integer values (that will be partially reorganized into unordered factors) continue to give us hope that model accuracy will be reasonable for our binary model, the existence of numerous outliers, high levels of variation in some distributions, and little to no normality, reduce the ability of our multiple linear regression model to produce accurate results. In this visual we can clearly note the presence of outliers for our 'TARGET_AMT' variable. Unfortunately, it appears nearly all of our useful data (where the amount is greater than zero) are considered outliers. A selection of all values greater than zero might be useful but it eliminates the option of the multiple linear regression model to predict a value of zero when there is no claim made. This is an interesting conundrum and one we should consider of the utmost importance when preparing the data and building models. 
+
+
+While some other numeric variables appear to confirm our density plots, others show new issues. The normally distributed 'AGE' variable contains many outliers above and below its distribution with a slightly larger number of older drivers stretching the distribution upwards. The outliers for our discrete integer values shown as black dots would be much better suited to a bar chart. This might also let any other variables that exhibit a discrete pattern with categorical values show through a bit better. 
+
+
+```{r}
+tdata %>% 
+  select_if(is.integer) %>%
+  gather() %>% 
+  filter(value == 0 | 1) %>% 
+  group_by(key) %>% 
+  ggplot() +
+  facet_wrap(~ key, scales = "free") +
+  geom_bar(aes(value, color = value, fill = key, alpha = .5)) + theme(axis.title = element_blank(), legend.position = "none") + ggtitle("Integer Frequencies") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+Outliers contained in the 'TRAVTIME' variable in the violin plot were mainly commute times of the 'greater than' kind. However, in this we notice there are more drivers with a zero minute commute time than at the average of all commuters. A similar spike in the years on job or 'YOJ' variable indicates that there are just as many drivers with near zero year on the job as there are drivers with 10 years on the job. We select a few of these to take a closer look at their categories and how they fall into equally weighted bars. 
+
+
+
+```{r}
+tdata %>% 
+  dplyr::select(TARGET_FLAG, MVR_PTS, CLM_FREQ, HOMEKIDS, KIDSDRIV, TIF) %>% 
+  gather() %>% 
+  ggplot(aes(value)) +
+  facet_wrap(~ key, scales = "free") + 
+  geom_bar(aes(value, color = key, fill = key, alpha = .5)) + theme(axis.title = element_blank(), legend.position = "none") + ggtitle("Select Integer Frequencies") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+The quantity of drivers who do not have kids that drive is much larger than any driver that has kids. The same applies to the number of kids at home and the claim frequencies. The magnitude of difference in these categories is severe and may cause issues when trying to predict the probability of an accident. If the claim frequency is majority zero, along with the number of kids at home and almost every other variable follows the same pattern, then predicting the minority class becomes more difficult. We should expect a noise-filled model with faint signal. This issue in the binary logistic classifier makes it even worse for the multiple linear regression model. 
+
+Building on these insights, this infant minority class must be focused on to improve the accuracy and precision of both model types. Some might consider it productive to oversample the minority class, however, if we cannot reasonably assume the majority class fits the assumptions of linear regression nor that either case is particularly well-cleaned (transformed, prepared, and error-controled) enough to base real predictions on than the purpose of oversampling is moot. Otherwise, we would be trying to build a model off of incorrect assumptions and inevitably come to the wrong conclusions. Not to mention, these conclusions would be far from the reality on which the data is supposed to be representative. 
+
+To get a better sense of where these data may overlap and the strength of their relationships we consider the correlations of the numeric variables. This includes the discrete integer values with categories and the continuous numeric variables that have not undergone data type changes. There is less of a need to consider the other non-numeric variables at this time since the binary logistic classification model does not rely on the same rules as multiple linear regression to interpret the data.
+
+
+```{r}
+tdata %>%
+  select_if(is.numeric) %>% 
+  cor() %>% 
+  ggcorrplot(method = "circle", type="upper", 
+             ggtheme = ggplot2::theme_minimal, legend.title = "Influence") + coord_flip() 
+```
+
+
+Again, since this is prior to the data preparation stage, we include the index of each observation. This is a good base indicator of variables with little to no correlation with our target variables 'TARGET_FLAG' and 'TARGET_AMT.' The directional vector of the influence in each variable is color coded from -1 to 1 with the most positive correlations being closest to 1. The size of each circle represents the strength in magnitude of the relationship between the variables. 
+
+Of course, our two target variables, 'TARGET_FLAG' and 'TARGET_AMT' are quite strongly positively correlated. The same applies for the variables 'KIDSDRIV' and 'HOMEKIDS' given that one driver should not be able to have a kid driving without having at least one kid at home. These stronger correlations pass the sanity check. 
+
+Alternatively, the weaker, but perhaps more interesting variables, include mostly positive correlations. It seems it is much easier to increase your chances of an accident than it is to reduce them. Our only negatively correlated (blue) relationship comes from 'TIF' and our targets. Looking at this variable with 'TARGET_FLAG' you can reduce your chance of getting into an accident increasing the time you spend at the same insurance company. This is likely a result of people who stick around because they have not had an accident and their rate has remained steady. Otherwise, the driver would probably search for new insurance. 
+
+These correlations elucidate the relationship of our 'TARGET_FLAG' or the chance of an accident better than the relationship of the variables with the 'TARGET_AMT.' Keep in mind that all of these variables are numeric types that could be used model with multiple linear regression. They are not going to be, since several of them are categorical factors and not continuous distributions, but recall that all but one fails at least one assumption of linear regression. As mentioned, the accuracy of this linear regression model will be affected by these poorly correlated data. 
+
+
+
+
+
+
+
+
+___
+
+
+
+\newpage
+
+
+
+## Data Preparation
+
+This section will implement the changes necessary to build models with the data. Since we have two model types, we must separate the data into groups. One group will have data specialized for the binary logistic classification model and the other for the multiple linear regression. We have already determined that we will have a limited pool of data to model with for the multiple linear regression. With that said, we still attempt to scrape together some resemblance of a realistic linear regression model ignoring the fact that the data is not in accordance with the assumptions of linear regression.
+
+
+To begin, we extract the numeric variables present in 'INCOME,' 'HOME_VAL,' and others like it. In doing so we drop the '\$' sign but retain the value. Then we impute the median value for those that had missing values and evaluate the changes with summary statistics. These are recorded and calculated separately. Once the differences are checked to ensure that the variables are not drastically far off from the original values we recombine them with the training data. This process is shown below along with the first table of summary statistics from the numeric imputed variables. 
+
+```{r}
+# Select character variables
+chars <- tdata %>% 
+  dplyr::select_if(is.character)
+# Use function to extract dollars
+to_num <- function(x){
+  x <- as.character(x)
+  x <- gsub(",", "", x)
+  x <- gsub("\\$", "", x)
+  as.numeric(x)
+}
+# Specify those dollar variables 
+income.values <- to_num(chars$INCOME)
+home.values <- to_num(chars$HOME_VAL)
+bluebook.values <- to_num(chars$BLUEBOOK)
+oldclaim.values <- to_num(chars$OLDCLAIM)
+concept_df <- as.data.frame(cbind(income.values, 
+                    home.values, 
+                    bluebook.values, 
+                    oldclaim.values))
+income.values.stat <- to_num(chars$INCOME)
+home.values.stat <- to_num(chars$HOME_VAL)
+bluebook.values.stat <- to_num(chars$BLUEBOOK)
+oldclaim.values.stat <- to_num(chars$OLDCLAIM)
+# impute median values for missing variables
+income.values[is.na(income.values)] <- 
+  median(income.values, na.rm = TRUE)
+home.values[is.na(home.values)] <- 
+  median(home.values, na.rm = TRUE)
+bluebook.values[is.na(bluebook.values)] <- 
+  median(bluebook.values, na.rm = TRUE)
+oldclaim.values[is.na(oldclaim.values)] <- 
+  median(oldclaim.values, na.rm = TRUE)
+# Recombine into data frame
+dollar.values <- 
+  data.frame(cbind(income.values, 
+                   home.values, 
+                   bluebook.values, 
+                   oldclaim.values))
+dollar.values.stats <- 
+  data.frame(cbind(income.values.stat, 
+                   home.values.stat, 
+                   bluebook.values.stat,
+                   oldclaim.values.stat))
+# Join with training data
+tdata <- data.frame(cbind(tdata, dollar.values))
+# Check the difference
+dollar.values.tbl <- summary(dollar.values)
+dollar.values.stats.tbl <- summary(dollar.values.stats)
+kbl(dollar.values.tbl, booktabs = T, caption = "Imputed Summary Statistics") %>%
+kable_styling(latex_options = c("striped", "hold_position"), full_width = F)
+```
+
+We compare this to the second table and observe the changes. If the differences between these is small, we can add the imputed variables to our original training data rather than eliminating the rows with missing variables altogether. The second table is shown here:
+
+```{r}
+kbl(dollar.values.stats.tbl, booktabs = T, caption = "Original Summary Statistics") %>%
+kable_styling(latex_options = c("striped", "hold_position"), full_width = F)
+```
+
+Since the differences between these variables is small and the values that were missing are no longer missing, we recombine the imputed data with the training data for later use. It turns out, it was reasonable to make these imputations, even though the data sets are skewed and do not contain total linearity or normality. 
+
+Next, we convert the categorical variables to factors rather than the integer or characters they were. Although the analysis will still interpret these factors as integers to perform computations, we will be able to recognize the various levels associated with each variable rather than a non-descriptive number. As a special note, we are going to interpret each of these factors as an unordered set. 
+
+```{r}
+# Covert categorical variables to factors 
+factors <- tdata %>% 
+  dplyr::select("PARENT1", 
+         "MSTATUS", 
+         "SEX", 
+         "EDUCATION", 
+         "JOB", 
+         "CAR_USE",
+         "CAR_TYPE",
+         "RED_CAR", 
+         "REVOKED", 
+         "URBANICITY") 
+factors <- data.frame(lapply(factors, function(x) as.factor(x)))
+factors <- factors %>% 
+  rename("parent1" = "PARENT1", 
+         "mstatus" = "MSTATUS", 
+         "sex" = "SEX", 
+         "education" = "EDUCATION", 
+         "job" = "JOB", 
+         "car_use" = "CAR_USE", 
+         "car_type" = "CAR_TYPE",
+         "red_car" = "RED_CAR", 
+         "revoked" = "REVOKED", 
+         "urbanicity" = "URBANICITY")
+tdata <- cbind(tdata, factors)
+```
+
+There was a highly unrealistic value for the variable 'CAR_AGE.' This should be excluded from the data set to avoid further damage to the modeling process. We simply find where the value is less than zero and set that value to NA. A summary of both is run to see how this changes the data. 
+
+
+```{r}
+# Exclude unrealistic values
+tdata <- tdata %>% 
+  mutate(car_age = ifelse(CAR_AGE<0, NA, CAR_AGE))
+summary(tdata$car_age)
+summary(tdata$CAR_AGE)
+```
+
+
+As we can see there was only one value in the 'CAR_AGE' variable that contained a negative number. For our purposes, we will consider the rest realistic. Another variable that we do not need as it provide not value to the model is the 'INDEX' variable. We remove this and other unnecessary variables from the training data by selecting the variables that we suspect we may need. The total number of variables present after this selection process is shown. 
+
+```{r include=F}
+full41 <- tdata
+full41
+full41[c(2:7, 15, 18, 22, 24, 27:41)]
+```
+
+
+```{r}
+# Drop INDEX and other unnecessary columns
+tdata <- tdata %>% 
+  dplyr::select("TARGET_FLAG",
+         "TARGET_AMT",
+         "KIDSDRIV",
+         "AGE",
+         "HOMEKIDS",
+         "YOJ",
+         "TRAVTIME",
+         "TIF",
+         "CLM_FREQ",
+         "MVR_PTS",
+         "income.values", 
+         "home.values",
+         "bluebook.values",
+         "oldclaim.values",
+         "parent1", 
+         "mstatus",
+         "sex",
+         "education",
+         "job",
+         "car_use",
+         "car_age",
+         "car_type",
+         "red_car", 
+         "revoked",
+         "urbanicity")
+# Check total variables present
+length(colnames(tdata))
+```
+
+Because these variables still have missing values, further imputation is needed. The variables of 'AGE,' 'YOJ,' and 'CAR_AGE' are filled with the median value from each of their respective distributions. Of course, we created one of the missing value for 'CAR_AGE' but this one value does not effect the overall variable distribution but by 0.01% or about one in our total observations nor does it change the other 510 missing observations. This difference is negligible but we impute, continue, and repeat the process of imputation on the other aforementioned variables. 
+
+
+
+```{r}
+# More imputation
+tdata$AGE[is.na(tdata$AGE)] <-
+  median(tdata$AGE, na.rm = T)
+tdata$YOJ[is.na(tdata$YOJ)] <-
+  median(tdata$YOJ, na.rm = T)
+tdata$car_age[is.na(tdata$car_age)] <- 
+  median(tdata$car_age, na.rm = T)
+sum(is.na(tdata))
+```
+
+
+As expected, there are exactly 510 missing values. These all fall into the 'CAR_AGE' variable that will no longer need to be used. At this point, we consider excluding the non-imputed variable for the age of the driver's car from the data set to avoid confusion later. While we do not perform the exclusionary action, it is best to think of it as such. We do this because it may also be useful to our classification model's accuracy given that some of our new features, like if we include a young driver categorical factor, would work well with the driver's car age. Consider the nonbinary classifiers to briefly explain. 
+
+
+
+```{r}
+tdata %>% 
+  dplyr::select(is.factor) %>%
+  dplyr::select("car_type", "education", "job") %>% 
+  gather() %>% 
+  ggplot(aes(value)) + 
+  facet_wrap(~ key, nrow = 3, scales = "free") + 
+  geom_bar(aes(, fill = key )) + theme(axis.title = element_blank(), axis.text.x = element_blank(), legend.position = "none") + coord_flip() + ggtitle("Nonbinary Classifiers") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+We suspect that based on our exploration, these three categories will have the most influence over the probability of an accident if that person is a student with a high school or less than high school education, and if they drive a sports car. These are based on the notion that, citation rates are higher for those who operate sports cars (such as by driver behavior or oversampling by police forces and ultimately police behavior), that less education leads to more risks, and that students are the most likely to take those risks because they are often younger and more susceptible to unintentional reactions from new situations that require experience to navigate safely. These circumstances, create what we might refer to as the risky people category but we refrain from categorizing because such a notion is, at this time, unfounded. 
+
+
+```{r}
+tdata %>% 
+  dplyr::select(is.factor) %>%
+  dplyr::select("car_use", 
+         "mstatus", 
+         "parent1", 
+         "red_car",
+         "revoked",
+         "sex",
+         "urbanicity") %>% 
+  gather() %>% 
+  ggplot(aes(value)) + 
+  facet_wrap(~ key, scales = "free") + 
+  geom_bar(aes(, fill = key )) + theme(axis.title = element_blank(), axis.text.x = element_blank(), legend.position = "none") + coord_flip() + ggtitle("Binary Classifiers Counts") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+Taking a closer look at the counts of the binary classifiers, we can easily see how a model would unfairly and unintentionally pick from the counts that hold the majority of the data. This is problematic but without drastically changing the data and grossly misrepresenting reality, we cannot improve this. Oversampling to try and adjust for the small amount of minority vectors would likely exacerbate the misrepresentation of reality and increase the standard error rate. Instead we keep the variables as is and will place emphasis on using these to make accurate predictions in our binary logistic classification model. 
+
+For our multiple linear regression model, things are a little more complicated. None of our variables are well-suited to predict the 'TARGET_AMT' and we are reliant on the results of our first model to inform it. Given this dependent relationship between models, we should reexamine their distributions with our newly formed 'INCOME,' 'HOME_VAL,' and other numeric variables to see if we have anything worthwhile to pull from.  
+
+
+
+```{r}
+tdata %>% 
+  select_if(is.numeric) %>%
+  gather() %>% 
+  ggplot(aes(key)) + 
+  facet_wrap(~ key, scales = "free") + 
+  geom_boxplot(aes(key, value, fill = key, alpha = .5)) + theme(axis.title = element_blank(), axis.text.x = element_blank(), legend.position = "none") + ggtitle("Numeric Distributions") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+It is going to difficult to pull anything of value from the 'TARGET_AMT' variable. However, we may still be able to increase the accuracy of the model overall with a transformation of the target and a little bit of history. Consider how this model works in a real-life scenario. Often, there is a host of existing data to pull from wherein the analyst can use this data to draw conclusions. This is what we are going to do. In treating some of the data as a historical reference, we will be able to increase the accuracy of the model. However, this is not likely going to improve the ability of the regression to predict future values due to the assumption failure of the values in linear regression. To extract useful information from this we will need a few new features. 
+
+```{r}
+# New features
+tdata <- tdata %>% 
+  mutate(city = ifelse(urbanicity == "Highly Urban/ Urban", 0, 1)) %>% 
+  mutate(young = ifelse(AGE < 25, 1, 0)) %>% 
+  mutate(clean_rec = ifelse(MVR_PTS == 0, 1, 0)) %>%
+  mutate(previous_accident = ifelse(CLM_FREQ == 0 & oldclaim.values == 0, 0, 1)) %>% 
+  mutate(educated = ifelse(education %in% c("Bachelors", "Masters", "PhD"), 1, 0)) %>% 
+  mutate(avg_claim = ifelse(CLM_FREQ > 0, oldclaim.values/CLM_FREQ, 0))
+```
+
+
+New features are created to increase the availability of useful prediction points that our first model, the binary classifier, can implement to make the best predictions from. Since our second model relies on the outcome of the first, we should make every effort to improve this model as much as possible. Without an impeccable source of data to pull from, we cannot hope make realistic predictions for our multiple linear regression model when predicting the target amounts of each claim. 
+
+The features include a value for city drivers, since we suspect based on the theoretical effect on the driver from our exploration that the probability of accidents for drivers who drive within areas that are mostly urban increases compared to their less urban counterparts. This likely comes down to car density and the greater the number of cars on the road in a smaller space, the higher the chance of one of those cars getting into an accident. 
+
+We also create the feature young, for those who are aged 25 or younger, and clean_rec for those who have zero motor vehicle points. This is based mainly on car rental agreements that state anyone under 25 must pay a higher rate, that is, if they are allowed to drive the vehicle. For those who have a record, which many of them check, they are often prohibited from operating that vehicle until their record is cleared. We do not know what effect these will have on the outcome, but we hypothesize that these features will increase the chance of accidents if the data indicates a yes to any of these features. To enhance their practicality, we make their data type factors.  
+
+
+```{r}
+# Convert to factors 
+tdata$city <- as.factor(tdata$city)
+tdata$young <- as.factor(tdata$young)
+tdata$clean_rec <- as.factor(tdata$clean_rec)
+tdata$previous_accident <- as.factor(tdata$previous_accident)
+tdata$educated <- as.factor(tdata$educated)
+```
+
+
+
+Additionally, features are created to indicate whether a driver has been in a previous accident and the education level of the driver. Hypothetically, the less educated would take more risk. Meanwhile, we also are testing the notion that those who have been a previous accident are more likely to have one in the future. These new binary features are showns in the bar chart of 'New 'Features' to demonstrate their amount of drivers in each bin.   
+
+
+
+```{r}
+tdata[26:31] %>% 
+  select_if(is.factor) %>% 
+  gather() %>% 
+  ggplot(aes(value)) + 
+  facet_wrap(~key, scales = "free") + 
+  geom_bar(aes(fill = key, alpha = .5)) + theme(legend.position = "none", axis.title = element_blank()) + ggtitle("New Features") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+Our highly urban group compared to less urban is weighted in favor of those who a less urban. Indicating that most of the drivers in this study drive in areas that are not highly urbanized. Also, more people are educated with at least a four year degree than not. We would guess that this is likely due to lower rates of insurance for people who do not have at least a four year degree. Very few drivers are less than 25 years old and about half of the drivers have been in a previous accident. Comprehending this hints that the drivers in this study are less likely to have accidents and how results will conclude for the amount. At this time, we suspect the target amount of claims that do get processed will either be a larger than a few thousand dollars or no claim. These drivers' behavior will have a significant impact on the predicted claim amounts since they are directly dependent on the occurrence of an accident. 
+
+To deal with the failed assumption of linear regression, we will transform the data but attempt to keep some resemblance of realism  for practical purposes. Rather than guess at the best transformation, we use a function to run through many kinds of transformations and have it tell us what the most gaussian distribution is. Then, we reassign those values to a variable 'accident_costs' where the costs are greater than zero. This will be used later. Finally, we chose to focus on select variables for the transformations because none of them were great choices for prediction and transforming each send the error rate even higher. 
+
+
+```{r}
+# Produce recommended transformations
+bestNorms <- tdata[1:11,1:16]
+df <- tdata %>% 
+  select_if(is.numeric)
+for (i in colnames(df)) {
+  bestNorms[[i]] <- bestNormalize(df[[i]],
+                                  allow_orderNorm = FALSE,
+                                  out_of_sample =FALSE)
+}
+```
+
+
+```{r}
+# Continue focusing on realistic values
+accident_costs <- tdata$TARGET_AMT[tdata$TARGET_AMT>.0]
+```
+
+
+
+```{r}
+# Focus on selected variables 
+bestNorms$target_amt$chosen_transform
+tdata$target_amt <- scale(log(tdata$TARGET_AMT + 1))
+tdata %>% 
+  dplyr::select(where(is.numeric)) %>%
+  gather %>% 
+  ggplot() +
+  facet_wrap(~ key, scales = "free") +
+  geom_density(aes(value, color = value, fill = key, alpha = .5)) + theme(axis.title = element_blank(), legend.position = "none") + ggtitle("Numeric Variable Density") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+Although these are still a long shot from adhering to the condition necessary for performing linear regression, they have improved at the expense of our standard error and its dependencies. For example, the display below shows the differences between the transformed predictor 'TARGET_AMT' and its original form. In some ways the data is more normal since everything above zero resembles a near perfect bell-curve. However, there is an ominous presence of values less than zero, which for a graph where we are displaying the dollar amount of a claim, is completely useless. These changes are strictly for modeling purposes and the true values will need a reversal of this transformation to make sense of them. This is the cost of multiple linear regression without normality and it assumes the other conditions of independence, homoscedasticity, and linearity are fulfilled which, we have reasons to doubt. 
+
+
+```{r}
+tdata %>% 
+  dplyr::select(where(is.numeric)) %>%
+  dplyr::select("TARGET_AMT","target_amt") %>%
+  gather %>% 
+  ggplot() +
+  facet_wrap(~ key, scales = "free") +
+  geom_density(aes(value, color = value, fill = key, alpha = .5)) + theme(axis.title = element_blank(), legend.position = "none") + ggtitle("Numeric Variable Density") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+
+Bearing that in mind we split these variables into training data sets and testing data sets for the model. A 70-30 split should do just fine and one set of the data is used for each model. This makes it easier to differentiate the model types and statistics later. With this split, we can begin building models. 
+
+
+```{r}
+# Split 70-30 training test
+set.seed(1102)
+tindex <- createDataPartition(tdata$TARGET_FLAG, p = .7, list = FALSE, times = 1)
+train <- tdata[tindex,]
+test <- tdata[-tindex,]
+rindex <- tdata %>%
+  filter(TARGET_FLAG == 1)
+reg.tindex <- createDataPartition(rindex$TARGET_AMT, p = .7, list = FALSE, times = 1)
+reg.train <- rindex[reg.tindex,]
+reg.test <- rindex[-reg.tindex,]
+```
+
+
+
+
+
+
+___
+
+
+\newpage
+
+
+## Model Building
+
+In this first model we are only going to consider how well a previous accident can predict if a driver will have a future accident. We specify that it is a binomial model and exercise the training data set with it. A summary is shown for reference although it will be discussed in more detail in the selection process. 
+
+```{r}
+model1 <- glm(TARGET_FLAG ~ previous_accident, 
+              family = binomial(link = "logit"), train)
+summary(model1)
+```
+
+
+The coefficient is significant, however, it is clear this would not be the best for the model. Our standard error is only marginally greater than that of a model without any coefficients. Using the previous accident as a predictor results in a higher chance of the driver having an accident as shown with the estimate above. This is only meant to be a dummy test though because we know that there are more factors to consider in the probability of having an accident as a driver. We should expect improvement in this classification from here. 
+
+
+```{r}
+model2 <- glm(TARGET_FLAG ~ previous_accident + 
+                city + young + clean_rec + 
+                educated, family = binomial(link = "logit"), train)
+summary(model2)
+```
+
+
+This model consider what we would consider the riskiest model. It takes the young, city driver, who we think would take more risks and compares the coefficients. Each one is a significat predictor at the .001 alpha level. All but one of these predictors had a better standard error than the null model. Education stood out as a negative estimator with those in this category probably being mostly students or having less than a bachelors degree and less experience driving overall. We suspect this model is better than the previous one. 
+
+
+
+```{r}
+model3 <- glm(TARGET_FLAG ~ previous_accident + 
+                city + mstatus + income.values + 
+                sex + car_use + educated + KIDSDRIV + 
+                revoked, family = binomial(link = "logit"), 
+              train)
+summary(model3)
+```
+
+
+Since there are a few other factors to consider, we added the predictors of 'mstatus,' factorized 'car_use,' 'KIDSDRIV,' and other important considerations to us when estimating the risk of a driver getting into an accident. This model has a lower AIC and should be better at predicting the target because it has a better fit. Interesting the addition of the factorized 'sex' predictor seems to have a positive effect on driving (lowering the chance of accident). This may be due to the sample sizes and how the counts are created, but it does not agree with the theory that females are worse drivers, in implies the opposite. 
+
+From here we begin the multiple linear regression modeling. In this first model, we throw everything we have at it to see what works. This model will give us a good indication of what could be useful to us and although it is not likely a good predictive model, we will try to find the best predictors possible. 
+
+
+```{r}
+model4 <- lm(target_amt ~ ., train) 
+summary(model4)
+```
+
+
+Since the many of the model's predictors are transformed the estimate of those predictors will not be a useful indicator of anything. However, there are two values that are signifcant at the 0.05 alpha level. These coefficients are 'CLM_FREQ' and 'jobHome_Maker.' These indicate that their presence is a significant addition to the model to help determine the amount of a claim. However, from our exploration and preparation of these points, these particular predictor confer no numeric value to estimate the claim amount by. This renders them useless for our purposes but significantly so. We will rearrange with a select few numeric variables next to see if this improves. 
+
+
+```{r}
+model5 <- lm(target_amt ~ income.values +
+               home.values + bluebook.values + 
+               oldclaim.values + avg_claim, 
+             train) 
+summary(model5)
+```
+
+
+
+These continuous numeric predictors are significant. The 'avg_claim' predictor is present soley to assist in the control of unrealistic estimates. It is not a signifcant predictor. However, the others are. Additionaly, 'bluebook.values' a near natural indicator of the value of a car is a ironically, a good indication of the claim value. This model is much better since it does not pretend to have historical data to build on. However, as expected, the realistic ability of this model to predict is impractical with a coefficient of determination around .05. Such a model is worse at predicting true values on the surface because the data's transformation must be reversed to see logical values. Unfortunately, this model does not bode well with such a reversal as it repeatedly fails conditonal assumptions of linear regression. 
+
+
+
+```{r include=F, eval=F}
+model7 <- lm(target_amt ~ 
+               income.values + 
+               home.values + 
+               bluebook.values + 
+               oldclaim.values + 
+               # 2nd Degree
+               ident(avg_claim, train^2) + 
+               I(income.values^2) + 
+               I(home.values^2) + 
+               I(bluebook.values^2) + 
+               I(oldclaim.values^2) + 
+               I(avg_claim, train^2) + 
+               # 3rd Degree
+               I(avg_claim, train^3) + 
+               I(income.values^3) + 
+               I(home.values^3) + 
+               I(bluebook.values^3) + 
+               I(oldclaim.values^3) + 
+               I(avg_claim, train^3), train
+             ) 
+pm <- stepAIC(model7, trace = F, direction = "both")
+p <- summary(pm)$call
+pm <- lm(p[2], df)
+summary(pm)
+```
+
+
+
+```{r}
+model6 <- lm(target_amt ~ . -TARGET_AMT -TARGET_FLAG, train) 
+pm <- stepAIC(model6, trace = F, direction = "both")
+summary(pm)
+```
+
+
+
+Lastly, we took a new approach. Our kitchen sink model is the model that contain the most realistic expectations and so we optimize the model to perform a a stepAIC in both directions and ideally improve accuracy. With this, we attempt to create the most realistic model with a higher AUC regardless of coefficient significance. This method should produce the highest coefficient of determination without compromising the data's integrity. We will review these results in the model selection process. 
+
+
+
+___
+
+
+\newpage
+
+
+## Model Selection
+
+To select the best model we will run some statistics on each. We will utilize a prediction model statistics function called 'modstat' rather than repeating the same estimates by hand. This will put all models on the same level of focus. It includes and confusion matrix, predicted probability and amount values, the AUC, F1 scores, a ROC plot for each model. The process is documented in the function below. We start with the binary logistic classification models and then move onto the multiple linear regression.    
+
+
+```{r}
+# Calculate predicted values
+# Classifier Model
+mod1.pred <- predict.glm(model1, test)
+mod2.pred <- predict.glm(model2, test)
+mod3.pred <- predict.glm(model3, test)
+# Regression Model
+mod4.pred <- predict(model4, test, interval = "prediction")
+mod5.pred <- predict(model5, test, interval = "prediction")
+mod6.pred <- predict(model6, test, interval = "prediction")
+```
+
+
+
+```{r}
+modstat <- function(model, test, target = "TARGET_FLAG", threshold = 0.5){
+  test$new <- ifelse(predict.glm(model, test, "response") >= threshold, 1, 0)
+  cm <- confusionMatrix(factor(test$new), factor(test[[target]]), "1")
+  df <- data.frame(obs = test$TARGET_FLAG, predicted = test$new, probs = predict(model, test))
+  Pscores <- prediction(df$probs, df$obs)
+  AUC <- performance(Pscores, measure = "auc")@y.values[[1]]
+  pscores <- performance(Pscores, "tpr", "fpr")
+  plot(pscores,main="ROC Curve", sub = paste0("AUC: ", round(AUC, 3)))
+  results <- paste(cat("F1 = ", cm$byClass[7], " "), cm)
+  return(results)
+}
+```
+
+
+
+
+```{r}
+modstat(model1, test)
+```
+
+
+
+This model was our dummy run. It is not expected to perform as well as the intentionally hand-picked models but it did give us some baseline information to go on. Perhaps the first thing we notice in the nonapplicable F1 score because this model correctly classified 1812 as true positives while 636 were false positive. None were present in the other categories due to the misrepresentation of the minority class. This model is not particularly useful for prediction but it is a great start to see how influential the majority class is. 
+
+
+
+```{r}
+modstat(model2, test)
+```
+
+
+
+In this model we consider a few more predictors and ended with a reasonable espectation of sensitivity (24%) specificity (93%) and accuracy at 74%. This is an improvement on the previous model and garners an AUC of 0.743. Our trouble lies in the F1 score where we have relatively poor precision and poor recall when predicting the probability of an accident. Let's see how we improved upon this. 
+
+
+```{r}
+modstat(model3, test)
+```
+
+
+For our final binary classification model, this is an improvement. the F1 score did increase to 0.42 with a better accuracy of about 77%. It appears addint factors beyond just those that many would consider risky, determines the probability of an accident better than the risk behavior alone. Our AUC for this model is 0.782. 
+
+
+```{r}
+modstat(model4, test)
+```
+
+
+Here, we purposefully made a prediction from a rank-deficient fit that contained misrepresentative variables. For example, our target contained values that were between -2 and 2 when they should have been on the scale of 0-100,000 as dollars. For this reason, we made this model to show how we could improve the model's accuracy to a perfect value by including many transformed values in the model itself. However, the reality is that this model is completely useless because to gather any information from it that is real, the data must be reversed from its transformation and reformed to represent a true value of the claim amounts. Rather than go through this effort, we let this one inform our next model.  
+
+
+```{r}
+modstat(model5, test)
+```
+
+
+
+Here again we are pulling from a tough data set. The ability of this model to predict true positives is great and with an accuracy of 73% we are gaining traction at predicting with it. Our AUC was also 0.643. However, this model incorrectly assumes almost all drivers are going to get into accidents. this comes from the distribution and sampling of the data. The majority class greatly outnumbers the minoirity causing them to be misrepresented. This should be improved upon, which mean improving our F1 score from 0.090 to something closer to 1. 
+
+
+
+```{r}
+modstat(model6, test)
+```
+
+
+Importantly, this model acheives the goal we set with our last model. Our F1 score improved to 0.484 which, although it is still not great, is better than 0.090. Additionaly this model offers the best accuracy of the multiple linear regression models with about 79%. Our AUC is also 0.812 which serves us better in prediction than the other models. However, it should be noted that the ability of this model to make accurate predictions is still poor and that if data were to be run through this model, it would need a reversal of its transformation to make logical sense and be used in practice.   
+
+
+## Conclusion
+
+Given insurance data of the same types and identities, the third and sixth models should be used to export the most favorable data sets for making realistic predictions. The third runs a binary logistic classifier and the sixth the multiple linear regression model. However, it should be noted that the use of the sixth model to produce results for informing insurance practices is ill-advised with results as is. These data should be reformed into useful figures by reversing the transformation of the target, the claim amount. 
+
+Additionally, reliance on the third model is minimized as much as possible but it should be known that better data collection may be necessary to produce more realistic results. The current rate of accuracy is only about 77% without more gaussian data. Prediction of the claim amount after predicting whether an individual will get into an accident is also tedious and tempermental due to the data's failure to comply with the conditional assumptions of linear regression. The best accuracy we could produce with this claim prediction model is about 79% but the fit of the model judging by the coefficient of determination is only about 0.22. 
+
+Predicting the claim amount is more difficult than determining whether an individual will get into an accident. Future models should consider how to limit the influence of the majority class on the surpression of the minority class to make better predictions since the minority class is where the accidents and claim values larger than zero are. We also recommend a better collection method in which people can be more honest and open about their responses. If this data did come from a valid insurance provider, which it appear to have been, then the models will be skewed based on the data, as is demonstrated. 
+
+
+
+
+
