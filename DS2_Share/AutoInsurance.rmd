@@ -10,11 +10,9 @@ format: pdf
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
-\bcenter
 
 # Challenge 4
 
-\ecenter
 
 ___
 
