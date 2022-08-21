@@ -1,0 +1,34 @@
+
+App Notes 
+
+Options for hist, boxplot, density? 
+Expenses by category over time 
+
+
+Questions: 
+
+- Can I purchase this thing and still be within budget? 
+- How much would it increase our expenses to make [x] transaction? ('What if' scenario)
+Comparing prices of goods (one store from another): 
+  Ex: Aldi vs Walmart - what items are cheaper? 
+- Do we need to collect any additional data for learning purposes? 
+  Ex: collecting size/amounts for equal items to compare prices
+
+
+What if we built a model that could classify the category based on location, description, price? 
+
+
+
+Goal(s): 
+When will we have enough savings to make a down payment of 20% on a home we can afford? 
+
+
+Deliverable: 
+ 
+1. Mel wants to be able to take the down payment (dp) amount from the bottom section 
+	then spit out the date in the top section of the dp amount
+
+2. Mel wants to plot a vertical on the graph at top section
+	and maybe this line can have a hover feature? 
+
+3. Zach wants the 
