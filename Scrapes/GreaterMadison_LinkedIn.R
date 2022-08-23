@@ -3,6 +3,8 @@
 # Location: "Greater Madison Area"
 # Keywords: "Data"
 
+setwd("C:/Users/Zachary Palmore/GitHub/misc/Scrapes")
+
 # Layout of URL on LinkedIn
 # https://www.linkedin.com/jobs/search?
 #   keywords=Data%20Science&location=Wisconsin%2C%20United%20
@@ -32,8 +34,8 @@ url_read_html <- paste0(url_base_madison, url_page_number)
 pg <- read_html(url_read_html)
 df_all <- data.frame(
   Page = as.numeric(999),
-  Position_Name=gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__subtitle"))),
-  Company_Name=gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__title"))), 
+  Company_Name=gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__subtitle"))),
+  Position_Name=gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__title"))), 
   Location_Name=gsub("\\W", "", html_text(html_nodes(pg, ".job-search-card__location"))),
   stringsAsFactors=FALSE)
 
@@ -57,8 +59,9 @@ for (i in 0:9){
   print(paste("Step", i, "was finished after", time_needed, "seconds."))
 }
 
-writeLines(unique(df_all$Company_Name), "companies.csv", sep = ",")
 
-write.csv(df_all, "sample2.csv")
 
-unique(df_all$Company_Name)
+writeLines(unique(df_all$Company_Name), "companies_madison2.csv", sep = ",")
+
+write.csv(df_all, "Madison2.csv")
+

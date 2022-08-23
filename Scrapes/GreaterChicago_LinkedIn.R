@@ -3,6 +3,8 @@
 # Location: "Greater Chicago Area"
 # Keywords: "Data"
 
+setwd("C:/Users/Zachary Palmore/GitHub/misc/Scrapes")
+
 # Layout of URL on LinkedIn
 # https://www.linkedin.com/jobs/search?
 #   keywords=Data%20Science&location=Wisconsin%2C%20United%20
@@ -41,14 +43,14 @@ df_all <- data.frame(
 for (i in 0:9){
   start_time <- Sys.time() 
   cat(".")
-  Sys.sleep(runif(1, min = 5, max = 19))
+  Sys.sleep(runif(1, min = 35, max = 79))
   url_page_number <- paste0("&pageNum=", i)
   url_read_html <- paste0(url_base_chicago, url_page_number)
   pg <- read_html(url_read_html)
   results <- data.frame(
     Page = as.numeric(i),
-    Company_Name = gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__subtitle"))),
-    Position_Name = gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__title"))), 
+    Position_Name = gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__subtitle"))),
+    Company_Name = gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__title"))), 
     Location_Name = gsub("\\W", "", html_text(html_nodes(pg, ".job-search-card__location"))),
     stringsAsFactors = FALSE)
   df_all <- rbind(df_all, results)
@@ -57,8 +59,11 @@ for (i in 0:9){
   print(paste("Step", i, "was finished after", time_needed, "seconds."))
 }
 
-writeLines(unique(df_all$Company_Name), "companies_chicago.csv", sep = ",")
+# Minimum 5, Max 19 - resulted in stop on this scrape at step 1
+# Changed min to 35 and max to 79. 
 
-write.csv(df_all, "Chicago1.csv")
+writeLines(unique(df_all$Company_Name), "companies_chicago2c_range_35to79_allsteps_0to9.csv", sep = ",")
+
+write.csv(df_all, "Chicago2c_range_35to79_allsteps_0to9.csv")
 
 unique(df_all$Company_Name)

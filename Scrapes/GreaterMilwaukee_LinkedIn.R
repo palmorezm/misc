@@ -32,8 +32,8 @@ url_read_html <- paste0(url_base_milwaukee, url_page_number)
 pg <- read_html(url_read_html)
 df_all <- data.frame(
   Page = as.numeric(999),
-  Position_Name=gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__subtitle"))),
-  Company_Name=gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__title"))), 
+  Company_Name=gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__subtitle"))),
+  Position_Name=gsub("\\W", "", html_text(html_nodes(pg, ".base-search-card__title"))), 
   Location_Name=gsub("\\W", "", html_text(html_nodes(pg, ".job-search-card__location"))),
   stringsAsFactors=FALSE)
 
@@ -57,8 +57,7 @@ for (i in 0:9){
   print(paste("Step", i, "was finished after", time_needed, "seconds."))
 }
 
-writeLines(unique(df_all$Company_Name), "companies_milwaukee.csv", sep = ",")
+writeLines(unique(df_all$Company_Name), "companies_milwaukee2.csv", sep = ",")
 
-write.csv(df_all, "Milwaukee1.csv")
+write.csv(df_all, "Milwaukee2.csv")
 
-unique(df_all$Company_Name)
