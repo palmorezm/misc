@@ -43,7 +43,7 @@ df_all <- data.frame(
 for (i in 0:9){
   start_time <- Sys.time() 
   cat(".")
-  Sys.sleep(runif(1, min = 5, max = 19))
+  Sys.sleep(runif(1, min = 35, max = 99))
   url_page_number <- paste0("&pageNum=", i)
   url_read_html <- paste0(url_base_madison, url_page_number)
   pg <- read_html(url_read_html)
@@ -59,9 +59,7 @@ for (i in 0:9){
   print(paste("Step", i, "was finished after", time_needed, "seconds."))
 }
 
+writeLines(unique(df_all$Company_Name), "companies_madison3.csv", sep = ",")
 
-
-writeLines(unique(df_all$Company_Name), "companies_madison2.csv", sep = ",")
-
-write.csv(df_all, "Madison2.csv")
+write.csv(df_all, "Madison3.csv")
 

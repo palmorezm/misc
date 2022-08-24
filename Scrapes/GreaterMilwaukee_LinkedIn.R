@@ -41,7 +41,7 @@ df_all <- data.frame(
 for (i in 0:9){
   start_time <- Sys.time() 
   cat(".")
-  Sys.sleep(runif(1, min = 5, max = 19))
+  Sys.sleep(runif(1, min = 65, max = 129))
   url_page_number <- paste0("&pageNum=", i)
   url_read_html <- paste0(url_base_milwaukee, url_page_number)
   pg <- read_html(url_read_html)
@@ -57,7 +57,12 @@ for (i in 0:9){
   print(paste("Step", i, "was finished after", time_needed, "seconds."))
 }
 
-writeLines(unique(df_all$Company_Name), "companies_milwaukee2.csv", sep = ",")
+# 8/23/2022
+# Failed after three rounds less than 49 but greater than 35
+# Bumped up min to 65 from 35 and max from 99 to 129 
 
-write.csv(df_all, "Milwaukee2.csv")
+
+writeLines(unique(df_all$Company_Name), "companies_milwaukee3.csv", sep = ",")
+
+write.csv(df_all, "Milwaukee3.csv")
 

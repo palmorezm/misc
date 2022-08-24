@@ -43,7 +43,7 @@ df_all <- data.frame(
 for (i in 0:9){
   start_time <- Sys.time() 
   cat(".")
-  Sys.sleep(runif(1, min = 35, max = 79))
+  Sys.sleep(runif(1, min = 65, max = 129))
   url_page_number <- paste0("&pageNum=", i)
   url_read_html <- paste0(url_base_chicago, url_page_number)
   pg <- read_html(url_read_html)
@@ -59,11 +59,10 @@ for (i in 0:9){
   print(paste("Step", i, "was finished after", time_needed, "seconds."))
 }
 
+# 8/22/2022
 # Minimum 5, Max 19 - resulted in stop on this scrape at step 1
 # Changed min to 35 and max to 79. 
 
-writeLines(unique(df_all$Company_Name), "companies_chicago2c_range_35to79_allsteps_0to9.csv", sep = ",")
+writeLines(unique(df_all$Company_Name), "companies_chicago3.csv", sep = ",")
 
-write.csv(df_all, "Chicago2c_range_35to79_allsteps_0to9.csv")
-
-unique(df_all$Company_Name)
+write.csv(df_all, "Chicago3.csv")
