@@ -62,7 +62,7 @@ for (i in 0:9){
 # Bumped up min to 65 from 35 and max from 99 to 129 
 
 
-writeLines(unique(df_all$Company_Name), "companies_milwaukee3.csv", sep = ",")
+writeLines(unique(df_all$Company_Name), "companies_milwaukee4_step0.csv", sep = ",")
 
-write.csv(df_all, "Milwaukee3.csv")
+write.csv(df_all, "Milwaukee4_step0.csv")
 
