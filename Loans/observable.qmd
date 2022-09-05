@@ -1,0 +1,27 @@
+---
+title: "Observable"
+format: html
+editor: visual
+---
+
+## Observable JS 
+
+In this we are going to show how to create an interactive visualization using observable javascript. We start with the Palmer Penguins data set.
+
+```{r}
+library(palmerpenguins)
+library(robservable)
+data <- palmerpenguins::penguins
+```
+
+Then we
+
+```{ojs}
+robservable(
+  "https://observablehq.com/@palmorezm/input-and-chart",
+  include = c("chart", "draw"),
+  hide = "draw",
+  input = list(data = data),
+  width = 700
+)
+```
