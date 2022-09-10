@@ -4,19 +4,25 @@
 
 df <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSC4Y0ZRfzQLbwILHYwOJz3srSZRf3m-3V3srZ5JDfx3giq-rzE9qswEy-upWXmUa5o7poth9IENXYg/pub?output=csv")
 
-class(df$Date)
 library(lubridate)
-df$Date
-df$Date <- lubridate::mdy(df$Date)
-df[lubridate::mdy(df$Date) >= "2022-07-14",]
-
-
+df <- df[lubridate::mdy(df$Date) >= "2022-07-14",]
 df$GnatCount <- as.numeric(df$GnatCount)
 df$CupID <- as.factor(df$CupID)
 df$Date <- lubridate::mdy(df$Date)
+df$Time <- parse_time(df$Time)
+df$DateTime <- parse_datetime(paste(df$Date, df$Time))
 
-lubridate::hm(df$Time)
-mdy_hm(paste(df$Date, df$Time))
+int1 <- interval(start = min(df$DateTime), end = max(df$DateTime))
+plot(int1, y = c(1:1))
+plot(df$DateTime, rep(10, length(df$DateTime)))
+plot(df$DateTime, df$GnatCount)
+
+library(ggplot2)
+df %>% 
+  ggplot(., aes(DateTime, GnatCount, fill = Type)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", color = "black")
+
 
 
 library(tidymodels)  # for the parsnip package, along with the rest of tidymodels
