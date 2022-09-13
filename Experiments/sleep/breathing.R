@@ -18,4 +18,15 @@ df %>%
   geom_point() 
 
 library(forecast)  # for `auto.arima`
+fit_model <- function(x, ...) {
+  # suggested by Matt Dancho:
+  x %>%
+    analysis() %>%
+    # Since the first day changes over resamples, adjust it
+    # based on the first date value in the data frame 
+    tk_ts(start = .$date[[1]] %>% as.yearmon(), 
+          frequency = 12, 
+          silent = TRUE) %>%
+    auto.arima(...)
+}
 
