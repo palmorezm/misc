@@ -9,6 +9,7 @@ df <- df[lubridate::mdy(df$Date) >= "2022-07-14",]
 df$GnatCount <- as.numeric(df$GnatCount)
 df$CupID <- as.factor(df$CupID)
 df$Date <- lubridate::mdy(df$Date)
+library(readr)
 df$Time <- parse_time(df$Time)
 df$DateTime <- parse_datetime(paste(df$Date, df$Time))
 
@@ -18,6 +19,7 @@ plot(df$DateTime, rep(10, length(df$DateTime)))
 plot(df$DateTime, df$GnatCount)
 
 library(ggplot2)
+library(dplyr)
 df %>% 
   ggplot(., aes(DateTime, GnatCount, fill = Type)) + 
   geom_point() + 
