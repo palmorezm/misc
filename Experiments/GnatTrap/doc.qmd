@@ -1,0 +1,48 @@
+---
+title: "Gnat Trap Part 1"
+author: "Z. Palmore"
+format: html
+editor: visual
+---
+
+## Why Read This?
+
+Do you have houseplants? Are those plants currently swarming with a tiny flying insect that seems to fly up your nose any chance it can? If so, read this quick and easy study on how to trap those guys (on a budget). A quick search in-store or online and will find a multitude of options at your disposal to dispatch of them. But which option is the right one?
+
+## Introduction
+
+Fungus gnats are common house nuisance that thrive among the moist soil of houseplants. A single female fugus gnat can lay 100 to 150 eggs in clusters of 3 - 40 near the base of the plants. At a temperature around 75 degrees Farenheit, these eggs can hatch in about 3 days. In situations where food is abundant and there is no competition, this could result in \[x\] adult fugus gnats over a period of \[d\] days. Due to the their short reproductive lifecycle and large clutches, fugus gnats can be tough to exterminate from the household.
+
+Common store bought options to rid a household of fungus gnats frequently involve some form of baiting and trapping. Some use a color sticky form of bait to lure the gnats towards a sticky substance that the gnats touch and cannot get off of. Other homemade options use vinegar, wine and other liquids to lure them in. In these liquids, a few drops of dish soap to make the surface of the liquid slippery and cause the gnats to fall in. Additional methods for sale are traps that emit a specific color of light. These light-based traps frequently claim to be effective at luring and trapping the gnats. This describes only a few of the most common options although, it should be known there are a multitude of options not mentioned. In this study, we focus on one kind of bait and trap, the liquid method.
+
+The challenge of exterminating the fungus gnats increases as the exterminator trys to avoid causing harm to the plant. For example, plants need water to survive. The need to water plants at regular intervals often overlap the adult fungus gnat's lifespan. If watering were to stop, it is possible to lose the plant and still not have removed the gnats. For this, we need some alternatives and need an integrated pest management approach made for the average plant owner.
+
+\[in progress\]
+
+We tried sticky traps for two weeks. They were not more effective than just letting them die on the window sill. So, we eliminate this as an effective option.
+
+To design an integrated pest management strategy for the average homeowner we use typical household goods, namely italian dressing, sugar, dawn dish soap, and water. These are arranged to test which type of trap collects the greatest number of individuals.
+
+In this experiment, we set liquid traps made of water, sugar, and Italian dressing in the same environments to determine which traps the greatest quantity of gnats. We test the hypothesis that the solution-based trap would perform best at luring and capturing the greatest quantity of fungus gnats due to its color, stickiness, and pungent vinegar-like aroma.
+
+## Results (with subheadings)
+
+## Discussion (without subheadings)
+
+## Methods
+
+### Setup
+
+Using three translucent eight ounce plastic microwavable deli containers and their respective lids, we labeled the containers water, sugar, and solution. Three additional containers were used and placed in a separate room with the door shut. These containers were of various sizes. One was a disposable plastic 2.5 ounce clear souffle cup, another was the same size but semi-translucent. This second souffle cup was more opaque in off-white color. The last cup was a 1 ounce clear disposable condiment container.
+
+For the larger, translucent eight ounce containers, 100 mL of each liquid was measured. The first contained 100 mL of water. The second contained 100 mL of water with 1 teaspoon (tsp) of white granulated cane sugar, and 4 drops of dawn dish soap. These were mixed well by stirring with a small silicone spatula until the sugar had completely dissolved. The third container added 50 mL of water. Then 50 mL of italian dressing was added. The full ingredients of this particular italian dressing are shown below:
+
+After adding the italian dressing to the water, 1 teaspoon of white granulated cane sugar is added to the solution followed by 4 drops of dawn dish soap. Repeat the same stirring process on this solution until the sugar is dissolved.
+
+50 mL of liquid was added to each of the souffle cups as well following the same ratios. The first was simply 50 mL of water. No soap, sugar, or any other substance. The second opaque cup contained 1 teaspoon of sugar dissolved in water with 4 drops of dawn dish soap. The third cup contained 25 mL of water with 25 mL of italian dressing, 1 teaspoon of sugar, and 4 drops of dawn dish soap stirred until the sugar dissolved.
+
+The 8 ounce plastic containers were placed three in a row next to a lettuce plant in a windowsill. The lids were placed in another windowsill adjacent to basil, two bell pepper plants, and a rabbits foot fern. These were left from July 14 at roughly 10:00 AM through July 23 at 2:17 PM shortly after they had dried out or solidified.
+
+The other souffle cups were placed next to 3 cilantro plants inside a 4 quart storage container, 2 baby spinach plants and 4 arugula plants inside a separate 4 quart storage container. The door to these cups was closed every day for the entire 24 hour cycle except when entering an exiting to take photos of the traps and water the plants inside. These were started on the same day as the deli containers on July 14 but did not dry or solidify until \[\]. On this day they were removed from the room and gnat counted. \[At this time they have yet to dry out but are getting closer\].
+
+### Process
