@@ -1,0 +1,9 @@
+---
+title: Title
+author: Z. Palmore
+output-file: pdf
+---
+
+### Basics
+
+Licensed pools in Rock can be a starting point for a wider search and monitoring of potential outbreak sites. If scaleable then next it could include restaurants. The goal involves the set up of a system of ad-hoc, drop-in inspections to prevent illness. List of facilities with flags. It may also be possible to include a map of where flags occur and what level of risk is associated with these facilities. Questions to be answered in the preliminary write up and review of current state include: how many pools exist and how many had a concern, what were those concerns, when did they occur and more. These results could be compared with historical violations to estimate the likelihood of future violations with just history until better methods are developed such as relying using the scrape with sentiment analysis for example. The end product would be a list of facilities with their potential for violation (or a simple list of facilities that may have a serious health problem). I have not spoke of the potential to email an alert when the likelihood is above a certain threshold we determine to be comfortable with.
