@@ -1,0 +1,20 @@
+---
+title: "full title"
+author: "Zachary Palmore"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Abstract
+
+
+
+## Introduction
+
+Why was the study undertaken? What was the research question, the tested hypothesis or the purpose of the research?
+
+Common gardening soils were purchased from a local hardware store to provide a growing media for indoor plants. These plants were started from seeds in early February. A few weeks later, small black bugs were noticed hovering around plants and in front of our noses. It would later be determined that these were fungnus gnats feeding on organic matter in the soil. However, by the end of the week, there were too many gnats to count. They had become a nuissance. 
