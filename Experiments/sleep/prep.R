@@ -30,6 +30,26 @@ class(df$Date) # character as
 head(df$Date) # seemingly sequential numbers
 # to a date or date time object? 
 
+# For converting between time formats
+# https://support.microsoft.com/en-us/office/time-function-9a5aff99-8f7d-4611-845e-747d0b8d5457
 
 
+# For converting between data formats
+# https://support.microsoft.com/en-us/office/date-function-e36c0c8c-4104-49da-ab83-82328b832349
 
+# Note: (for data formats)
+# Excel stores dates as sequential serial numbers so that they can be used in calculations. 
+# January 1, 1900 is serial number 1, and January 1, 2008 is serial number 39448 
+# because it is 39,447 days after January 1, 1900. You will need to change the 
+# number format (Format Cells) in order to display a proper date
+lubridate::as_date("1900-01-01")
+
+dt <- lubridate::interval(start = lubridate::as_date("1900-01-01"), end = lubridate::as_date("2022-11-06"))
+dt <- seq.Date(from = as.Date("1900-01-01"), to = as.Date("2022-12-31"), by = "day")
+dt <- data.frame(Date = dt)
+dt$Place <- seq(1, length(dt$Date), by = 1)
+df$Date[match(df$Date, dt$Place, nomatch = NA)]
+df$Date
+df$Date[which(df$Date == "44197.0")]
+
+dt$Place
