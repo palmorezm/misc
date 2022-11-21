@@ -1,0 +1,16 @@
+---
+title: "man"
+author: "Z. Palmore"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This manual focuses on reading and making sense of the times data set. It is intended to help guide the reader through the process of analysis to gain insights from the data. 
+The data dictionary contains a definition and description of every field recorded. The timeline contains a chronological series of events that influenced or directly changed the layout of the fields or data set’s purpose. 
+This manual is a living manual and is updated as new
