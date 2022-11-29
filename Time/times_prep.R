@@ -24,7 +24,28 @@ glink <- paste0("https://docs.google.com/spreadsheets/",
 "AIJo9ejpN902Yzv5Gqetbq3QX5DqjOddVT3caxxftuii/pub?",
 "gid=343744476&single=true&output=csv")
 times <- read.delim(glink, header = T, sep = ",")
-times$Date <- mdy(times$Date)
+#times$Date <- mdy(times$Date)
+#sort(as_datetime(times$Date))
+# times$Date
+# as_date(times$Date)
+# as.Date(times$Date)
+# class(times$Date)
+# which(is.na(mdy(times$Date)))
+# times$Date[510]
+# times$Date <- as_date(times$Date)
+#min(times$Date)
+#min(as.Date(times$Date))
+#sort(times$Date)[[1]]
+#times$Date[[length(times$Date)]]
+sort(times$Date)[[1]]
+sort(mdy(times$Date), na.rm = T)[[1]]
+seq((sort(mdy(times$Date), na.rm = T)[[1]]), 
+    (times$Date[[length(times$Date)]]), by = "7 days")
+work_week_startdate <- seq(
+  (as_date(sort(times$Date)[[1]])), 
+  (times$Date[[length(times$Date)]]), 
+    by = "7 days")
+times$Date[[length(times$Date)]]
 times$Start <- hms::as_hms(lubridate::parse_date_time(times$Start, "%I:%M %p"))
 times$End <- hms::as_hms(lubridate::parse_date_time(times$End, "%I:%M %p"))
 times$project_duration <- (times$End - times$Start)
