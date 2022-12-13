@@ -154,3 +154,9 @@ lubridate::dmy_hm(c(df$Date.y, df$New_TIB))
 lubridate::dmy_hm(paste(df$Date.y, " ", df$New_TIB))
 
 
+# Time value fix with chron::times() , check above
+# Use this to estimate Time ID
+
+
+
+
