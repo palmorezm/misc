@@ -63,6 +63,6 @@ for (i in 0:9){
 # Minimum 5, Max 19 - resulted in stop on this scrape at step 1
 # Changed min to 35 and max to 79. 
 
-writeLines(unique(df_all$Company_Name), "companies_chicago7_step0.csv", sep = ",")
+writeLines(unique(df_all$Company_Name), "companies_chicago1.csv", sep = ",")
 
-write.csv(df_all, "Chicago7_step0.csv")
+write.csv(df_all, "Chicago1.csv")
