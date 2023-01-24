@@ -59,7 +59,7 @@ for (i in 0:9){
   print(paste("Step", i, "was finished after", time_needed, "seconds."))
 }
 
-writeLines(unique(df_all$Company_Name), "companies_madison1.csv", sep = ",")
+writeLines(unique(df_all$Company_Name), "companies_madison2.csv", sep = ",")
 
-write.csv(df_all, "Madison1.csv")
+write.csv(df_all, "Madison2.csv")
 
