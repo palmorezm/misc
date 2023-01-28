@@ -63,7 +63,7 @@ for (i in 0:9){
 
 # Skipped Milwaukee and Chicago on Day 5 for winter (only did Madison)
 
-writeLines(unique(df_all$Company_Name), "exports/companies_milwaukee4.csv", sep = ",")
+writeLines(unique(df_all$Company_Name), "exports/companies_milwaukee6.csv", sep = ",")
 
-write.csv(df_all, "exports/Milwaukee4.csv")
+write.csv(df_all, "exports/Milwaukee6.csv")
 
