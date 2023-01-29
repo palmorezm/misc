@@ -3,7 +3,7 @@
 # Location: "Greater Madison Area"
 # Keywords: "Data"
 
-setwd("C:/Users/Zachary Palmore/GitHub/misc/Scrapes")
+# setwd("C:/Users/Zachary Palmore/GitHub/misc/Scrapes")
 
 # Layout of URL on LinkedIn
 # https://www.linkedin.com/jobs/search?
@@ -59,7 +59,7 @@ for (i in 0:9){
   print(paste("Step", i, "was finished after", time_needed, "seconds."))
 }
 
-writeLines(unique(df_all$Company_Name), "exports/companies_madison6.csv", sep = ",")
+writeLines(unique(df_all$Company_Name), "exports/companies_madison7.csv", sep = ",")
 
-write.csv(df_all, "exports/Madison6.csv")
+write.csv(df_all, "exports/Madison7.csv")
 
