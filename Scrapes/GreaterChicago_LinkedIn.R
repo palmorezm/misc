@@ -3,8 +3,6 @@
 # Location: "Greater Chicago Area"
 # Keywords: "Data"
 
-setwd("C:/Users/Zachary Palmore/GitHub/misc/Scrapes")
-
 # Layout of URL on LinkedIn
 # https://www.linkedin.com/jobs/search?
 #   keywords=Data%20Science&location=Wisconsin%2C%20United%20
@@ -66,6 +64,6 @@ for (i in 0:9){
 
 # Skipped Milwaukee and Chicago on Day 5 for winter (only did Madison)
 
-writeLines(unique(df_all$Company_Name), "exports/companies_chicago9.csv", sep = ",")
+writeLines(unique(df_all$Company_Name), "exports/companies_chicago10.csv", sep = ",")
 
-write.csv(df_all, "exports/Chicago9.csv")
+write.csv(df_all, "exports/Chicago10.csv")
