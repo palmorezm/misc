@@ -3,8 +3,6 @@
 # Location: "Greater Madison Area"
 # Keywords: "Data"
 
-setwd("C:/Users/Zachary Palmore/GitHub/misc/Scrapes")
-
 # Layout of URL on LinkedIn
 # https://www.linkedin.com/jobs/search?
 #   keywords=Data%20Science&location=Wisconsin%2C%20United%20
@@ -59,7 +57,7 @@ for (i in 0:9){
   print(paste("Step", i, "was finished after", time_needed, "seconds."))
 }
 
-writeLines(unique(df_all$Company_Name), "companies_madison7_step0.csv", sep = ",")
+writeLines(unique(df_all$Company_Name), "exports/companies_madison_nextmorning12.csv", sep = ",")
 
-write.csv(df_all, "Madison7_step0.csv")
+write.csv(df_all, "exports/Madison11_nextmorning12.csv")
 

@@ -1,6 +1,9 @@
 
-
-setwd("C:/Users/Zachary Palmore/GitHub/misc/Experiments/sleep")
+# Ideapad3
+# setwd("~/GitHub/misc/Experiments/sleep") 
+# Desktop
+# setwd("C:/Users/Zachary Palmore/GitHub/misc/Experiments/sleep")
+library(readxl)
 d2021 <- readxl::read_xlsx("2021.xlsx")
 d2022 <- readxl::read_xlsx("2022.xlsx")
 
@@ -17,6 +20,8 @@ sum(is.na(df))
 df[which(is.na(df)),]
 as.Date.character(df$Date)
 library(lubridate)
+
+# Ended here, neeed to install lubridate in Renv
 
 df$Bedtime <- lubridate::as_datetime(df$Bedtime)
 df$`Wake Time` <- lubridate::as_datetime(df$`Wake Time`)

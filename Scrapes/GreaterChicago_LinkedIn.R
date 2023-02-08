@@ -3,8 +3,6 @@
 # Location: "Greater Chicago Area"
 # Keywords: "Data"
 
-setwd("C:/Users/Zachary Palmore/GitHub/misc/Scrapes")
-
 # Layout of URL on LinkedIn
 # https://www.linkedin.com/jobs/search?
 #   keywords=Data%20Science&location=Wisconsin%2C%20United%20
@@ -63,6 +61,9 @@ for (i in 0:9){
 # Minimum 5, Max 19 - resulted in stop on this scrape at step 1
 # Changed min to 35 and max to 79. 
 
-writeLines(unique(df_all$Company_Name), "companies_chicago7_step0.csv", sep = ",")
 
-write.csv(df_all, "Chicago7_step0.csv")
+# Skipped Milwaukee and Chicago on Day 5 for winter (only did Madison)
+
+writeLines(unique(df_all$Company_Name), "exports/companies_chicago12_nextmorning.csv", sep = ",")
+
+write.csv(df_all, "exports/Chicago12_nextmorning.csv")

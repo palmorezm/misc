@@ -61,8 +61,9 @@ for (i in 0:9){
 # Failed after three rounds less than 49 but greater than 35
 # Bumped up min to 65 from 35 and max from 99 to 129 
 
+# Skipped Milwaukee and Chicago on Day 5 for winter (only did Madison)
 
-writeLines(unique(df_all$Company_Name), "companies_milwaukee7_step0.csv", sep = ",")
+writeLines(unique(df_all$Company_Name), "exports/companies_milwaukee12_nextmorning.csv", sep = ",")
 
-write.csv(df_all, "Milwaukee7_step0.csv")
+write.csv(df_all, "exports/Milwaukee_nextmorning12.csv")
 
