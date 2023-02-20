@@ -9,6 +9,14 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+Okay guys, so, we went a little heavy on the science in this round. We had this problem with bugs flying around after we brought home some plants. It turns out, they were fungus gnats and we heard all kind of things about how to get rid of them. But we weren't about go buying into the mumbo jumbo. I wanted some evidence using common household items that showed we didn't need to buy anything, everything we needed we had already. 
+
+We set up an experiment to test three different solutions on their ability to catch the bugs we thought to be fungus gnats. We had read that the color yellow attracts them so we knew we had to have at least one yellow colored solution. We also read that vinegar was an excellent way to attract them, thought to be due to the smell and perhaps the sugars in vinegar. with that in mind we thought, if the sugars were a source of attraction, why just do sugar water? So we did. 
+
+Now, these bugs are kinda dumb. Some of them probably naturally fall into water naturally. What we also read was that we needed to make it so that the bugs fell into the water too. So, what if we had another solution that just tested the idea that adding a slippery substance made them fall into the water? We did this too. Water was our control. 
+
+
 ## Abstract
 
 
@@ -16,5 +24,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Introduction
 
 Why was the study undertaken? What was the research question, the tested hypothesis or the purpose of the research?
+
+
+
+
 
 Common gardening soils were purchased from a local hardware store to provide a growing media for indoor plants. These plants were started from seeds in early February. A few weeks later, small black bugs were noticed hovering around plants and in front of our noses. It would later be determined that these were fungnus gnats feeding on organic matter in the soil. However, by the end of the week, there were too many gnats to count. They had become a nuissance. 
