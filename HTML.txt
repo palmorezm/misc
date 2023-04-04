@@ -1,0 +1,48 @@
+ZACHARY M. PALMORE
+
+          zacharypalmore@gmail.com * https://github.com/palmorezm * (804) 385-0925
+
+ SUMMARY
+
+ Data scientist with experience innovating and developing processes to better understand and
+ extract insights from information. I am an avid learner who enjoys asking questions,
+ investigating, and methodically testing to identify solutions to challenges.
+
+ EXPERIENCE
+
+ Data Scientist                                                                     2022- Present
+ Rock County
+ Develop, innovate, and maintain data systems to gain insights and improve environmental health
+ outcomes using modern statistical practices while:
+         - Automating measurements, documentation, and reporting of key performance indicators
+         - Collaborating across diverse backgrounds to educate and help improve health outcomes
+         - Establishing standard processes for ensuring data integrity and usability
+
+ Data Manager                                                                         2019 - 2021
+ Great Forest Inc.
+ Led data collection teams of up to 20 employees to generate client deliverables
+         - Developed data-driven solutions in R, Python to speed up reporting
+         - Defined quality metrics by identifying gaps in auditing processes
+         - Organized and distilled audit findings into visualizations for clients
+
+ Environmental Specialist                                                             2015 - 2019
+  Chesterfield County Environmental Division
+ Coordinated 5 - 10 personnel daily to educate citizens and provide extensive public services 
+         - Quantified operations through rigorous data collection
+         - Optimized processes with scientific methods and statistics
+         - Translated complex topics into actionable results for non-technical audiences
+
+ SKILLS
+
+ SQL, R, Python, Git, Data Visualization, Big Data, ETL Pipelines, Research and Development
+
+ EDUCATION
+
+ Master of Science in Data Science
+ City University of New York                                                         New York, NY
+
+ Bachelor of Science in Environmental Studies
+ Virginia Commonwealth University                                                    Richmond, VA
+
+
+
