@@ -5,14 +5,14 @@ board <- matrix(rep(0,9), nrow =3)
 # Canvas for Users to View
 layout_board <- function(){
   plot.new()
-  plot.window(xlim=c(1,4) , ylim=c(1,4))
+  plot.window(xlim=c(1,4), ylim=c(1,4))
   abline(v=2:3) ; abline(h = 2:3)
   mtext("Tic Tac Toe. Click a square:")
 }
 
 # Record clicks when prompted by user
 do_play <- function(){
-  iloc <- locator(n=1 , type="n")
+  iloc <- locator(n=1, type="n")
   click_handler(iloc)
 }
 
