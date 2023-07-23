@@ -1,0 +1,81 @@
+---
+title: "Ph.D. Program Exploration"
+format: html
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| warning: false
+source("prep.r")
+library(dplyr)
+```
+
+## Collection
+
+This data was collected from [University of Wisconsin Program Guide](https://guide.wisc.edu/mas/) as of June 2023. There are `r length(unique(responses$Programs))` programs with ratings. Only those programs that I viewed as possible or worth considering were included. Each program was then rated by me either with someone else reading me the program names and entering a number on a scale 1-5 to indicate my interest level in pursing a Ph.D. in that program.
+
+## Top Programs
+
+```{r}
+library(tidyr)
+responses %>% 
+  group_by(Program, Interest) %>% 
+  reframe(count = n()) 
+wide <- responses %>% 
+  spread(Program, Interest) 
+wide
+  
+```
+
+
+```{r}
+responses %>% 
+  group_by(Program, Interest) %>% 
+  reframe(n())
+
+med_responses <- responses %>% 
+  group_by(Program) %>%
+  reframe(Median = median(as.numeric(Interest))) 
+library(ggplot2)
+med_responses %>%
+  ggplot(aes(reorder(Program, Median), Median)) + 
+  geom_col(aes(fill = Program)) + 
+  theme(legend.position = "none")
+```
+
+
+
+```{r}
+responses %>% 
+  group_by(Interest) %>%
+  reframe(count=n()) %>% 
+  ggplot(aes(Interest, count)) + 
+  geom_col()
+
+responses %>% 
+  group_by(DateTime, Interest) %>% 
+  reframe(count = n()) %>% 
+  ggplot(aes(Interest, count)) + 
+  geom_col() + facet_wrap(~DateTime)
+
+responses %>% 
+  group_by(Program) %>% 
+  reframe(Variance = var(as.numeric(Interest)),
+          Mean = mean(as.numeric(Interest)),
+          Median = median(as.numeric(Interest)), 
+          Max = max(as.numeric(Interest)), 
+          Min = min(as.numeric(Interest))) %>% 
+  arrange(desc(Variance))
+
+summary(responses$Interest)[[4]] + summary(responses$Interest)[[5]] 
+responses$Interest)
+
+
+levels(responses$Interest)[[5]]
+
+```
+
+
+
+
