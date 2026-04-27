@@ -14,8 +14,7 @@ response6 <- read_xlsx("Phd Links.xlsx", sheet = 7)
 response7 <- read_xlsx("Phd Links.xlsx", sheet = 8)
 response8 <- read_xlsx("Phd Links.xlsx", sheet = 9)
 
-
-response1
+print(response1)
 
 
 tmp <- read_xlsx("Phd Links.xlsx", sheet = 2)[-1,]
@@ -44,7 +43,7 @@ count_program_interest <- responses %>%
   reframe(Count = n()) 
 
 
-# write.csv(responses, "responses_long.csv")
+write.csv(responses, "responses_long.csv")
 
 
 responses$Interest <- as.numeric(responses$Interest)
@@ -57,4 +56,4 @@ library(tidyr)
 wide <- responses %>% 
   spread(Program, Interest) 
 
-# write.csv(wide, "responses_wide.csv")
+write.csv(wide, "responses_wide.csv")
