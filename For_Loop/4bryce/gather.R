@@ -81,5 +81,3 @@ for (i in 1:length(files)){
 keep_vars <- c("sum_by_week", "files", "path", "i", "log")
 rm(list= ls()[!ls() %in% keep_vars])
 
-
-View(log)
