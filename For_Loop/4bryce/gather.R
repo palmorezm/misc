@@ -4,7 +4,9 @@ require(dplyr) # install if needed first
 require(lubridate)
 
 rm(list = ls()) # Clears the variables in the global environment (clean start)
-path <- "C:/Users/Zachary Palmore/GitHub/misc/For_Loop/4bryce/spreadsheets/"  # Path to the spreadsheets
+# path <- "C:/Users/Zachary Palmore/GitHub/misc/For_Loop/4bryce/spreadsheets/"  # Path to the spreadsheets
+# on work computer:
+path <- "C:/Users/PalmoZM/GitHub/misc/For_Loop/4bryce/spreadsheets/"
 files <- list.files(path) # the names of all the files in the folder 
 data <- read.csv(paste0(path, files[1])) # combine path to folder with list of file names and run first read in to give the structure of data 
 sum_by_week <- data %>%
@@ -74,7 +76,7 @@ for (i in 1:length(files)){
   # Isolate to the data you want to keep, remove the rest
   keep_vars <- c("sum_by_week", "files", "path", "i", "log")
   rm(list= ls()[!ls() %in% keep_vars])
-  Sys.sleep(0) # take a 3 second break
+  Sys.sleep(1) # take a 3 second break
 }
 
 # Isolate to the data you want to keep, remove the rest
