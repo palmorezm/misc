@@ -17,7 +17,7 @@
 #   c1 = "400", 
 #   c2 = "12JUL1988",
 #   c3 = "1",
-#   c4 = "04JUL2018"), 
+#   c4 = "04JUL2018"),  
 #   ncol = 4, 
 # )
 # enrollment <- data.frame(enrollment)
@@ -87,3 +87,9 @@ for(i in 1:spreadsheets){
 }
 
 write.csv(enrollment, file = paste0("enrollment_", i, ".csv"))
+
+library(tidycensus)
+library(tidyverse)
+
+
+tidycensus::load_variables(year = 2024, "acs1")

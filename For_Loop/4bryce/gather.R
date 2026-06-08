@@ -54,7 +54,7 @@ for (i in 1:length(files)){
     group_by(week_start) %>%
     summarise(total_value = sum(ds_o3_pred))
   sum_by_week <- rbind(sum_by_week, tmp_sum_by_week) # Gather each file by name
-  
+  x
   #####
   # additional analysis here using tmp as data in interation
   #####
