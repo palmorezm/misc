@@ -97,7 +97,7 @@ The following states have fully implemented Medicaid coverage for doulas:
 Note: Seven additional states—including Arkansas, Maine, Montana, Nebraska, New Hampshire, Tennessee, and Vermont—have 
 passed legislation and are currently in the process of rolling out active programs.
 
-Why Free Medicaid Doulas Aren't Everywhere YetEven in states where Medicaid officially "covers" doulas,
+Why Free Medicaid Doulas Aren't Everywhere Yet Even in states where Medicaid officially "covers" doulas,
 enrollees still struggle to find one due to workforce shortages driven by administrative roadblocks, 
 In some regions, the state reimbursement rate does not reflect a local living wage. 
 Many certified doulas choose not to accept Medicaid because the paperwork is dense and the payout does not
