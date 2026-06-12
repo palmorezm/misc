@@ -83,13 +83,7 @@ for(i in 1:spreadsheets){
         "%d%b%Y")
     )
   )
-  write.csv(enrollment, file = paste0("enrollment_", i, ".csv"))
+  write.csv(enrollment, file = paste0("data/enrollment_", i, ".csv"))
 }
 
-write.csv(enrollment, file = paste0("enrollment_", i, ".csv"))
 
-library(tidycensus)
-library(tidyverse)
-
-
-tidycensus::load_variables(year = 2024, "acs1")
